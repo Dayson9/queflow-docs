@@ -1,4 +1,5 @@
 import { subComponent } from 'queflow'
+import Navbar from './Navbar.js'
 
 const Header = new subComponent('Header', {
   template: () => {
@@ -11,9 +12,10 @@ const Header = new subComponent('Header', {
         
         <div class="right">
           <i class="bx bx-sun pxp-el6"></i>
-          <i class="bx bx-menu pxp-el7"></i>
+          <i class="bx bx-menu pxp-el7" onclick={{ Navbar.data.left = 0 }}></i>
         </div>
       </header>
+      <Navbar/>
     `
   },
 
@@ -43,7 +45,8 @@ const Header = new subComponent('Header', {
     `,
 
     '.title span': `  
-      transform: translateX(5px);
+      transform: translate(5px, 10px);
+      color: rgb(255,255,255,.9);
     `,
     '.right': `
       color: white;

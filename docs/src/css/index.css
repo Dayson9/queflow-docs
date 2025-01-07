@@ -47,6 +47,18 @@
   content: "\ed76"
 }
 
+.bx-x:before {
+  content: "\ec8d"
+}
+
+.bxl-twitter:before {
+  content: "\e982"
+}
+
+.bxl-github:before {
+  content: "\e93a"
+}
+
 body {
   padding: 0;
   margin: 0;

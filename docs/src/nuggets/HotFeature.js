@@ -8,7 +8,7 @@ const HotFeature = new Nugget('HotFeature', {
       <div class='main' color='rgba(255, 255, 255, 0.9)'>
         <div class='outer'>
           <div class='inner'>
-            <Icon { class: 'bx {{ class }}', size: 33 } />
+            <Icon { class: '{{ class }}', size: 33 } />
           </div>
         </div>
         <Text { txt: '{{ title }}', size: 30, align: 'left', bottom: 13, weight: 700 } />

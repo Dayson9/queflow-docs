@@ -2,6 +2,9 @@ import { subComponent } from 'queflow'
 import Home from './Home.js'
 
 const Main = new subComponent('Main', {
+  data: {
+    
+  },
   template: () => {
     return `
       <Home/>
