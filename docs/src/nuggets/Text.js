@@ -10,7 +10,7 @@ const Text = new Nugget("Text", {
   stylesheet: {
     'span': `
       display: block;
-      font-size: 12px;
+      font-size: 17px;
       text-align: center;
       font-weight: 540;
     `

@@ -1,12 +1,54 @@
-  @font-face {
-    font-family: 'Almarena';
-    font-display: swap;
-    src: url('../assets/almarena.woff');
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  body {
-    padding: 0;
-    margin: 0;
-  }
+@font-face {
+  font-family: 'Almarena';
+  font-display: swap;
+  src: url('../assets/almarena.woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: boxicons;
+  font-weight: 400;
+  font-style: normal;
+  src: url(../assets/boxicons.woff2);
+}
+
+.bx {
+  font-family: boxicons !important;
+  font-weight: 400;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-rendering: auto;
+  display: inline-block;
+  text-transform: none;
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale
+}
+
+.bx-menu:before {
+  content: "\eb5f"
+}
+
+.bx-sun:before {
+  content: "\ec34"
+}
+
+.bx-arrow-to-right:before {
+  content: "\e9bb"
+}
+
+.bxs-rocket:before {
+  content: "\ee95"
+}
+
+.bxs-data:before {
+  content: "\ed76"
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background: rgb(5, 10, 5);
+}
