@@ -14,8 +14,12 @@ const App = new QComponent('#app', {
     `
   },
 
-  run: (instance) => {
-
+  run: () => {
+    currentComponent = Home;
+    window.addEventListener('popstate', () => {
+      const path = window.location.pathname
+      loadComponent(path)
+    })
   },
   stylesheet: {
     '*': `

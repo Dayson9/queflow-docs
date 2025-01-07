@@ -1,13 +1,17 @@
 import { subComponent } from 'queflow'
 import Home from './Home.js'
+import GetStarted from './GetStarted.js'
 
 const Main = new subComponent('Main', {
   data: {
-    
+    component: '<Home/>'
   },
   template: () => {
     return `
-      <Home/>
+      <>
+        <Home/>
+        <GetStarted/>
+      </>
     `
   },
 

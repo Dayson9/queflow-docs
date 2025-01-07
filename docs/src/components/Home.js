@@ -2,14 +2,18 @@ import { subComponent } from 'queflow'
 import HotFeature from '../nuggets/HotFeature.js'
 
 const Home = new subComponent('Home', {
+  data: {
+    display: 'block'
+  },
   template: () => {
     return `
+    <div display={{ this.data.display }}>
       <h1 class="pxp-el8"><span class="pxp-el9">Craft highly</span>
         <span class="pxp-el10">Performant </span>
         <span class="pxp-el11">Web Apps at scale</span>
       </h1>
       <p class="pxp-el12">Deliver highly optimized web apps without much effort.</p>
-      <button class="pxp-el13">
+      <button class="pxp-el13" onclick={{ toPage('/get-started') }}>
         <span class="pxp-el14">Get Started</span>
         <span class="bx bx-arrow-to-right pxp-el15"></span>
       </button>
@@ -27,6 +31,7 @@ const Home = new subComponent('Home', {
         <HotFeature { title: 'Performant', class: 'bxs-rocket', summary: 'Reactive, compiler optimized rendering that rarely requires manual handling.' }/>
         <HotFeature { title: 'Unique', class: 'bxs-rocket', summary: 'Does not use virtual DOM, interacts directly with the DOM thereby improving performance, smoother updates.' }/>
       </div>
+     </div>
     `
   },
 
