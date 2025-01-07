@@ -13,6 +13,7 @@ const Text = new Nugget("Text", {
       font-size: 17px;
       text-align: center;
       font-weight: 540;
+      line-height: 17px;
     `
   }
 })

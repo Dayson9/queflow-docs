@@ -2,7 +2,7 @@ import { subComponent } from 'queflow'
 
 const Navbar = new subComponent('Navbar', {
   data: {
-    left: 0
+    left: -100
   },
   template: () => {
     return `
