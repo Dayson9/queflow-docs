@@ -25,7 +25,7 @@ const GetStarted = new subComponent('GetStarted', {
         <div class="preview">
           <h1 color="dodgerblue">I ❤️ QueFlowJS</h1>
         </div>
-        <Paragraph { txt: 'As you can see from the above code, writing direct CSS properties are allowed in QueFlowJS, instead of [style=\\'color: dodgerblue\\'], you should write [color=\\'dodgerblue\\'], QueFlow handles everything for you.' } /> 
+        <Paragraph { txt: 'As you can see from the above code, writing direct CSS properties are allowed in QueFlowJS, instead of [style=\\'color: dodgerblue\\'], you should write [color=\\'dodgerblue\\'], QueFlow handles everything under the hood.' } /> 
       </section>
     `
   },
