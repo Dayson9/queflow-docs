@@ -24,7 +24,10 @@ const App = new QComponent('#app', {
   stylesheet: {
     '*': `
       font-family: "Almarena";
-    `
+    `,
+    'code *, code': 'font-family: "monospace";',
+    
+    'section span': 'line-height: 25px;'
   }
 })
 

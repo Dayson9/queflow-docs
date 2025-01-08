@@ -13,7 +13,7 @@ const GetStarted = new subComponent('GetStarted', {
         <Heading { txt: 'Installation' } />
         <Paragraph { txt: 'To quickly get your hands dirty with QueFlowJS, add the below code to the body section of an HTML file, as shown below 👇' } />
         
-        <CodeView { code: ['//code here', '&lt;script src="https://cdn.jsdelivr.net/gh/dayson9/queflowjs@main/lib/queflow.esm-browser.min.js"&gt;&lt;/script&gt;'] } />
+        <CodeView { code: ['&lt;script type="importmap"&gt;', '{', '"imports": {', '"queflow": "https://cdn.jsdelivr.net/gh/dayson9/queflowJS@main/lib/queflow.esm-browser.min.js"', '}}', '&lt;/script&gt;'] } />
       </section>
     `
   },

@@ -4,8 +4,7 @@ code[class*=language-],
 pre[class*=language-] {
   color: #ccc;
   background: 0 0;
-  font-family: monospace;
-  font-size: 1em;
+  font-size: .8em;
   text-align: left;
   white-space: pre;
   word-spacing: normal;

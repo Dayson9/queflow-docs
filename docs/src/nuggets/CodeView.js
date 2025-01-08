@@ -3,6 +3,7 @@ import { Nugget } from 'queflow'
 const CodeView = new Nugget("CodeView", {
   template: (data) => {
     const out = data.code.map((code) => {
+      code = code.replaceAll(' ', '&nbsp;')
       return `
         <code class='language-js'>
         <Text { txt: '${ code }', size: 14, align: 'left', weight: 300, font: 'Monospace' } />
