@@ -5,8 +5,8 @@ const CodeView = new Nugget("CodeView", {
     const out = data.codes.map((code) => {
       const pxl = indent(code)
       return `
-        <code class='language-js' margin-left="${pxl}px">
-        <Text { txt: '${ code }', size: 14, align: 'left', weight: 300, font: 'Monospace' } />
+        <code class='language-js' margin-left="${pxl}px" font-family='monospace'>
+        <Text { txt: '${ code }', align: 'left', weight: 300, font: 'monospace' } />
         </code>
     `
     }).join('\n')
@@ -32,7 +32,9 @@ const CodeView = new Nugget("CodeView", {
     'code' : `
       display: block;
       background: transparent!important;
-    `
+      font-size: 12px;
+    `,
+   'code *': 'font-size: 12px;'
   }
 })
 
