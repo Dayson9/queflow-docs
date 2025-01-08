@@ -22,3 +22,18 @@ const toPage = (path) => {
   history.pushState({}, '', path)
   loadComponent(path)
 }
+
+const indent = (code) => {
+  const len = code.length;
+  let c = 0;
+
+  for (var i = 0; i < len; i++) {
+    if (code[i] === ' ') {
+      c++
+    } else {
+      break
+    }
+  }
+
+  return 5 * c
+}

@@ -22,7 +22,7 @@ const App = new QComponent('#app', {
     })
   },
   stylesheet: {
-    '*': `
+    '*:not(.preview *, code *)': `
       font-family: "Almarena";
     `,
     'code *, code': 'font-family: "monospace";',
