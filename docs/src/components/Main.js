@@ -8,10 +8,8 @@ const Main = new subComponent('Main', {
   },
   template: () => {
     return `
-      <>
-        <Home/>
-        <GetStarted/>
-      </>
+      <Home/>
+      <GetStarted/>
     `
   },
 

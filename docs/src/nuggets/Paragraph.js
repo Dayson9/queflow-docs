@@ -8,7 +8,7 @@ const Paragraph = new Nugget("Paragraph", {
     
     return `
     
-      <span color='rgba(255, 255, 255, 0.9)'>
+      <span color='rgba(255, 255, 255, 0.9)' ${ data.top ? 'margin-top={{ top }}px' : '' }>
         {{ txt }}
       <span>
     `
@@ -18,12 +18,14 @@ const Paragraph = new Nugget("Paragraph", {
     'span': `
       font-size: 17;
       text-align: left;
+      display: block;
       font-weight: 300;
  `,
     '.highlighted': `
       background: rgb(11, 76, 71);
       padding: 3px;
       border-radius: 3px;
+      display: inline;
  `
   }
 })
