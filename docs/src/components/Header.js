@@ -23,7 +23,7 @@ const Header = new subComponent('Header', {
     'header': `  
        width: 100%;
        background: transparent;
-       box-shadow: rgba(255, 255, 255, 0.3) 5px 5px 0px;
+       border-bottom: 5px solid rgba(255, 255, 255, 0.3);
        display: flex;
        flex-direction: row;
        align-items: center;
@@ -41,7 +41,7 @@ const Header = new subComponent('Header', {
 
     'img': `  
       width: 55px;
-      height: 100%;
+      height: 55px;
     `,
 
     '.title span': `  

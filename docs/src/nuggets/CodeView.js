@@ -26,7 +26,7 @@ const CodeView = new Nugget("CodeView", {
       padding-block: 20px;
       margin-top: 15px;
       margin-bottom: 28px;
-      padding-inline: 13px;
+      padding-inline: 10px;
       box-sizing: border-box;
     `,
     'code' : `

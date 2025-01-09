@@ -15,7 +15,7 @@ const Home = new subComponent('Home', {
       <p class="pxp-el12">Deliver highly optimized web apps without much effort.</p>
       <button class="pxp-el13" onclick={{ toPage('/get-started') }}>
         <span class="pxp-el14">Get Started</span>
-        <span class="bx bx-arrow-to-right pxp-el15"></span>
+        <span class="bx bx-right-arrow-alt pxp-el15"></span>
       </button>
       <button class="pxp-el16">
         <span class="pxp-el14">Explore Docs</span>

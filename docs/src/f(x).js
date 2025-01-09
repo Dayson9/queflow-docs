@@ -12,6 +12,11 @@ const loadComponent = (path) => {
       GetStarted.data.display = 'block'
       currentComponent = GetStarted
       break;
+    case '/qcomponent':
+      currentComponent.data.display = 'none'
+      QComponent.data.display = 'block'
+      currentComponent = QComponent
+      break;
 
     default:
 

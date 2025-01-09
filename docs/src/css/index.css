@@ -35,10 +35,6 @@
   content: "\ec34"
 }
 
-.bx-arrow-to-right:before {
-  content: "\e9bb"
-}
-
 .bxs-rocket:before {
   content: "\ee95"
 }
@@ -57,6 +53,14 @@
 
 .bxl-github:before {
   content: "\e93a"
+}
+
+.bx-left-arrow-alt:before {
+  content: "\eb33"
+}
+
+.bx-right-arrow-alt:before {
+  content: "\ebe6"
 }
 
 body {

@@ -3,9 +3,7 @@ import Home from './Home.js'
 import GetStarted from './GetStarted.js'
 
 const Main = new subComponent('Main', {
-  data: {
-    component: '<Home/>'
-  },
+  data: {},
   template: () => {
     return `
       <Home/>
@@ -17,7 +15,7 @@ const Main = new subComponent('Main', {
     '.silver': `
       color: rgb(200, 200, 200);
     `,
-    
+
     '.preview': `
       width: 90%;
       height: auto;
@@ -26,11 +24,17 @@ const Main = new subComponent('Main', {
       border-radius: 10px;
       text-align: left;
       background: rgb(30, 35, 35);
+      margin: 0 auto;
       margin-block: 20px;
       font-family: serif;
       padding-left: 20px;
       padding-block: 10px;
-    `
+    `,
+   'section': `
+      width: 100vw;
+      padding-inline: 7%;
+      box-sizing: border-box;
+   ` 
   }
 })
 
