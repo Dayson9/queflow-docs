@@ -1,6 +1,7 @@
 import { subComponent } from 'queflow'
 import Home from './Home.js'
 import GetStarted from './GetStarted.js'
+import QComp from './QComp.js'
 
 const Main = new subComponent('Main', {
   data: {},
@@ -8,6 +9,7 @@ const Main = new subComponent('Main', {
     return `
       <Home/>
       <GetStarted/>
+      <QComp/>
     `
   },
 

@@ -12,7 +12,7 @@ const GetStarted = new subComponent('GetStarted', {
   template: () => {
     return `
       <section display={{ this.data.display }}>
-        <Heading { txt: 'Get Started', size: 40 } />
+        <Heading { txt: 'Get Started', size: 36 } />
         <Heading { txt: 'Installation' } />
         
         <Paragraph { txt: 'To quickly get your hands dirty with QueFlowJS, add the below code to the body section of an HTML file, as shown below 👇' } />
@@ -52,7 +52,7 @@ const GetStarted = new subComponent('GetStarted', {
         
         <Paragraph { txt: 'Now that we\\'ve covered the basics of QueFlowJS, let\\'s move on to the advanced concepts.' } />
         
-        <Navigator { left: [null, null], right: ['QComponent', '/docs/index.html'] } />
+        <Navigator { left: [null, null], right: ['QComponent', '/qcomponent'] } />
       </section>
     `
   },

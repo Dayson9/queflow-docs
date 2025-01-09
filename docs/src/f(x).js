@@ -14,8 +14,8 @@ const loadComponent = (path) => {
       break;
     case '/qcomponent':
       currentComponent.data.display = 'none'
-      QComponent.data.display = 'block'
-      currentComponent = QComponent
+      QComp.data.display = 'block'
+      currentComponent = QComp
       break;
 
     default:
