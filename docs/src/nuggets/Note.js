@@ -23,7 +23,7 @@ const Note = new subComponent('Note', {
       width: 85%;
     `,
     
-    'i': 'transform: translateY(-18px);'
+    'i': 'transform: translateY(-11px);'
   }
 })
 
