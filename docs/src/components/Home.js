@@ -13,11 +13,11 @@ const Home = new subComponent('Home', {
         <span class="pxp-el11">Web Apps at scale</span>
       </h1>
       <p class="pxp-el12">Deliver highly optimized web apps without much effort.</p>
-      <button class="pxp-el13" onclick={{ toPage('/qcomponent') }}>
+      <button class="pxp-el13 flex-row" onclick={{ toPage('/get-started') }}>
         <span class="pxp-el14">Get Started</span>
         <span class="bx bx-right-arrow-alt pxp-el15"></span>
       </button>
-      <button class="pxp-el16">
+      <button class="pxp-el16 flex-row">
         <span class="pxp-el14">Explore Docs</span>
         <span class="bx bx-menu pxp-el17"></span>
       </button>
@@ -64,10 +64,6 @@ const Home = new subComponent('Home', {
         height: 45px;
         border: none;
         border-radius: 15px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
         padding: 0px 16%;
         margin: 0vh 0px 0px 20vw;
         background: rgb(255, 255, 255);
@@ -91,10 +87,6 @@ const Home = new subComponent('Home', {
         width: 60%;
         height: 45px;
         border-radius: 15px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
         padding: 0px 14%;
         margin: 2vh 0px 0px 20vw;
         background: transparent;

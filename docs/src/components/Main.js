@@ -24,9 +24,7 @@ const Main = new subComponent('Main', {
       border: 1px solid rgb(255, 255, 255, .3);
       box-sizing: border-box;
       border-radius: 10px;
-      text-align: left;
-      background: rgb(30, 35, 35);
-      margin: 0 auto;
+      background: transparent;
       margin-block: 20px;
       font-family: serif;
       padding-left: 20px;
@@ -36,7 +34,7 @@ const Main = new subComponent('Main', {
       width: 100vw;
       padding-inline: 7%;
       box-sizing: border-box;
-   ` 
+   `
   }
 })
 

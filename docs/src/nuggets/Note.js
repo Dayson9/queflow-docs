@@ -3,21 +3,24 @@ import { subComponent } from 'queflow'
 const Note = new subComponent('Note', {
   template: () => {
     return `
-      <div class="note" color="rgba(255,255,255,.9)">
-        <Icon { class: 'bx-info-circle' } />
-        <Text { txt: '{{ txt }}' } />
+      <div class="note flex-row" color="rgba(255,255,255,.9)">
+        <Icon { class: 'bx-info-circle', size: 18 } />
+        <Text { txt: '{{ txt }}', size: 13, align: 'left' } />
       </div>
     `
   },
 
   stylesheet: {
     '.note': `
-      width: 80%;
+      width: 85%;
       height: auto;
-      padding: 10px;
+      padding: 10px 5px;
       background: rgb(30,64, 179, .3);
     `,
-    '.note *': 'display: inline;'
+    
+    '.note span': `
+      width: 85%;
+    `
   }
 })
 

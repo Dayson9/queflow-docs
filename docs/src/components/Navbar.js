@@ -44,17 +44,7 @@ const Navbar = new subComponent('Navbar', {
     'ul': `
       margin-top: 50px;
       list-style-type: none;
-   `,
-    'section' : `
-      width: 100%;
-      height: 20%;
-      position: absolute;
-      bottom: 0;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-evenly;
-    `
+   `
   }
 })
 

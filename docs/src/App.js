@@ -27,7 +27,14 @@ const App = new QComponent('#app', {
     `,
     'code *, code': 'font-family: "monospace";',
     
-    'section span': 'line-height: 25px;'
+    'section span': 'line-height: 25px;',
+       
+   '.flex-row': `
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+   `
   }
 })
 

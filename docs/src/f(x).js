@@ -26,11 +26,12 @@ const loadComponent = (path) => {
 const toPage = (path) => {
   history.pushState({}, '', path)
   loadComponent(path)
+  window.scrollTo(0,0)
 }
 
 const indent = (code) => {
-  const len = code.length;
-  let c = 0;
+  const len = code.length
+  let c = 0
 
   for (var i = 0; i < len; i++) {
     if (code[i] === ' ') {
