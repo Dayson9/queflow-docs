@@ -2,12 +2,9 @@ import { subComponent } from 'queflow'
 import HotFeature from '../nuggets/HotFeature.js'
 
 const Home = new subComponent('Home', {
-  data: {
-    display: 'block'
-  },
   template: () => {
     return `
-    <div display={{ this.data.display }}>
+    <div>
       <h1 class="pxp-el8"><span class="pxp-el9">Craft highly</span>
         <span class="pxp-el10">Performant </span>
         <span class="pxp-el11">Web Apps at scale</span>

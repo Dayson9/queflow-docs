@@ -5,13 +5,12 @@ import Navigator from '../nuggets/Navigator.js'
 
 const GetStarted = new subComponent('GetStarted', {
   data: {
-    display: 'none',
     c: 0,
     clr: "hotpink"
   },
   template: () => {
     return `
-      <section display={{ this.data.display }}>
+      <section>
         <Heading { txt: 'Get Started', size: 36 } />
         <Heading { txt: 'Installation' } />
         

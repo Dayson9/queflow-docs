@@ -3,18 +3,18 @@ var currentComponent;
 const loadComponent = (path) => {
   switch (path) {
     case '/docs/index.html':
-      currentComponent.data.display = 'none'
-      Home.data.display = 'block'
+      currentComponent.hide()
+      Home.show()
       currentComponent = Home
       break;
     case '/get-started':
-      currentComponent.data.display = 'none'
-      GetStarted.data.display = 'block'
+      currentComponent.hide()
+      GetStarted.show()
       currentComponent = GetStarted
       break;
     case '/qcomponent':
-      currentComponent.data.display = 'none'
-      QComp.data.display = 'block'
+      currentComponent.hide()
+      QComp.show()
       currentComponent = QComp
       break;
 

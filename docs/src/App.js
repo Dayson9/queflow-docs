@@ -5,7 +5,6 @@ import Footer from './components/Footer.js'
 import Text from './nuggets/Text.js'
 
 const App = new QComponent('#app', {
-  data: {},
   template: () => {
     return `
       <Header/>
@@ -16,6 +15,9 @@ const App = new QComponent('#app', {
 
   run: () => {
     currentComponent = Home;
+    GetStarted.hide()
+    QComp.hide()
+    
     window.addEventListener('popstate', () => {
       const path = window.location.pathname
       loadComponent(path)
