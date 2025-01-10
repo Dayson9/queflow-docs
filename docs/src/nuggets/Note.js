@@ -4,7 +4,7 @@ const Note = new subComponent('Note', {
   template: () => {
     return `
       <div class="note flex-row" color="rgba(255,255,255,.9)">
-        <Icon { class: 'bx-info-circle', size: 18 } />
+        <Icon { class: 'bx-info-circle', size: 24 } />
         <Text { txt: '{{ txt }}', size: 13, align: 'left' } />
       </div>
     `
@@ -16,11 +16,14 @@ const Note = new subComponent('Note', {
       height: auto;
       padding: 10px 5px;
       background: rgb(30,64, 179, .3);
+      margin-top: 17px;
     `,
     
-    '.note span': `
+    'span': `
       width: 85%;
-    `
+    `,
+    
+    'i': 'transform: translateY(-18px);'
   }
 })
 

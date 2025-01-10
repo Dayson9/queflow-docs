@@ -50,15 +50,9 @@ const GetStarted = new subComponent('GetStarted', {
         <Paragraph { txt: 'The [e] is an object containing information about an event, which means [e.target] references to the element that triggered the event.', top: 10 } />
         
         <Paragraph { txt: 'Now that we\\'ve covered the basics of QueFlowJS, let\\'s move on to the advanced concepts.' } />
-        
+        <Note { txt: 'Note that this tutorial would be focused mainly on providing examples alongside learning, so it would be fun no matter what.' }/>
         <Navigator { left: [null, null], right: ['QComponent', '/qcomponent'] } />
       </section>
-    `
-  },
-
-  stylesheet: {
-    'section': `
-
     `
   }
 })
