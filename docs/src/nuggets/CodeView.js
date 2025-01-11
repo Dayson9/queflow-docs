@@ -1,20 +1,11 @@
 import { Nugget } from 'queflow'
 
 const CodeView = new Nugget("CodeView", {
-  template: (data) => {
-    const out = data.codes.map((code) => {
-      const pxl = indent(code)
-      return `
-        <code class='language-js' margin-left="${pxl}px" font-family='monospace'>
-        <Text { txt: '${ code }', align: 'left', weight: 300, font: 'monospace' } />
-        </code>
-    `
-    }).join('\n')
-
+  template: () => {
     return `
-      <div class='container'>
-        ${out}
-      </div>
+     <div>
+      <pre class="language-js"><code>{{ code }}</code></pre>
+     </div>
     `
   },
   stylesheet: {
@@ -28,13 +19,16 @@ const CodeView = new Nugget("CodeView", {
       margin-bottom: 28px;
       padding-inline: 10px;
       box-sizing: border-box;
+      overflow-x: scroll;
     `,
-    'code' : `
-      display: block;
+    "pre, code": `
+      text-align: left;
       background: transparent!important;
-      font-size: 12px;
-    `,
-   'code *': 'font-size: 12px;'
+      padding: 0!important;
+      margin: 0!important;
+      font-size: 13px;
+      font-family: monospace;
+`
   }
 })
 
