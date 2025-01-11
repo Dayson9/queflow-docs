@@ -1,7 +1,7 @@
-import { subComponent } from 'queflow'
+import { Component } from 'queflow'
 import Navbar from './Navbar.js'
 
-const Header = new subComponent('Header', {
+const Header = new Component('Header', {
   template: () => {
     return `
       <header class='flex-row'>

@@ -1,10 +1,10 @@
-import { QComponent } from 'queflow'
+import { App } from 'queflow'
 import Main from './components/Main.js'
 import Header from './components/Header.js'
 import Footer from './components/Footer.js'
 import Text from './nuggets/Text.js'
 
-const App = new QComponent('#app', {
+const Documentation = new App('#app', {
   data: {},
   template: () => {
     return `
@@ -40,4 +40,4 @@ const App = new QComponent('#app', {
   }
 })
 
-App.render()
+Documentation.render()

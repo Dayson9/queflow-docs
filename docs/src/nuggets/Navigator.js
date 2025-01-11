@@ -8,7 +8,7 @@ const Navigator = new Nugget("Navigator", {
       <div class='nav flex-row' color='rgba(255, 255, 255, 0.9)'>
         <div class='inner flex-row'  ${data.left[1] ? "onclick=\"toPage('"+data.left[1]+"')\"" : ''}>
           ${data.left[0] ? "<Icon { class: 'bx-left-arrow-alt', size: 20 }/>" : '' }
-          ${data.left[0] ? "<Text { txt:'"+data.right[0]+"' } />" : ''}
+          ${data.left[0] ? "<Text { txt:'"+data.left[0]+"' } />" : ''}
         </div>
       
         <div class='inner flex-row'  ${data.right[1] ? "onclick=\"toPage('"+data.right[1]+"')\"" : ''}>
@@ -30,7 +30,7 @@ const Navigator = new Nugget("Navigator", {
     `,
     
     '.inner': `
-      width: 35%;
+      width: auto;
       height: 30%;
     `
   }

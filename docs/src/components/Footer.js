@@ -1,6 +1,6 @@
-import { subComponent } from 'queflow'
+import { Component } from 'queflow'
 
-const Footer = new subComponent('Footer', {
+const Footer = new Component('Footer', {
   template: () => {
     return `
       

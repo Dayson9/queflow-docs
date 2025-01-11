@@ -1,9 +1,9 @@
-import { subComponent } from 'queflow'
+import { Component } from 'queflow'
 import Heading from '../nuggets/Heading.js'
 import CodeView from '../nuggets/CodeView.js'
 import Navigator from '../nuggets/Navigator.js'
 
-const GetStarted = new subComponent('GetStarted', {
+const GetStarted = new Component('GetStarted', {
   data: {
     c: 0,
     clr: ""
@@ -30,15 +30,15 @@ const GetStarted = new subComponent('GetStarted', {
 
         <Paragraph { txt: 'Create a file and name it [App.js], link it to the HTML file while making sure the script tag has attribute [type="module"] and fill it up with these.' } />  
         <CodeView { code: \`
-import { QComponent } from "queflow"
+import { App } from "queflow"
 
-const App = new QComponent("#app", {
+const View = new App("#app", {
   template: () =&gt; {
     return '&lt;h1 color="dodgerblue"&gt;I ❤️ QueFlowJS&lt;/h1&gt;'
   }
 })
 
-App.render()\` } />
+View.render()\` } />
  
         <Paragraph { txt: 'Run the above code you should see something similar to this.' } />
         <div class="preview">
@@ -50,9 +50,9 @@ App.render()\` } />
         <Heading { txt: 'Quick start' } />
         <Paragraph { txt: "Using the same implementation, let's create a counter app." } />
         <CodeView { code: \`
-import { QComponent } from "queflow"
+import { App } from "queflow"
 
-const App = new QComponent("#app", {
+const CounterApp = new App("#app", {
   data: {
     counter: 0
   },
@@ -64,7 +64,7 @@ const App = new QComponent("#app", {
   }
 })
 
-App.render() 
+CounterApp.render() 
  \` } />
         <div class="preview">
           <h1 color="teal">{{ this.data.c }}</h1>
@@ -75,32 +75,32 @@ App.render()
         
         <Paragraph { txt: 'Let\\'s try out another example.', top: 10 } />
         <CodeView { code: \`
-import { QComponent } from "queflow"
+import { App } from "queflow"
 
-const App = new QComponent("#app", {
+const ColorChanger = new App("#app", {
   data: {
     color: ""
   },
   template: () =&gt; {
    return &#96;
-    &lt;h1 color={{ this.data.color ? this.data.color : 'mediumpurple' }_} transition=".4s"&gt;Change my color&lt;/h1&gt;
+    &lt;h1 color={{ this.data.color || 'mediumpurple' }_} transition=".4s"&gt;Change my color&lt;/h1&gt;
     &lt;input type="text" oninput={{ this.data.color = e.target.value }_}/&gt;
     &#96;
   }
 })
 
-App.render()
+ColorChanger.render()
 \` } />
         <div class="preview">
-          <h1 color={{ this.data.clr ? this.data.clr : 'mediumpurple' }} transition=".4s">Change my color</h1>
+          <h1 color={{ this.data.clr || 'mediumpurple' }} transition=".4s">Change my color</h1>
           <input type="text" oninput={{ this.data.clr = e.target.value }}/>
         </div>
         
         <Paragraph { txt: 'The [e] is an object containing information about an event, which means [e.target] references to the element that triggered the event.', top: 10 } />
         
         <Paragraph { txt: "Now that we've covered the basics of QueFlowJS, let's move on to the advanced concepts." } />
-        <Note { txt: 'Note that this tutorial would be focused mainly on providing examples alongside learning, so it would be fun no matter what.' }/>
-        <Navigator { left: [null, null], right: ['QComponent', '/qcomponent'] } />
+        <Note { txt: "Note that this tutorial would be focused mainly on providing examples alongside learning, so it would be fun no matter what, let's rock 💪." }/>
+        <Navigator { left: [null, null], right: ['App', '/qcomponent'] } />
       </section>
     `
   }

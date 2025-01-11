@@ -1,7 +1,7 @@
-import { subComponent } from 'queflow'
+import { Component } from 'queflow'
 import HotFeature from '../nuggets/HotFeature.js'
 
-const Home = new subComponent('Home', {
+const Home = new Component('Home', {
   template: () => {
     return `
     <div>

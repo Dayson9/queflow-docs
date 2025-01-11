@@ -1,7 +1,7 @@
-import { subComponent } from 'queflow'
+import { Component } from 'queflow'
 import Note from '../nuggets/Note.js';
 
-const QComp = new subComponent('QComp', {
+const QComp = new Component('QComp', {
   data: {
     balloon: "🎈 ",
     num: 1
@@ -9,13 +9,13 @@ const QComp = new subComponent('QComp', {
   template: () => {
     return `
       <section>
-        <Heading { txt: 'QComponent', size: 36 } />
+        <Heading { txt: 'App', size: 36 } />
   
-        <Paragraph { txt: 'QComponent is a class that allows to create and manage components with dynamic rendering. It is used for rendering a QueFlow app.' } />
+        <Paragraph { txt: 'App is a class that allows to create and manage components with dynamic rendering. It is used for rendering a QueFlow app.' } />
         
         <Paragraph { txt: 'Syntax:', top: 20 } />
         <CodeView { code: \`
-QComponent("#app", /** [string] (required) selector of mount node **/
+App("#app", /** [string] (required) selector of mount node **/
 {
    data: {
     // [object] (optional) -&gt; An object containing reactive data, any changes made to it would automatically trigger an update in the UI.
@@ -26,15 +26,15 @@ QComponent("#app", /** [string] (required) selector of mount node **/
    stylesheet: {
     // [object] (optional) -&gt; An object containing CSS declarations for app.
    },
-   useStrict: k // [boolean] (optional) Indicates whether to use innerHTML or innerText when updating the DOM. QueFlow uses innerText by default, which means when useStrict is set to false, innerHTML is used.
+   useStrict: // [boolean] (optional) Indicates whether to use innerHTML or innerText when updating the DOM. QueFlow uses innerText by default, which means when useStrict is set to false, innerHTML is used.
     ,
-   run: t // [function] A function that runs immediately adter the component is rendered.
+   run: // [function] (optional) A function that runs immediately after the App is rendered.
 })\` } />
         <Note { txt: 'The expressions in square brackets are the datatypes of the corresponding properties.' } />
         
         <Paragraph { txt: 'Now let\\'s take a quick look at an example:', top: 20 } />
         <CodeView { code: \`
-const App = new QComponent("#app", {
+const BalloonApp = new App("#app", {
   template: () =&gt; {
     return &#96;
      &lt;h1&gt;🎈&lt;/h1&gt;
@@ -44,7 +44,7 @@ const App = new QComponent("#app", {
   }
 })
 
-App.render()\` } />
+BalloonApp.render()\` } />
         <div class="preview">
           <h1>🎈 </h1>
           <p color="dodgerblue">1 balloon created</p>
@@ -53,7 +53,7 @@ App.render()\` } />
         
         <Paragraph { txt: 'Now let\\'s spice it up with some CSS.' } />
         <CodeView { code: \`
-const App = new QComponent("#app", {
+const BalloonApp = new App("#app", {
   template: () => {
     return &#96;
      &lt;h1 font-size="30px"&gt;🎈&lt;/h1&gt;
@@ -72,7 +72,7 @@ const App = new QComponent("#app", {
   }
 })
 
-App.render()\` } />
+BalloonApp.render()\` } />
         <div class="preview">
           <h1 font-size="30px">🎈 </h1>
           <p color="dodgerblue" font-family="sans-serif">1 balloon created</p>
@@ -82,7 +82,7 @@ App.render()\` } />
         <Paragraph { txt: 'Nothing happens whenever you click on the button, let\\'s fix that by adding reactivity.' } />
         
         <CodeView { code: \`
-const App = new QComponent("#app", {
+const BalloonApp = new App("#app", {
   data: {
     balloon: "🎈",
     num: 1
@@ -105,7 +105,7 @@ const App = new QComponent("#app", {
   }
 })
 
-App.render()\` } />
+BalloonApp.render()\` } />
         <div class="preview">
           <h1 font-size="30px">{{ this.data.balloon }}</h1>
           <p color="dodgerblue" font-family="sans-serif">{{ this.data.num }} {{ this.data.num > 1 ? "balloons" : "balloon" }} created</p>
@@ -114,10 +114,14 @@ App.render()\` } />
         
         <Heading { txt: 'Freezing and Unfreezing components', size: 32, top: 50 } />
         
-        <Paragraph { txt: 'There might be a situation where you need to disable/enable reactivity in a component, to do so, there are 2 methods for that, [Instance.freeze()] and [Instance.unfreeze()]' } />
+        <Paragraph { txt: 'There are 2 methods for freezing components, [Instance.freeze()] and [Instance.unfreeze()]' } />
         
        <Heading { txt: 'Instance.freeze()', top: 30 } />
-       <Paragraph { txt: 'As the name sounds, the [Instance.freeze()] method is used for freezing a component, which means any change made to the [data] attribute of a component won\\'t trigger an update in the DOM.'} />  
+       <Paragraph { txt: 'As the name suggests, the [Instance.freeze()] method is used for freezing a component, which means any change made to the [data] attribute of a component won\\'t trigger an update in the DOM.'} />
+    
+       <Heading { txt: 'Instance.unfreeze()', top: 30 } />   
+       <Paragraph { txt: 'The [Instance.unfreeze()] method is used for unfreezing a component, any changes made to its data would trigger an update in the UI.'} />
+        <Navigator { left: ['Get started', '/get-started'], right: ['SubComponent', '/Component'] } />     
       </section>
     `
   },

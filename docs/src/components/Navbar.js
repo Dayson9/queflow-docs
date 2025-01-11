@@ -1,6 +1,6 @@
-import { subComponent } from 'queflow'
+import { Component } from 'queflow'
 
-const Navbar = new subComponent('Navbar', {
+const Navbar = new Component('Navbar', {
   data: {
     left: -100
   },

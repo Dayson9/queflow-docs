@@ -1,9 +1,9 @@
-import { subComponent } from 'queflow'
+import { Component } from 'queflow'
 import Home from './Home.js'
 import GetStarted from './GetStarted.js'
 import QComp from './QComp.js'
 
-const Main = new subComponent('Main', {
+const Main = new Component('Main', {
   data: {},
   template: () => {
     return `

@@ -1,10 +1,10 @@
-import { subComponent } from 'queflow'
+import { Component } from 'queflow'
 
-const Note = new subComponent('Note', {
+const Note = new Component('Note', {
   template: () => {
     return `
       <div class="note flex-row" color="rgba(255, 255, 255, .9)">
-        <Icon { class: 'bx-info-circle', size: 24 } />
+        <Icon { class: 'bx-info-circle', size: 28 } />
         <Text { txt: '{{ txt }}', size: 13, align: 'left' } />
       </div>
     `
@@ -23,9 +23,7 @@ const Note = new subComponent('Note', {
     
     'span': `
       width: 85%;
-    `,
-    
-    'i': 'transform: translateY(-14px);'
+    `
   }
 })
 
