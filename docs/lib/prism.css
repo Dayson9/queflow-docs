@@ -7,8 +7,6 @@ pre[class*=language-] {
   font-size: .8em;
   text-align: left;
   word-spacing: normal;
-  word-break: break-all;
-  word-wrap: normal;
   line-height: 1.1;
   -moz-tab-size: 4;
   -o-tab-size: 4;
@@ -19,21 +17,13 @@ pre[class*=language-] {
   hyphens: none
 }
 
-pre[class*=language-] {
-  padding: 1em;
-  margin: .5em 0;
-  overflow: auto
-}
-
 :not(pre)>code[class*=language-],
 pre[class*=language-] {
   background: #2d2d2d
 }
 
 :not(pre)>code[class*=language-] {
-  padding: .1em;
   border-radius: .3em;
-  white-space: normal
 }
 
 .token.block-comment,
