@@ -18,6 +18,7 @@ const Documentation = new App('#app', {
     currentComponent = Home;
     GetStarted.hide()
     QComp.hide()
+    Compo.hide()
     window.addEventListener('popstate', () => {
       const path = window.location.pathname
       loadComponent(path)

@@ -121,7 +121,7 @@ BalloonApp.render()\` } />
     
        <Heading { txt: 'Instance.unfreeze()', top: 30 } />   
        <Paragraph { txt: 'The [Instance.unfreeze()] method is used for unfreezing a component, any changes made to its data would trigger an update in the UI.'} />
-        <Navigator { left: ['Get started', '/get-started'], right: ['SubComponent', '/Component'] } />     
+        <Navigator { left: ['Get started', '/get-started'], right: ['Component', '/docs/component'] } />     
       </section>
     `
   },

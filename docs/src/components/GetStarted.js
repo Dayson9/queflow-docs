@@ -100,7 +100,7 @@ ColorChanger.render()
         
         <Paragraph { txt: "Now that we've covered the basics of QueFlowJS, let's move on to the advanced concepts." } />
         <Note { txt: "Note that this tutorial would be focused mainly on providing examples alongside learning, so it would be fun no matter what, let's rock 💪." }/>
-        <Navigator { left: [null, null], right: ['App', '/qcomponent'] } />
+        <Navigator { left: [null, null], right: ['App', '/docs/app'] } />
       </section>
     `
   }

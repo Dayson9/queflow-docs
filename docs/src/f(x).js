@@ -12,12 +12,17 @@ const loadComponent = (path) => {
       GetStarted.show()
       currentComponent = GetStarted
       break;
-    case '/qcomponent':
+    case '/docs/app':
       currentComponent.hide()
       QComp.show()
       currentComponent = QComp
       break;
-
+    case '/docs/component':
+      currentComponent.hide()
+      Compo.show()
+      currentComponent = Compo
+      break;
+    
     default:
 
   }
