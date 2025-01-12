@@ -15,7 +15,7 @@ const QComp = new Component('QComp', {
         
         <Paragraph { txt: 'Syntax:', top: 20 } />
         <CodeView { code: \`
-App("#app", /** [string] (required) selector of mount node **/
+App(selector /** [string] (required) -&gt; Selector of mount node **/ ,
 {
    data: {
     // [object] (optional) -&gt; An object containing reactive data, any changes made to it would automatically trigger an update in the UI.
@@ -26,9 +26,10 @@ App("#app", /** [string] (required) selector of mount node **/
    stylesheet: {
     // [object] (optional) -&gt; An object containing CSS declarations for app.
    },
-   useStrict: // [boolean] (optional) Indicates whether to use innerHTML or innerText when updating the DOM. QueFlow uses innerText by default, which means when useStrict is set to false, innerHTML is used.
+   useStrict: // [boolean] (optional) -&gt; Indicates whether to use innerHTML or innerText when updating the DOM. QueFlow uses innerText by default, which means when useStrict is set to false, innerHTML is used.
     ,
-   run: // [function] (optional) A function that runs immediately after the App is rendered.
+   created: /** [function] (optional) -&gt; A function that runs immediately after instantiation **/
+   run: // [function] (optional) -&gt; A function that runs immediately after rendering.
 })\` } />
         <Note { txt: 'The expressions in square brackets are the datatypes of the corresponding properties.' } />
         
@@ -79,7 +80,7 @@ BalloonApp.render()\` } />
           <button class="styled">Create balloon +</button>
         </div>
         
-        <Paragraph { txt: 'Nothing happens whenever you click on the button, let\\'s fix that by adding reactivity.' } />
+        <Paragraph { txt: "Nothing happens whenever you click on the button, let's fix that by adding an onclick event and reactivity." } />
         
         <CodeView { code: \`
 const BalloonApp = new App("#app", {

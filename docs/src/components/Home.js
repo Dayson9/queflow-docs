@@ -10,7 +10,7 @@ const Home = new Component('Home', {
         <span class="pxp-el11">Web Apps at scale</span>
       </h1>
       <p class="pxp-el12">Deliver highly optimized web apps without much effort.</p>
-      <button class="pxp-el13 flex-row" onclick={{ toPage("/get-started") }}>
+      <button class="pxp-el13 flex-row" onclick={{ toPage("/docs/component") }}>
         <span class="pxp-el14">Get Started</span>
         <span class="bx bx-right-arrow-alt pxp-el15"></span>
       </button>

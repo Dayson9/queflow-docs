@@ -7,7 +7,6 @@ const Paragraph = new Nugget("Paragraph", {
     data.txt = data.txt.replace(hlReg, (match) => `<span class="highlighted">${ match.slice(1, match.length-1)}</span>`)
     
     return `
-    
       <span color='rgba(255, 255, 255, 0.9)' ${ data.top ? 'margin-top={{ top }}px' : '' }>
         {{ txt }}
       <span>
