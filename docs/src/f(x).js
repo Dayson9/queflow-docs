@@ -22,7 +22,12 @@ const loadComponent = (path) => {
       Compo.show()
       currentComponent = Compo
       break;
-    
+    case '/docs/project-structure':
+      currentComponent.hide()
+      ProjectStructure.show()
+      currentComponent = ProjectStructure
+      break;
+
     default:
 
   }
@@ -31,7 +36,7 @@ const loadComponent = (path) => {
 const toPage = (path) => {
   history.pushState({}, '', path)
   loadComponent(path)
-  window.scrollTo(0,0)
+  window.scrollTo(0, 0)
 }
 
 const indent = (code) => {

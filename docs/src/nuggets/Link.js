@@ -1,6 +1,6 @@
 import { Nugget } from "queflow"
 
-const Inline = new Nugget('Inline', {
+const Link = new Nugget('Link', {
   template: (data) => {
     const hlReg = /\[[^\[]+\]/g
 
@@ -24,4 +24,4 @@ const Inline = new Nugget('Inline', {
   }
 })
 
-export default Inline
+export default Link

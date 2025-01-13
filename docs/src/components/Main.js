@@ -3,6 +3,7 @@ import Home from './Home.js'
 import GetStarted from './GetStarted.js'
 import QComp from './QComp.js'
 import Compo from './Component.js'
+import ProjectStructure from './ProjectStructure.js'
 
 const Main = new Component('Main', {
   data: {},
@@ -12,6 +13,7 @@ const Main = new Component('Main', {
       <GetStarted/>
       <QComp/>
       <Compo/>
+      <ProjectStructure/>
     `
   },
 
