@@ -1,6 +1,6 @@
-import { Component } from 'queflow'
+import { Nugget } from 'queflow'
 
-const Note = new Component('Note', {
+const Note = new Nugget('Note', {
   template: () => {
     return `
       <div class="note flex-row" color="rgba(255, 255, 255, .9)">

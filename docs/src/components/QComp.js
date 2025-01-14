@@ -1,5 +1,4 @@
 import { Component } from 'queflow'
-import Note from '../nuggets/Note.js';
 
 const QComp = new Component('QComp', {
   data: {

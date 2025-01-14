@@ -2,6 +2,7 @@ import { Component } from 'queflow'
 import Heading from '../nuggets/Heading.js'
 import CodeView from '../nuggets/CodeView.js'
 import Navigator from '../nuggets/Navigator.js'
+import Note from '../nuggets/Note.js';
 
 const GetStarted = new Component('GetStarted', {
   data: {

@@ -20,6 +20,7 @@ const Documentation = new App('#app', {
     QComp.hide()
     Compo.hide()
     ProjectStructure.hide()
+    Nuggets.hide()
     window.addEventListener('popstate', () => {
       const path = window.location.pathname
       loadComponent(path)

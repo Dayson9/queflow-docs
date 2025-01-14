@@ -29,9 +29,10 @@ Component(name /** [string] (required) -&gt; Name of component **/ ,
 
         <Paragraph { txt: "When working with [Component]s, it is highly recommended to follow QueFlow project structure.", top: 20 } />
         <Link { text: 'You can check it out [here]', click: "toPage('/docs/project-structure')" } />
-        <Link { text: "or simply [download] it's zip file.", click: "alert()" } />
-        <Paragraph { txt: "Now let's look at some examples.", top: 20 } />
-        <Paragraph { txt: "In the components folder, create a new file and name it [MyComponent.js]" } />
+        <Link { text: "or simply [download] it's zip file.", click: "download()" } />
+        
+        <Paragraph { txt: "Now let's look at how to use components.", top: 20 } />
+        <Paragraph { txt: "In the components folder, create a new file and name it [MyComponent.js], copy-paste the code below into the file." } />
         <CodeView { code: \`
 import { Component } from "queflow"
 
@@ -131,13 +132,11 @@ MyApp.render()
         </div>
         
         <Paragraph { txt: "[Components] and [App] have almost the same structure, the differences between them are highlighted below:" } />
-        <ul color="rgba(255,255,255,.9)">
-          <li>Components can only be rendered in App and not the other way round.</li>
-          <li>We can only have one App instance while Components can be more.</li>
-          <li>Components do not need mount node while App needs it.</li>
-        </ul>
         
-        <Navigator { left: ['App', '/docs/app'], right: ['Nuggets', 'docs/nugget'] } />
+        <ListItem { items: ["Components can only be rendered in App and not the other way round.", "We can only have one App instance while Components can be more.", "Components do not need mount node while App needs it."] } />
+  
+        <Note { txt: "To continue with this tutorial, you must have either downloaded the zip file or structure your project as specified above." } />      
+        <Navigator { left: ['App', '/docs/app'], right: ['Nuggets', '/docs/nuggets'] } />
       </section>
     `
   },

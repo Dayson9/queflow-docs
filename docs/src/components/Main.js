@@ -4,6 +4,7 @@ import GetStarted from './GetStarted.js'
 import QComp from './QComp.js'
 import Compo from './Component.js'
 import ProjectStructure from './ProjectStructure.js'
+import Nuggets from './Nuggets.js'
 
 const Main = new Component('Main', {
   data: {},
@@ -13,6 +14,7 @@ const Main = new Component('Main', {
       <GetStarted/>
       <QComp/>
       <Compo/>
+      <Nuggets/>
       <ProjectStructure/>
     `
   },

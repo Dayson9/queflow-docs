@@ -27,6 +27,11 @@ const loadComponent = (path) => {
       ProjectStructure.show()
       currentComponent = ProjectStructure
       break;
+    case '/docs/nuggets':
+      currentComponent.hide()
+      Nuggets.show()
+      currentComponent = Nuggets
+      break;
 
     default:
 
