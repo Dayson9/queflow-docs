@@ -48,6 +48,8 @@ MyApp.render()
         <div class="preview">
           <h1 color="orchid">My first QueFlow Nugget ⚡</h1>
         </div>
+        
+        
       </section>
     `
   },

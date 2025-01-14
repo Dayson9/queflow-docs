@@ -561,10 +561,10 @@ const renderComponent = (instance, name, flag) => {
     rendered = jsxToHTML(newTemplate, instance, name);
 
   if (!flag) {
+    const id = el.id;
     // Initiates sub-component's stylesheet 
-    initiateStyleSheet(`#${el.id}`, instance);
-    el.innerHTML = rendered[0];
-    instance.element = el.id;
+    initiateStyleSheet(`#${id}`, instance);
+    instance.element = id;
   }
 
   instance.dataQF = rendered[1];
