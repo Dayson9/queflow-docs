@@ -48,8 +48,13 @@ MyApp.render()
         <div class="preview">
           <h1 color="orchid">My first QueFlow Nugget ⚡</h1>
         </div>
-        
-        
+        <Heading { txt: "Props", top: 55 } />
+        <Paragraph { txt: "In Nuggets, Props are data passed to Nuggets when rendering. It is quite easy to create props. Just write the attribute name or CSS property followed by [={{ prop-name }_}]. For example:" } />
+        <Paragraph { txt: "[font-size={{ size }_}]", font: "monospace" } />
+        <Paragraph { txt: "Passing props are also straightforward, as shown below:" } />
+        <CodeView { code: \`
+&lt;Button { label: 'Get Started', bg: "teal" } /&gt;
+\`, filename: "" } />
       </section>
     `
   },
