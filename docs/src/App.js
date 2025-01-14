@@ -39,6 +39,13 @@ const Documentation = new App('#app', {
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
+   `,
+   
+   '.flex-col': `
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
    `
   }
 })

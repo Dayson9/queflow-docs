@@ -12,7 +12,7 @@ const List = new Component("List", {
                 return `<li>${item}</li>`
             }).join('')}
       </ul>
-      <input type="text" id="input" value="<H1>Hello</H1>"/>
+      <input type="text" id="input" value="Alex"/>
       <button font-weight="450" onclick={{
         List.data.list.push(input.value);
         input.value = ""

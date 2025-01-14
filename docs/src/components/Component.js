@@ -15,21 +15,23 @@ Component(name /** [string] (required) -&gt; Name of component **/ ,
    data: {
     // [object] (optional) -&gt; An object containing reactive data, any changes made to it would automatically trigger an update in the UI.
    },
-   template: ""
-    /** [string|function] (required) -&gt; A string or a function that returns the HTML/JSX structure of app. **/
+   template: 
+    /** [string|function] (required) -&gt; A string or a function that returns the HTML/JSX structure of component. **/
    ,
    stylesheet: {
-    // [object] (optional) -&gt; An object containing CSS declarations for app.
+    // [object] (optional) -&gt; An object containing CSS declarations for component.
    },
    useStrict: // [boolean] (optional) -&gt; Indicates whether to use innerHTML or innerText when updating the DOM. QueFlow uses innerText by default, which means when useStrict is set to false, innerHTML is used.
     ,
-   created: /** [function] (optional) -&gt; A function that runs immediately after instantiation**/
+   created: /** [function] (optional) -&gt; A function that runs immediately after instantiation. **/
    run: // [function] (optional) A function that runs immediately after rendering.
 })\` } />
 
         <Paragraph { txt: "When working with [Component]s, it is highly recommended to follow QueFlow project structure.", top: 20 } />
         <Link { text: 'You can check it out [here]', click: "toPage('/docs/project-structure')" } />
         <Link { text: "or simply [download] it's zip file.", click: "download()" } />
+        
+        <Note { txt: "To continue with this tutorial, you must have either downloaded the zip file or structure your project as specified above." } />
         
         <Paragraph { txt: "Now let's look at how to use components.", top: 20 } />
         <Paragraph { txt: "In the components folder, create a new file and name it [MyComponent.js], copy-paste the code below into the file." } />
@@ -42,8 +44,8 @@ const MyComponent = new Component('MyComponent', {
 
 export default MyComponent
 \`, filename: "MyComponent.js" } />
-
-        <Paragraph { txt: "Fill your App.js file with these:" } />
+        <Note { txt: "As you can see from the code above, the name of the component is the same as the variable name, in QueFlow apps, it is required to make sure both the variable name and the component name are the same." } />
+        <Paragraph { txt: "Fill your App.js file with these:", top: 20 } />
         <CodeView { code: \`
 import { App } from "queflow"
 import MyComponent from "./components/MyComponent.js"
@@ -61,8 +63,8 @@ MyApp.render()
         <div class="preview">
           <h1 color="wheat">My First QueFlow Component 🔥</h1>
         </div>
-        <Paragraph { txt: "Pretty easy right? Not like React's &lt;/MyComponent /&gt;, no space needed, just write the name of your component between these [&lt;/&gt;] and you're good to go." } />
-        <Paragraph { txt: "Let's walk through more examples" } />
+        <Paragraph { txt: "In React, you have to add a space before closing a component tag [&lt;/MyComponent /&gt;], you don't need to do that in QueFlow, just write the name of your component between these [&lt;] and [/&gt;] and you're good to go." } />
+        <Paragraph { txt: "Let's walk through more examples", top: 25 } />
         <Paragraph { txt: "In the [components] folder, create a new file and name it [List.js]." } />
         <CodeView { code: \`
 import { Component } from "queflow"
@@ -135,7 +137,6 @@ MyApp.render()
         
         <ListItem { items: ["Components can only be rendered in App and not the other way round.", "We can only have one App instance while Components can be more.", "Components do not need mount node while App needs it."] } />
   
-        <Note { txt: "To continue with this tutorial, you must have either downloaded the zip file or structure your project as specified above." } />      
         <Navigator { left: ['App', '/docs/app'], right: ['Nuggets', '/docs/nuggets'] } />
       </section>
     `
