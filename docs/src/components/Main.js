@@ -32,7 +32,7 @@ const Main = new Component('Main', {
       border-radius: 10px;
       background: rgb(5, 10, 5);
       margin-block: 20px;
-      font-family: serif;
+      font-family: Inter;
       padding-left: 20px;
       padding-block: 10px;
     `,

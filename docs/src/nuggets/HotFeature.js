@@ -5,13 +5,13 @@ import Paragraph from './Paragraph.js'
 const HotFeature = new Nugget('HotFeature', {
   template: () => {
     return `
-      <div class='main' color='rgba(255, 255, 255, 0.9)'>
+      <div class='main inter' color='rgba(255, 255, 255, 0.9)'>
         <div class='outer'>
           <div class='inner'>
             <Icon { class: '{{ class }}', size: 33 } />
           </div>
         </div>
-        <Text { txt: '{{ title }}', size: 30, align: 'left', bottom: 13, weight: 700 } />
+        <Text { txt: '{{ title }}', size: 30, align: 'left', bottom: 13, weight: 700, class: "maren" } />
         <Paragraph { txt: '{{ summary }}' } />
       </div>
     `
@@ -19,12 +19,12 @@ const HotFeature = new Nugget('HotFeature', {
   stylesheet: {
     '.main' : `
       width: 100%;
-      height: 170px;
+      height: auto;
       text-align: left;
       margin: 0 auto;
       padding-inline: 20px;
       box-sizing: border-box;
-      margin-top: 50px;
+      margin-block: 50px;
     `,
     
    '.main .outer' : `

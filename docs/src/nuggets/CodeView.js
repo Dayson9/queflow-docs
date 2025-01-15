@@ -3,15 +3,15 @@ import { Nugget } from 'queflow'
 const CodeView = new Nugget("CodeView", {
   template: (data) => {
     return `
-     ${ data.filename ? "<div class='top'>{{ filename }}</div>" : "" }
-     <div border-radius="${ data.filename ? '0px 0px 10px 10px' : '10px' }">
+     ${ data.filename ? "<div class='top inter'>{{ filename }}</div>" : "" }
+     <div border-radius="${ data.filename ? '0px 0px 10px 10px' : '10px' }" class="main">
       <pre class="language-js"><code>{{ code }}</code></pre>
      </div>
     `
   },
   stylesheet: {
     'div' : `
-      width: 95%;
+      width: 105%;
       height: auto;
       background: rgb(30, 35, 35);
       padding-block: 20px;
@@ -38,7 +38,13 @@ const CodeView = new Nugget("CodeView", {
       margin: 0!important;
       font-size: 13px;
       font-family: monospace!important;
-`
+  `,
+  '.main::-webkit-scrollable-thumb': `
+    width: 30%;
+    height: 5px;
+    border-radius: 5px;
+    background: teal;
+  `
   }
 })
 

@@ -27,21 +27,27 @@ const Documentation = new App('#app', {
     })
   },
   stylesheet: {
-    '*:not(.preview *, code *)': `
-      font-family: "Almarena";
+    "@font-face": `
+      font-family: 'Inter';
+      font-display: swap;
+      src: url('./src/assets/Inter_18pt-Medium.ttf');
+      font-weight: 400;
+      font-style: normal;
     `,
+    '.inter': 'font-family: "Inter";',
+    '.maren': 'font-family: Almarena;',
     'code *, code': 'font-family: "monospace";',
-    
+
     'section span': 'line-height: 25px;',
-       
-   '.flex-row': `
+
+    '.flex-row': `
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
    `,
-   
-   '.flex-col': `
+
+    '.flex-col': `
       display: flex;
       flex-direction: column;
       align-items: center;

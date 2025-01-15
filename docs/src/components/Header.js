@@ -4,7 +4,7 @@ import Navbar from './Navbar.js'
 const Header = new Component('Header', {
   template: () => {
     return `
-      <header class='flex-row'>
+      <header class='flex-row maren'>
         <div class="title">
           <img src="./src/assets/img/queflow.png" alt="QueFlowJS Icon">
           <span>QueFlowJS</span>

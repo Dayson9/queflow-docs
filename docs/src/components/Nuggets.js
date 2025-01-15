@@ -51,15 +51,89 @@ MyApp.render()
         <Heading { txt: "Props", top: 55 } />
         <Paragraph { txt: "In Nuggets, Props are data passed to Nuggets when rendering. It is quite easy to create props. Just write the attribute name or CSS property followed by [={{ prop-name }_}]. For example:" } />
         <Paragraph { txt: "[font-size={{ size }_}]", font: "monospace" } />
-        <Paragraph { txt: "Passing props are also straightforward, as shown below:" } />
+        <Paragraph { txt: "Passing props are quite easy, as shown below:" } />
         <CodeView { code: \`
 &lt;Button { label: 'Get Started', bg: "teal" } /&gt;
+\` } /> 
+
+        <Paragraph { txt: "Let's try out another example" } />
+        <Paragraph { txt: "In the [nuggets] folder, create another file and name it [Button.js]." } />
+        <CodeView { code: \`
+import { Nugget } from "queflow"
+
+const Button = new Nugget('Button', {
+  template: () =&gt; "&lt;button&gt;{{ label }_}&lt;/button&gt;",
+  stylesheet: {
+    'button': &#96;
+      padding: 10px 23px;
+      border-radius: 50px;
+      color: white;
+      background: rgb(90, 10, 150);
+      border: none;
+      outline: 5px solid rgba(90, 10, 150, .2);
+      transition: .4s;
+      &#96;,
+    'button:hover': &#96;
+      outline: 5px solid rgba(90, 10, 150, .7);
+      &#96;
+    }
+})
+
+export default Button
+\`, filename: "Button.js" } />
+        <Paragraph { txt: "Now update your [App.js] as follows:" } />
+        <CodeView { code: \`
+import { App } from "queflow"
+import Button from "./nuggets/Button.js"
+
+const MyApp = new App("#app", {
+  template: () =&gt; &#96;
+    &lt;Button { label: "Button" } /&gt;
+  &#96;
+})
+
+MyApp.render()
 \`, filename: "" } />
+        <div class="preview">
+          <button class="sc">Button</button>
+        </div>
+        <Heading { txt: "Reactivity", top: 25 } />
+        <Paragraph { txt: "By default, Nuggets do not have built in reactivity, to achieve that we can use a clever approach, let's try it out." } />
+        <Paragraph { txt: "Create a file in the [nuggets] folder and name it [Time.js]." } />
+        <CodeView { code: \`
+import { Nugget } from "queflow"
+
+const Time = new Nugget('Time', {
+  template: () =&gt; &#96;&lt;span&gt;{{ time }_}&lt;/span&gt;&#96;,
+  stylesheet: {
+    'span': &#96;
+      font-size: 60px;
+      -webkit-text-stroke: 1.5px skyblue;
+      font-weight: 900;
+    &#96;
+  }
+})
+
+export default Time
+\`, filename: "Time.js" } />
+        <Paragraph { txt: "n" } />
       </section>
     `
   },
 
   stylesheet: {
+    '.sc': `
+      padding: 10px 23px;
+      border-radius: 50px;
+      color: white;
+      background: rgb(90, 10, 150);
+      border: none;
+      outline: 5px solid rgba(90, 10, 150, .2);
+      transition: .4s;
+      `,
+    '.sc:hover': `
+      outline: 5px solid rgba(90, 10, 150, .7);
+      `
   }
 }) 
 
