@@ -54,7 +54,7 @@ MyApp.render()
         </div>
         <Heading { txt: "Props", top: 55 } />
         <Paragraph { txt: "Props are data passed to Nuggets when rendering. It is quite easy to create props. Just write the attribute name or CSS property followed by [={{ prop-name }_}]. For example:" } />
-        <Paragraph { txt: "[font-size={{ size }_}]", font: "monospace" } />
+        <Paragraph { txt: "[font-size={{ size }_}]" } />
         <CodeView { code: \`
 &lt;Button { label: "Get Started", bg: "teal" } /&gt;
 \` } /> 
@@ -159,6 +159,20 @@ Timer.render()
             <span>{{ this.data.time }}</span>
           </div>
         </div>
+        
+        <Heading { txt: "Nested Nuggets", top: 35 } />
+        <Paragraph { txt: "Nested Nuggets are Nuggets used inside the template of another Nugget. This allows you to break down your UI into smaller, manageable components, promoting modularity and code reusability." } />
+        <CodeView { code: \`
+const PillButton = new Nugget('PillButton', {
+  template: () =&gt; {
+    return &#96;
+      &lt;Button { label: "{{ label }_}", radius: 50, px: 26, py: 12 } /&gt;
+    &#96;
+  }
+})
+\` } />
+
+        <Paragraph { txt: "" } />
       </section>
     `
   },

@@ -6,7 +6,7 @@ const Navbar = new Component('Navbar', {
   },
   template: () => {
     return `
-      <nav left={{ this.data.left+'%' }} transition=".3s">
+      <nav class="inter" left={{ this.data.left+'%' }} transition=".3s">
         <Icon { class: 'bx-x', size: 30, click: 'this.data.left = -100' } />
         <ul font-size="20px">
           <li>Documentation</li>

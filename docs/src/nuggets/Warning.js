@@ -5,7 +5,7 @@ const Warning = new Nugget('Warning', {
     return `
       <div class="note inter" color="rgba(255, 255, 255, .9)">
         <div class="flex-row">
-          <Icon { class: 'bx-info-circle', size: 28 } />
+          <Text { txt: '⚠️', size: 28 } />
           <Text { txt: 'Warning', size: 15 } />
         </div>
         <Text { txt: '{{ txt }}', size: 13, align: 'left' } />
