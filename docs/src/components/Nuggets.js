@@ -2,13 +2,16 @@ import { Component } from 'queflow'
 import ListItem from '../nuggets/ListItem.js'
 
 const Nuggets = new Component('Nuggets', {
+  data: {
+    time: new Date().toLocaleTimeString()
+  },
   template: () => {
     return `
       <section>
         <Heading { txt: "Nuggets", size: 36 } />
         <Paragraph { txt: "Nuggets are self-contained UI elements that encapsulate their own template, style, and data. They provide a way to create reusable UI components that can be easily integrated into your applications. They are lightweight, flexible, and offer a clean syntax for building complex UI structures. They allow you to:" } />
         <ListItem { items: ["Build reusable components: Avoid writing repetitive code for common UI elements.", "Improve code organization: Structure your application with clear modularity.", "Write styles that are scoped/ do not coflict with other elements."] } />
-        <Paragraph { txt: "Syntax:" } />
+        <Paragraph { txt: "Syntax:", top: 35 } />
         <CodeView { code: \`
 Nugget(name /** [string] (required) -&gt; Name of Nugget **/ ,
 {
@@ -39,7 +42,7 @@ import { App } from "queflow"
 import Nugget from "./nuggets/MyNugget.js"
 
 const MyApp = new App("#app", {
-  template: () =&gt; "&lt;MyNugget { message: "My first QueFlow Nugget ⚡", color: "orchid" } /&gt;"
+  template: () =&gt; '&lt;MyNugget { message: "My first QueFlow Nugget ⚡", color: "orchid" } /&gt;'
 })
 
 MyApp.render()
@@ -49,9 +52,8 @@ MyApp.render()
           <h1 color="orchid">My first QueFlow Nugget ⚡</h1>
         </div>
         <Heading { txt: "Props", top: 55 } />
-        <Paragraph { txt: "In Nuggets, Props are data passed to Nuggets when rendering. It is quite easy to create props. Just write the attribute name or CSS property followed by [={{ prop-name }_}]. For example:" } />
+        <Paragraph { txt: "Props are data passed to Nuggets when rendering. It is quite easy to create props. Just write the attribute name or CSS property followed by [={{ prop-name }_}]. For example:" } />
         <Paragraph { txt: "[font-size={{ size }_}]", font: "monospace" } />
-        <Paragraph { txt: "Passing props are quite easy, as shown below:" } />
         <CodeView { code: \`
 &lt;Button { label: "Get Started", bg: "teal" } /&gt;
 \` } /> 
@@ -65,7 +67,7 @@ const Button = new Nugget('Button', {
   template: () =&gt; "&lt;button&gt;{{ label }_}&lt;/button&gt;",
   stylesheet: {
     'button': &#96;
-      padding: 10px 23px;
+      padding: 12px 26px;
       border-radius: 50px;
       color: white;
       background: rgb(90, 10, 150);
@@ -98,7 +100,7 @@ MyApp.render()
         <div class="preview">
           <button class="sc">Button</button>
         </div>
-        <Heading { txt: "Reactivity", top: 25 } />
+        <Heading { txt: "Reactivity", top: 40 } />
         <Paragraph { txt: "By default, Nuggets do not have built in reactivity, to achieve that we can use a clever approach, let's try it out." } />
         <Paragraph { txt: "Create a file in the [nuggets] folder and name it [Time.js]." } />
         <CodeView { code: \`
@@ -117,7 +119,44 @@ const Time = new Nugget('Time', {
 
 export default Time
 \`, filename: "Time.js" } />
-        <Paragraph { txt: "n" } />
+        <Paragraph { txt: "Update your [App.js] as follows:" } />
+        
+        <CodeView { code: \`
+import { App } from "queflow"
+import Time from "./nuggets/Time.js"
+
+const Timer = new App("#app", {
+  data: {
+    currentTime: new Date().toLocaleTimeString()
+  },
+  template: () =&gt; &#96;
+    &lt;div&gt;
+      &lt;Time { time: '{{ this.data.currentTime }_}' } /&gt;
+    &lt;/div&gt;
+  &#96;,
+  stylesheet: {
+    'div': &#96;
+      width: 250px;
+      height: 150px;
+      background: black;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    &#96;
+  },
+  run: function() {
+    setInterval(() =&gt; this.data.currentTime = new Date().toLocaleTimeString(), 1000)
+  }
+})
+
+Timer.render()
+\`, filename: "App.js" } />
+        <div class="preview">
+          <div>
+            <span>{{ this.data.time }}</span>
+          </div>
+        </div>
       </section>
     `
   },
@@ -135,7 +174,21 @@ export default Time
       `,
     '.sc:hover': `
       outline: 5px solid rgba(90, 10, 150, .7);
-      `
+      `,
+    '.preview div': `
+      width: 250px;
+      height: 150px;
+      background: black;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    `,
+   '.preview span': `
+      font-size: 60px;
+      -webkit-text-stroke: 1.5px skyblue;
+      font-weight: 900;
+    ` 
   }
 }) 
 

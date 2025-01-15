@@ -33,13 +33,13 @@ const Main = new Component('Main', {
       background: rgb(5, 10, 5);
       margin-block: 20px;
       font-family: Inter;
-      padding-left: 20px;
+      padding-inline: 10px;
       padding-block: 10px;
     `,
    'section': `
       width: auto;
       max-width: 100vw;
-      padding-inline: 2%;
+      padding-left: 2%;
       box-sizing: border-box;
    `
   }
