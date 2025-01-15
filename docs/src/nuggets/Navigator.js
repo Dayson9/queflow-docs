@@ -5,7 +5,7 @@ const width = window.innerWidth
 const Navigator = new Nugget("Navigator", {
   template: (data) => {
     return `
-      <div class='nav flex-row' color='rgba(255, 255, 255, 0.9)'>
+      <div class='nav flex-row inter' color='rgba(255, 255, 255, 0.9)'>
           <div class='inner flex-col'  ${data.left[1] ? "onclick=\"toPage('"+data.left[1]+"')\"" : ''}>
             ${data.left[0] ? '<Text { txt: "Prev", bottom: 15 }/>' : ''}
           <div class="flex-row" color="teal">
@@ -32,7 +32,8 @@ const Navigator = new Nugget("Navigator", {
       background: transparent;
       box-sizing: border-box;
       margin: 0 auto;
-      margin-top: 30px;
+      margin-block: 30px;
+      transform: translateX(-4%);
     `,
     
     '.inner': `
