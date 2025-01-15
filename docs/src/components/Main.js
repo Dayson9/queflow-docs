@@ -37,8 +37,9 @@ const Main = new Component('Main', {
       padding-block: 10px;
     `,
    'section': `
-      width: 100vw;
-      padding-inline: 7%;
+      width: auto;
+      max-width: 100vw;
+      padding-inline: 2%;
       box-sizing: border-box;
    `
   }

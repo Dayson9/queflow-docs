@@ -34,7 +34,10 @@ const Documentation = new App('#app', {
       font-weight: 400;
       font-style: normal;
     `,
-    '.inter': 'font-family: "Inter";',
+    '.inter': `
+      font-family: "Inter";
+      color: rgba(255,255,255,.8);
+      `,
     '.maren': 'font-family: Almarena;',
     'code *, code': 'font-family: "monospace";',
 

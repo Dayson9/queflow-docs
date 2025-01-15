@@ -14,7 +14,7 @@ const Home = new Component('Home', {
       </h1>
       <p class="pxp-el12 inter">Deliver highly optimized web apps without much effort.</p>
       <div class="flex-${ width < 768 ? 'col' : 'row' } btn">
-      <button class="pxp-el13 inter" onclick={{ toPage("/docs/nuggets") }}>
+      <button class="inter pxp-el13" onclick={{ toPage("/docs/nuggets") }}>
         <span class="pxp-el14">Get Started</span>
         <span class="bx bx-right-arrow-alt pxp-el15"></span>
       </button>
@@ -71,6 +71,7 @@ const Home = new Component('Home', {
         border-radius: 15px;
         text-align: center;
         margin-block: 5px;
+        color: black;
         background: rgb(255, 255, 255);
     `,
 

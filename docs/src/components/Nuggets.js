@@ -39,7 +39,7 @@ import { App } from "queflow"
 import Nugget from "./nuggets/MyNugget.js"
 
 const MyApp = new App("#app", {
-  template: () =&gt; "&lt;MyNugget { message: 'My first QueFlow Nugget ⚡', color: 'orchid' } /&gt;"
+  template: () =&gt; "&lt;MyNugget { message: "My first QueFlow Nugget ⚡", color: "orchid" } /&gt;"
 })
 
 MyApp.render()
@@ -53,7 +53,7 @@ MyApp.render()
         <Paragraph { txt: "[font-size={{ size }_}]", font: "monospace" } />
         <Paragraph { txt: "Passing props are quite easy, as shown below:" } />
         <CodeView { code: \`
-&lt;Button { label: 'Get Started', bg: "teal" } /&gt;
+&lt;Button { label: "Get Started", bg: "teal" } /&gt;
 \` } /> 
 
         <Paragraph { txt: "Let's try out another example" } />
@@ -72,6 +72,7 @@ const Button = new Nugget('Button', {
       border: none;
       outline: 5px solid rgba(90, 10, 150, .2);
       transition: .4s;
+      font-size: 1.17em;
       &#96;,
     'button:hover': &#96;
       outline: 5px solid rgba(90, 10, 150, .7);
@@ -123,13 +124,14 @@ export default Time
 
   stylesheet: {
     '.sc': `
-      padding: 10px 23px;
+      padding: 12px 26px;
       border-radius: 50px;
       color: white;
       background: rgb(90, 10, 150);
       border: none;
       outline: 5px solid rgba(90, 10, 150, .2);
       transition: .4s;
+      font-size: 1.17em;
       `,
     '.sc:hover': `
       outline: 5px solid rgba(90, 10, 150, .7);

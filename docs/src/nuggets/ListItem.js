@@ -11,7 +11,6 @@ const ListItem = new Nugget('ListItem', {
 
   stylesheet: {
     'li': `
-      color: rgba(255,255,255,.9);
       margin-block: 13px;
       line-height: 1.3em;
     `
