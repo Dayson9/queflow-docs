@@ -25,7 +25,7 @@ const Main = new Component('Main', {
     `,
 
     '.preview': `
-      width: 90%;
+      width: 88%;
       height: auto;
       border: 1px solid rgb(255, 255, 255, .3);
       box-sizing: border-box;
@@ -39,7 +39,7 @@ const Main = new Component('Main', {
    'section': `
       width: auto;
       max-width: 100vw;
-      padding-left: 2%;
+      padding-left: 5%;
       box-sizing: border-box;
    `
   }

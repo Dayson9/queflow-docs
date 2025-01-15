@@ -1,12 +1,12 @@
 import { Nugget } from 'queflow'
 
-const Note = new Nugget('Note', {
+const Warning = new Nugget('Warning', {
   template: () => {
     return `
       <div class="note inter" color="rgba(255, 255, 255, .9)">
         <div class="flex-row">
           <Icon { class: 'bx-info-circle', size: 28 } />
-          <Text { txt: 'Note', size: 15 } />
+          <Text { txt: 'Warning', size: 15 } />
         </div>
         <Text { txt: '{{ txt }}', size: 13, align: 'left' } />
       </div>
@@ -18,17 +18,17 @@ const Note = new Nugget('Note', {
       width: 85%;
       height: auto;
       padding: 10px 5px;
-      background: rgb(30,64, 179, .3);
+      background: rgb(179,64, 30, .3);
       margin-block: 25px;
       border-radius: 5px;
-      border: 1px solid rgb(30,94, 179);
+      border: 1px solid rgb(179,94, 30);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: flex-start;
       padding-left: 20px;
     `,
-    
+
     'span': `
       width: 85%;
     `,
@@ -38,4 +38,4 @@ const Note = new Nugget('Note', {
   }
 })
 
-export default Note
+export default Warning

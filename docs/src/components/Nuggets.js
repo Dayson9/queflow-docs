@@ -1,5 +1,6 @@
 import { Component } from 'queflow'
 import ListItem from '../nuggets/ListItem.js'
+import Warning from '../nuggets/Warning.js'
 
 const Nuggets = new Component('Nuggets', {
   data: {
@@ -57,7 +58,8 @@ MyApp.render()
         <CodeView { code: \`
 &lt;Button { label: "Get Started", bg: "teal" } /&gt;
 \` } /> 
-
+        <Warning { txt: 'When passing props to Nuggets, It is compulsory to use double quotes "" to avoid unnecessary errors.' } />
+        
         <Paragraph { txt: "Let's try out another example" } />
         <Paragraph { txt: "In the [nuggets] folder, create another file and name it [Button.js]." } />
         <CodeView { code: \`
