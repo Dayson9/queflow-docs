@@ -114,7 +114,7 @@ BalloonApp.render()\` } />
         
         <Heading { txt: 'Freezing and Unfreezing components', size: 32, top: 50 } />
         
-        <Paragraph { txt: 'There are 2 methods for freezing components, [Instance.freeze()] and [Instance.unfreeze()]' } />
+        <Paragraph { txt: 'There are 2 methods for freezing & unfreeze components, [Instance.freeze()] and [Instance.unfreeze()] respectively.' } />
         
        <Heading { txt: 'Instance.freeze()', top: 30 } />
        <Paragraph { txt: 'As the name suggests, the [Instance.freeze()] method is used for freezing a component, which means any change made to the [data] attribute of a component won\\'t trigger an update in the DOM.'} />

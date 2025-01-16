@@ -7,7 +7,7 @@ const Link = new Nugget('Link', {
     data.text = data.text.replace(hlReg, (match) => `<span class="highlighted" onclick=${ data.click }>${ match.slice(1, match.length-1)}</span>`)
    
     return `
-      <span id="err">{{ text }}</span>
+      <span class="inter">{{ text }}</span>
     `
   },
   stylesheet: {
