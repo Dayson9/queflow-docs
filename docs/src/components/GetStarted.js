@@ -15,7 +15,7 @@ const GetStarted = new Component('GetStarted', {
         <Heading { txt: 'Get Started', size: 36 } />
         <Heading { txt: 'Installation' } />
         
-        <Paragraph { txt: 'To quickly get your hands dirty with QueFlowJS, add the below code to the body section of an HTML file, as shown below 👇' } />
+        <Paragraph { txt: 'To quickly get your hands dirty with QueFlowJS, add the below code to the body section of an HTML file.' } />
         <CodeView { code: \`
  &lt;script type="importmap"&gt;
     {
