@@ -2,13 +2,13 @@ var currentComponent, timerInt;
 
 const loadComponent = (path) => {
   if (path === "/docs/nuggets") {
-   timerInt = setInterval(() => Nuggets.data.time = new Date().toLocaleTimeString(), 1000) 
+    timerInt = setInterval(() => Nuggets.data.time = new Date().toLocaleTimeString(), 1000)
   } else {
     clearInterval(timerInt)
   }
-  
+
   switch (path) {
-    case '/':
+    case '/docs/index.html':
       currentComponent.hide()
       Home.show()
       currentComponent = Home

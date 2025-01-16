@@ -14,17 +14,24 @@ const Documentation = new App('#app', {
     `
   },
 
-  run: () => {
+  run: function() {
     currentComponent = Home;
     GetStarted.hide()
     QComp.hide()
     Compo.hide()
     ProjectStructure.hide()
     Nuggets.hide()
+
     window.addEventListener('popstate', () => {
       const path = window.location.pathname
       loadComponent(path)
     })
+
+    setTimeout(() => {
+      const script = document.createElement('script')
+      script.src = './src/assets/prisms.js'
+      this.element.appendChild(script)
+    }, 2000)
   },
   stylesheet: {
     "@font-face": `
