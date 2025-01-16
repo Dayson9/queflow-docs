@@ -1,6 +1,8 @@
 import { Component } from 'queflow'
 import Navbar from './Navbar.js'
 
+const width = window.innerWidth
+
 const Header = new Component('Header', {
   template: () => {
     return `
@@ -11,7 +13,7 @@ const Header = new Component('Header', {
         </div>
         
         <div class="right">
-          <i class="bx bx-sun pxp-el6"></i>
+          <i class="bx bx-sun pxp-el6" onclick={{ switchMode() }}></i>
           <i class="bx bx-menu pxp-el7" onclick={{ Navbar.data.left = 0 }}></i>
         </div>
       </header>
@@ -46,7 +48,7 @@ const Header = new Component('Header', {
     `,
     '.right': `
       color: white;
-      width: 30%;
+      width: ${width < 768 ? 30 : 12}%;
       height: 100%;
       display: inherit;
       align-items: inherit;

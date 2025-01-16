@@ -8,7 +8,7 @@ const loadComponent = (path) => {
   }
 
   switch (path) {
-    case '/docs/index.html':
+    case '/':
       currentComponent.hide()
       Home.show()
       currentComponent = Home
