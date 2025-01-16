@@ -1,7 +1,6 @@
 var currentComponent, timerInt;
 
 const loadComponent = (path) => {
-  alert(path)
   if (path === "/docs/nuggets") {
     timerInt = setInterval(() => Nuggets.data.time = new Date().toLocaleTimeString(), 1000)
   } else {
