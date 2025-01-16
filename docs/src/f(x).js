@@ -11,7 +11,7 @@ const loadComponent = (path) => {
     case '/':
       currentComponent.hide()
       Home.show()
-      currentComponent = Home
+      currentComponent = Home 
       break;
     case '/get-started':
       currentComponent.hide()
