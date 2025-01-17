@@ -14,6 +14,8 @@ Template(selector /** (string) [required] -&gt; Selector of mount node **/ ,
   template /** (string|function) [required] -&gt; A string or function that returns HTML/JSX**/
 )
 \` } />
+
+        
       </section>
     `
   },
