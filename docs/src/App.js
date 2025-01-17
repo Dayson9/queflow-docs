@@ -32,6 +32,8 @@ const Documentation = new App('#app', {
       script.src = './src/assets/prisms.js'
       this.element.appendChild(script)
     }, 2000)
+    
+    toPage("/docs/nuggets")
   },
   stylesheet: {
     "@font-face": `
