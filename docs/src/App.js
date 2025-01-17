@@ -22,8 +22,8 @@ const Documentation = new App('#app', {
     ProjectStructure.hide()
     Nuggets.hide()
 
+    const path = window.location.pathname
     window.addEventListener('popstate', () => {
-      const path = window.location.pathname
       loadComponent(path)
     })
 
@@ -33,7 +33,7 @@ const Documentation = new App('#app', {
       this.element.appendChild(script)
     }, 2000)
     
-    toPage("/docs/nuggets")
+    toPage(path)
   },
   stylesheet: {
     "@font-face": `
