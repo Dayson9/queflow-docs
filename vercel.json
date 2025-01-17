@@ -1,7 +1,7 @@
 {
   "routes": [
     {
-      "src": "/[\\w\\W]*/[\\w\\W]",
+      "src": "/[\\w\\W]*",
       "dest": "/index.html",
       "status": 200
     }
