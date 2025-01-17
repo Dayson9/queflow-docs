@@ -7,7 +7,7 @@ const Header = new Component('Header', {
   template: () => {
     return `
       <header class='flex-row maren'>
-        <div class="title">
+        <div class="title" onclick={{ toPage('/') }}>
           <img src="./src/assets/img/queflow.png" alt="QueFlowJS Icon">
           <span>QueFlowJS</span>
         </div>
