@@ -44,7 +44,7 @@ const MyComponent = new Component('MyComponent', {
 
 export default MyComponent
 \`, filename: "MyComponent.js" } />
-        <Note { txt: "As you can see from the code above, the name of the component is the same as the variable name, in QueFlow apps, it is required to make sure both the variable name and the component name are the same." } />
+        <Note { txt: "As you can see from the code above, the name of the component is the same as the variable name, when working with QueFlow components, it is required to make sure both the variable name and the component name are the same." } />
         <Paragraph { txt: "Fill your App.js file with these:", top: 20 } />
         <CodeView { code: \`
 import { App } from "queflow"
@@ -63,7 +63,7 @@ MyApp.render()
         <div class="preview">
           <h1 color="wheat">My First QueFlow Component 🔥</h1>
         </div>
-        <Paragraph { txt: "In React, you have to add a space before closing a component tag [&lt;/MyComponent /&gt;], you don't need to do that in QueFlow, just write the name of your component between these [&lt;] and [/&gt;] and you're good to go." } />
+        <Paragraph { txt: "In React, you have to add a space just before closing a component tag [&lt;/MyComponent /&gt;], you don't need to do that in QueFlow, just write the name of your component between these [&lt;] and [/&gt;] and you're good to go." } />
         <Paragraph { txt: "Let's walk through more examples", top: 25 } />
         <Paragraph { txt: "In the [components] folder, create a new file and name it [List.js]." } />
         <CodeView { code: \`

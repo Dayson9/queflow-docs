@@ -114,13 +114,18 @@ BalloonApp.render()\` } />
         
         <Heading { txt: 'Freezing and Unfreezing components', size: 32, top: 50 } />
         
-        <Paragraph { txt: 'There are 2 methods for freezing & unfreeze components, [Instance.freeze()] and [Instance.unfreeze()] respectively.' } />
+        <Paragraph { txt: 'There are 2 methods for freezing & unfreezing components, [Instance.freeze()] and [Instance.unfreeze()] respectively.' } />
         
        <Heading { txt: 'Instance.freeze()', top: 30 } />
        <Paragraph { txt: 'As the name suggests, the [Instance.freeze()] method is used for freezing a component, which means any change made to the [data] attribute of a component won\\'t trigger an update in the DOM.'} />
-    
+        <CodeView { code: \`
+BalloonApp.freeze()
+\` } />
        <Heading { txt: 'Instance.unfreeze()', top: 30 } />   
        <Paragraph { txt: 'The [Instance.unfreeze()] method is used for unfreezing a component, any changes made to its data would trigger an update in the UI.'} />
+        <CodeView { code: \`
+BalloonApp.unfreeze()
+\` } />
         <Navigator { left: ['Get started', '/get-started'], right: ['Component', '/docs/component'] } />     
       </section>
     `
