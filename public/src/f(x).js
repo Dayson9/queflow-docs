@@ -7,7 +7,6 @@ const loadComponent = (path) => {
     clearInterval(timerInt)
   }
 
-alert(path)
   switch (path) {
     case '/':
       currentComponent.hide()
