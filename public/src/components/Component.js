@@ -132,7 +132,19 @@ MyApp.render()
         <div class="preview sec" color="white">
           <List/>
         </div>
-        
+        <Heading { txt: "Nested Components", top: 25 } />
+        <Paragraph { txt: "Components can be nested inside each other to create a more structured and sophisticated UI." } />
+        <CodeView { code: \`
+import OtherComponent from './OtherComponent.js';
+
+const MyComponent = new Component('MyComponent', {
+  template: () =&gt; {
+    return &grave;
+      &lt;OtherComponent/&gt;
+    &grave;
+  }
+})
+\` } />
         <Paragraph { txt: "[Components] and [App] have almost the same structure, the differences between them are highlighted below:" } />
         
         <ListItem { items: ["Components can only be rendered in App and not the other way round.", "We can only have one App instance while Components can be more.", "Components do not need mount node while App needs it."] } />

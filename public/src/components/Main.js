@@ -1,8 +1,9 @@
 import { Component } from 'queflow'
 import Home from './Home.js'
 import GetStarted from './GetStarted.js'
-import QComp from './QComp.js'
+import App_ from './App_.js'
 import Compo from './Component.js'
+import Template_ from './Template.js';
 import ProjectStructure from './ProjectStructure.js'
 import Nuggets from './Nuggets.js'
 
@@ -12,9 +13,10 @@ const Main = new Component('Main', {
     return `
       <Home/>
       <GetStarted/>
-      <QComp/>
+      <App_/>
       <Compo/>
       <Nuggets/>
+      <Template_/>
       <ProjectStructure/>
     `
   },

@@ -11,7 +11,7 @@ const loadComponent = (path) => {
     case '/':
       currentComponent.hide()
       Home.show()
-      currentComponent = Home 
+      currentComponent = Home
       break;
     case '/get-started':
       currentComponent.hide()
@@ -20,8 +20,8 @@ const loadComponent = (path) => {
       break;
     case '/docs/app':
       currentComponent.hide()
-      QComp.show()
-      currentComponent = QComp
+      App_.show()
+      currentComponent = App_
       break;
     case '/docs/component':
       currentComponent.hide()
@@ -39,6 +39,11 @@ const loadComponent = (path) => {
       currentComponent = Nuggets
       break;
 
+    case '/docs/template':
+      currentComponent.hide()
+      Template_.show()
+      currentComponent = Template_
+      break;
     default:
 
   }

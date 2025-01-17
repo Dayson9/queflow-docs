@@ -1,6 +1,6 @@
 import { Component } from 'queflow'
 
-const QComp = new Component('QComp', {
+const App_ = new Component('App_', {
   data: {
     balloon: "🎈 ",
     num: 1
@@ -142,4 +142,4 @@ BalloonApp.unfreeze()
   }
 })
 
-export default QComp
+export default App_

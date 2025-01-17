@@ -17,13 +17,15 @@ const Documentation = new App('#app', {
   run: function() {
     currentComponent = Home;
     GetStarted.hide()
-    QComp.hide()
+    App_.hide()
     Compo.hide()
     ProjectStructure.hide()
     Nuggets.hide()
-
+    Template_.hide()
+    
     const path = window.location.pathname
     window.addEventListener('popstate', () => {
+      const path = window.location.pathname
       loadComponent(path)
     })
 
