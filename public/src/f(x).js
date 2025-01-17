@@ -7,6 +7,7 @@ const loadComponent = (path) => {
     clearInterval(timerInt)
   }
 
+alert(path)
   switch (path) {
     case '/':
       currentComponent.hide()
@@ -14,13 +15,11 @@ const loadComponent = (path) => {
       currentComponent = Home 
       break;
     case '/get-started':
-      alett("Starting")
       currentComponent.hide()
       GetStarted.show()
       currentComponent = GetStarted
       break;
     case '/docs/app':
-      alert('App')
       currentComponent.hide()
       QComp.show()
       currentComponent = QComp
