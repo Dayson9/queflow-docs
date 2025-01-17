@@ -17,13 +17,13 @@ const GetStarted = new Component('GetStarted', {
         
         <Paragraph { txt: 'To quickly get your hands dirty with QueFlowJS, add the below code to the body section of an HTML file.' } />
         <CodeView { code: \`
- &lt;script type="importmap"&gt;
-    {
-       "imports": {
-            "queflow": "https://cdn.jsdelivr.net/gh/dayson9/queflowJS@main/lib/queflow.esm-browser.min.js"
-       }
-    }
- &lt;/script&gt;
+&lt;script type="importmap"&gt;
+ {
+   "imports": {
+     "queflow": "https://cdn.jsdelivr.net/gh/dayson9/queflowJS@main/lib/queflow.esm-browser.min.js"
+     }
+ }
+&lt;/script&gt;
  \` } />
        
         <Paragraph { txt: 'Create a div tag with id [app]' } />
@@ -35,7 +35,7 @@ import { App } from "queflow"
 
 const View = new App("#app", {
   template: () =&gt; {
-    return '&lt;h1 color="dodgerblue"&gt;I ❤️ QueFlowJS&lt;/h1&gt;'
+    return '&lt;h1 color="dodgerblue"&gt;I 💛 QueFlowJS&lt;/h1&gt;'
   }
 })
 

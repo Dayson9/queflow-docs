@@ -9,71 +9,73 @@ const ProjectStructure = new Component('ProjectStructure', {
         
         <div class="structure">
           <pre color="rgba(255,255,255,.9)">
-        my-queflow-app/
+  my-queflow-app/
 
-              ├── public/
+        ├── public/
 
-              │   ├── index.html
+        │   ├── index.html
 
-              │   └── favicon.ico 
+        │   └── favicon.ico 
 
-              ├── src/
+        ├── src/
 
-              │   ├── App.js
+        │   ├── App.js
+        
+        │   ├── Templates.js
 
-              │   ├── components/ 
+        │   ├── components/ 
 
-              │   │   ├── Header.js
+        │   │   ├── Header.js
 
-              │   │   ├── Footer.js
+        │   │   ├── Footer.js
 
-              │   │   ├── Article.js 
+        │   │   ├── Article.js 
 
-              │   │   └── Homepage.js
+        │   │   └── Homepage.js
 
-              │   ├── nuggets/ 
+        │   ├── nuggets/ 
 
-              │   │   ├── Heading.js
+        │   │   ├── Heading.js
 
-              │   │   ├── Paragraph.js
+        │   │   ├── Paragraph.js
 
-              │   │   ├── Button.js 
+        │   │   ├── Button.js 
 
-              │   │   └── GlowingText.js  
+        │   │   └── GlowingText.js  
   
-              │   ├── styles/ 
+        │   ├── styles/ 
 
-              │   │   ├── App.css
+        │   │   ├── App.css
 
-              │   │   ├── Header.css
+        │   │   ├── Header.css
 
-              │   │   └── Button.css
+        │   │   └── Button.css
 
-              │   ├── services/ 
+        │   ├── services/ 
 
-              │   │   ├── api.js 
+        │   │   ├── api.js 
 
-              │   ├── utils/ 
+        │   ├── utils/ 
 
-              │   │   ├── helpers.js
+        │   │   ├── helpers.js
 
-              │   ├── index.js 
+        │   ├── index.js 
 
-              │   └── assets/ 
+        │   └── assets/ 
 
-              │       ├── images/ 
+        │       ├── images/ 
 
-              │       │   ├── logo.png
+        │       │   ├── logo.png
 
-              │       │   └── background.jpg
+        │       │   └── background.jpg
 
-              │       └── fonts/ 
+        │       └── fonts/ 
 
-              │           ├── myfont.ttf
+        │           ├── myfont.ttf
 
-              ├── package.json
+        ├── package.json
 
-              ├── README.md 
+        ├── README.md 
           </pre>
         </div>
         
