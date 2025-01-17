@@ -54,3 +54,12 @@ const toPage = (path) => {
   loadComponent(path)
   window.scrollTo(0, 0)
 }
+
+function downloadFile(filePath, fileName = 'queflow_starter_template.zip') {
+  const link = document.createElement('a');
+  link.href = filePath;
+  link.download = fileName;
+  Main.element.appendChild(link);
+  link.click();
+  Main.element.removeChild(link);
+}

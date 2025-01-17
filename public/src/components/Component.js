@@ -27,9 +27,9 @@ Component(name /** [string] (required) -&gt; Name of component **/ ,
    run: // [function] (optional) A function that runs immediately after rendering.
 })\` } />
 
-        <Paragraph { txt: "When working with [Component]s, it is highly recommended to follow QueFlow project structure.", top: 20 } />
+        <Paragraph { txt: "When working with [Component]s, it is highly recommended to follow QueFlow project structure.", top: 20 } />  1ll
         <Link { text: 'You can check it out [here]', click: "toPage('/docs/project-structure')" } />
-        <Link { text: "or simply [download] it's zip file.", click: "download()" } />
+        <Link { text: "or simply [download] it's zip file.", click: "downloadFile('http://queflowjs.vercel.app/src/assets/queflow_starter_template.zip')" } />
         
         <Note { txt: "To continue with this tutorial, you must have either downloaded the zip file or structure your project as specified above." } />
         
