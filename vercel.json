@@ -5,7 +5,7 @@
       "dest": "/"
     },
     {
-      "src": "/docs/[^.]+",
+      "src": "/docs/app",
       "dest": "/"
     }
   ]
