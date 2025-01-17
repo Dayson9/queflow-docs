@@ -20,7 +20,7 @@ const GetStarted = new Component('GetStarted', {
 &lt;script type="importmap"&gt;
  {
    "imports": {
-     "queflow": "https://cdn.jsdelivr.net/gh/dayson9/queflowJS@main/lib/queflow.esm-browser.min.js"
+     "queflow": "https://esm.sh/gh/dayson9/queflowjs/lib/queflow.esm-browser.js"
      }
  }
 &lt;/script&gt;
