@@ -32,6 +32,8 @@
         <CodeView { code: \`
 &lt;h1 color={{ this.data.color }_} font-family="Inter"&gt;Hello World&lt;/h1&gt;
 \` } />
+          
+          <Navigator { left: ['Get Started', '/get-started'], right: ['App', '/docs/app'] } />
         </section>
       `
     },
