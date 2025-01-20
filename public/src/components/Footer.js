@@ -1,14 +1,13 @@
   import { Component } from 'queflow'
-  
+
   const Footer = new Component('Footer', {
     template: () => {
       return `
         
       `
     },
-  
-    stylesheet: {
-    }
+
+    stylesheet: {}
   })
-  
+
   export default Footer

@@ -15,12 +15,19 @@ Template(selector /** (string) [required] -&gt; Selector of mount node **/ ,
 )
 \` } />
 
-        
+        <Heading { txt: "Creating a Template" } />
+        <Paragraph { txt: "In the src folder, you'd find a file named Templates.js, fill it up with these:" } />
+        <CodeView { code: \`
+
+\`, filename: "Template" } />
       </section>
     `
   },
   stylesheet: {
 
+  },
+  run: function() {
+    console.log(this.element.id)
   }
 })
 

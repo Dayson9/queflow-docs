@@ -17,6 +17,7 @@ const Documentation = new App('#app', {
   run: function() {
     currentComponent = Home;
     GetStarted.hide()
+    Syntax.hide()
     App_.hide()
     Compo.hide()
     ProjectStructure.hide()
@@ -33,7 +34,7 @@ const Documentation = new App('#app', {
       const script = document.createElement('script')
       script.src = './src/assets/prisms.js'
       this.element.appendChild(script)
-    }, 2000)
+    }, 20)
     
     toPage(path)
   },

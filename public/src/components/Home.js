@@ -52,11 +52,11 @@ const Home = new Component('Home', {
     `,
 
     '.pxp-el11': `
-        color: white;
+        color: rgba(255,255,255,.9);
     `,
 
     '.pxp-el12': `  
-        color: white;
+        color: rgba(255,255,255,.9);
         text-align: center;
     `,
     '.btn': `
