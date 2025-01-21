@@ -43,11 +43,15 @@ const loadComponent = (path) => {
       Nuggets.show()
       currentComponent = Nuggets
       break;
-
     case '/docs/template':
       currentComponent.hide()
       Template_.show()
       currentComponent = Template_
+      break;
+    case '/docs/events':
+      currentComponent.hide()
+      Events.show()
+      currentComponent = Events
       break;
     default:
 

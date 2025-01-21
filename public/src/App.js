@@ -21,6 +21,7 @@ const Documentation = new App('#app', {
     App_.hide()
     Compo.hide()
     ProjectStructure.hide()
+    Events.hide()
     Nuggets.hide()
     Template_.hide()
     
@@ -35,7 +36,7 @@ const Documentation = new App('#app', {
       const script = document.createElement('script')
       script.src = './src/assets/prisms.js'
       this.element.appendChild(script)
-    }, 20)
+    }, 200)
     
     toPage(path)
   },

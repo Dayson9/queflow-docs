@@ -5,6 +5,7 @@ import Syntax from './Syntax.js'
 import App_ from './App_.js'
 import Compo from './Component.js'
 import Template_ from './Template.js';
+import Events from './Events.js'
 import ProjectStructure from './ProjectStructure.js'
 import Nuggets from './Nuggets.js'
 
@@ -21,6 +22,7 @@ const Main = new Component('Main', {
       <Compo/>
       <Nuggets/>
       <Template_/>
+      <Events/>
       <ProjectStructure/>
     `
   },
