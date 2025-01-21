@@ -59,8 +59,8 @@ const CounterApp = new App("#app", {
   },
   template: () =&gt; {
     return &#96;
-      &lt;h1 color="teal"&gt;{{ this.data.counter }_}&lt;/h1&gt;
-      &lt;button onclick={{ this.data.counter++ }_}&gt;Click me&lt;/button&gt;
+      &lt;h1 color="teal"&gt;{{ counter }_}&lt;/h1&gt;
+      &lt;button onclick={{ data.counter++ }_}&gt;Click me&lt;/button&gt;
     &#96;
   }
 })
@@ -68,8 +68,8 @@ const CounterApp = new App("#app", {
 CounterApp.render() 
  \` } />
         <div class="preview">
-          <h1 color="teal">{{ this.data.c }}</h1>
-          <button onclick={{ this.data.c++ }}>Click me</button>
+          <h1 color="teal">{{ c }}</h1>
+          <button onclick={{ data.c++ }}>Click me</button>
         </div>
         
         <Paragraph { txt: 'The [data] property is reactive, which means any changes made to it would automatically trigger an update in the UI, like the above example.' } />
@@ -84,8 +84,8 @@ const ColorChanger = new App("#app", {
   },
   template: () =&gt; {
    return &#96;
-    &lt;h1 color={{ this.data.color || 'mediumpurple' }_} transition=".4s"&gt;Change my color&lt;/h1&gt;
-    &lt;input type="text" oninput={{ this.data.color = e.target.value }_}/&gt;
+    &lt;h1 color={{ color || 'mediumpurple' }_} transition=".4s"&gt;Change my color&lt;/h1&gt;
+    &lt;input type="text" oninput={{ data.color = e.target.value }_}/&gt;
     &#96;
   }
 })
@@ -93,8 +93,8 @@ const ColorChanger = new App("#app", {
 ColorChanger.render()
 \` } />
         <div class="preview">
-          <h1 color={{ this.data.clr || 'mediumpurple' }} transition=".4s">Change my color</h1>
-          <input type="text" oninput={{ this.data.clr = e.target.value }}/>
+          <h1 color={{ clr || 'mediumpurple' }} transition=".4s">Change my color</h1>
+          <input type="text" oninput={{ data.clr = e.target.value }}/>
         </div>
         
         <Paragraph { txt: 'The [e] is an object containing information about an event, which means [e.target] refers to the element that triggered the event.', top: 10 } />

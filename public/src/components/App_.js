@@ -89,9 +89,9 @@ const BalloonApp = new App("#app", {
   },
   template: () => {
     return &#96;
-     &lt;h1 font-size="30px"&gt;{{ this.data.balloon }_}&lt;/h1&gt;
-     &lt;p color="dodgerblue" font-family="sans-serif"&gt;{{ this.data.num }_} {{ this.data.num &gt; 1 ? "balloons" : "balloon" }_} created&lt;/p&gt;
-     &lt;button onclick={{ this.data.balloon+="🎈"; this.data.num++ }_}&gt;Create balloon +&lt;/button&gt;
+     &lt;h1 font-size="30px"&gt;{{ balloon }_}&lt;/h1&gt;
+     &lt;p color="dodgerblue" font-family="sans-serif"&gt;{{ num }_} {{ num > 1 ? "balloons" : "balloon" }_} created&lt;/p&gt;
+     &lt;button onclick={{ data.balloon+="🎈"; data.num++ }_}&gt;Create balloon +&lt;/button&gt;
     &#96;
   },
   stylesheet: {
@@ -107,9 +107,9 @@ const BalloonApp = new App("#app", {
 
 BalloonApp.render()\` } />
         <div class="preview">
-          <h1 font-size="30px">{{ this.data.balloon }}</h1>
-          <p color="dodgerblue" font-family="sans-serif">{{ this.data.num }} {{ this.data.num > 1 ? "balloons" : "balloon" }} created</p>
-          <button class="styled" onclick={{ this.data.balloon+="🎈"; this.data.num++; }}>Create balloon +</button>
+          <h1 font-size="30px">{{ balloon }}</h1>
+          <p color="dodgerblue" font-family="sans-serif">{{ num }} {{ num > 1 ? "balloons" : "balloon" }} created</p>
+          <button class="styled" onclick={{ data.balloon+="🎈"; data.num++; }}>Create balloon +</button>
         </div>
         
         <Heading { txt: 'Freezing and Unfreezing components', size: 32, top: 50 } />

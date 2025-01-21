@@ -138,11 +138,17 @@ function evaluateTemplate(reff, instance) {
   const regex = /\{\{[^\{\{]+\}\}/g;
   try {
     out = reff.replace(regex, (match) => {
-      const ext = b(match.replace('&gt;', '>')),
-        parse = () => Function('return ' + ext).call(instance),
-        parsed = parse();
+      match = match.replaceAll('&gt;', '>');
+      match = match.replaceAll('&lt;', '<');
+      const ext = b(match).trim(),
+        falsy = [undefined, NaN, null];
+ 
+      let parsed = Function(`return this.data.${ext}`).call(instance);
 
-      const falsy = [undefined, NaN, null];
+      if (falsy.includes(parsed) && parsed != "0") {
+        parsed = Function('return ' + ext).call(instance);
+      }
+
       let rendered = "";
 
       if (falsy.includes(parsed) && parsed != "0") {
@@ -157,7 +163,7 @@ function evaluateTemplate(reff, instance) {
     // Prevents unnecessary errors 
     let reg = /Unexpected token/i;
     if (!reg.test(error))
-      console.error("QueFlow Error:\nAn error occurred while parsing JSX/HTML:\n\n" + error);
+      console.error("QueFlow Error:\nAn error occurred while parsing JSX/HTML:\n\n" +error);
   }
 
 
@@ -358,7 +364,8 @@ function initiateStyleSheet(selector = "", instance = Object, shouldSwitch) {
 function handleEventListener(parent, instance) {
   // Selects all child elements of parent
   const children = parent.querySelectorAll("*"),
-    len = children.length;
+    len = children.length,
+    name = instance.name;
   // Iterate through each child element
   for (let i = 0; i < len; i++) {
     let c = children[i];
@@ -373,12 +380,12 @@ function handleEventListener(parent, instance) {
       if (attribute.startsWith("on")) {
         const sub_id = c.dataset.sub_id;
         if (sub_id) {
-          const _instance = Function("return " + sub_id)(),
-            fun = Function("e", value).bind(_instance);
+          const _instance = components.get(sub_id),
+            fun = Function("e", `const data = ${sub_id}.data; ${value}`).bind(_instance);
           c[attribute] = fun;
         } else {
           // Bind the function to the instance directly
-          const fun = Function("e", value).bind(instance);
+          const fun = Function("e", `const data =${name}.data; ${value}`).bind(instance);
           c[attribute] = fun;
         }
       }
@@ -553,7 +560,7 @@ const removeEvents = (nodeList) => {
 }
 
 const renderComponent = (instance, name, flag) => {
-  let template = !flag ? `<div> ${(instance.template instanceof Function ? instance.template() : instance.template)} </div>` : (instance.template instanceof Function ? instance.template() : instance.template);
+  let template = !flag ? `<div> ${(instance.template instanceof Function ? instance.template(instance.data) : instance.template)} </div>` : (instance.template instanceof Function ? instance.template(instance.data) : instance.template);
 
   template = initiateComponents(template);
 
@@ -635,14 +642,14 @@ class App {
     });
 
     if (this.created)
-      this.created(this);
+      this.created(this.data);
 
   }
 
   render() {
     let el = this.element;
     // Checks if the component's template is a string or a function.
-    let template = this.template instanceof Function ? this.template() : this.template;
+    let template = this.template instanceof Function ? this.template(this.data) : this.template;
     // Initiate sub-components if they are available 
     template = initiateComponents(template);
 
@@ -660,7 +667,7 @@ class App {
     }
 
     if (this.run)
-      this.run(this);
+      this.run(this.data);
   }
 
   freeze() {
@@ -742,7 +749,7 @@ class Component {
       }
     });
 
-    if (this.created) this.created(this);
+    if (this.created) this.created(this.data);
 
     components.set(name, this)
   }

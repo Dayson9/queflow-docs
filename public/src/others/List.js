@@ -4,11 +4,11 @@ const List = new Component("List", {
   data: {
     list: ['Oluwalonimi', 'Chisom', 'Danjuma']
   },
-  template: function(){
+  template: function(data){
     return `
       <h1 color="slateblue">List</h1>
       <ul font-weight="450">
-        ${ this.data.list.map((item) => {
+        ${ data.list.map((item) => {
                 return `<li>${item}</li>`
             }).join('')}
       </ul>

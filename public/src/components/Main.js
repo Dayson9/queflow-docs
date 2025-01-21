@@ -10,7 +10,7 @@ import Nuggets from './Nuggets.js'
 
 const Main = new Component('Main', {
   data: {
-    class: 'dark'
+    className: 'dark'
   },
   template: () => {
     return `

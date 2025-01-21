@@ -27,7 +27,7 @@ Component(name /** [string] (required) -&gt; Name of component **/ ,
    run: // [function] (optional) A function that runs immediately after rendering.
 })\` } />
 
-        <Paragraph { txt: "When working with [Component]s, it is highly recommended to follow QueFlow project structure.", top: 20 } />  1ll
+        <Paragraph { txt: "When working with [Component]s, it is highly recommended to follow QueFlow project structure.", top: 20 } />
         <Link { text: 'You can check it out [here]', click: "toPage('/docs/project-structure')" } />
         <Link { text: "or simply [download] it's zip file.", click: "downloadFile('http://queflowjs.vercel.app/src/assets/queflow_starter_template.zip')" } />
         
@@ -77,7 +77,7 @@ const List = new Component('List', {
     return &#96;
       &lt;h1 color="slateblue"&gt;List&lt;/h1&gt;
       &lt;ul font-weight="450"&gt;
-        $\\{ this.data.list.map((item) =&gt; {
+        $\\{ data.list.map((item) =&gt; {
         return &#96;&lt;li&gt;$\\{item}&lt;/li&gt;&#96;
       }).join('')}
       &lt;/ul&gt;

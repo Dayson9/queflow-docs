@@ -133,7 +133,7 @@ const Timer = new App("#app", {
   },
   template: () =&gt; &#96;
     &lt;div&gt;
-      &lt;Time { time: '{{ this.data.currentTime }_}' } /&gt;
+      &lt;Time { time: '{{ currentTime }_}' } /&gt;
     &lt;/div&gt;
   &#96;,
   stylesheet: {
@@ -156,7 +156,7 @@ Timer.render()
 \`, filename: "App.js" } />
         <div class="preview">
           <div>
-            <span>{{ this.data.time }}</span>
+            <span>{{ time }}</span>
           </div>
         </div>
         
