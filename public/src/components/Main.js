@@ -47,9 +47,6 @@ const Main = new Component('Main', {
       max-width: 100vw;
       padding-left: 5%;
       box-sizing: border-box;
-   `,
-   '.dark': `
-    background: navyblue!important;
    `
   }
 })

@@ -16,29 +16,53 @@
           <Heading { txt: "Complex expressions", size: 20, top: 30 } />
           
           <Paragraph { txt: "QueFlow supports JavaScript expressions within the curly braces:" } />
-
-        <CodeView { code: \`
+          <Paragraph { txt: "This would work:" } />
+         <CodeView { code: \`
+// This would work
 &lt;p&gt;{{ msg.split('').reverse().join('') }_}&lt;/p&gt;
-
 &lt;p&gt;{{ ok ? '👍' : '😡' }_}&lt;/p&gt;
+
+
+// This would throw an error
+&lt;p&gt;{{ Math.PI*num }_}&lt;/p&gt;
+
+
+// This would work
+&lt;p&gt;{{ num*Math.PI }_}&lt;/p&gt;
+\` } />
+          <Heading { txt: "Data Interpolation" } />
+          <Paragraph { txt: "QueFlow also supports interpolation of data:" } />
+         <CodeView { code: \`
+// This would work
+&lt;p&gt;Message is: {{ msg }_}&lt;/p&gt;
+
+
+// This would throw an error
+&lt;p&gt;{{ "Message is: "+msg }_}&lt;/p&gt;
 \` } />
           <Heading { txt: "HTML Attributes" } />
           <Paragraph { txt: "You can pass attributes to HTML elements.These values can be static or dynamic:" } />
         <CodeView { code: \`
-&lt;p class={{ class }_}&gt;&lt;/p&gt;
+&lt;p class={{ className }_}&gt;&lt;/p&gt;
 \` } />
           <Heading { txt: "CSS Attributes" } />
-          <Paragraph { txt: "This example uses direct CSS properties which is recommended in QueFlow. The color attribute uses a dynamic value, while the font-family attribute uses a static attribute, which means whenever the value of [color] changes, the color of the element changes respectively." } />
+          <Paragraph { txt: "This example uses direct CSS properties which is recommended in QueFlow." } />
         <CodeView { code: \`
 &lt;h1 color={{ color }_} font-family="Inter"&gt;Hello World&lt;/h1&gt;
 \` } />
+          <Paragraph { txt: "The color attribute uses a dynamic value, while the font-family attribute uses a static attribute, whenever the value of [color] changes, the color of the element changes respectively." } />
           
+          <Heading { txt: "Event Syntax" } />
+          <Paragraph { txt: "QueFlow uses a unique approach in writing event listeners, using double braces." } />
+<CodeView { code: \`
+&lt;button onclick={{ alert("Hello World 👋") }_}&gt;Click me&lt;/button&gt;
+\` } />
+
+
           <Navigator { left: ['Get Started', '/introduction'], right: ['App', '/docs/app'] } />
         </section>
       `
-    },
-
-    stylesheet: {}
+    }
   })
 
   export default Syntax

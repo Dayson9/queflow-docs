@@ -33,7 +33,7 @@ MyApp.render()
         <div class="preview">
           <button class="btn inter" onclick={{ data.count++; }}>Count is: {{ count }}</buton>
         </div>
-        <Heading { txt: 'Installation' } />
+        <Heading { txt: 'Installation', top: 60 } />
         
         <Paragraph { txt: 'To quickly get your hands dirty with QueFlowJS, add the below code to the body section of an HTML file.' } />
         <CodeView { code: \`
@@ -66,7 +66,7 @@ View.render()\` } />
           <h1 color="dodgerblue">I ❤️ QueFlowJS</h1>
         </div>
         
-        <Paragraph { txt: "As you can see from the above code, you can write CSS properties directly into elements , instead of [style='color: dodgerblue'], you should write [color='dodgerblue'], QueFlow handles everything for you." } />
+        <Paragraph { txt: "QueFlow allows writing CSS properties directly into elements like the example above, instead of [style='color: dodgerblue'], you should write [color='dodgerblue'], QueFlow handles everything for you." } />
         
         <Heading { txt: 'Quick start' } />
         <Paragraph { txt: "Using the same implementation, let's create a counter app." } />
@@ -79,7 +79,7 @@ const CounterApp = new App("#app", {
   },
   template: () =&gt; {
     return &#96;
-      &lt;h1 color="teal"&gt;{{ counter }_}&lt;/h1&gt;
+      &lt;h1 color="wheat"&gt;{{ counter }_}&lt;/h1&gt;
       &lt;button onclick={{ data.counter++ }_}&gt;Click me&lt;/button&gt;
     &#96;
   }
@@ -88,11 +88,11 @@ const CounterApp = new App("#app", {
 CounterApp.render() 
  \` } />
         <div class="preview">
-          <h1 color="teal">{{ c }}</h1>
-          <button onclick={{ data.c++ }}>Click me</button>
+          <h1 color="wheat">{{ c }}</h1>
+          <button class="btn inter" onclick={{ data.c++ }}>Click me</button>
         </div>
         
-        <Paragraph { txt: 'The [data] property is reactive, which means any changes made to it would automatically trigger an update in the UI, like the above example.' } />
+        <Paragraph { txt: 'The [data] property is reactive, which means any changes made to it would automatically trigger an update in the UI.' } />
         
         <Paragraph { txt: 'Let\\'s try out another example.', top: 10 } />
         <CodeView { code: \`
@@ -120,8 +120,8 @@ ColorChanger.render()
         <Paragraph { txt: 'The [e] is an object containing information about an event, which means [e.target] refers to the element that triggered the event.', top: 10 } />
         
         <Paragraph { txt: "Now that we've covered the basics of QueFlowJS, let's move on to the advanced concepts." } />
-        <Note { txt: "Note that this tutorial would be focused mainly on providing examples to aid learning, let's rock 💪." }/>
-        <Navigator { left: [null, null], right: ['App', '/docs/template-syntax'] } />
+        <Note { txt: "This tutorial would be focused mainly on providing examples to aid learning, let's rock 💪." }/>
+        <Navigator { left: [null, null], right: ['Template Syntax', '/docs/template-syntax'] } />
       </section>
     `
   },
@@ -129,7 +129,7 @@ ColorChanger.render()
     '.btn' : `
       padding-block: 10px;
       width: 90px;
-      background: rgba(0,0,0,0.2);
+      background: rgb(30, 40, 35);
       color: white;
       border: 1px solid grey;
       border-radius: 10px;
