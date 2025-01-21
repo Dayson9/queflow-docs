@@ -8,13 +8,11 @@ const List = new Component("List", {
     return `
       <h1 color="slateblue">List</h1>
       <ul font-weight="450">
-        ${ data.list.map((item) => {
-                return `<li>${item}</li>`
-            }).join('')}
+        ${ data.list.map((item) => `<li>${item}</li>`).join('')}
       </ul>
       <input type="text" id="input" value="Alex"/>
       <button font-weight="450" onclick={{
-        List.data.list.push(input.value);
+        data.list.push(input.value);
         input.value = ""
         input.focus()
       }}>Add +</button>

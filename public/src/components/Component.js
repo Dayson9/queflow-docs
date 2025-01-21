@@ -31,7 +31,7 @@ Component(name /** [string] (required) -&gt; Name of component **/ ,
         <Link { text: 'You can check it out [here]', click: "toPage('/docs/project-structure')" } />
         <Link { text: "or simply [download] it's zip file.", click: "downloadFile('http://queflowjs.vercel.app/src/assets/queflow_starter_template.zip')" } />
         
-        <Note { txt: "To continue with this tutorial, you must have either downloaded the zip file or structure your project as specified above." } />
+        <Note { txt: "As you continue with this tutorial, we assume you've already downloaded the zip file or structure your project as specified above." } />
         
         <Paragraph { txt: "Now let's look at how to use components.", top: 20 } />
         <Paragraph { txt: "In the components folder, create a new file and name it [MyComponent.js], copy-paste the code below into the file." } />
@@ -64,6 +64,7 @@ MyApp.render()
           <h1 color="wheat">My First QueFlow Component 🔥</h1>
         </div>
         <Paragraph { txt: "In React, you have to add a space just before closing a component tag [&lt;/MyComponent /&gt;], you don't need to do that in QueFlow, just write the name of your component between these [&lt;] and [/&gt;] and you're good to go." } />
+  <!--
         <Paragraph { txt: "Let's walk through more examples", top: 25 } />
         <Paragraph { txt: "In the [components] folder, create a new file and name it [List.js]." } />
         <CodeView { code: \`
@@ -132,6 +133,8 @@ MyApp.render()
         <div class="preview sec" color="white">
           <List/>
         </div>
+        
+        --!>
         <Heading { txt: "Nested Components", top: 25 } />
         <Paragraph { txt: "Components can be nested inside each other to create a more structured and sophisticated UI." } />
         <CodeView { code: \`

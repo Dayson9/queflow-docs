@@ -57,7 +57,7 @@ const BalloonApp = new App("#app", {
   template: () => {
     return &#96;
      &lt;h1 font-size="30px"&gt;🎈&lt;/h1&gt;
-     &lt;p color="dodgerblue" font-family="sans-serif"&gt;1 balloon created&gt;/p&gt;
+     &lt;p color="dodgerblue"&gt;1 balloon created&gt;/p&gt;
      &lt;button&gt;Create balloon +&lt;/button&gt;
     &#96;
   },
@@ -73,9 +73,9 @@ const BalloonApp = new App("#app", {
 })
 
 BalloonApp.render()\` } />
-        <div class="preview">
+        <div class="preview inter">
           <h1 font-size="30px">🎈 </h1>
-          <p color="dodgerblue" font-family="sans-serif">1 balloon created</p>
+          <p color="dodgerblue">1 balloon created</p>
           <button class="styled">Create balloon +</button>
         </div>
         
@@ -90,25 +90,27 @@ const BalloonApp = new App("#app", {
   template: () => {
     return &#96;
      &lt;h1 font-size="30px"&gt;{{ balloon }_}&lt;/h1&gt;
-     &lt;p color="dodgerblue" font-family="sans-serif"&gt;{{ num }_} {{ num > 1 ? "balloons" : "balloon" }_} created&lt;/p&gt;
+     &lt;p color="dodgerblue"&gt;{{ num }_} {{ num > 1 ? "balloons" : "balloon" }_} created&lt;/p&gt;
      &lt;button onclick={{ data.balloon+="🎈"; data.num++ }_}&gt;Create balloon +&lt;/button&gt;
     &#96;
   },
   stylesheet: {
     "button": &#96;
-     padding: 13px 17px;
-     border: none;
-     border-radius: 10px;
-     background: slateblue;
-     color: white;
+      padding: 13px;
+      border: none;
+      border-radius: 5px;
+      background: slateblue;
+      color: white;
+      font-size: 15px;
+      font-family: Inter;
     &#96;
   }
 })
 
 BalloonApp.render()\` } />
-        <div class="preview">
+        <div class="preview inter">
           <h1 font-size="30px">{{ balloon }}</h1>
-          <p color="dodgerblue" font-family="sans-serif">{{ num }} {{ num > 1 ? "balloons" : "balloon" }} created</p>
+          <p color="dodgerblue">{{ num }} {{ num > 1 ? "balloons" : "balloon" }} created</p>
           <button class="styled" onclick={{ data.balloon+="🎈"; data.num++; }}>Create balloon +</button>
         </div>
         
@@ -133,11 +135,13 @@ BalloonApp.unfreeze()
 
   stylesheet: {
     ".styled" : `
-      padding: 13px 17px;
+      padding: 13px;
       border: none;
       border-radius: 5px;
       background: slateblue;
       color: white;
+      font-size: 15px;
+      font-family: Inter;
     `
   }
 })

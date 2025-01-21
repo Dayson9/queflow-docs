@@ -24,6 +24,7 @@ const Documentation = new App('#app', {
     Nuggets.hide()
     Template_.hide()
     
+    List.data.list[1] = "Reus"
     const path = window.location.pathname
     window.addEventListener('popstate', () => {
       const path = window.location.pathname

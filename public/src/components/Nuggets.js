@@ -40,7 +40,7 @@ export default MyNugget
         <Paragraph { txt: "Then update the [App.js] file as follows:" } />
         <CodeView { code: \`
 import { App } from "queflow"
-import Nugget from "./nuggets/MyNugget.js"
+import MyNugget from "./nuggets/MyNugget.js"
 
 const MyApp = new App("#app", {
   template: () =&gt; '&lt;MyNugget { message: "My first QueFlow Nugget ⚡", color: "orchid" } /&gt;'
