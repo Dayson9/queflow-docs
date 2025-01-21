@@ -13,7 +13,6 @@ const Header = new Component('Header', {
         </div>
         
         <div class="right">
-          <i class="bx bx-sun pxp-el6" onclick={{ switchMode() }}></i>
           <i class="bx bx-menu pxp-el7" onclick={{ Navbar.data.left = 0 }}></i>
         </div>
       </header>
@@ -48,7 +47,7 @@ const Header = new Component('Header', {
     `,
     '.right': `
       color: white;
-      width: ${width < 768 ? 30 : 12}%;
+      width: ${width < 768 ? 10 : 12}%;
       height: 100%;
       display: inherit;
       align-items: inherit;

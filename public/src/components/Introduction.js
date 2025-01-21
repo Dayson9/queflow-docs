@@ -4,15 +4,35 @@ import CodeView from '../nuggets/CodeView.js'
 import Navigator from '../nuggets/Navigator.js'
 import Note from '../nuggets/Note.js';
 
-const GetStarted = new Component('GetStarted', {
+const Introduction = new Component('Introduction', {
   data: {
+    count: 0,
     c: 0,
     clr: ""
   },
   template: () => {
     return `
       <section>
-        <Heading { txt: 'Get Started', size: 36 } />
+        <Heading { txt: 'Introduction', size: 36 } />
+        <Heading { txt: "What is QueFlow?" } />
+        <Paragraph { txt: "QueFlow (pronounced /kjuːˈfloʊ/) is a JavaScript library for building web apps. It leverages the 3 web languages HTML, CSS and JavaScript and provides a straightforward, component-based application model that makes building performant, fast web apps super-easy." } />
+        <Paragraph { txt: "Here is a simple example:" } />
+        <CodeView { code: \`
+const MyApp = new App("#app", {
+  data: {
+    count: 0
+  },
+  template: () =&gt; &#96;
+    &lt;button onclick={{ data.count++; }_}&gt;Count is: {{ count }_}&lt;/button&gt;
+  &#96;
+})
+
+MyApp.render()
+\` } />
+
+        <div class="preview">
+          <button class="btn inter" onclick={{ data.count++; }}>Count is: {{ count }}</buton>
+        </div>
         <Heading { txt: 'Installation' } />
         
         <Paragraph { txt: 'To quickly get your hands dirty with QueFlowJS, add the below code to the body section of an HTML file.' } />
@@ -104,7 +124,19 @@ ColorChanger.render()
         <Navigator { left: [null, null], right: ['App', '/docs/template-syntax'] } />
       </section>
     `
+  },
+  stylesheet: {
+    '.btn' : `
+      padding-block: 10px;
+      width: 90px;
+      background: rgba(0,0,0,0.2);
+      color: white;
+      border: 1px solid grey;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 15px;
+    `
   }
 })
 
-export default GetStarted
+export default Introduction

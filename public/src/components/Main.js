@@ -1,6 +1,6 @@
 import { Component } from 'queflow'
 import Home from './Home.js'
-import GetStarted from './GetStarted.js'
+import Introduction from './Introduction.js'
 import Syntax from './Syntax.js'
 import App_ from './App_.js'
 import Compo from './Component.js'
@@ -15,7 +15,7 @@ const Main = new Component('Main', {
   template: () => {
     return `
       <Home/>
-      <GetStarted/>
+      <Introduction/>
       <Syntax/>
       <App_/>
       <Compo/>

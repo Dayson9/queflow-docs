@@ -126,7 +126,7 @@ BalloonApp.freeze()
         <CodeView { code: \`
 BalloonApp.unfreeze()
 \` } />
-        <Navigator { left: ['Get started', '/get-started'], right: ['Component', '/docs/component'] } />     
+        <Navigator { left: ['Get started', '/introduction'], right: ['Component', '/docs/component'] } />     
       </section>
     `
   },

@@ -13,10 +13,10 @@ const loadComponent = (path) => {
       Home.show()
       currentComponent = Home
       break;
-    case '/get-started':
+    case '/introduction':
       currentComponent.hide()
-      GetStarted.show()
-      currentComponent = GetStarted
+      Introduction.show()
+      currentComponent = Introduction
       break;
     case '/docs/template-syntax':
       currentComponent.hide()

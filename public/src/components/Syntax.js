@@ -33,7 +33,7 @@
 &lt;h1 color={{ color }_} font-family="Inter"&gt;Hello World&lt;/h1&gt;
 \` } />
           
-          <Navigator { left: ['Get Started', '/get-started'], right: ['App', '/docs/app'] } />
+          <Navigator { left: ['Get Started', '/introduction'], right: ['App', '/docs/app'] } />
         </section>
       `
     },
