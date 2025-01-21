@@ -128,7 +128,7 @@ ColorChanger.render()
   stylesheet: {
     '.btn' : `
       padding-block: 10px;
-      width: 90px;
+      width: 100px;
       background: rgb(30, 40, 35);
       color: white;
       border: 1px solid grey;
