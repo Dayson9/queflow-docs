@@ -7,7 +7,8 @@
 
 // Counter for generating unique IDs for elements with reactive data.
 var counterQF = 0,
-  nuggetCounter = 0;
+  nuggetCounter = 0,
+  routerObj = {};
 
 var stylesheet = {
   el: document.createElement("style"),
@@ -124,7 +125,7 @@ function sanitizeString(str) {
 
   for (const index in excluded_chars) {
     const { from, to } = excluded_chars[index];
-      str = str.replaceAll(from, to);
+    str = str.replaceAll(from, to);
   }
 
   return str.replace(/javascript:/gi, '');
@@ -142,7 +143,7 @@ function evaluateTemplate(reff, instance) {
       match = match.replaceAll('&lt;', '<');
       const ext = b(match).trim(),
         falsy = [undefined, NaN, null];
- 
+
       let parsed = Function(`return this.data.${ext}`).call(instance);
 
       if (falsy.includes(parsed) && parsed != "0") {
@@ -163,7 +164,7 @@ function evaluateTemplate(reff, instance) {
     // Prevents unnecessary errors 
     let reg = /Unexpected token/i;
     if (!reg.test(error))
-      console.error("QueFlow Error:\nAn error occurred while parsing JSX/HTML:\n\n" +error);
+      console.error("QueFlow Error:\nAn error occurred while parsing JSX/HTML:\n\n" + error);
   }
 
 
@@ -394,19 +395,15 @@ function handleEventListener(parent, instance) {
   }
 }
 
-function getFirstElement(html) {
+function initFirstElement(html, id) {
   const parser = new DOMParser(),
     parsed = parser.parseFromString(html, "text/html"),
     body = parsed.body;
 
   const firstElem = body.firstElementChild;
-  if (!firstElem.id) {
-    firstElem.id = "qfEl" + counterQF;
-    counterQF++;
-  }
+  firstElem.id = id;
 
-
-  return [firstElem, body.innerHTML];
+  return body.innerHTML;
 }
 
 
@@ -457,12 +454,12 @@ function updateComponent(ckey, obj, prev, _new) {
   }
 }
 
-function renderTemplate(input, props) {
+function renderTemplate(input, props, shouldSanitize) {
   const regex = /\{\{[^\{\{]+\}\}/g;
 
   const output = input.replace(regex, (match) => {
     const extracted = b(match).trim();
-    const value = props[extracted];
+    const value = shouldSanitize ? sanitizeString(props[extracted]) : props[extracted];
     return value ? value : `{{ ${extracted} }}`;
   });
 
@@ -562,16 +559,20 @@ const removeEvents = (nodeList) => {
 const renderComponent = (instance, name, flag) => {
   let template = !flag ? `<div> ${(instance.template instanceof Function ? instance.template(instance.data) : instance.template)} </div>` : (instance.template instanceof Function ? instance.template(instance.data) : instance.template);
 
+  template = handleRouter(template);
   template = initiateComponents(template);
 
-  const [el, newTemplate] = getFirstElement(template),
+  var rendered;
+  const id = typeof instance.element === 'string' ? instance.element : instance.element.id;
+  if (!flag) {
+    const newTemplate = initFirstElement(template, id);
     rendered = jsxToHTML(newTemplate, instance, name);
 
-  if (!flag) {
-    const id = el.id;
     // Initiates sub-component's stylesheet 
     initiateStyleSheet(`#${id}`, instance);
-    instance.element = id;
+  } else {
+    initiateStyleSheet(`#${id}`, instance);
+    rendered = jsxToHTML(template, instance, name);
   }
 
   instance.dataQF = rendered[1];
@@ -610,14 +611,14 @@ class App {
     });
 
     this.created = options.created;
-    this.run = options.run;
+    this.run = options.run || (() => {});
 
     this.useStrict = Object.keys(options).includes('useStrict') ? options.useStrict : true;
 
     let id = this.element.id;
     if (!id) throw new Error("QueFlow Error:\nTo use component scoped stylesheets, components element must have a valid id");
 
-    // Initiates a component's stylesheet 
+    // qà a component's stylesheet 
     initiateStyleSheet(`#${id}`, this);
 
     // Defines properties for the component instance.
@@ -650,6 +651,7 @@ class App {
     let el = this.element;
     // Checks if the component's template is a string or a function.
     let template = this.template instanceof Function ? this.template(this.data) : this.template;
+    template = handleRouter(template);
     // Initiate sub-components if they are available 
     template = initiateComponents(template);
 
@@ -663,11 +665,12 @@ class App {
     handleEventListener(el, this);
 
     for (const component of components) {
-      strToEl(component[1]);
+      const instance = component[1];
+      strToEl(instance);
+      instance.run(instance.data)
     }
 
-    if (this.run)
-      this.run(this.data);
+    this.run(this.data)
   }
 
   freeze() {
@@ -697,10 +700,13 @@ class Component {
 
     this.name = name;
     this.template = options?.template;
+    this.run = options.run || (() => {});
 
     if (!this.template) throw new Error("QueFlow Error:\nTemplate not provided for Component " + name);
 
-    this.element = "";
+    this.element = `qfEl${counterQF}`;
+    counterQF++;
+    this.isMounted = false;
     // Creates a reactive signal for the Component's data.
     this.data = createSignal(options.data, { forComponent: true, host: this });
 
@@ -749,8 +755,7 @@ class Component {
       }
     });
 
-    if (this.created) this.created(this.data);
-
+    if (this.created) this.created();
     components.set(name, this)
   }
 
@@ -777,6 +782,12 @@ class Component {
     }
   }
 
+  mount() {
+    this.element.innerHTML = renderComponent(this, this.name, true);
+    handleEventListener(this.element, this);
+    this.isMounted = true;
+  }
+
   // removes the component's element from the DOM
   destroy() {
     const all = [this.element, ...this.element.querySelectorAll('*')];
@@ -794,30 +805,36 @@ class Template {
    * @param {String|Node} element    The element to mount template into
    * @param {String|Function} templateFunc    A function that returns string to make into a template
    */
-  constructor(el, stylesheet, templateFunc) {
-    this.element = typeof el == "string" ? document.querySelector(el) : el;
-
+  constructor(id, stylesheet, templateFunc) {
+    this.element = id;
     this.template = templateFunc;
     this.stylesheet = stylesheet;
-
-    let id = this.element.id;
-
-    if (!id) throw new Error("QueFlow Error:\nTo use template scoped stylesheets, template's element must have a valid id");
-
-    // Initiates a component's stylesheet 
+    // Initiates stylesheet 
     initiateStyleSheet(`#${id}`, this);
-
   }
 
   renderWith(data, position = "append") {
-    let template = (this.template instanceof Function) ? this.template(data) : this.template;
+    this.element = typeof this.element == "string" ? document.getElementById(this.element) : this.element;
 
-    let rendered = renderTemplate(template, data),
-      r = jsxToHTML(rendered),
-      el = this.element,
-      html = el.innerHTML;
+    let rendered = this.element.innerHTML,
+      template = '';
 
-    el.innerHTML = html + r[0];
+    if (data instanceof Array) {
+      for (const d of data) {
+        template = (this.template instanceof Function) ? this.template(d) : this.template;
+        const r = renderTemplate(template, d, true);
+        rendered = position === "append" ? rendered + r : r + rendered;
+      }
+    } else {
+
+      template = (this.template instanceof Function) ? this.template(data) : this.template;
+      r = renderTemplate(template, data, true);
+      rendered = position === "append" ? rendered + r : r + rendered;
+    }
+
+    const el = this.element;
+
+    el.innerHTML = rendered;
   }
 }
 
@@ -872,6 +889,80 @@ class Nugget {
 
     nuggets.set(name, this)
   }
+}
+
+globalThis.toPage = (path) => {
+  history.pushState({}, '', path);
+  loadComponent(path)
+}
+
+const loadComponent = (path) => {
+  for (let i in routerObj) {
+    const { component, route } = routerObj[i];
+    const instance = components.get(component);
+    if (route === path) {
+      if (instance.isMounted) {
+        instance.show();
+      } else {
+        instance.show();
+        instance.mount();
+      }
+    } else {
+      instance.hide();
+    }
+  }
+  window.scrollTo(0, 0);
+}
+
+
+const Link = new Nugget('Link', {
+  template: (data) => {
+    const tagName = data.isBtn ? 'button' : 'span';
+    return `
+      <${tagName} ${ data.class ? 'class={{ class }}' : '' } onclick="toPage('{{ to }}')">
+        {{ label }}
+      </${tagName}>`
+  }
+})
+
+function handleRouter(input) {
+  const routerReg = /<(Router)\s*\{([\s\S]*?)\}\s*\/>/g;
+  let out = '',
+    computed = '';
+
+  if (routerReg.test(input)) {
+    const extr = input.match(routerReg)[0],
+      whiteSpaceIndex = extr.indexOf(" "),
+      d = extr.slice(whiteSpaceIndex, -2).trim(),
+      path = window.location.pathname;
+    const data = Function(`return ${d}.routes`)();
+
+    computed = data.map(({ route, component }, i) => {
+      data[i].component = stringBetween(component, " <", "/>");
+
+      const name = data[i].component,
+        instance = components.get(name);
+
+      if (route === path) {
+        instance.isMounted = true;
+        return renderComponent(instance, name);
+      } else {
+        const id = instance.element;
+        return `<div id="${id}"></div>`;
+      }
+    }).join('');
+    routerObj = data;
+    out = input.replace(extr, computed);
+  } else {
+    return input;
+  }
+
+  window.addEventListener('popstate', () => {
+    const path = window.location.pathname;
+    loadComponent(path);
+  });
+
+  return out;
 }
 
 export {
