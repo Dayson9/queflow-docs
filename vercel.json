@@ -1,8 +1,13 @@
 {
-    "rewrites": [
-        {
-            "src": "/(.*)",
-            "dest": "/public/index.html" 
-        }
-    ]
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/public/index.html"
+
+    },
+    {
+      "source": "/docs/:match*",
+      "destination": "/public/index.html"
+    }
+  ]
 }
