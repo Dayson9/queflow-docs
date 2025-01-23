@@ -2,12 +2,12 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/public/index.html"
+      "destination": "/index.html"
 
     },
     {
       "source": "/docs/:match*",
-      "destination": "/public/index.html"
+      "destination": "/index.html"
     }
   ]
 }
