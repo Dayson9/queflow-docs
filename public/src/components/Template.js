@@ -19,7 +19,9 @@ Template(selector /** (string) [required] -&gt; Selector of mount node **/ ,
         <Paragraph { txt: "In the src folder, you'd find a file named Templates.js, fill it up with these:" } />
         <CodeView { code: \`
 
-\`, filename: "Template" } />
+\`, filename: "Templates.js" } />
+
+        <Navigator { left: ['Nuggets', '/docs/nuggets'], right: ['Event Handling', '/docs/events'] } />
       </section>
     `
   },
