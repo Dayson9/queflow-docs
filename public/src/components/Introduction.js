@@ -83,7 +83,7 @@ const MyApp = new App("#app", {
       const t = e.touches[0];
       data.x = t.clientX - window.innerWidth/7;
     }_}&gt;
-        &lt;div id="ball" transition=".7s" transform="translateX({{ x }_}px)"&gt;Q&lt;/div&gt;
+        &lt;div id="ball" transition="transform 0.7s cubic-bezier(0.68, -0.55, 0.27, 1.55)" transform="translate({{ x }_}px, 25px)"&gt;Q&lt;/div&gt;
       &lt;/div&gt;
     &#96;
   },
@@ -106,14 +106,14 @@ const MyApp = new App("#app", {
 
 MyApp.render();
  \` } />
+ 
+        <Paragraph { txt: "Now click on the container below" } />
         <div class="preview">
           <div width="100%" height="100px" color="mediumpurple" ontouchstart={{
-            const rect = ball.getBoundingClientRect();
             const t = e.touches[0];
             data.x = t.clientX - window.innerWidth/7;
-            data.y = t.clientY-rect.offsetY;
         }}>
-          <div id="ball" transition=".7s" transform="translate({{ x }}px, {{ y }}px)">Q</div>
+          <div id="ball" transition="transform 0.7s cubic-bezier(0.68, -0.55, 0.27, 1.55)" transform="translate({{ x }}px, 25px)">Q</div>
           </div>
         </div>
         
