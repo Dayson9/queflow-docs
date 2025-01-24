@@ -145,7 +145,7 @@ ColorChanger.render()
         <Paragraph { txt: 'The [e] is an object containing information about an event, which means [e.target] refers to the element that triggered the event.', top: 10 } />
         
         <Paragraph { txt: "Now that we've covered the basics of QueFlowJS, let's move on to the advanced concepts." } />
-        <Navigator { left: [null, null], right: ['Template Syntax', '/docs/template-syntax'] } />
+        <Navigator { left: [null, null], right: ['Template Syntax', '/docs_template-syntax'] } />
       </section>
     `
   },

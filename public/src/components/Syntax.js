@@ -59,7 +59,7 @@
 \` } />
 
 
-          <Navigator { left: ['Get Started', '/introduction'], right: ['App', '/docs/app'] } />
+          <Navigator { left: ['Get Started', '/introduction'], right: ['App', '/docs_app'] } />
         </section>
       `
     }

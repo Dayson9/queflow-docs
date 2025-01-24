@@ -1,7 +1,7 @@
 var currentComponent, timerInt;
 
 const loadComponent = (path) => {
-  if (path === "/docs/nuggets") {
+  if (path === "/docs_nuggets") {
     timerInt = setInterval(() => Nuggets.data.time = new Date().toLocaleTimeString(), 1000)
   } else {
     clearInterval(timerInt)
@@ -18,37 +18,37 @@ const loadComponent = (path) => {
       Introduction.show()
       currentComponent = Introduction
       break;
-    case '/docs/template-syntax':
+    case '/docs_template-syntax':
       currentComponent.hide()
       Syntax.show()
       currentComponent = Syntax
       break;
-    case '/docs/app':
+    case '/docs_app':
       currentComponent.hide()
       App_.show()
       currentComponent = App_
       break;
-    case '/docs/component':
+    case '/docs_component':
       currentComponent.hide()
       Compo.show()
       currentComponent = Compo
       break;
-    case '/docs/project-structure':
+    case '/docs_project-structure':
       currentComponent.hide()
       ProjectStructure.show()
       currentComponent = ProjectStructure
       break;
-    case '/docs/nuggets':
+    case '/docs_nuggets':
       currentComponent.hide()
       Nuggets.show()
       currentComponent = Nuggets
       break;
-    case '/docs/template':
+    case '/docs_template':
       currentComponent.hide()
       Template_.show()
       currentComponent = Template_
       break;
-    case '/docs/events':
+    case '/docs_events':
       currentComponent.hide()
       Events.show()
       currentComponent = Events

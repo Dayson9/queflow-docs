@@ -28,7 +28,7 @@ Component(name /** [string] (required) -&gt; Name of component **/ ,
 })\` } />
 
         <Paragraph { txt: "When working with [Component]s, it is highly recommended to follow QueFlow project structure.", top: 20 } />
-        <Link { text: 'You can check it out [here]', click: "toPage('/docs/project-structure')" } />
+        <Link { text: 'You can check it out [here]', click: "toPage('/docs_project-structure')" } />
         <Link { text: "or simply [download] it's zip file.", click: "downloadFile('http://queflowjs.vercel.app/src/assets/queflow_starter_template.zip')" } />
         
         <Note { txt: "As you continue with this tutorial, we assume you've already downloaded the zip file or structure your project as specified above." } />
@@ -152,7 +152,7 @@ const MyComponent = new Component('MyComponent', {
         
         <ListItem { items: ["Components can only be rendered in App and not the other way round.", "We can only have one App instance while Components can be more.", "Components do not need mount node while App needs it."] } />
   
-        <Navigator { left: ['App', '/docs/app'], right: ['Nuggets', '/docs/nuggets'] } />
+        <Navigator { left: ['App', '/docs_app'], right: ['Nuggets', '/docs_nuggets'] } />
       </section>
     `
   },

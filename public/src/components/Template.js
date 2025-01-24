@@ -21,7 +21,7 @@ Template(selector /** (string) [required] -&gt; Selector of mount node **/ ,
 
 \`, filename: "Templates.js" } />
 
-        <Navigator { left: ['Nuggets', '/docs/nuggets'], right: ['Event Handling', '/docs/events'] } />
+        <Navigator { left: ['Nuggets', '/docs_nuggets'], right: ['Event Handling', '/docs_events'] } />
       </section>
     `
   },
