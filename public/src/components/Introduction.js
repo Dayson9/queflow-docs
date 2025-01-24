@@ -8,6 +8,8 @@ const Introduction = new Component('Introduction', {
   data: {
     count: 0,
     c: 0,
+    x: 0,
+    y: 0,
     clr: ""
   },
   template: () => {
@@ -71,25 +73,48 @@ View.render()\` } />
         <Heading { txt: 'Quick start' } />
         <Paragraph { txt: "Using the same implementation, let's create a counter app." } />
         <CodeView { code: \`
-import { App } from "queflow"
-
-const CounterApp = new App("#app", {
+const MyApp = new App("#app", {
   data: {
-    counter: 0
+    x: 0
   },
   template: () =&gt; {
     return &#96;
-      &lt;h1 color="wheat"&gt;{{ counter }_}&lt;/h1&gt;
-      &lt;button onclick={{ data.counter++ }_}&gt;Click me&lt;/button&gt;
+      &lt;div width="100%" height="100px" color="mediumpurple" ontouchstart={{
+      const t = e.touches[0];
+      data.x = t.clientX - window.innerWidth/7;
+    }_}&gt;
+        &lt;div id="ball" transition=".7s" transform="translateX({{ x }_}px)"&gt;Q&lt;/div&gt;
+      &lt;/div&gt;
+    &#96;
+  },
+  stylesheet: {
+    "#ball": &#96;
+      width: 40px;
+      height: 40px;
+      background: orchid;
+      border: 4px solid darkorchid;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 25px;
+      font-weight: 900;
+      color: white;
     &#96;
   }
 })
 
-CounterApp.render() 
+MyApp.render();
  \` } />
         <div class="preview">
-          <h1 color="wheat">{{ c }}</h1>
-          <button class="btn inter" onclick={{ data.c++ }}>Click me</button>
+          <div width="100%" height="100px" color="mediumpurple" ontouchstart={{
+            const rect = ball.getBoundingClientRect();
+            const t = e.touches[0];
+            data.x = t.clientX - window.innerWidth/7;
+            data.y = t.clientY-rect.offsetY;
+        }}>
+          <div id="ball" transition=".7s" transform="translate({{ x }}px, {{ y }}px)">Q</div>
+          </div>
         </div>
         
         <Paragraph { txt: 'The [data] property is reactive, which means any changes made to it would automatically trigger an update in the UI.' } />
@@ -134,6 +159,19 @@ ColorChanger.render()
       border-radius: 10px;
       font-weight: 700;
       font-size: 15px;
+    `,
+    "#ball": `
+      width: 40px;
+      height: 40px;
+      background: orchid;
+      border: 4px solid darkorchid;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 25px;
+      font-weight: 900;
+      color: white;
     `
   }
 })
