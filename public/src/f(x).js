@@ -17,6 +17,7 @@ const loadComponent = (path) => {
       currentComponent.hide()
       Docs.show()
       currentComponent = Docs
+      break;
     case '/introduction':
       currentComponent.hide()
       Introduction.show()
@@ -57,6 +58,11 @@ const loadComponent = (path) => {
       Events.show()
       currentComponent = Events
       break;
+    case '/showcase':
+      currentComponent.hide()
+      Showcase.show()
+      currentComponent = Showcase
+      break;
     default:
 
   }
@@ -66,6 +72,10 @@ const toPage = (path) => {
   history.pushState({}, '', path)
   loadComponent(path)
   window.scrollTo(0, 0)
+
+  if (Navbar.data.left !== 0) {
+    Navbar.data.left = -100;
+  }
 }
 
 function downloadFile(filePath, fileName = 'queflow_starter_template.zip') {

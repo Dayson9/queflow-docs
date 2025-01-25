@@ -6,6 +6,9 @@ import App_ from './App_.js'
 import Compo from './Component.js'
 import Template_ from './Template.js';
 import Events from './Events.js'
+import Docs from './Docs.js'
+import Showcase from './Showcase.js'
+
 import ProjectStructure from './ProjectStructure.js'
 import Nuggets from './Nuggets.js'
 
@@ -23,6 +26,8 @@ const Main = new Component('Main', {
       <Nuggets/>
       <Template_/>
       <Events/>
+      <Docs/>
+      <Showcase/>
       <ProjectStructure/>
     `
   },
@@ -44,12 +49,18 @@ const Main = new Component('Main', {
       padding-inline: 10px;
       padding-block: 10px;
     `,
-   'section': `
+    'section': `
       width: auto;
       max-width: 100vw;
       padding-left: 5%;
       box-sizing: border-box;
-   `
+   `,
+    '.highlighted': `
+      background: rgb(11, 76, 71);
+      padding: 1px 3px;
+      border-radius: 3px;
+      display: inline;
+ `
   }
 })
 

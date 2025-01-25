@@ -8,7 +8,7 @@ const Paragraph = new Nugget("Paragraph", {
     data.txt = data.txt.replace(hlReg, (match) => `<span class="highlighted" ${ data.font ? `font-family="${data.font}"` : '' }>${ match.slice(1, match.length-1)}</span>`)
    
     return `
-      <span class="inter" ${ data.top ? 'margin-top={{ top }}px' : '' }>
+      <span ${ data.align ? 'text-align={{ align }}' : '' } class="inter" ${ data.top ? 'margin-top={{ top }}px' : '' }>
         {{ txt }}
       <span>
     `
@@ -20,12 +20,6 @@ const Paragraph = new Nugget("Paragraph", {
       text-align: left;
       display: block;
       font-weight: 100;
- `,
-    '.highlighted': `
-      background: rgb(11, 76, 71);
-      padding: 1px 3px;
-      border-radius: 3px;
-      display: inline;
  `
   }
 })

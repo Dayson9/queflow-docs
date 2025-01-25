@@ -12,7 +12,7 @@ const Navbar = new Component('Navbar', {
           <li onclick={{ toPage('/docs') }}>Documentation</li>
           <li>Playground</li>
           <li>Examples</li>
-          <li>Showcase</li>
+          <li onclick={{ toPage('/showcase') }}>Showcase</li>
         </ul>
       </nav>
     `
