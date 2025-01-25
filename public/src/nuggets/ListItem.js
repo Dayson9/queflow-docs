@@ -16,9 +16,8 @@ const ListItem = new Nugget('ListItem', {
           }
           
         const hlReg = /\[[^\[]+\]/
-
         item = item.replace(hlReg, (match) => `<span class="highlighted">${ match.slice(1, match.length-1)}</span>`)
-        console.log(path)
+  
         return `<li ${ added } ${ path ? `onclick="toPage('${path}')"` : '' }>${ item }</li>`
         }).join('') }
         

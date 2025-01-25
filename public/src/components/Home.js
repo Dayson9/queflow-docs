@@ -18,7 +18,7 @@ const Home = new Component('Home', {
         <span class="pxp-el14">Get Started</span>
         <span class="bx bx-right-arrow-alt pxp-el15"></span>
       </button>
-      <button class="pxp-el16 inter">
+      <button class="pxp-el16 inter" onclick="toPage('/docs')">
         <span class="pxp-el14">Explore Docs</span>
         <span class="bx bx-menu pxp-el17"></span>
       </button>
@@ -37,6 +37,9 @@ const Home = new Component('Home', {
   },
 
   stylesheet: {
+    '> *': `
+      margin-block: 70px;
+    `,
     '.pxp-el8': `  
         color: rgba(255, 255, 255, 0.9);
         text-align: center;
@@ -60,7 +63,7 @@ const Home = new Component('Home', {
         text-align: center;
     `,
     '.btn': `
-        width: ${ width < 768 ? 100 : 70 }vw;
+        width: ${ width < 768 ? 100 : 50 }vw;
         height: auto;
         margin: 0 auto;
     `,
