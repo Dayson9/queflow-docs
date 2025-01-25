@@ -4,7 +4,7 @@ const Cooking = new Nugget('Cooking', {
   template: () => {
     return `
         <div>
-          <img src="./src/assets/cooking.gif">
+          <img defer src="./src/assets/cooking.gif">
           <Heading { txt: "Page under construction 🚧" } />
           <Paragraph { txt: "Dev is cooking something delicious, come back later.", align: "center" } />
         </div>
