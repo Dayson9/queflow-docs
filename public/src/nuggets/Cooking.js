@@ -17,7 +17,7 @@ const Cooking = new Nugget('Cooking', {
       height: auto;
       text-align: center;
       box-sizing: border-box;
-      padding-inline: 10px;
+      padding-inline: 5px;
       padding-block: 12vh;
     `,
     'img': `
