@@ -11,14 +11,16 @@ const ListItem = new Nugget('ListItem', {
           if (item.startsWith("#")) {
             added+= 'font-size="18px" font-weight="650" '
             item = item.slice(1)
-          } else {
+          } 
+          
+          if(item.startsWith("@")){
             added+= 'list-style-type="none" '
           }
           
         const hlReg = /\[[^\[]+\]/
         item = item.replace(hlReg, (match) => `<span class="highlighted">${ match.slice(1, match.length-1)}</span>`)
   
-        return `<li ${ added } ${ path ? `onclick="toPage('${path}')"` : '' }>${ item }</li>`
+        return `<li ${ added } ${ path ? `onclick="toPage('${path}')"` : '' }>${ item.startsWith("@") ? item.slice(1) : item }</li>`
         }).join('') }
         
       </ul>

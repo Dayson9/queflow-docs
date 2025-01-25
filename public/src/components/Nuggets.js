@@ -133,7 +133,7 @@ const Timer = new App("#app", {
   },
   template: () =&gt; &#96;
     &lt;div&gt;
-      &lt;Time { time: '{{ currentTime }_}' } /&gt;
+      &lt;Time { time: "{{ currentTime }_}" } /&gt;
     &lt;/div&gt;
   &#96;,
   stylesheet: {
