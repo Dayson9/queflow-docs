@@ -42,7 +42,7 @@ const Main = new Component('Main', {
     `,
 
     '.preview': `
-      width: 88%;
+      min-width: 40%;
       height: auto;
       border: 1px solid rgb(255, 255, 255, .3);
       box-sizing: border-box;
