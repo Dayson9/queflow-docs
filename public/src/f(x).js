@@ -18,6 +18,21 @@ const loadComponent = (path) => {
       Docs.show()
       currentComponent = Docs
       break;
+    case '/showcase':
+      currentComponent.hide()
+      Showcase.show()
+      currentComponent = Showcase
+      break;
+    case '/playground':
+      currentComponent.hide()
+      Playground.show()
+      currentComponent = Playground
+      break;
+    case '/examples':
+      currentComponent.hide()
+      Examples.show()
+      currentComponent = Examples
+      break;
     case '/introduction':
       currentComponent.hide()
       Introduction.show()
@@ -57,11 +72,6 @@ const loadComponent = (path) => {
       currentComponent.hide()
       Events.show()
       currentComponent = Events
-      break;
-    case '/showcase':
-      currentComponent.hide()
-      Showcase.show()
-      currentComponent = Showcase
       break;
     default:
 

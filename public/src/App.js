@@ -26,7 +26,9 @@ const Documentation = new App('#app', {
     Template_.hide()
     Showcase.hide()
     Docs.hide()
-    
+    Playground.hide()
+    Examples.hide()
+
     const path = window.location.pathname
     window.addEventListener('popstate', () => {
       const path = window.location.pathname

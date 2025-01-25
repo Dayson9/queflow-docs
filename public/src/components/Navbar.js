@@ -10,8 +10,8 @@ const Navbar = new Component('Navbar', {
         <Icon { class: 'bx-x', size: 30, click: 'data.left = -100' } />
         <ul font-size="20px">
           <li onclick={{ toPage('/docs') }}>Documentation</li>
-          <li>Playground</li>
-          <li>Examples</li>
+          <li onclick={{ toPage('/playground') }}>Playground</li>
+          <li onclick={{ toPage('/examples') }}>Examples</li>
           <li onclick={{ toPage('/showcase') }}>Showcase</li>
         </ul>
       </nav>

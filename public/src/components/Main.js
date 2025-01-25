@@ -7,6 +7,8 @@ import Compo from './Component.js'
 import Template_ from './Template.js';
 import Events from './Events.js'
 import Docs from './Docs.js'
+import Examples from './Examples.js'
+import Playground from './Playground.js';
 import Showcase from './Showcase.js'
 
 import ProjectStructure from './ProjectStructure.js'
@@ -27,6 +29,8 @@ const Main = new Component('Main', {
       <Template_/>
       <Events/>
       <Docs/>
+      <Playground/>
+      <Examples/>
       <Showcase/>
       <ProjectStructure/>
     `
