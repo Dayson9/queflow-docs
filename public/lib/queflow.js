@@ -63,9 +63,23 @@ function createSignal(data, object) {
         const host = object.host;
         key = (parseInt(key)) ? parseInt(key) : key;
         if (!host.isFrozen) {
-          // Update the target object accordingly
-          target[key] = sanitizeString(value);
-          updateComponent(key, host, prev, value);
+          if (key > target.length - 1) {
+            target[key] = sanitizeString(value);
+
+            if (host instanceof App) {
+              host.render();
+            } else {
+              const el = host.element;
+              if (el) {
+                const rnd = renderComponent(host, host.name, 1);
+                el.innerHTML = rnd;
+              }
+            }
+          } else {
+            // Update the target object accordingly
+            target[key] = value;
+            updateComponent(key, host, prev, value);
+          }
           host.renderEvent.key = key;
           host.renderEvent.value = value;
           const elem = typeof host.element == "string" ? document.getElementById(host.element) : host.element;
@@ -819,7 +833,7 @@ class Template {
 
     const el = this.element;
 
-    el.innerHTML = rendered;
+    el.innerHTML = initiateComponents(rendered);
   }
 }
 

@@ -83,7 +83,7 @@ const toPage = (path) => {
   loadComponent(path)
   window.scrollTo(0, 0)
 
-  if (Navbar.data.left !== 0) {
+  if (Navbar.data.left === 0) {
     Navbar.data.left = -100;
   }
 }
