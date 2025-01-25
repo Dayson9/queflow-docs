@@ -71,7 +71,7 @@ View.render()\` } />
         <Paragraph { txt: "QueFlow allows writing CSS properties directly into elements like the example above, instead of [style='color: dodgerblue'], you should write [color='dodgerblue'], QueFlow handles everything for you." } />
         
         <Heading { txt: 'Quick start' } />
-        <Paragraph { txt: "Using the same implementation, let's create a counter app." } />
+        <Paragraph { txt: "Let's experiment with another example:" } />
         <CodeView { code: \`
 const MyApp = new App("#app", {
   data: {
@@ -83,7 +83,9 @@ const MyApp = new App("#app", {
       const t = e.touches[0];
       data.x = t.clientX - window.innerWidth/7;
     }_}&gt;
-        &lt;div id="ball" transition="transform 0.7s cubic-bezier(0.68, -0.55, 0.27, 1.55)" transform="translate({{ x }_}px, 25px)"&gt;Q&lt;/div&gt;
+        &lt;div id="ball"
+        transition="transform 0.7s cubic-bezier(0.68, -0.55, 0.27, 1.55)"
+        transform="translateX({{ x }_}px)"&gt;Q&lt;/div&gt;
       &lt;/div&gt;
     &#96;
   },
@@ -113,7 +115,7 @@ MyApp.render();
             const t = e.touches[0];
             data.x = t.clientX - window.innerWidth/7;
         }}>
-          <div id="ball" transition="transform 0.7s cubic-bezier(0.68, -0.55, 0.27, 1.55)" transform="translate({{ x }}px, 25px)">Q</div>
+          <div id="ball" transition="transform 0.7s cubic-bezier(0.68, -0.55, 0.27, 1.55)" transform="translateX({{ x }}px)">Q</div>
           </div>
         </div>
         
