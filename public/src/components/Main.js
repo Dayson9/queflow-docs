@@ -10,7 +10,6 @@ import Docs from './Docs.js'
 import Examples from './Examples.js'
 import Playground from './Playground.js';
 import Showcase from './Showcase.js'
-
 import ProjectStructure from './ProjectStructure.js'
 import Nuggets from './Nuggets.js'
 
@@ -42,7 +41,7 @@ const Main = new Component('Main', {
     `,
 
     '.preview': `
-      min-width: 40%;
+      max-width: 95%;
       height: auto;
       border: 1px solid rgb(255, 255, 255, .3);
       box-sizing: border-box;

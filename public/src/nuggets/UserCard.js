@@ -7,7 +7,7 @@ const UserCard = new Nugget('UserCard', {
       <img src={{ src }}/>
       <div class="right">
         <h3>{{ name }}</h3>
-        <p>{{ occ }}</p>
+        <p color="wheat">{{ job }}</p>
         <p>Lorem ipsum dolor sit amet cenq queres finito quadros.</p>
       </div>
     </div> 
@@ -25,6 +25,7 @@ const UserCard = new Nugget('UserCard', {
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+    font-size: .8em;
   `,
   'img': `
     width: 80px;
@@ -32,7 +33,7 @@ const UserCard = new Nugget('UserCard', {
     border-radius: 50%;
   `,
   '.right': `
-    width: 70%;
+    width: 60%;
     height: 100px;
     box-sizing: border-box;
   `,

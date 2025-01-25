@@ -28,7 +28,7 @@ const UserCard = new Template("container", {
       &lt;img src={{ src }_} /&gt;
       &lt;div class="right"&gt;
         &lt;h3&gt;{{ name }_}&lt;/h3&gt;
-        &lt;p&gt;{{ occ }_}&lt;/p&gt;
+        &lt;p&gt;{{ job }_}&lt;/p&gt;
         &lt;p&gt;Lorem ipsum dolor sit amet cenq queres finito quadros.&lt;/p&gt;
       &lt;/div&gt;
     &lt;/div&gt;
@@ -48,7 +48,7 @@ const MyApp = new App("#app", {
     &#96;
   },
   run: () => {
-    UserCard.renderWith({ name: "Lawrence Wills", occ: "Accountant", src: "avatar1.png" })
+    UserCard.renderWith({ name: "Lawrence Wills", job: "Accountant", src: "avatar1.png" })
   }
 })
 
@@ -56,7 +56,7 @@ MyApp.render()
 \`, filename: "App.js" } />
 
         <div class="preview">
-          <UserCard { name: "Lawrence Wills", occ: "Accountant", src: "src/assets/img/avatar1.png" } />
+          <UserCard { name: "Lawrence Wills", job: "Accountant", src: "src/assets/img/avatar1.png" } />
         </div>
         
         <Paragraph { txt: "The [renderWith()] function is used for passing data to a [Template], while also rendering it." } />
@@ -66,20 +66,20 @@ MyApp.render()
 // other code
   run: () => {
     UserCard.renderWith([
-      { name: "Lawrence Wills", occ: "Accountant", src: "avatar1.png" },
-      { name: "Adeola Jones", occ: "Reporter", src: "avatar2.png" },
-      { name: "Lauren Jamie", occ: "Engineer", src: "avatar3.png" },
-      { name: "Mary Sylvester", occ: "Artist", src: "avatar4.png" }
+      { name: "Lawrence Wills", job: "Accountant", src: "avatar1.png" },
+      { name: "Adeola Jones", job: "Reporter", src: "avatar2.png" },
+      { name: "Lauren Jamie", job: "Engineer", src: "avatar3.png" },
+      { name: "Mary Sylvester", job: "Artist", src: "avatar4.png" }
     ])
   }
 })
 \`, filename: "App.js" } />
         
         <div class="preview">
-          <UserCard { name: "Lawrence Wills", occ: "Accountant", src: "src/assets/img/avatar1.png" } />
-          <UserCard { name: "Adeola Jones", occ: "Reporter", src: "src/assets/img/avatar2.png" } />
-          <UserCard { name: "Lauren Jamie", occ: "Engineer", src: "src/assets/img/avatar3.png" } />
-          <UserCard { name: "Mary Sylvester", occ: "Artist", src: "src/assets/img/avatar4.png" } />
+          <UserCard { name: "Lawrence Wills", job: "Accountant", src: "src/assets/img/avatar1.png" } />
+          <UserCard { name: "Adeola Jones", job: "Reporter", src: "src/assets/img/avatar2.png" } />
+          <UserCard { name: "Lauren Jamie", job: "Engineer", src: "src/assets/img/avatar3.png" } />
+          <UserCard { name: "Mary Sylvester", job: "Artist", src: "src/assets/img/avatar4.png" } />
         </div>
         <Navigator { left: ['Nuggets', '/docs_nuggets'], right: ['Event Handling', '/docs_events'] } />
       </section>
