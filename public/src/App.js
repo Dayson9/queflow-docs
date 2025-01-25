@@ -16,7 +16,7 @@ const Documentation = new App('#app', {
 
   run: function() {
     currentComponent = Home;
-    Introduction.hide()
+    GetStarted.hide()
     Syntax.hide()
     App_.hide()
     Compo.hide()

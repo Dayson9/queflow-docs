@@ -4,7 +4,7 @@ import CodeView from '../nuggets/CodeView.js'
 import Navigator from '../nuggets/Navigator.js'
 import Note from '../nuggets/Note.js';
 
-const Introduction = new Component('Introduction', {
+const GetStarted = new Component('GetStarted', {
   data: {
     count: 0,
     c: 0,
@@ -15,7 +15,7 @@ const Introduction = new Component('Introduction', {
   template: () => {
     return `
       <section>
-        <Heading { txt: 'Introduction', size: 36 } />
+        <Heading { txt: 'GetStarted', size: 36 } />
         <Heading { txt: "What is QueFlow?" } />
         <Paragraph { txt: "QueFlow (pronounced /kjuːˈfloʊ/) is a JavaScript library for building web apps. It leverages the 3 web languages HTML, CSS and JavaScript and provides a straightforward, component-based application model that makes building performant, fast web apps super-easy." } />
         <Paragraph { txt: "Here is a simple example:" } />
@@ -85,7 +85,7 @@ const MyApp = new App("#app", {
     }_}&gt;
         &lt;div id="ball"
         transition="transform 0.7s cubic-bezier(0.68, -0.55, 0.27, 1.55)"
-        transform="translateX({{ x }_}px)"&gt;Q&lt;/div&gt;
+        transform="translate({{ x }_}px, 25px)"&gt;Q&lt;/div&gt;
       &lt;/div&gt;
     &#96;
   },
@@ -115,7 +115,7 @@ MyApp.render();
             const t = e.touches[0];
             data.x = t.clientX - window.innerWidth/7;
         }}>
-          <div id="ball" transition="transform 0.7s cubic-bezier(0.68, -0.55, 0.27, 1.55)" transform="translateX({{ x }}px)">Q</div>
+          <div id="ball" transition="transform 0.7s cubic-bezier(0.68, -0.55, 0.27, 1.55)" transform="translate({{ x }}px, 25px)">Q</div>
           </div>
         </div>
         
@@ -178,4 +178,4 @@ ColorChanger.render()
   }
 })
 
-export default Introduction
+export default GetStarted

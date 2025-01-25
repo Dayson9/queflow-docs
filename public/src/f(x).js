@@ -33,10 +33,10 @@ const loadComponent = (path) => {
       Examples.show()
       currentComponent = Examples
       break;
-    case '/introduction':
+    case '/get-started':
       currentComponent.hide()
-      Introduction.show()
-      currentComponent = Introduction
+      GetStarted.show()
+      currentComponent = GetStarted
       break;
     case '/docs_template-syntax':
       currentComponent.hide()
