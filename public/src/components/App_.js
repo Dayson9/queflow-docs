@@ -10,7 +10,7 @@ const App_ = new Component('App_', {
       <section>
         <Heading { txt: 'App', size: 36 } />
   
-        <Paragraph { txt: 'App is a class that allows to create and manage components with dynamic rendering. It is used for rendering a QueFlow app.' } />
+        <Paragraph { txt: 'App is a class that allows to create and manage components with dynamic rendering. It is the entry point of a QueFlow app.' } />
         
         <Paragraph { txt: 'Syntax:', top: 20 } />
         <CodeView { code: \`
@@ -38,7 +38,7 @@ const BalloonApp = new App("#app", {
   template: () =&gt; {
     return &#96;
      &lt;h1&gt;🎈&lt;/h1&gt;
-     &lt;p color="dodgerblue"&gt;1 balloon created&lt;/p&gt;
+     &lt;p color="white"&gt;1 balloon created&lt;/p&gt;
      &lt;button&gt;Create balloon&lt;/button&gt;
     &#96;
   }
@@ -47,7 +47,7 @@ const BalloonApp = new App("#app", {
 BalloonApp.render()\` } />
         <div class="preview">
           <h1>🎈 </h1>
-          <p color="dodgerblue">1 balloon created</p>
+          <p color="white">1 balloon created</p>
           <button>Create balloon</button>
         </div>
         
@@ -57,16 +57,16 @@ const BalloonApp = new App("#app", {
   template: () => {
     return &#96;
      &lt;h1 font-size="30px"&gt;🎈&lt;/h1&gt;
-     &lt;p color="dodgerblue"&gt;1 balloon created&gt;/p&gt;
+     &lt;p color="white"&gt;1 balloon created&gt;/p&gt;
      &lt;button&gt;Create balloon +&lt;/button&gt;
     &#96;
   },
   stylesheet: {
     "button": &#96;
      padding: 13px 17px;
-     border: none;
-     border-radius: 10px;
-     background: slateblue;
+     border: 2px solid white;
+     border-radius: 50px;
+     background: transparent;
      color: white;
     &#96;
   }
@@ -75,7 +75,7 @@ const BalloonApp = new App("#app", {
 BalloonApp.render()\` } />
         <div class="preview inter">
           <h1 font-size="30px">🎈 </h1>
-          <p color="dodgerblue">1 balloon created</p>
+          <p color="white">1 balloon created</p>
           <button class="styled">Create balloon +</button>
         </div>
         
@@ -90,16 +90,16 @@ const BalloonApp = new App("#app", {
   template: () => {
     return &#96;
      &lt;h1 font-size="30px"&gt;{{ balloon }_}&lt;/h1&gt;
-     &lt;p color="dodgerblue"&gt;{{ num }_} {{ num > 1 ? "balloons" : "balloon" }_} created&lt;/p&gt;
+     &lt;p color="white"&gt;{{ num }_} {{ num > 1 ? "balloons" : "balloon" }_} created&lt;/p&gt;
      &lt;button onclick={{ data.balloon+="🎈"; data.num++ }_}&gt;Create balloon +&lt;/button&gt;
     &#96;
   },
   stylesheet: {
     "button": &#96;
       padding: 13px;
-      border: none;
-      border-radius: 5px;
-      background: slateblue;
+      border: 2px solid white;
+      border-radius: 50px;
+      background: transparent;
       color: white;
       font-size: 15px;
       font-family: Inter;
@@ -110,11 +110,11 @@ const BalloonApp = new App("#app", {
 BalloonApp.render()\` } />
         <div class="preview inter">
           <h1 font-size="30px">{{ balloon }}</h1>
-          <p color="dodgerblue">{{ num }} {{ num > 1 ? "balloons" : "balloon" }} created</p>
+          <p color="white">{{ num }} {{ num > 1 ? "balloons" : "balloon" }} created</p>
           <button class="styled" onclick={{ data.balloon+="🎈"; data.num++; }}>Create balloon +</button>
         </div>
         
-        <Heading { txt: 'Freezing and Unfreezing components', size: 32, top: 50 } />
+        <Heading { txt: 'Freezing and Unfreezing', size: 32, top: 50 } />
         
         <Paragraph { txt: 'There are 2 methods for freezing & unfreezing components, [Instance.freeze()] and [Instance.unfreeze()] respectively.' } />
         
@@ -136,9 +136,9 @@ BalloonApp.unfreeze()
   stylesheet: {
     ".styled" : `
       padding: 13px;
-      border: none;
-      border-radius: 5px;
-      background: slateblue;
+      border: 2px solid white;
+      border-radius: 500px;
+      background: transparent;
       color: white;
       font-size: 15px;
       font-family: Inter;
