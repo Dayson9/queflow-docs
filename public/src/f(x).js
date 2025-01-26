@@ -80,8 +80,10 @@ const loadComponent = (path) => {
 
 const toPage = (path) => {
   history.pushState({}, '', path)
-  loadComponent(path)
+  setTimeout(() => {
+    loadComponent(path)
   window.scrollTo(0, 0)
+  }, 965*Math.random())
 
   if (Navbar.data.left === 0) {
     Navbar.data.left = -100;
