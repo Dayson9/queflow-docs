@@ -15,7 +15,7 @@ const Documentation = new App('#app', {
   },
 
   run: function() {
-    Home.hide()
+    currentComponent = Home
     GetStarted.hide()
     Syntax.hide()
     App_.hide()
@@ -40,8 +40,10 @@ const Documentation = new App('#app', {
       script.src = './src/assets/prisms.js'
       this.element.appendChild(script)
     }, 200)
-    
-    toPage(path)
+
+    history.pushState({}, 'Home | QueFlowJS',path)
+    loadComponent(path)
+    window.scrollTo(0, 0)
   },
   stylesheet: {
     "@font-face": `
