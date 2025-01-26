@@ -8,7 +8,7 @@ const Header = new Component('Header', {
     return `
       <header class='flex-row maren'>
         <div class="title" onclick={{ toPage('/') }}>
-          <img src="./src/assets/img/queflow.png" alt="QueFlowJS Icon">
+          <img src="./src/assets/img/queflow.jpg" alt="QueFlowJS Icon">
           <span>QueFlowJS</span>
         </div>
         
@@ -37,8 +37,8 @@ const Header = new Component('Header', {
         `,
 
     'img': `  
-      width: 55px;
-      height: 55px;
+      width: 50px;
+      height: 50px;
     `,
 
     '.title span': `  

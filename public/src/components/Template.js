@@ -48,7 +48,7 @@ const MyApp = new App("#app", {
     &#96;
   },
   run: () => {
-    UserCard.renderWith({ name: "Lawrence Wills", job: "Accountant", src: "avatar1.png" })
+    UserCard.renderWith({ name: "Lawrence Wills", job: "Accountant", src: "avatar1.jpg" })
   }
 })
 
@@ -56,7 +56,7 @@ MyApp.render()
 \`, filename: "App.js" } />
 
         <div class="preview">
-          <UserCard { name: "Lawrence Wills", job: "Accountant", src: "src/assets/img/avatar1.png" } />
+          <UserCard { name: "Lawrence Wills", job: "Accountant", src: "src/assets/img/avatar1.jpg" } />
         </div>
         
         <Paragraph { txt: "The [renderWith()] function is used for passing data to a [Template], while also rendering it." } />
@@ -66,20 +66,20 @@ MyApp.render()
 // other code
   run: () => {
     UserCard.renderWith([
-      { name: "Lawrence Wills", job: "Accountant", src: "avatar1.png" },
-      { name: "Adeola Jones", job: "Reporter", src: "avatar2.png" },
-      { name: "Lauren Jamie", job: "Engineer", src: "avatar3.png" },
-      { name: "Mary Sylvester", job: "Artist", src: "avatar4.png" }
+      { name: "Lawrence Wills", job: "Accountant", src: "avatar1.jpg" },
+      { name: "Adeola Jones", job: "Reporter", src: "avatar2.jpg" },
+      { name: "Lauren Jamie", job: "Engineer", src: "avatar3.jpg" },
+      { name: "Mary Sylvester", job: "Artist", src: "avatar4.jpg" }
     ])
   }
 })
 \`, filename: "App.js" } />
         
         <div class="preview">
-          <UserCard { name: "Lawrence Wills", job: "Accountant", src: "src/assets/img/avatar1.png" } />
-          <UserCard { name: "Adeola Jones", job: "Reporter", src: "src/assets/img/avatar2.png" } />
-          <UserCard { name: "Lauren Jamie", job: "Engineer", src: "src/assets/img/avatar3.png" } />
-          <UserCard { name: "Mary Sylvester", job: "Artist", src: "src/assets/img/avatar4.png" } />
+          <UserCard { name: "Lawrence Wills", job: "Accountant", src: "src/assets/img/avatar1.jpg" } />
+          <UserCard { name: "Adeola Jones", job: "Reporter", src: "src/assets/img/avatar2.jpg" } />
+          <UserCard { name: "Lauren Jamie", job: "Engineer", src: "src/assets/img/avatar3.jpg" } />
+          <UserCard { name: "Mary Sylvester", job: "Artist", src: "src/assets/img/avatar4.jpg" } />
         </div>
         <Navigator { left: ['Nuggets', '/docs_nuggets'], right: ['Event Handling', '/docs_events'] } />
       </section>
