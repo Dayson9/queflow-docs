@@ -41,7 +41,7 @@ const Documentation = new App('#app', {
       this.element.appendChild(script)
     }, 200)
 
-    history.pushState({}, 'Home | QueFlowJS',path)
+    history.pushState({}, '',path)
     loadComponent(path)
     window.scrollTo(0, 0)
   },
