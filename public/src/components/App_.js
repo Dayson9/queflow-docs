@@ -129,15 +129,16 @@ BalloonApp.freeze()
 BalloonApp.unfreeze()
 \` } />
         
-        <Heading { txt: "Tracking Updates", sizs: 30, top: 50 } />
+        <Heading { txt: "Tracking Updates", size: 30, top: 50 } />
         <Paragraph { txt: "We can track and control how updates are being applied in QueFlow. To do that, we need to listen to a custom event which is called 'qf:update'." } />
         <CodeView { code: \`
 MyApp.element.addEventListener('qf:update', ({ prev, key, newVal }) => {
   //perform an operation
 })
 \` } />
-        <Heading { txt: "App Destruction" } />
-        <Paragraph { txt: "In QueFlow, completely removing an [App's] mount node from the DOM, while also removing the event listeners attached to it's children, is called [Destruction]." } />
+
+        <Heading { txt: "App Destruction", size: 30 } />
+        <Paragraph { txt: "In QueFlow, completely removing an [App's] mount node from the DOM, while also freeing up it's resources, is called [Destruction]." } />
         <Paragraph { txt: "We can do that in two steps:" } />
         <CodeView { code: \`
 // Destroy App 
