@@ -114,7 +114,7 @@ BalloonApp.render()\` } />
           <button class="styled" onclick={{ data.balloon+="🎈"; data.num++; }}>Create balloon +</button>
         </div>
         
-        <Heading { txt: 'Freezing and Unfreezing', size: 32, top: 50 } />
+        <Heading { txt: 'Freezing and Unfreezing', size: 30, top: 50 } />
         
         <Paragraph { txt: 'There are 2 methods for freezing & unfreezing components, [Instance.freeze()] and [Instance.unfreeze()] respectively.' } />
         
@@ -127,6 +127,23 @@ BalloonApp.freeze()
        <Paragraph { txt: 'The [Instance.unfreeze()] method is used for unfreezing a component, any changes made to its data would trigger an update in the UI.'} />
         <CodeView { code: \`
 BalloonApp.unfreeze()
+\` } />
+        
+        <Heading { txt: "Tracking Updates", sizs: 30, top: 50 } />
+        <Paragraph { txt: "We can track and control how updates are being applied in QueFlow. To do that, we need to listen to a custom event which is called 'qf:update'." } />
+        <CodeView { code: \`
+MyApp.element.addEventListener('qf:update', ({ prev, key, newVal }) => {
+  //perform an operation
+})
+\` } />
+        <Heading { txt: "App Destruction" } />
+        <Paragraph { txt: "In QueFlow, completely removing an [App's] mount node from the DOM, while also removing the event listeners attached to it's children, is called [Destruction]." } />
+        <Paragraph { txt: "We can do that in two steps:" } />
+        <CodeView { code: \`
+// Destroy App 
+MyApp.destroy()
+// Free up space (will only work if [MyApp] is not declared using 'const')
+MyApp = null
 \` } />
         <Navigator { left: ['Get started', '/get-started'], right: ['Component', '/docs_component'] } />     
       </section>
