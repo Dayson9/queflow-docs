@@ -19,19 +19,21 @@ const Main = new Component('Main', {
   },
   template: () => {
     return `
-      <Home/>
-      <GetStarted/>
-      <Syntax/>
-      <App_/>
-      <Compo/>
-      <Nuggets/>
-      <Template_/>
-      <Events/>
-      <Docs/>
-      <Playground/>
-      <Examples/>
-      <Showcase/>
-      <ProjectStructure/>
+      <Router { routes: [
+        { route: "/public/index.html", component: "<Home/>" },
+        { route: "/get-started", component: "<GetStarted/>" },
+        { route: "/docs_app", component: "<App_/>" },
+        { route: "/docs_component", component: "<Compo/>" },
+        { route: "/docs_nuggets", component: "<Nuggets/>" },
+        { route: "/docs_template", component: "<Template_/>" },
+        { route: "/docs_template-syntax", component: "<Syntax/>" },
+        { route: "/docs", component: "<Docs/>" },
+        { route: "/docs_events", component: "<Events/>" },
+        { route: "/playground", component: "<Playground/>" },
+        { route: "/examples", component: "<Examples/>" },
+        { route: "/showcase", component: "<Showcase/>" },
+        { route: "/project-structure", component: "<ProjectStructure/>" }
+      ] } />
     `
   },
 

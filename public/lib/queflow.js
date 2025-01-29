@@ -8,7 +8,8 @@
 // Counter for generating unique IDs for elements with reactive data.
 var counterQF = 0,
   nuggetCounter = 0,
-  routerObj = {};
+  routerObj = {},
+  currentComponent;
 
 var stylesheet = {
   el: document.createElement("style"),
@@ -545,8 +546,7 @@ const removeEvents = (nodeList) => {
 
 const renderComponent = (instance, name, flag) => {
   let template = !flag ? `<div> ${(instance.template instanceof Function ? instance.template(instance.data) : instance.template)} </div>` : (instance.template instanceof Function ? instance.template(instance.data) : instance.template);
-
-  template = handleRouter(template);
+  template = handleRouter(template)
   template = initiateComponents(template);
 
   var rendered;
@@ -654,8 +654,10 @@ class App {
 
     for (const component of components) {
       const instance = component[1];
-      strToEl(instance);
-      instance.run(instance.data)
+      if (instance.element) {
+        strToEl(instance);
+      }
+      instance.run(instance.data);
     }
 
     this.run(this.data)
@@ -771,7 +773,8 @@ class Component {
   }
 
   mount() {
-    this.element.innerHTML = renderComponent(this, this.name, true);
+    if (!this.isMounted)
+      this.element.innerHTML = renderComponent(this, this.name, true);
     handleEventListener(this.element, this);
     this.isMounted = true;
   }
@@ -888,18 +891,20 @@ globalThis.toPage = (path) => {
 }
 
 const loadComponent = (path) => {
-  for (let i in routerObj) {
+  const len = routerObj.length;
+  for (let i = 0; i < len; i++) {
     const { component, route } = routerObj[i];
-    const instance = components.get(component);
     if (route === path) {
+      const instance = components.get(component);
+      currentComponent.hide();
       if (instance.isMounted) {
         instance.show();
       } else {
-        instance.show();
         instance.mount();
+        instance.show();
       }
-    } else {
-      instance.hide();
+      currentComponent = instance;
+      break;
     }
   }
   window.scrollTo(0, 0);
@@ -935,11 +940,12 @@ function handleRouter(input) {
         instance = components.get(name);
 
       if (route === path) {
+        currentComponent = instance;
         instance.isMounted = true;
         return renderComponent(instance, name);
       } else {
         const id = instance.element;
-        return `<div id="${id}"></div>`;
+        return `<div id="${id}" display="none"></div>`;
       }
     }).join('');
     routerObj = data;

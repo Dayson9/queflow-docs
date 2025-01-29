@@ -19,7 +19,6 @@ const Paragraph = new Nugget("Paragraph", {
       font-size: 17;
       text-align: left;
       display: block;
-      font-weight: 100;
  `
   }
 })

@@ -19,6 +19,8 @@ Template(selector /** (string) [required] -&gt; id of mount node **/ ,
 
         <Heading { txt: "Creating a Template" } />
         <CodeView { code: \`
+import { Template } from 'queflow' 
+
 const UserCard = new Template("container", {
   // your styles here
  },

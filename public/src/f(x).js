@@ -1,5 +1,5 @@
 var currentComponent, timerInt;
-
+/**
 const loadComponent = (path) => {
   if (path === "/docs_nuggets") {
     timerInt = setInterval(() => Nuggets.data.time = new Date().toLocaleTimeString(), 1000)
@@ -97,4 +97,4 @@ function downloadFile(filePath, fileName = 'queflow_starter_template.zip') {
   Main.element.appendChild(link);
   link.click();
   Main.element.removeChild(link);
-}
+} **/

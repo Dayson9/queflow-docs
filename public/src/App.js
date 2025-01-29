@@ -15,44 +15,11 @@ const Documentation = new App('#app', {
   },
 
   run: function() {
-    currentComponent = Home
-    GetStarted.hide()
-    Syntax.hide()
-    App_.hide()
-    Compo.hide()
-    ProjectStructure.hide()
-    Events.hide()
-    Nuggets.hide()
-    Template_.hide()
-    Showcase.hide()
-    Docs.hide()
-    Playground.hide()
-    Examples.hide()
-
-    const path = window.location.pathname
-    window.addEventListener('popstate', () => {
-      const path = window.location.pathname
-      loadComponent(path)
-    })
-
     setTimeout(() => {
-      const script = document.createElement('script')
-      script.src = './src/assets/prisms.js'
-      this.element.appendChild(script)
+      Prism.highlightElement(GetStarted.element)
     }, 200)
-
-    history.pushState({}, '',path)
-    loadComponent(path)
-    window.scrollTo(0, 0)
   },
   stylesheet: {
-    "@font-face": `
-      font-family: 'Inter';
-      font-display: swap;
-      src: url('./src/assets/Inter_18pt-Medium.woff2');
-      font-weight: 400;
-      font-style: normal;
-    `,
     '.inter': `
       font-family: "Inter";
       color: rgba(255,255,255,.8);
