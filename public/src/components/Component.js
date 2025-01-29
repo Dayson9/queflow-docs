@@ -88,7 +88,7 @@ const MyComponent1 = new Component("MyComponent1", {
 export default MyComponent1
 \`, filename: "MyComponent1.js" } />
 
-        <Paragraph { txt: "Your [App.js] should look like this:" } />
+        <Paragraph { txt: "Then update your [App.js] as follows:" } />
         <CodeView { code: \`
 import { App } from "queflow"
 import MyComponent1 from "./components/MyComponent1.js"

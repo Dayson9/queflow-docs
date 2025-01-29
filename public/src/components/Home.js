@@ -29,8 +29,8 @@ const Home = new Component('Home', {
         
         <HotFeature { title: 'Fast', class: 'bxs-rocket', summary: 'QueFlow was designed to build fast interactive sites with so much ease. Updates are fast and performance optimized.' }/>
         <HotFeature { title: 'Data-Driven', class: 'bxs-data', summary: 'QueFlow can handle rendering data-driven/data-heavy websites. Which makes it suitable for building websites that requires real-time updates.' }/>
-        <HotFeature { title: 'Performant', class: 'bxs-rocket', summary: 'Reactive, compiler optimized rendering that rarely requires manual handling.' }/>
-        <HotFeature { title: 'Unique', class: 'bxs-rocket', summary: 'Does not use virtual DOM, interacts directly with the DOM thereby improving performance, smoother updates.' }/>
+        <HotFeature { title: 'Performant', class: 'bxs-zap', summary: 'Reactive, compiler optimized rendering that rarely requires manual handling.' }/>
+        <HotFeature { title: 'Unique', class: 'bxs-bulb', summary: 'Does not use virtual DOM, interacts directly with the DOM thereby improving performance, smoother updates.' }/>
       </div>
      </div>
     `

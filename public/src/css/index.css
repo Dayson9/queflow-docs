@@ -67,6 +67,14 @@
   content: "\eb21"
 }
 
+.bxs-bulb:before {
+  content: "\ecf7"
+}
+
+.bxs-zap:before {
+  content: "\ef09"
+}
+
 body {
   padding: 0;
   margin: 0;
