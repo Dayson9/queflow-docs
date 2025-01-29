@@ -3,6 +3,9 @@ import Link from '../nuggets/Link.js'
 import List from '../others/List.js'
 
 const Compo = new Component('Compo', {
+  data: {
+    isEmoji: false
+  },
   template: function() {
     return `
       <section>
@@ -64,74 +67,45 @@ MyApp.render()
           <h1 color="wheat">My First QueFlow Component 🔥</h1>
         </div>
         <Paragraph { txt: "In React, you have to add a space just before closing a component tag [&lt;/MyComponent /&gt;], you don't need to do that in QueFlow, just write the name of your component between these [&lt;] and [/&gt;] and you're good to go." } />
-  <!--
+        
         <Paragraph { txt: "Let's walk through more examples", top: 25 } />
-        <Paragraph { txt: "In the [components] folder, create a new file and name it [List.js]." } />
+        <Paragraph { txt: "In the [components] folder, create a new file and name it [MyComponent1.js]." } />
         <CodeView { code: \`
-import { Component } from "queflow"
+import { Component } from 'queflow'
 
-const List = new Component('List', {
+const MyComponent1 = new Component("MyComponent1", {
   data: {
-    list: ['Oluwalonimi', 'Chisom', 'Danjuma']
+    isEmoji: false
   },
-  template: function(data) {
-    return &#96;
-      &lt;h1 color="slateblue"&gt;List&lt;/h1&gt;
-      &lt;ul font-weight="450"&gt;
-        $\\{ data.list.map((item) =&gt; {
-        return &#96;&lt;li&gt;$\\{item}&lt;/li&gt;&#96;
-      }).join('')}
-      &lt;/ul&gt;
+  template: () =&gt; &#96;
+    &lt;div&gt;
+      &lt;h1 color="wheat"&gt;{{ isEmoji ? '🎂🎁 🎈' : 'Happy Birthday' }_}&lt;/h1&gt;
+      &lt;button onclick={{ data.isEmoji = !data.isEmoji }_}&gt;Switch to {{ isEmoji ? 'text' : 'emoji' }_}&lt;/button&gt;
+    &lt;/div&gt;
     &#96;
-  }
-})
+});
 
-export default List
-\`, filename: "List.js" } />
+export default MyComponent1
+\`, filename: "MyComponent1.js" } />
 
         <Paragraph { txt: "Your [App.js] should look like this:" } />
         <CodeView { code: \`
 import { App } from "queflow"
-import List from "./components/List.js"
+import MyComponent1 from "./components/MyComponent1.js"
 
 const MyApp = new App("#app", {
   template: () =&gt; {
     return &#96;
-      &lt;List/&gt;
-      &lt;input type="text" id="input" value="Alex"/&gt;
-      &lt;button font-weight="450" onclick={{
-        List.data.list.push(input.value)
-        input.value = ""
-        input.focus()
-      }_}&gt;Add +&lt;/button&gt;
+      &lt;MyComponent1/&gt;
       &#96;
-  },
-  stylesheet: {
-    'button': &#96;
-      padding-inline: 17px;
-      height: 30px;
-      border: none;
-      border-radius: 5px;
-      background: slateblue;
-      color: white;
-    &#96;,
-    'input': &#96;
-      width: 130px;
-      height: 28px;
-      border-radius: 5px;
-      border: none;
-      padding-left: 5px;
-      background: rgba(100, 50, 180,.5);
-      color: white;
-      font-weight: 450;
-    &#96;
   }
 })
 
 MyApp.render()
 \`, filename: "App.js" } />
         <div class="preview sec" color="white">
-          <List/>
+          <h1 color="wheat">{{ isEmoji ? '🎂🎁🎈' : 'Happy Birthday' }}</h1>
+          <button class="reg-btn" onclick={{ data.isEmoji = !data.isEmoji }}>Switch to {{ isEmoji ? 'text' : 'emoji' }}</button>
         </div>
         
         --!>

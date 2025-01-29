@@ -33,7 +33,7 @@ MyApp.render()
 \` } />
 
         <div class="preview">
-          <button class="btn inter" onclick={{ data.count++; }}>Count is: {{ count }}</buton>
+          <button class="reg-btn inter" onclick={{ data.count++; }}>Count is: {{ count }}</buton>
         </div>
         <Heading { txt: 'Installation', top: 60 } />
         
@@ -152,16 +152,6 @@ ColorChanger.render()
     `
   },
   stylesheet: {
-    '.btn' : `
-      padding-block: 10px;
-      width: 100px;
-      background: rgb(30, 40, 35);
-      color: white;
-      border: 1px solid grey;
-      border-radius: 10px;
-      font-weight: 700;
-      font-size: 15px;
-    `,
     "#ball": `
       width: 40px;
       height: 40px;

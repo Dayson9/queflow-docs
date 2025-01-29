@@ -62,13 +62,16 @@ const BalloonApp = new App("#app", {
     &#96;
   },
   stylesheet: {
-    "button": &#96;
-     padding: 13px 17px;
-     border: 2px solid white;
-     border-radius: 50px;
-     background: transparent;
-     color: white;
-    &#96;
+    'button': &grave;
+      padding-block: 10px;
+      width: 110px;
+      background: rgb(30, 40, 35);
+      color: white;
+      border: 1px solid grey;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 15px;
+    &grave;
   }
 })
 
@@ -76,7 +79,7 @@ BalloonApp.render()\` } />
         <div class="preview inter">
           <h1 font-size="30px">🎈 </h1>
           <p color="white">1 balloon created</p>
-          <button class="styled">Create balloon +</button>
+          <button class="reg-btn">Create balloon +</button>
         </div>
         
         <Paragraph { txt: "Nothing happens whenever you click on the button, let's fix that by adding an onclick event and reactivity." } />
@@ -95,15 +98,16 @@ const BalloonApp = new App("#app", {
     &#96;
   },
   stylesheet: {
-    "button": &#96;
-      padding: 13px;
-      border: 2px solid white;
-      border-radius: 50px;
-      background: transparent;
+    'button': &grave;
+      padding-block: 10px;
+      width: 110px;
+      background: rgb(30, 40, 35);
       color: white;
-      font-size: 15px;
-      font-family: Inter;
-    &#96;
+      border: 1px solid grey;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 15px; 
+    &grave;
   }
 })
 
@@ -111,7 +115,7 @@ BalloonApp.render()\` } />
         <div class="preview inter">
           <h1 font-size="30px">{{ balloon }}</h1>
           <p color="white">{{ num }} {{ num > 1 ? "balloons" : "balloon" }} created</p>
-          <button class="styled" onclick={{ data.balloon+="🎈"; data.num++; }}>Create balloon +</button>
+          <button class="reg-btn" onclick={{ data.balloon+="🎈"; data.num++; }}>Create balloon +</button>
         </div>
         
         <Heading { txt: 'Freezing and Unfreezing', size: 30, top: 50 } />
@@ -152,14 +156,8 @@ MyApp = null
   },
 
   stylesheet: {
-    ".styled" : `
-      padding: 13px;
-      border: 2px solid white;
-      border-radius: 500px;
-      background: transparent;
-      color: white;
-      font-size: 15px;
-      font-family: Inter;
+    ".reg-btn" : `
+      padding-block: 15px;
     `
   }
 })

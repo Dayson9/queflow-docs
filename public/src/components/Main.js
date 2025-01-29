@@ -63,7 +63,17 @@ const Main = new Component('Main', {
       padding: 1px 3px;
       border-radius: 3px;
       display: inline;
- `
+ `,
+    '.reg-btn': `
+      padding-block: 10px;
+      width: 110px;
+      background: rgb(30, 40, 35);
+      color: white;
+      border: 1px solid grey;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 15px;
+    `
   }
 })
 

@@ -20,6 +20,7 @@ const Link = new Nugget('Link', {
     '.highlighted': `
       color: dodgerblue;
       text-decoration: underline;
+      background: none!important;
     `
   }
 })
