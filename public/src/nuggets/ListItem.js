@@ -9,7 +9,7 @@ const ListItem = new Nugget('ListItem', {
         item = typeof item === "object" ? item.label : item;
         let added = "";
           if (item.startsWith("#")) {
-            added+= 'font-size="18px" font-weight="650" '
+            added+= 'font-size="18px" font-weight="650" margin-top="18px" '
             item = item.slice(1)
           } 
           

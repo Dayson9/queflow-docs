@@ -10,9 +10,14 @@ const Docs = new Component('Docs', {
             { label: "@App [class]", click: '/docs_app' },
             { label: "@Component [class]", click: '/docs_component' },
             { label: "@Nugget [class]", click: '/docs_nuggets' },
-            { label: "@Template [class]" , click: '/docs_template'}
+            { label: "@Template [class]" , click: '/docs_template'},
+            "#Advanced",
+            { label: "@Template Syntax" , click: '/docs_template-syntax'},
+            { label: "@Event Handling" , click: '/docs_events'},
+            "#Extras",
+            { label: "@Project Structure" , click: '/docs_project-structure'}
             ],
-            top: 50 } />
+            top: 30 } />
         </section>
       `
   },
