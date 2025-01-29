@@ -51,8 +51,8 @@ const BalloonApp = new App("#app", {
   },
   stylesheet: {
     'button': &grave;
-      padding-block: 10px;
-      width: 110px;
+      padding-block: 15px;
+      width: 130px;
       background: rgb(30, 40, 35);
       color: white;
       border: 1px solid grey;
@@ -109,7 +109,7 @@ MyApp = null
 
   stylesheet: {
     ".reg-btn" : `
-      padding-block: 15px;
+      padding-block: 15px!important;
     `
   }
 })
