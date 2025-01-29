@@ -67,7 +67,7 @@ BalloonApp.render()\`, filename: "App.js" } />
         <div class="preview inter">
           <h1 font-size="30px">{{ balloon }}</h1>
           <p color="white">{{ num }} {{ num > 1 ? "balloons" : "balloon" }} created</p>
-          <button class="reg-btn" onclick={{ data.balloon+="🎈"; data.num++; }}>Create balloon +</button>
+          <button class="reg-btn" width="135px" onclick={{ data.balloon+="🎈"; data.num++; }}>Create balloon +</button>
         </div>
         
         <Heading { txt: 'Freezing and Unfreezing', size: 30, top: 50 } />
