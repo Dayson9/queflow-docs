@@ -49,7 +49,7 @@ const Documentation = new App('#app', {
     "@font-face": `
       font-family: 'Inter';
       font-display: swap;
-      src: url('./src/assets/Inter_18pt-Medium.ttf');
+      src: url('./src/assets/Inter_18pt-Medium.woff2');
       font-weight: 400;
       font-style: normal;
     `,
