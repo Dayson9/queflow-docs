@@ -34,57 +34,9 @@ App(selector /** [string] (required) -&gt; Selector of mount node **/ ,
         
         <Paragraph { txt: 'Now let\\'s take a quick look at an example:', top: 20 } />
         <CodeView { code: \`
-const BalloonApp = new App("#app", {
-  template: () =&gt; {
-    return &#96;
-     &lt;h1&gt;🎈&lt;/h1&gt;
-     &lt;p color="white"&gt;1 balloon created&lt;/p&gt;
-     &lt;button&gt;Create balloon&lt;/button&gt;
-    &#96;
-  }
-})
+import { App } from 'queflow'        
 
-BalloonApp.render()\` } />
-        <div class="preview">
-          <h1>🎈 </h1>
-          <p color="white">1 balloon created</p>
-          <button>Create balloon</button>
-        </div>
         
-        <Paragraph { txt: 'Now let\\'s spice it up with some CSS.' } />
-        <CodeView { code: \`
-const BalloonApp = new App("#app", {
-  template: () => {
-    return &#96;
-     &lt;h1 font-size="30px"&gt;🎈&lt;/h1&gt;
-     &lt;p color="white"&gt;1 balloon created&gt;/p&gt;
-     &lt;button&gt;Create balloon +&lt;/button&gt;
-    &#96;
-  },
-  stylesheet: {
-    'button': &grave;
-      padding-block: 10px;
-      width: 110px;
-      background: rgb(30, 40, 35);
-      color: white;
-      border: 1px solid grey;
-      border-radius: 10px;
-      font-weight: 700;
-      font-size: 15px;
-    &grave;
-  }
-})
-
-BalloonApp.render()\` } />
-        <div class="preview inter">
-          <h1 font-size="30px">🎈 </h1>
-          <p color="white">1 balloon created</p>
-          <button class="reg-btn">Create balloon +</button>
-        </div>
-        
-        <Paragraph { txt: "Nothing happens whenever you click on the button, let's fix that by adding an onclick event and reactivity." } />
-        
-        <CodeView { code: \`
 const BalloonApp = new App("#app", {
   data: {
     balloon: "🎈",
@@ -111,7 +63,7 @@ const BalloonApp = new App("#app", {
   }
 })
 
-BalloonApp.render()\` } />
+BalloonApp.render()\`, filename: "App.js" } />
         <div class="preview inter">
           <h1 font-size="30px">{{ balloon }}</h1>
           <p color="white">{{ num }} {{ num > 1 ? "balloons" : "balloon" }} created</p>

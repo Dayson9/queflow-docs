@@ -105,7 +105,7 @@ MyApp.render()
 \`, filename: "App.js" } />
         <div class="preview sec" color="white">
           <h1 color="wheat">{{ isEmoji ? '🎂🎁🎈' : 'Happy Birthday' }}</h1>
-          <button class="reg-btn" onclick={{ data.isEmoji = !data.isEmoji }}>Switch to {{ isEmoji ? 'text' : 'emoji' }}</button>
+          <button class="reg-btn" width="120px" onclick={{ data.isEmoji = !data.isEmoji }}>Switch to {{ isEmoji ? 'text' : 'emoji' }}</button>
         </div>
         
         --!>
