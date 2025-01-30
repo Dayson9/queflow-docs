@@ -27,7 +27,7 @@ const UserCard = new Template("container", {
  () =&gt; {
     return &#96;
       &lt;div class="card"&gt;
-      &lt;img src={{ src }_} /&gt;
+      &lt;img src={{ src }_} alt="{{ name }}'s image"/&gt;
       &lt;div class="right"&gt;
         &lt;h3&gt;{{ name }_}&lt;/h3&gt;
         &lt;p&gt;{{ job }_}&lt;/p&gt;
