@@ -21,7 +21,7 @@ const Events = new Component('Events', {
           <Paragraph { txt: "From the example, whenever the [oninput] event is triggered, [data.msg] would be assigned the value of the input field.  The [e] is an object containing the arguments passed to an event, while [e.target] points to the element that triggered the event." } />
           
           <Heading { txt: "Types of Handlers" } />
-          <Paragraph { txt: "So far we've only talked about event handlers that spans only one line, there are two types of handlers; Inline handler and multiline handlers." } />
+          <Paragraph { txt: "So far we've only talked about event handlers that spans only one line, there are two types of handlers; Inline handler and method handlers." } />
           <Heading { txt: "Inline Handlers", size: 20 } />
           <Paragraph { txt: "As stated above, inline handlers are handlers that only span one line, they are mostly used in simple cases, for example:" } />
         <CodeView { code: \`
