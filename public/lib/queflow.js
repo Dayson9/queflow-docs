@@ -775,7 +775,7 @@ class Component {
 
   mount() {
     if (!this.isMounted)
-      this.element.innerHTML = renderComponent(this, this.name, true);
+      this.element.innerHTML = renderComponent(this, this.name, true).replaceAll('}_}', '}}');
     handleEventListener(this.element, this);
     this.isMounted = true;
   }
