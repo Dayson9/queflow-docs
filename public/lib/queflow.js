@@ -647,7 +647,7 @@ class App {
     let rendered = jsxToHTML(template, this);
 
     // Set innerHTML attribute of component's element to the converted template
-    el.innerHTML = rendered[0];
+    el.innerHTML = rendered[0].replaceAll('}_}', '}}');
 
     this.dataQF = rendered[1];
     handleEventListener(el, this);
