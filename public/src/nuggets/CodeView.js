@@ -13,7 +13,7 @@ const CodeView = new Nugget("CodeView", {
     'div' : `
       width: 95%;
       height: auto;
-      background: rgb(30, 35, 35);
+      background: #1a1b26;
       padding-block: 20px;
       margin-top: 15px;
       margin-bottom: 28px;
