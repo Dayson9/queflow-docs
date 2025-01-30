@@ -1,4 +1,4 @@
-var currentComponent, timerInt;
+var timerInt;
 /**
 const loadComponent = (path) => {
   if (path === "/docs_nuggets") {
@@ -89,7 +89,7 @@ const toPage = (path) => {
     Navbar.data.left = -100;
   }
 }
-
+**/
 function downloadFile(filePath, fileName = 'queflow_starter_template.zip') {
   const link = document.createElement('a');
   link.href = filePath;
@@ -97,4 +97,4 @@ function downloadFile(filePath, fileName = 'queflow_starter_template.zip') {
   Main.element.appendChild(link);
   link.click();
   Main.element.removeChild(link);
-} **/
+}

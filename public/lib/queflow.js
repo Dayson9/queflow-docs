@@ -9,7 +9,8 @@
 var counterQF = 0,
   nuggetCounter = 0,
   routerObj = {},
-  currentComponent;
+  currentComponent,
+  navigateFunc;
 
 var stylesheet = {
   el: document.createElement("style"),
@@ -572,7 +573,6 @@ class App {
     this.element = typeof selector == "string" ? document.querySelector(selector) : selector;
 
     if (!this.element) throw new Error("QueFlow Error:\nElement selector '" + selector + "' is invalid");
-    globalThis.App = this;
     this.upTime = 0;
     // Creates a reactive signal for the component's data.
     this.data = createSignal(options.data, this);
@@ -600,7 +600,7 @@ class App {
 
     this.created = options.created;
     this.run = options.run || (() => {});
-
+    
     this.useStrict = Object.keys(options).includes('useStrict') ? options.useStrict : true;
 
     let id = this.element.id;
@@ -647,7 +647,7 @@ class App {
     let rendered = jsxToHTML(template, this);
 
     // Set innerHTML attribute of component's element to the converted template
-    el.innerHTML = rendered[0].replaceAll('}_}', '}}');
+    el.innerHTML = rendered[0];
 
     this.dataQF = rendered[1];
     handleEventListener(el, this);
@@ -672,6 +672,7 @@ class App {
     // Unfreezes component
     this.isFrozen = false;
   }
+  
   // removes the component's element from the DOM
   destroy() {
     const parent = [this.element, ...this.element.querySelectorAll('*')];
@@ -691,7 +692,7 @@ class Component {
     this.name = name;
     this.template = options?.template;
     this.run = options.run || (() => {});
-
+    this.navigateFunc = options.onNavigate || (() => {});
     if (!this.template) throw new Error("QueFlow Error:\nTemplate not provided for Component " + name);
 
     this.element = `qfEl${counterQF}`;
@@ -904,9 +905,11 @@ const loadComponent = (path) => {
         instance.show();
       }
       currentComponent = instance;
+      currentComponent.navigateFunc(currentComponent.data);
       break;
     }
   }
+  navigateFunc(path);
   window.scrollTo(0, 0);
 }
 
@@ -962,9 +965,14 @@ function handleRouter(input) {
   return out;
 }
 
+const onNavigate = (func, instance) => {
+  navigateFunc = func.bind(instance);
+}
+
 export {
   App,
   Component,
   Nugget,
-  Template
+  Template,
+  onNavigate
 };

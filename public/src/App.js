@@ -1,8 +1,12 @@
 import { App } from 'queflow'
+import { onNavigate } from 'queflow'
 import Main from './components/Main.js'
 import Header from './components/Header.js'
 import Footer from './components/Footer.js'
 import Text from './nuggets/Text.js'
+
+import hljs from './assets/hljs.js'
+import javascript from './assets/js.min.js'
 
 const Documentation = new App('#app', {
   data: {},
@@ -15,9 +19,13 @@ const Documentation = new App('#app', {
   },
 
   run: function() {
-    setTimeout(() => {
-      Prism.highlightElement(GetStarted.element)
-    }, 200)
+    onNavigate((path) => {
+      Navbar.data.left = -100
+      hljs.highlightAll()
+      if (path !== '/docs_nuggets') clearInterval(timerInt)
+    }, this)
+    
+    hljs.registerLanguage('javascript', javascript)
   },
   stylesheet: {
     '.inter': `

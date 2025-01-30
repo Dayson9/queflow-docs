@@ -32,7 +32,7 @@ const Main = new Component('Main', {
         { route: "/playground", component: "<Playground/>" },
         { route: "/examples", component: "<Examples/>" },
         { route: "/showcase", component: "<Showcase/>" },
-        { route: "/project-structure", component: "<ProjectStructure/>" }
+        { route: "/docs_project-structure", component: "<ProjectStructure/>" }
       ] } />
     `
   },

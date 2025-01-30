@@ -178,7 +178,9 @@ const PillButton = new Nugget('PillButton', {
       </section>
     `
   },
-
+  onNavigate: (data) => {
+    timerInt = setInterval(() => data.time = new Date().toLocaleTimeString(), 1000)
+  },
   stylesheet: {
     '.sc': `
       padding: 12px 26px;
@@ -202,12 +204,12 @@ const PillButton = new Nugget('PillButton', {
       align-items: center;
       justify-content: center;
     `,
-   '.preview span': `
+    '.preview span': `
       font-size: 60px;
       -webkit-text-stroke: 1.5px skyblue;
       font-weight: 900;
-    ` 
+    `
   }
-}) 
+})
 
 export default Nuggets
