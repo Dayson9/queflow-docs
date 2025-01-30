@@ -19,13 +19,14 @@ const Documentation = new App('#app', {
   },
 
   run: function() {
+    hljs.registerLanguage('javascript', javascript)
+    hljs.highlightAll()
+    
     onNavigate((path) => {
       Navbar.data.left = -100
       hljs.highlightAll()
       if (path !== '/docs_nuggets') clearInterval(timerInt)
     }, this)
-    
-    hljs.registerLanguage('javascript', javascript)
   },
   stylesheet: {
     '.inter': `
