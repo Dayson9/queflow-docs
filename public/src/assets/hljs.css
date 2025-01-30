@@ -1,11 +1,15 @@
 pre code.hljs {
   display: block;
   overflow-x: auto;
-  padding: 1em
 }
 
 code.hljs {
-  padding: 3px 5px
+  padding: 0;
+}
+
+pre, code {
+  margin-top: .5em;
+  margin-bottom: 1.6em;
 }
 
 /*!

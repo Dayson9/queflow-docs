@@ -34,6 +34,9 @@ const Warning = new Nugget('Warning', {
     `,
     'i': `
       margin-right: 5px;
+    `,
+    '.flex-row': `
+      margin-bottom: 10px;
     `
   }
 })

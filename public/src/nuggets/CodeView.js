@@ -14,7 +14,7 @@ const CodeView = new Nugget("CodeView", {
       width: 95%;
       height: auto;
       background: #1a1b26;
-      padding-block: 20px;
+      padding-top: -5px;
       margin-top: 15px;
       margin-bottom: 28px;
       padding-inline: 10px;
@@ -34,12 +34,10 @@ const CodeView = new Nugget("CodeView", {
     "pre, code": `
       text-align: left;
       background: transparent!important;
-      padding: 0!important;
-      margin: 0!important;
       font-size: 13px;
-      font-family: monospace!important;
+      font-family: monospace;
   `,
-  '.main::-webkit-scrollable-thumb': `
+  'div::-webkit-scrollable-thumb': `
     width: 30%;
     height: 5px;
     border-radius: 5px;

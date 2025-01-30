@@ -1,8 +1,9 @@
-  import { Component } from 'queflow'
+import { Component } from 'queflow'
+import Idea from '../nuggets/Idea.js'
 
-  const Syntax = new Component('Syntax', {
-    template: () => {
-      return `
+const Syntax = new Component('Syntax', {
+  template: () => {
+    return `
         <section>
           <Heading { txt: "Template Syntax", size: 36 } />
           <Paragraph { txt: "This page contains the guide to QueFlow's template syntax, which is shared across your components, templates, and nuggets." } />
@@ -39,7 +40,8 @@
 
 // This would throw an error
 &lt;p&gt;{{ "Message is: "+msg }_}&lt;/p&gt;
-\` } />
+\` } />   
+          <Idea { txt: "A good rule of thumb is that expressions must start with a reactive property." } />
           <Heading { txt: "HTML Attributes" } />
           <Paragraph { txt: "You can pass attributes to HTML elements.These values can be static or dynamic:" } />
         <CodeView { code: \`
@@ -62,7 +64,7 @@
           <Navigator { left: ['Get Started', '/get-started'], right: ['App', '/docs_app'] } />
         </section>
       `
-    }
-  })
+  }
+})
 
-  export default Syntax
+export default Syntax

@@ -27,6 +27,7 @@ const Documentation = new App('#app', {
       hljs.highlightAll()
       if (path !== '/docs_nuggets') clearInterval(timerInt)
     }, this)
+    //toPage('/get-started')
   },
   stylesheet: {
     '.inter': `

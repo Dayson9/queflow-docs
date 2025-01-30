@@ -18,7 +18,7 @@ const GetStarted = new Component('GetStarted', {
         <Heading { txt: 'GetStarted', size: 36 } />
         <Heading { txt: "What is QueFlow?" } />
         <Paragraph { txt: "QueFlow (pronounced /kjuːˈfloʊ/) is a JavaScript library for building web apps. It leverages the 3 web languages HTML, CSS and JavaScript and provides a straightforward, component-based application model that makes building performant, fast web apps super-easy." } />
-        <Paragraph { txt: "Here is a simple example:" } />
+        <Paragraph { txt: "Here is a simple example:", top: 20 } />
         <CodeView { code: \`
 const MyApp = new App("#app", {
   data: {

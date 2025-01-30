@@ -122,9 +122,9 @@ const MyComponent = new Component('MyComponent', {
   }
 })
 \` } />
-        <Paragraph { txt: "[Components] and [App] have almost the same structure, the differences between them are highlighted below:" } />
+        <Paragraph { txt: "[Components] and [App] have almost the same structure, the main differences between them are highlighted below:" } />
         
-        <ListItem { items: ["Components can only be rendered in App and not the other way round.", "We can only have one App instance while Components can be more.", "Components do not need mount node while App needs it."] } />
+        <ListItem { items: ["Components can only be rendered in App and not the other way round.", "Components do not need mount node while App needs it."] } />
   
         <Navigator { left: ['App', '/docs_app'], right: ['Nuggets', '/docs_nuggets'] } />
       </section>
