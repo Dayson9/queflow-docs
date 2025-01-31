@@ -11,6 +11,7 @@ import Examples from './Examples.js'
 import Playground from './Playground.js';
 import Showcase from './Showcase.js'
 import ProjectStructure from './ProjectStructure.js'
+import Error404 from './Error404.js'
 import Nuggets from './Nuggets.js'
 
 const Main = new Component('Main', {
@@ -32,7 +33,8 @@ const Main = new Component('Main', {
         { route: "/playground", component: "<Playground/>" },
         { route: "/examples", component: "<Examples/>" },
         { route: "/showcase", component: "<Showcase/>" },
-        { route: "/docs_project-structure", component: "<ProjectStructure/>" }
+        { route: "/docs_project-structure", component: "<ProjectStructure/>" },
+        { route: "*", component: "<Error404/>" }
       ] } />
     `
   },
