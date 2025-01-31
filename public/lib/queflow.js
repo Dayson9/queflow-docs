@@ -951,7 +951,7 @@ function handleRouter(input) {
     const data = Function(`return ${d}.routes`)(),
       len = data.length;
       
-    let comp404 = '';
+    let comp404 = '', isSet = false;
     
     computed = data.map(({ route, component }, i) => {
       data[i].component = stringBetween(component, " <", "/>");
@@ -966,11 +966,12 @@ function handleRouter(input) {
       }
       
       if (route === path) {
+        isSet = true;
         currentComponent = instance;
         instance.isMounted = true;
         return renderComponent(instance, name);
       } else {
-        if (i === len - 1) {
+        if (i === len - 1 && !isSet) {
           instance = components.get(comp404);
           currentComponent = instance;
           instance.isMounted = true;
