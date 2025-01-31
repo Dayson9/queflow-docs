@@ -76,7 +76,7 @@ MyApp.render();
           
           <
           
-          <Navigator { left: ['Template', '/docs_template'], right: ['Template Syntax', '/docs_reactivity'] } />
+          <Navigator { left: ['Template', '/docs_template'], right: ['Reactivity', '/docs_reactivity'] } />
             
         </section>
       `

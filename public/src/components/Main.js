@@ -11,6 +11,7 @@ import Examples from './Examples.js'
 import Playground from './Playground.js';
 import Showcase from './Showcase.js'
 import ProjectStructure from './ProjectStructure.js'
+import Reactivity from './Reactivity.js'
 import Error404 from './Error404.js'
 import Nuggets from './Nuggets.js'
 
@@ -34,6 +35,7 @@ const Main = new Component('Main', {
         { route: "/examples", component: "<Examples/>" },
         { route: "/showcase", component: "<Showcase/>" },
         { route: "/docs_project-structure", component: "<ProjectStructure/>" },
+        { route: "/docs_reactivity", component: "<Reactivity/>" },
         { route: "*", component: "<Error404/>" }
       ] } />
     `
