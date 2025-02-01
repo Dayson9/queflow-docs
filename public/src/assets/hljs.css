@@ -69,10 +69,13 @@ pre, code {
 
 .hljs-addition,
 .hljs-bullet,
-.hljs-quote,
-.hljs-string,
 .hljs-symbol {
-  color: #9ece6a
+  color: #7dcfff
+}
+
+.hljs-quote,
+.hljs-string {
+  color: lightsteelblue;
 }
 
 .hljs-code,

@@ -24,9 +24,9 @@ const MyApp = new App("#app", {
   data: {
     count: 0
   },
-  template: () =&gt; &#96;
+  template: () =&gt; 
     &lt;button onclick={{ data.count++; }_}&gt;Count is: {{ count }_}&lt;/button&gt;
-  &#96;
+  
 })
 
 MyApp.render()
