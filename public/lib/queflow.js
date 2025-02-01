@@ -10,7 +10,7 @@ var counterQF = 0,
   nuggetCounter = 0,
   routerObj = {},
   currentComponent,
-  navigateFunc;
+  navigateFunc = (() =>{});
 
 var stylesheet = {
   el: document.createElement("style"),
