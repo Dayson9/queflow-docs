@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'Almarena';
   font-display: swap;
-  src: url('../assets/almarena.woff2');
+  src: url('../assets/fonts/almarena.woff2');
   font-weight: 400;
   font-style: normal;
 }
@@ -10,13 +10,13 @@
   font-family: boxicons;
   font-weight: 400;
   font-style: normal;
-  src: url(../assets/boxicons.woff2);
+  src: url(../assets/fonts/boxicons.woff2);
 }
 
 @font-face {
   font-family: 'Inter';
   font-display: swap;
-  src: url('../assets/Inter_18pt-Medium.woff2');
+  src: url('../assets/fonts/Inter_18pt-Medium.woff2');
   font-weight: 400;
   font-style: normal;
 }
