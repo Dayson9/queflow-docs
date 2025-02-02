@@ -32,7 +32,7 @@ Component(name /** [string] (required) -&gt; Name of component **/ ,
 
         <Paragraph { txt: "When working with [Component]s, it is highly recommended to follow QueFlow's project structure.", top: 20 } />
         <Link { text: 'You can check it out [here]', click: "toPage('/docs_project-structure')" } />
-        <Link { text: "or simply [download] it's zip file.", click: "downloadFile('https://queflowjs.vercel.app/src/assets/queflow_starter_template.zip')" } />
+        <Link { text: "or simply [download] it's zip file.", click: "downloadFile('./src/assets/queflow-starter-template.zip')" } />
         
         <Note { txt: "As you continue with this tutorial, we assume you've already downloaded the zip file or structure your project as specified above." } />
         
