@@ -31,7 +31,7 @@ Nugget(name /** [string] (required) -&gt; Name of Nugget **/ ,
 import { Nugget } from "queflow"
 
 const MyNugget = new Nugget('MyNugget', {
-template: () =&gt; "&lt;h1 color={{ color }_}&gt;{{ message }_}&lt;/h1&gt;"
+template: () =&gt; "&lt;h1 color={{ color ]]&gt;{{ message ]]&lt;/h1&gt;"
 })
 
 export default MyNugget
@@ -53,8 +53,8 @@ MyApp.render()
           <h1 color="orchid">My first QueFlow Nugget ⚡</h1>
         </div>
         <Heading { txt: "Props", top: 55 } />
-        <Paragraph { txt: "Props are data passed to Nuggets when rendering. It is quite easy to create props. Just write the attribute name or CSS property followed by [={{ prop-name }_}]. For example:" } />
-        <Paragraph { txt: "[font-size={{ size }_}]" } />
+        <Paragraph { txt: "Props are data passed to Nuggets when rendering. It is quite easy to create props. Just write the attribute name or CSS property followed by [={{ prop-name ]]]. For example:" } />
+        <Paragraph { txt: "[font-size={{ size ]]]" } />
         <CodeView { code: \`
 &lt;Button { label: "Get Started", bg: "teal" } /&gt;
 \` } /> 
@@ -66,7 +66,7 @@ MyApp.render()
 import { Nugget } from "queflow"
 
 const Button = new Nugget('Button', {
-  template: () =&gt; "&lt;button&gt;{{ label }_}&lt;/button&gt;",
+  template: () =&gt; "&lt;button&gt;{{ label ]]&lt;/button&gt;",
   stylesheet: {
     'button': &#96;
       padding: 12px 26px;
@@ -109,7 +109,7 @@ MyApp.render()
 import { Nugget } from "queflow"
 
 const Time = new Nugget('Time', {
-  template: () =&gt; &#96;&lt;span&gt;{{ time }_}&lt;/span&gt;&#96;,
+  template: () =&gt; &#96;&lt;span&gt;{{ time ]]&lt;/span&gt;&#96;,
   stylesheet: {
     'span': &#96;
       font-size: 60px;
@@ -133,7 +133,7 @@ const Timer = new App("#app", {
   },
   template: () =&gt; &#96;
     &lt;div&gt;
-      &lt;Time { time: "{{ currentTime }_}" } /&gt;
+      &lt;Time { time: "{{ currentTime ]]" } /&gt;
     &lt;/div&gt;
   &#96;,
   stylesheet: {
@@ -166,7 +166,7 @@ Timer.render()
 const PillButton = new Nugget('PillButton', {
   template: () =&gt; {
     return &#96;
-      &lt;Button { label: "{{ label }_}", radius: 50, px: 26, py: 12 } /&gt;
+      &lt;Button { label: "{{ label ]]", radius: 50, px: 26, py: 12 } /&gt;
     &#96;
   }
 })

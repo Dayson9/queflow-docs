@@ -44,9 +44,9 @@ const BalloonApp = new App("#app", {
   },
   template: () => {
     return &#96;
-     &lt;h1 font-size="30px"&gt;{{ balloon }_}&lt;/h1&gt;
-     &lt;p color="white"&gt;{{ num }_} {{ num > 1 ? "balloons" : "balloon" }_} created&lt;/p&gt;
-     &lt;button onclick={{ data.balloon+="🎈"; data.num++ }_}&gt;Create balloon +&lt;/button&gt;
+     &lt;h1 font-size="30px"&gt;[[ balloon ]]&lt;/h1&gt;
+     &lt;p color="white"&gt;[[ num ]] [[ num > 1 ? "balloons" : "balloon" ]] created&lt;/p&gt;
+     &lt;button onclick=[[ data.balloon+="🎈"; data.num++ ]]&gt;Create balloon +&lt;/button&gt;
     &#96;
   },
   stylesheet: {

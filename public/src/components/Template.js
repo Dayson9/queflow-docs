@@ -27,10 +27,10 @@ const UserCard = new Template("container", {
  () =&gt; {
     return &#96;
       &lt;div class="card"&gt;
-      &lt;img src={{ src }_} alt="{{ name }}'s image"/&gt;
+      &lt;img src={{ src ]] alt="{{ name }}'s image"/&gt;
       &lt;div class="right"&gt;
-        &lt;h3&gt;{{ name }_}&lt;/h3&gt;
-        &lt;p&gt;{{ job }_}&lt;/p&gt;
+        &lt;h3&gt;{{ name ]]&lt;/h3&gt;
+        &lt;p&gt;{{ job ]]&lt;/p&gt;
         &lt;p&gt;Lorem ipsum dolor sit amet cenq queres finito quadros.&lt;/p&gt;
       &lt;/div&gt;
     &lt;/div&gt;
@@ -83,6 +83,36 @@ MyApp.render()
           <UserCard { name: "Lauren Jamie", job: "Engineer", src: "src/assets/img/avatar3.jpg" } />
           <UserCard { name: "Mary Sylvester", job: "Artist", src: "src/assets/img/avatar4.jpg" } />
         </div>
+        
+        <Heading { txt: "Rendering Lists" } />
+        <Paragraph { txt: "In QueFlow, the recommended way to render lists is to make use of Templates, they are specifically made and optimized for building UIs with repetitive UI elements. Let's work on an example:" } />
+        <CodeView { code: \`
+import { Template } from 'queflow'
+
+const List = new Template('mount', {
+  template: () =&gt; &grave;
+    &lt;li&gt;{{ text }}&lt;/li&gt;
+  &grave;
+})
+
+export default List
+\`, filename: "Templates.js" } />
+        
+          
+        <CodeView { code: \`
+import { App } from 'queflow'
+import List from './Templates.js'
+
+const ListApp = new App('#app', {
+  template: () =&gt; &grave;
+    &lt;ul id='mount'&gt;&lt;/ul&gt;
+    &lt;input type='text' id="input"&gt;
+    &lt;button onclick={{ List.renderWith({ text: input.value }) }}&gt;Add name&lt;/buttton&gt;
+  &grave;
+})
+\`, filename: "App.js" } />
+
+
         <Navigator { left: ['Nuggets', '/docs_nuggets'], right: ['Event Handling', '/docs_events'] } />
       </section>
     `

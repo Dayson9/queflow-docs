@@ -25,7 +25,7 @@ const MyApp = new App("#app", {
     count: 0
   },
   template: () =&gt; 
-    &lt;button onclick={{ data.count++; }_}&gt;Count is: {{ count }_}&lt;/button&gt;
+    &lt;button onclick=[[ data.count++; ]]&gt;Count is: [[ count ]]&lt;/button&gt;
   
 })
 
@@ -79,13 +79,13 @@ const MyApp = new App("#app", {
   },
   template: () =&gt; {
     return &#96;
-      &lt;div width="100%" height="100px" color="mediumpurple" ontouchstart={{
+      &lt;div width="100%" height="100px" color="mediumpurple" ontouchstart=[[
       const t = e.touches[0];
       data.x = t.clientX - window.innerWidth/7;
-    }_}&gt;
+    ]]&gt;
         &lt;div id="ball"
         transition="transform 0.7s cubic-bezier(0.68, -0.55, 0.27, 1.55)"
-        transform="translate({{ x }_}px, 25px)"&gt;Q&lt;/div&gt;
+        transform="translate([[ x ]]px, 25px)"&gt;Q&lt;/div&gt;
       &lt;/div&gt;
     &#96;
   },
@@ -131,8 +131,8 @@ const ColorChanger = new App("#app", {
   },
   template: () =&gt; {
    return &#96;
-    &lt;h1 color={{ color || 'mediumpurple' }_} transition=".4s"&gt;Change my color&lt;/h1&gt;
-    &lt;input type="text" oninput={{ data.color = e.target.value }_}/&gt;
+    &lt;h1 color=[[ color || 'mediumpurple' ]] transition=".4s"&gt;Change my color&lt;/h1&gt;
+    &lt;input type="text" oninput=[[ data.color = e.target.value ]]/&gt;
     &#96;
   }
 })

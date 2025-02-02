@@ -3,7 +3,7 @@ import { Nugget } from 'queflow'
 const Icon = new Nugget("Icon", {
   template: (data) => {
     return `
-      <i ${data.color ? 'color={{ color }}' : ''}  ${data.size ? ' font-size={{ size }}px' : ''} ${data.weight ? ' font-weight={{ weight }}' : ''}  ${ data.class ? 'class="bx {{ class }}"' : ''} ${data.click ? 'onclick={{ click }}' : '' }></i>
+      <i ${data.color ? 'color={{ color }}' : ''}  ${data.size ? ' font-size="{{ size }}px"' : ''} ${data.weight ? ' font-weight={{ weight }}' : ''}  ${ data.class ? 'class="bx {{ class }}"' : ''} ${data.click ? 'onclick={{ click }}' : '' }></i>
     `
   },
 

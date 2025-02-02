@@ -10,7 +10,7 @@ var counterQF = 0,
   nuggetCounter = 0,
   routerObj = {},
   currentComponent,
-  navigateFunc = (() =>{});
+  navigateFunc = (() => {});
 
 var stylesheet = {
   el: document.createElement("style"),
@@ -161,7 +161,6 @@ function evaluateTemplate(reff, instance) {
   // Returns the evaluated template string.
   return out;
 }
-
 
 // Gets the attributes of a DOM element.
 function getAttributes(el) {
@@ -449,7 +448,7 @@ function renderTemplate(input, props, shouldSanitize) {
   const output = input.replace(regex, (match) => {
     const extracted = b(match).trim();
     const value = shouldSanitize ? sanitizeString(props[extracted]) : props[extracted];
-    return value ? value : `{{ ${extracted} }}`;
+    return value || value === '' ? value : `{{ ${extracted} }}`;
   });
 
   return output;
@@ -510,8 +509,8 @@ function g(str, counter) {
 }
 
 const lintPlaceholders = (html, isNugget) => {
-  const attributeRegex = new RegExp("\\s\\w+\\s*[=]\\s?\\{\\{[^\\}\\}]+\\}\\}", "g"),
-    eventRegex = new RegExp("\\s(on)\\w+\\s*[=]\\s?\\{\\{[^\\}\\}]+\\}\\}", "g");
+  const attributeRegex = /\w+\s*[=]\s?\{\{[^\}\}]+\}\}/g,
+    eventRegex = /on\w+\s*[=]\s?\{\{(.*?)\}\}/gs;
 
   if (eventRegex.test(html) && !isNugget) {
     html = html.replace(eventRegex, (match) => {
@@ -564,6 +563,8 @@ const renderComponent = (instance, name, flag) => {
   }
 
   instance.dataQF = rendered[1];
+  rendered[0] = rendered[0].replaceAll('[[', '&#123;&#123;')
+  rendered[0] = rendered[0].replaceAll(']]', '&#125;&#125;')
   return rendered[0];
 }
 
@@ -647,7 +648,7 @@ class App {
     let rendered = jsxToHTML(template, this);
 
     // Set innerHTML attribute of component's element to the converted template
-    el.innerHTML = rendered[0].replaceAll('}_}', '}}');
+    el.innerHTML = rendered[0];
 
     this.dataQF = rendered[1];
     handleEventListener(el, this);
@@ -775,7 +776,7 @@ class Component {
 
   mount() {
     if (!this.isMounted)
-      this.element.innerHTML = renderComponent(this, this.name, true).replaceAll('}_}', '}}');
+      this.element.innerHTML = renderComponent(this, this.name, true);
     handleEventListener(this.element, this);
     this.isMounted = true;
   }
@@ -797,10 +798,11 @@ class Template {
    * @param {String|Node} element    The element to mount template into
    * @param {String|Function} templateFunc    A function that returns string to make into a template
    */
-  constructor(id, stylesheet, templateFunc) {
+  constructor(name, options, id) {
+    globalThis[name] = this;
     this.element = id;
-    this.template = templateFunc;
-    this.stylesheet = stylesheet;
+    this.template = options.template;
+    this.stylesheet = options.stylesheet;
     // Initiates stylesheet 
     initiateStyleSheet(`#${id}`, this);
     this.data = [];
@@ -891,7 +893,6 @@ globalThis.toPage = (path) => {
   loadComponent(path)
 }
 
-
 const loadComponent = (path) => {
   const len = routerObj.length;
   let comp404 = '';
@@ -950,9 +951,10 @@ function handleRouter(input) {
       path = window.location.pathname;
     const data = Function(`return ${d}.routes`)(),
       len = data.length;
-      
-    let comp404 = '', isSet = false;
-    
+
+    let comp404 = '',
+      isSet = false;
+
     computed = data.map(({ route, component }, i) => {
       data[i].component = stringBetween(component, " <", "/>");
 
@@ -964,7 +966,7 @@ function handleRouter(input) {
       if (route === "*") {
         comp404 = name;
       }
-      
+
       if (route === path) {
         isSet = true;
         currentComponent = instance;

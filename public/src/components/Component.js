@@ -79,8 +79,8 @@ const MyComponent1 = new Component("MyComponent1", {
   },
   template: () =&gt; &#96;
     &lt;div&gt;
-      &lt;h1 color="wheat"&gt;{{ isEmoji ? '🎂🎁 🎈' : 'Happy Birthday' }_}&lt;/h1&gt;
-      &lt;button onclick={{ data.isEmoji = !data.isEmoji }_}&gt;Switch to {{ isEmoji ? 'text' : 'emoji' }_}&lt;/button&gt;
+      &lt;h1 color="wheat"&gt;{{ isEmoji ? '🎂🎁 🎈' : 'Happy Birthday' ]]&lt;/h1&gt;
+      &lt;button onclick={{ data.isEmoji = !data.isEmoji ]]&gt;Switch to {{ isEmoji ? 'text' : 'emoji' ]]&lt;/button&gt;
     &lt;/div&gt;
     &#96;
 });
