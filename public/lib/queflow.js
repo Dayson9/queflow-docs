@@ -154,7 +154,7 @@ function evaluateTemplate(reff, instance) {
     // Prevents unnecessary errors 
     let reg = /Unexpected token/i;
     if (!reg.test(error))
-      console.error("QueFlow Error:\nAn error occurred while parsing JSX/HTML:\n\n" + error);
+      alert("QueFlow Error:\nAn error occurred while parsing JSX/HTML:\n\n" + error);
   }
 
 
@@ -180,7 +180,7 @@ function getAttributes(el) {
       arr.push({ attribute: name, value: value });
     }
   } catch (error) {
-    throw new Error("QueFlow Error:\nAn error occurred while getting the attributes of " + el + ", " + error);
+    alert("QueFlow Error:\nAn error occurred while getting the attributes of " + el + ", " + error);
   }
 
 
@@ -220,7 +220,7 @@ function jsxToHTML(jsx, instance, sub_id) {
       c.removeAttribute("innertext");
     }
   } catch (error) {
-    console.error("QueFlow Error:\nAn error occurred while processing JSX/HTML:\n" + error);
+    alert("QueFlow Error:\nAn error occurred while processing JSX/HTML:\n" + error);
   }
 
   out = evaluateTemplate(doc.innerHTML, instance);
@@ -466,7 +466,7 @@ function initiateComponents(markup, isNugget) {
         const instance = components.get(subName);
         evaluated = renderComponent(instance, subName);
       } catch (e) {
-        console.error("QueFlow Error:\nAn error occured while rendering Component '" + subName + "'\n" + e);
+        alert("QueFlow Error:\nAn error occured while rendering Component '" + subName + "'\n" + e);
       }
       return evaluated;
     });
@@ -484,7 +484,7 @@ function initiateComponents(markup, isNugget) {
           instance = nuggets.get(name);
         evaluated = renderNugget(instance, d);
       } catch (e) {
-        console.error("QueFlow Error:\nAn error occured while rendering Nugget '" + name + "'\n" + e);
+        alert("QueFlow Error:\nAn error occured while rendering Nugget '" + name + "'\n" + e);
       }
       return evaluated;
     });
@@ -575,7 +575,7 @@ class App {
     // Stores the element associated with a component
     this.element = typeof selector == "string" ? document.querySelector(selector) : selector;
 
-    if (!this.element) throw new Error("QueFlow Error:\nElement selector '" + selector + "' is invalid");
+    if (!this.element) alert("QueFlow Error:\nElement selector '" + selector + "' is invalid");
     this.upTime = 0;
     // Creates a reactive signal for the component's data.
     this.data = createSignal(options.data, this);
@@ -607,7 +607,7 @@ class App {
     this.useStrict = Object.keys(options).includes('useStrict') ? options.useStrict : true;
 
     let id = this.element.id;
-    if (!id) throw new Error("QueFlow Error:\nTo use component scoped stylesheets, components element must have a valid id");
+    if (!id) alert("QueFlow Error:\nTo use component scoped stylesheets, components element must have a valid id");
 
     // qà a component's stylesheet 
     initiateStyleSheet(`#${id}`, this);
@@ -697,7 +697,7 @@ class Component {
     this.template = options?.template;
     this.run = options.run || (() => {});
     this.navigateFunc = options.onNavigate || (() => {});
-    if (!this.template) throw new Error("QueFlow Error:\nTemplate not provided for Component " + name);
+    if (!this.template) alert("QueFlow Error:\nTemplate not provided for Component " + name);
 
     this.element = `qfEl${counterQF}`;
     counterQF++;
@@ -966,12 +966,12 @@ function handleRouter(input) {
 
       const title = data[i].title;
       if (!title) {
-        throw new Error(`QueFlow Router Error:\nTitle not set for component '${ name }'`)
+        alert(`QueFlow Router Error:\nTitle not set for component '${ name }'`)
       }
 
       let instance = components.get(name);
 
-      if (!instance) throw new Error(`\n\nQueFlow Router Error:\nAn error occured while rendering component '${name}'`);
+      if (!instance) alert(`\n\nQueFlow Router Error:\nAn error occured while rendering component '${name}'`);
 
       if (route === "*") {
         comp404 = name;
