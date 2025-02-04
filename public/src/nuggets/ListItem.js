@@ -3,7 +3,7 @@ import { Nugget } from 'queflow'
 const ListItem = new Nugget('ListItem', {
   template: (data) => {
     return `
-      <ul class="inter" ${ data.top ? 'margin-top={{ top }}px' : '' }>
+      <ul class="inter" ${ data.top ? 'margin-top="{{ top }}px"' : '' }>
         ${ data.items.map(item => {
         const path = item.click;
         item = typeof item === "object" ? item.label : item;
