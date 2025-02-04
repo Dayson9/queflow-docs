@@ -553,7 +553,7 @@ const renderComponent = (instance, name, flag) => {
   const id = typeof instance.element === 'string' ? instance.element : instance.element.id;
   if (!flag) {
     const newTemplate = initFirstElement(template, id);
-    alert(name+"        "+newTemplate)
+    //alert(name+"        "+newTemplate)
     rendered = jsxToHTML(newTemplate, instance, name);
 
     // Initiates sub-component's stylesheet 
