@@ -648,6 +648,7 @@ class App {
 
     rendered[0] = rendered[0].replaceAll('[[', '{{');
     rendered[0] = rendered[0].replaceAll(']]', '}}');
+    
     // Set innerHTML attribute of component's element to the converted template
     el.innerHTML = rendered[0];
     currentComponent?.navigateFunc(currentComponent.data);
@@ -777,10 +778,14 @@ class Component {
   }
 
   mount() {
-    if (!this.isMounted)
-      this.element.innerHTML = renderComponent(this, this.name, true);
+    if (!this.isMounted) {
+    let rendered = renderComponent(this, this.name, true);
+    rendered = rendered.replaceAll('[[', '{{');
+    rendered = rendered.replaceAll(']]', '}}');
+    this.element.innerHTML = rendered;
     handleEventListener(this.element, this);
     this.isMounted = true;
+    }
   }
 
   // removes the component's element from the DOM
