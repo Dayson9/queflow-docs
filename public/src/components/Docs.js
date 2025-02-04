@@ -14,6 +14,7 @@ const Docs = new Component('Docs', {
             "#Advanced",
             { label: "@Template Syntax" , click: '/docs_template-syntax'},
             { label: "@Event Handling" , click: '/docs_events'},
+            { label: "@Reactivity" , click: '/docs_reactivity'}
             "#Extras",
             { label: "@Project Structure" , click: '/docs_project-structure'}
             ],

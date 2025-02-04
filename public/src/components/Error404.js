@@ -6,7 +6,7 @@ const Error404 = new Component('Error404', {
         <section text-align="center" width="100%" margin="0" padding="0">
           <Heading { txt: "404", size: 150 } />
           <Heading { txt: "Page not found", size: 36 } />
-          <Link { text: "The page you requested was not found or moved to another URL, you can navigate back [home]", click: "toPage('/')" } />
+          <ALink { text: "The page you requested was not found or moved to another URL, you can navigate back [home]", click: "toPage('/')" } />
         </section>
       `
   },

@@ -42,7 +42,7 @@ MyApp.render()
 &lt;script type="importmap"&gt;
  {
    "imports": {
-     "queflow": "https://esm.sh/gh/dayson9/queflowjs/lib/queflow.esm-browser.js"
+     "queflow": "https://esm.sh/queflow-js"
      }
  }
 &lt;/script&gt;

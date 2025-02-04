@@ -29,7 +29,7 @@ const Documentation = new App('#app', {
       hljs.highlightAll()
       if (path !== '/docs_nuggets') clearInterval(timerInt)
     }, this)
-    
+   // toPage('/docs_reactivity')
   },
   stylesheet: {
     '.inter': `
