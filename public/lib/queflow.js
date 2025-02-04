@@ -162,6 +162,7 @@ function evaluateTemplate(reff, instance) {
   return out;
 }
 
+
 // Gets the attributes of a DOM element.
 function getAttributes(el) {
   let arr = [];
@@ -546,14 +547,13 @@ const removeEvents = (nodeList) => {
 
 const renderComponent = (instance, name, flag) => {
   let template = !flag ? `<div> ${(instance.template instanceof Function ? instance.template(instance.data) : instance.template)} </div>` : (instance.template instanceof Function ? instance.template(instance.data) : instance.template);
-  template = handleRouter(template);
+  template = handleRouter(template)
   template = initiateComponents(template);
-  
+
   var rendered;
   const id = typeof instance.element === 'string' ? instance.element : instance.element.id;
   if (!flag) {
     const newTemplate = initFirstElement(template, id);
-    //alert(name+"        "+newTemplate)
     rendered = jsxToHTML(newTemplate, instance, name);
 
     // Initiates sub-component's stylesheet 
@@ -564,9 +564,6 @@ const renderComponent = (instance, name, flag) => {
   }
 
   instance.dataQF = rendered[1];
-  rendered[0] = rendered[0].replaceAll('[[', '&#123;&#123;')
-  rendered[0] = rendered[0].replaceAll(']]', '&#125;&#125;')
- 
   return rendered[0];
 }
 
