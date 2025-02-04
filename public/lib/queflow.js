@@ -549,11 +549,11 @@ const renderComponent = (instance, name, flag) => {
   template = handleRouter(template);
   template = initiateComponents(template);
   
-alert(name+"        "+template)
   var rendered;
   const id = typeof instance.element === 'string' ? instance.element : instance.element.id;
   if (!flag) {
     const newTemplate = initFirstElement(template, id);
+    alert(name+"        "+newTemplate)
     rendered = jsxToHTML(newTemplate, instance, name);
 
     // Initiates sub-component's stylesheet 
