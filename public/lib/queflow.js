@@ -546,7 +546,8 @@ const removeEvents = (nodeList) => {
 
 const renderComponent = (instance, name, flag) => {
   let template = !flag ? `<div> ${(instance.template instanceof Function ? instance.template(instance.data) : instance.template)} </div>` : (instance.template instanceof Function ? instance.template(instance.data) : instance.template);
-  template = handleRouter(template)
+  template = handleRouter(template);
+  alert(template+"        "+name)
   template = initiateComponents(template);
 
   var rendered;
@@ -561,7 +562,7 @@ const renderComponent = (instance, name, flag) => {
     initiateStyleSheet(`#${id}`, instance);
     rendered = jsxToHTML(template, instance, name);
   }
-alert(template+"        "+name)
+
   instance.dataQF = rendered[1];
   rendered[0] = rendered[0].replaceAll('[[', '&#123;&#123;')
   rendered[0] = rendered[0].replaceAll(']]', '&#125;&#125;')
