@@ -22,21 +22,21 @@ const Main = new Component('Main', {
   template: () => {
     return `
       <Router { routes: [
-        { route: "/", component: "<Home/>" },
-        { route: "/get-started", component: "<GetStarted/>" },
-        { route: "/docs_app", component: "<App_/>" },
-        { route: "/docs_component", component: "<Compo/>" },
-        { route: "/docs_nuggets", component: "<Nuggets/>" },
-        { route: "/docs_template", component: "<Template_/>" },
-        { route: "/docs_template-syntax", component: "<Syntax/>" },
-        { route: "/docs", component: "<Docs/>" },
-        { route: "/docs_events", component: "<Events/>" },
-        { route: "/playground", component: "<Playground/>" },
-        { route: "/examples", component: "<Examples/>" },
-        { route: "/showcase", component: "<Showcase/>" },
-        { route: "/docs_project-structure", component: "<ProjectStructure/>" },
-        { route: "/docs_reactivity", component: "<Reactivity/>" },
-        { route: "*", component: "<Error404/>" }
+        { route: "/", component: "<Home/>", title: "QueFlowJS" },
+        { route: "/get-started", component: "<GetStarted/>", title: "Get Started - QueFlow" },
+        { route: "/docs_app", component: "<App_/>", title: "App Class - QueFlow" },
+        { route: "/docs_component", component: "<Compo/>", title: "Component Class - QueFlow" },
+        { route: "/docs_nuggets", component: "<Nuggets/>", title: "Nugget Class - QueFlow" },
+        { route: "/docs_template", component: "<Template_/>", title: "Template Class - QueFlow" },
+        { route: "/docs_template-syntax", component: "<Syntax/>", title: "Template Syntax - QueFlow" },
+        { route: "/docs", component: "<Docs/>", title: "Documentation - QueFlow" },
+        { route: "/docs_events", component: "<Events/>", title: "Event Handling - QueFlow" },
+        { route: "/playground", component: "<Playground/>", title: "Online Playground - QueFlow" },
+        { route: "/examples", component: "<Examples/>", title: "Examples - QueFlow" },
+        { route: "/showcase", component: "<Showcase/>", title: "Showcase - QueFlow" },
+        { route: "/docs_project-structure", component: "<ProjectStructure/>", title: "Project Structure - QueFlow" },
+        { route: "/docs_reactivity", component: "<Reactivity/>", title: "Reactivity - QueFlow" },
+        { route: "*", component: "<Error404/>", title: "Page Not Found" }
       ] } />
     `
   },
