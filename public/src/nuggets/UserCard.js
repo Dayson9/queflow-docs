@@ -34,8 +34,8 @@ const UserCard = new Nugget('UserCard', {
   `,
   '.right': `
     width: 60%;
-    height: 100px;
-    box-sizing: border-box;
+    height: auto;
+    box-sizing: content-box;
   `,
   'h3,p': `
     margin-block: 7px;
