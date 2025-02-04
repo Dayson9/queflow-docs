@@ -974,13 +974,12 @@ function handleRouter(input) {
       if (route === "*") {
         comp404 = name;
       }
-
+alert(route+"   "+path)
       if (route === path) {
         isSet = true;
         currentComponent = instance;
         instance.isMounted = true;
         document.title = title;
-        alert(instance.name)
         return renderComponent(instance, name);
       } else {
         if (i === len - 1 && !isSet) {
