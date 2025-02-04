@@ -547,9 +547,9 @@ const removeEvents = (nodeList) => {
 const renderComponent = (instance, name, flag) => {
   let template = !flag ? `<div> ${(instance.template instanceof Function ? instance.template(instance.data) : instance.template)} </div>` : (instance.template instanceof Function ? instance.template(instance.data) : instance.template);
   template = handleRouter(template);
-  alert(template+"        "+name)
   template = initiateComponents(template);
-
+  
+alert(name+"        "+template)
   var rendered;
   const id = typeof instance.element === 'string' ? instance.element : instance.element.id;
   if (!flag) {
