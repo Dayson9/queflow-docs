@@ -9,7 +9,7 @@ const ListItem = new Nugget('ListItem', {
         item = typeof item === "object" ? item.label : item;
         let added = "";
           if (item.startsWith("#")) {
-            added+= 'font-size="18px" font-weight="650" margin-top="18px" '
+            added+= 'font-size="18px" font-weight="650" margin-top="28px" '
             item = item.slice(1)
           } 
           
@@ -30,7 +30,7 @@ const ListItem = new Nugget('ListItem', {
   stylesheet: {
     'li': `
       margin-block: 13px;
-      line-height: 1.3em;
+      line-height: 1.1em;
     `
   }
 })
