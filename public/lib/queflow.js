@@ -566,7 +566,7 @@ const renderComponent = (instance, name, flag) => {
   rendered[0] = rendered[0].replaceAll('[[', '&#123;&#123;')
   rendered[0] = rendered[0].replaceAll(']]', '&#125;&#125;')
   
-  alert(rendered)
+  alert(rendered[0])
   return rendered[0];
 }
 
