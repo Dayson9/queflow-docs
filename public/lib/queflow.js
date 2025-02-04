@@ -899,10 +899,10 @@ const loadComponent = (path) => {
   let comp404 = '';
 
   const changeView = (name, title) => {
-    alert(name)
     const instance = components.get(name);
     currentComponent?.hide();
     if (instance.isMounted) {
+      alert("Shown")
       instance.show();
     } else {
       instance.mount();
