@@ -980,7 +980,7 @@ function handleRouter(input) {
         currentComponent = instance;
         instance.isMounted = true;
         document.title = title;
-        console.log(instance.name)
+        alert(instance.name)
         return renderComponent(instance, name);
       } else {
         if (i === len - 1 && !isSet) {
