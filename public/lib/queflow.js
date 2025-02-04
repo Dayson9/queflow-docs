@@ -565,6 +565,8 @@ const renderComponent = (instance, name, flag) => {
   instance.dataQF = rendered[1];
   rendered[0] = rendered[0].replaceAll('[[', '&#123;&#123;')
   rendered[0] = rendered[0].replaceAll(']]', '&#125;&#125;')
+  
+  alert(rendered)
   return rendered[0];
 }
 
@@ -974,7 +976,7 @@ function handleRouter(input) {
       if (route === "*") {
         comp404 = name;
       }
-alert(route+"   "+path)
+
       if (route === path) {
         isSet = true;
         currentComponent = instance;
