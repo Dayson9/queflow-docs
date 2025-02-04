@@ -902,7 +902,6 @@ const loadComponent = (path) => {
     const instance = components.get(name);
     currentComponent?.hide();
     if (instance.isMounted) {
-      alert("Shown")
       instance.show();
     } else {
       instance.mount();
@@ -980,7 +979,7 @@ function handleRouter(input) {
         isSet = true;
         currentComponent = instance;
         instance.isMounted = true;
-        document.title = title;
+        //document.title = title;
         return renderComponent(instance, name);
       } else {
         if (i === len - 1 && !isSet) {
