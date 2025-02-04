@@ -465,6 +465,7 @@ function initiateComponents(markup, isNugget) {
         subName = match.slice(1, -2);
         const instance = components.get(subName);
         evaluated = renderComponent(instance, subName);
+        alert(subName+"   "+evaluated)
       } catch (e) {
         console.error("QueFlow Error:\nAn error occured while rendering Component '" + subName + "'\n" + e);
       }
@@ -1006,7 +1007,6 @@ function handleRouter(input) {
     loadComponent(path);
   });
 
-console.log(out)
   return out;
 }
 
