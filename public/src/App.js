@@ -30,7 +30,6 @@ const Documentation = new App('#app', {
       if (path !== '/docs_nuggets') clearInterval(timerInt)
     }, this)
     
-    toPage('/docs_app')
   },
   stylesheet: {
     '.inter': `
