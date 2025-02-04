@@ -1,6 +1,6 @@
 import { Component } from "queflow"
 import UserCard from '../nuggets/UserCard.js'
-
+import List from '../Templates.js'
 
 const Template_ = new Component('Template_', {
   template: function(data) {
@@ -11,9 +11,14 @@ const Template_ = new Component('Template_', {
         <Paragraph { txt: "Templats are almost similar to Nuggets. The difference between the two is how they can be rendered, Nuggets can be used only in HTML/JSX markup while Template can only be used outside." } />
         <Paragraph { txt: "Syntax:", top: 20 } />
         <CodeView { code: \`
-Template(selector /** (string) [required] -&gt; id of mount node **/ ,
-  stylesheet /** (object) [required] -&gt; An object containing CSS declarations **/ ,
-  template /** (string|function) [required] -&gt; A string or function that returns HTML/JSX**/
+Template(name /** [string] (required) -&gt; Name of Template **/ ,
+{
+  stylesheet: {
+    /** (object) [required] -&gt; An object containing CSS declarations **/
+  },
+  template: /** (string|function) [required] -&gt; A string or function that returns HTML/JSX**/,
+},
+selector /** (string) [required] -&gt; id of mount node **/
 )
 \` } />
 
@@ -21,10 +26,11 @@ Template(selector /** (string) [required] -&gt; id of mount node **/ ,
         <CodeView { code: \`
 import { Template } from 'queflow' 
 
-const UserCard = new Template("container", {
+const UserCard = new Template('UserCard', {
+  stylesheet: {
   // your styles here
  },
- () =&gt; {
+ template: () =&gt; {
     return &#96;
       &lt;div class="card"&gt;
       &lt;img src={{ src ]] alt="{{ name }}'s image"/&gt;
@@ -35,7 +41,8 @@ const UserCard = new Template("container", {
       &lt;/div&gt;
     &lt;/div&gt;
     &#96;
-})
+  }
+}, 'container')
 
 export default UserCard
 \`, filename: "Templates.js" } />
@@ -75,6 +82,8 @@ MyApp.render()
     ])
   }
 })
+
+MyApp.render()
 \`, filename: "App.js" } />
         
         <div class="preview">
@@ -103,16 +112,26 @@ export default List
 import { App } from 'queflow'
 import List from './Templates.js'
 
-const ListApp = new App('#app', {
+const MyApp = new App('#app', {
   template: () =&gt; &grave;
     &lt;ul id='mount'&gt;&lt;/ul&gt;
     &lt;input type='text' id="input"&gt;
-    &lt;button onclick={{ List.renderWith({ text: input.value }) }}&gt;Add name&lt;/buttton&gt;
+    &lt;button onclick=[[ List.renderWith({ text: input.value }) ]]&gt;Add name&lt;/buttton&gt;
   &grave;
 })
+
+MyApp.render()
 \`, filename: "App.js" } />
 
-
+        <div class="preview">
+          <ul id='mount'></ul>
+          <input type='text' id="input" class="input">
+          <button class='reg-btn' onclick={{ 
+            List.renderWith({ text: input.value })
+            input.value = ''
+          }}>Add name</buttton>
+        </div>
+        
         <Navigator { left: ['Nuggets', '/docs_nuggets'], right: ['Event Handling', '/docs_events'] } />
       </section>
     `

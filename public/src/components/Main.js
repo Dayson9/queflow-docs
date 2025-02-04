@@ -56,6 +56,7 @@ const Main = new Component('Main', {
       margin-block: 20px;
       font-family: Inter;
       padding-inline: 10px;
+      color: white;
       padding-block: 10px;
     `,
     'section': `
@@ -75,10 +76,23 @@ const Main = new Component('Main', {
       width: 110px;
       background: rgb(30, 40, 35);
       color: white;
-      border: 1px solid grey;
+      border: 1px solid silver;
       border-radius: 10px;
       font-weight: 700;
       font-size: 15px;
+    `,
+    '.input': `
+      background: transparent;
+      border: none;
+      transition: .3s;
+      outline: 1px solid silver;
+      height: 2.5em;
+      border-radius: 10px;
+      color: white;
+      padding-left: .5em;
+    `,
+    '.input:hover': `
+      outline-width: 2.7px;
     `
   }
 })
