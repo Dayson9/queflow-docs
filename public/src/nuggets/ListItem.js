@@ -20,7 +20,17 @@ const ListItem = new Nugget('ListItem', {
         const hlReg = /\[[^\[]+\]/
         item = item.replace(hlReg, (match) => `<span class="highlighted">${ match.slice(1, match.length-1)}</span>`)
   
-        return `<li ${ added } ${ path ? `onclick="toPage('${path}')"` : '' }>${ item.startsWith("@") ? item.slice(1) : item }</li>`
+        if(path){
+          return `
+            <li ${ added }>
+              <Link { to: "${path}", label: "${ item.startsWith("@") ? item.slice(1) : item }" } />
+            </li>`
+        } else {
+          return `
+            <li ${ added }>
+              ${ item.startsWith("@") ? item.slice(1) : item }
+            </li>`
+        }
         }).join('') }
         
       </ul>
@@ -31,6 +41,9 @@ const ListItem = new Nugget('ListItem', {
     'li': `
       margin-block: 13px;
       line-height: 1.1em;
+      `,
+     'a': `
+      color: rgb(255,255,255,.9);
     `
   }
 })
