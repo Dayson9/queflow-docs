@@ -33,7 +33,7 @@ const Reactivity = new Component('Reactivity', {
 ]]&gt;Count is [[ count ]]&lt;/button&gt;
 \` } />
 
-      <Paragraph { txt: "The [e] is an argument that's passes to an event" } />
+      <Paragraph { txt: "The [e] is an argument that's passed to an event" } />
     </section>
   `
 })
