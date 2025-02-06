@@ -931,9 +931,15 @@ const Link = new Nugget('Link', {
   template: (data) => {
     const classN = data.class ? 'class={{ class }}' : '';
     return `
-      <a href={{ href }} ${ classN } onclick="
+      <a href={{ to }} ${ classN } onclick="
         e.preventDefault()
-        toPage('{{ href }}')">${ data.isBtn ? '<button>{{ label }}</button>' : '{{ label }}' }</a>`
+        toPage('{{ to }}')">${ data.isBtn ? '<button>{{ label }}</button>' : '{{ label }}' }</a>`
+  },
+  stylesheet: {
+    a: `
+      color: auto;
+      text-decoration: none;
+    `
   }
 })
 

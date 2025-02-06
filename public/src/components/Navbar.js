@@ -9,10 +9,18 @@ const Navbar = new Component('Navbar', {
       <nav class="inter" left={{ left+'%' }} transition=".3s">
         <Icon { class: 'bx-x', size: 30, click: 'data.left = -100' } />
         <ul font-size="20px">
-          <li onclick={{ toPage('/docs') }}>Documentation</li>
-          <li onclick={{ toPage('/playground') }}>Playground</li>
-          <li onclick={{ toPage('/examples') }}>Examples</li>
-          <li onclick={{ toPage('/showcase') }}>Showcase</li>
+          <li>
+            <Link { to: "/docs", label: "Documentation" } />
+          </li>
+          <li>
+            <Link { to: "/playground", label: "Playground" } />
+          </li>
+          <li>
+            <Link { to: "/examples", label: "Examples" } />
+          </li>
+          <li>
+            <Link { to: "/showcase", label: "Showcase" } />
+          </li>
         </ul>
       </nav>
     `
@@ -27,7 +35,6 @@ const Navbar = new Component('Navbar', {
       position: fixed;
       top: 0;
       z-index: 1;
-      color: rgb(255,255,255,.9);
       box-sizing: border-box;
     `,
     'i': `
@@ -43,6 +50,9 @@ const Navbar = new Component('Navbar', {
     'ul': `
       margin-top: 50px;
       list-style-type: none;
+   `,
+   'a': `
+    color: rgb(255,255,255,.9);
    `
   }
 })

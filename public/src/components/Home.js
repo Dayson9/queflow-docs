@@ -14,18 +14,22 @@ const Home = new Component('Home', {
       </h1>
       <p class="pxp-el12 inter">Deliver highly optimized web apps without much effort.</p>
       <div class="flex-${ width < 768 ? 'col' : 'row' } btn">
-      <button class="inter pxp-el13" onclick={{ toPage("/get-started") }}>
+      
+      <Link { to: "/get-started", label: \`
+        <button class="inter pxp-el13">
         <span class="pxp-el14">Get Started</span>
         <span class="bx bx-right-arrow-alt pxp-el15"></span>
-      </button>
-      <button class="pxp-el16 inter" onclick="toPage('/docs')">
+      </button>\` } />
+     
+     <Link { to: "/docs", label: \` 
+      <button class="pxp-el16 inter">
         <span class="pxp-el14">Explore Docs</span>
         <span class="bx bx-menu pxp-el17"></span>
-      </button>
+      </button> \` } />
       </div>
       <div id="description">
         <h2 class="pxp-el10 maren">What is QueFlow?</h2>
-        <Text { txt: 'QueFlow is a JavaScript framework for building performant, optimized websites in a declarative manner.', color: 'rgba(255, 255, 255, 0.9)', align: 'left', class: "inter" } />
+        <P { txt: 'QueFlow is a JavaScript framework for building performant, optimized websites in a declarative manner.' } />
         
         <HotFeature { title: 'Fast', class: 'bxs-rocket', summary: 'QueFlow was designed to build fast interactive sites with so much ease. Updates are fast and performance optimized.' }/>
         <HotFeature { title: 'Data-Driven', class: 'bxs-data', summary: 'QueFlow can handle rendering data-driven/data-heavy websites. Which makes it suitable for building websites that requires real-time updates.' }/>
@@ -61,6 +65,7 @@ const Home = new Component('Home', {
     '.pxp-el12': `  
         color: rgba(255,255,255,.9);
         text-align: center;
+        font-size: 18px;
     `,
     '.btn': `
         width: ${ width < 768 ? 100 : 50 }vw;
@@ -68,7 +73,7 @@ const Home = new Component('Home', {
         margin: 0 auto;
     `,
     '.pxp-el13': `  
-        width: ${ width < 768 ? 60 : 40 }%;
+        width: ${ width < 768 ? 60 : 40 }vw;
         height: ${ width < 768 ? 45 : 57 }px;
         border: none;
         border-radius: 15px;
@@ -93,7 +98,7 @@ const Home = new Component('Home', {
     `,
 
     '.pxp-el16': `  
-        width: ${ width < 768 ? 60 : 48 }%;
+        width: ${ width < 768 ? 60 : 48 }vw;
         height: ${ width < 768 ? 45 : 57 }px;
         border-radius: 15px;
         margin-block: 5px;

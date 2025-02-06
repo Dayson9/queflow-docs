@@ -16,9 +16,11 @@ const P = new Nugget("P", {
 
   stylesheet: {
     'span': `
-      font-size: 17;
+      font-size: 18px;
       text-align: left;
       display: block;
+      line-height: 1.5em;
+      font-weight: 500;
  `
   }
 })
