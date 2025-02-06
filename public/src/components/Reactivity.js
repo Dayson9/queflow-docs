@@ -1,31 +1,77 @@
 import { Component } from 'queflow' 
 
+/**
+Computed Properties
+
+Computed properties allow you to define values that are derived from other reactive properties.  They are automatically updated whenever their dependencies change.
+
+JavaScript
+
+computed: {
+  fullName: {
+    get: function() {
+      return this.firstName + ' ' + this.lastName;
+    }
+  }
+}
+In the template:
+
+HTML
+
+<p>Full Name: {{ fullName }}</p>
+Whenever firstName or lastName changes, fullName will be automatically recalculated and the DOM updated.
+
+Watchers
+
+Watchers provide a way to execute custom code when a reactive property changes.
+
+JavaScript
+
+watch: {
+  count: function(newValue, oldValue) {
+    console.log('Count changed from', oldValue, 'to', newValue);
+    // Perform other actions based on the change
+  }
+}
+This example logs a message to the console whenever the count property changes.  Watchers can be used for tasks like making API calls, updating other parts of the UI, or performing complex calculations based on changes in reactive data.
+
+Key Improvements and Considerations
+
+Performance: QueFlow's approach of directly updating reactive attributes offers potential performance advantages over full DOM diffing, especially for complex UIs.
+
+**/
+
 const Reactivity = new Component('Reactivity', {
+  data: {
+    message: ""
+  },
   template: () => `
     <section>
      <Heading { txt: "Reactivity", size: 36 } />
-     <Paragraph { txt: "So far we've only covered the basics of Reactivity in QueFlow, now let's move on to the advanced ones." } />
-     <Paragraph { txt: "Defining a reactive template is quite straightforward, for example:", top: 20 } />
+     <Paragraph { txt: "So far, we've covered the basics of reactivity in QueFlow, including how to define reactive templates like" } />
      <CodeView { code: \`
 &lt;cite&gt;-[[ author ]]&lt;/cite&gt;
 \` } />
-
       <Paragraph { txt: "What happens under the hood" } />
       <ListItem { items: ["QueFlow loops through the attributes of an element, searching for reactive expressions.", "If QueFlow finds one, QueFlow evaluates it, while replacing it with the evaluated version.", "Then pushes the reactive attribute into an array which would be used for triggering updates in the DOM."] } />
-      <Paragraph { txt: "When updating the DOM, same array would be used, reducing unnecessary overhead, making it much better than DOM diffing." } />
+      <Paragraph { txt: "QueFlow efficiently updates the DOM by tracking reactive attributes in an array, avoiding the overhead of full DOM diffing." } />
       
-      <Heading { txt: "Reactivity in Components and App", top: 50 } />
-      
-      <Heading { txt: "In run() method", size: 20 } />
+      <Heading { txt: "Reactivity in Components and App" } />
+      <Heading { txt: "Reactivity in run() method", size: 20 } />
+      <Paragraph { txt: "The run() method, which executes immediately after a Component/App is rendered, provides a crucial entry point for reactive updates." } />
       <CodeView { code: \`
 // Run is a method that runs immediately after a Component/App is rendered onto the DOM.
   run: (data) =&gt; {
     data.author = 'Aristotle'
+    setTimeout(() => {
+      data.author = 'Plato'; // Reactive update after a delay
+  }, 2000);
   }
 \` } />
 
-      <Paragraph { txt: "Noticed the [data] parameter?, it represents the data property of an App/Component." } />
-      <Heading { txt: "In Event Listeners", size: 20 } />
+      <Paragraph { txt: "In this example, the data parameter represents the component/app's data object.  Modifying properties within this object triggers QueFlow's reactivity system.  The example demonstrates an initial assignment and then a delayed update using setTimeout.  QueFlow will automatically update the DOM to reflect the change in data.author after the timeout." } />
+      <Heading { txt: "Reactivity in Event Listeners", size: 20 } />
+      <Paragraph { txt: "Event listeners provide another way to interact with QueFlow's reactivity." } />
       <CodeView { code: \`
 &lt;button onclick=[[
   data.count++;
@@ -33,7 +79,42 @@ const Reactivity = new Component('Reactivity', {
 ]]&gt;Count is [[ count ]]&lt;/button&gt;
 \` } />
 
-      <Paragraph { txt: "The [e] is an argument that's passed to an event" } />
+      <Paragraph { txt: \`The onclick handler uses double curly braces to define a JavaScript expression.
+        [data.count++] increments the count property in the component's data. This change is automatically detected by QueFlow, triggering a DOM update to reflect the new count.
+        [console.log(data.count)] logs the updated count to the console. It's important to note that the event handler receives the component's data object (data) in scope, making it easy to access and modify reactive properties.\` } />
+      <Heading { txt: "Two-Way Data Binding", top: 50  } />
+      <Paragraph { txt: "Two-way data binding simplifies the process of synchronizing data between the UI and the underlying data model." } />
+        <CodeView { code: \`
+import { Component, App } from 'queflow'
+
+const MyComponent = new Component('MyComponent', {
+  data: {
+    message: ""
+  },
+  template: () =&gt; &#96;
+    &lt;p&gt;Message: [[ message ]]&lt;/p&gt;
+    &lt;input type="text" value=[[ message ]] oninput=[[ data.message = e.target.value ]]&gt;
+    &lt;button onclick=[[ data.message = '' ]]&gt;Reset&lt;/button&gt;
+  &#96;
+})
+
+
+
+const MyApp = new App('#app', {
+  template: "&lt;MyComponent/&gt;"
+})
+
+MyApp.render()
+\`, filename: "App.js" } />
+
+      <div class="preview">
+        <p>Message: {{ message }}</p>
+        <input type="text" value={{ message }} oninput={{ data.message = e.target.value }}>
+        <button onclick={{ data.message = '' }}>Reset</button>
+      </div>
+      <Paragraph { txt: "Changes in the input field will automatically update [data.message], and vice-versa." } />
+      
+      <Navigator { left: ['Event Handling', '/docs_events'], right: ['Home', '/'] } />
     </section>
   `
 })

@@ -124,40 +124,31 @@ function evaluateTemplate(reff, instance) {
   let out = "";
 
   const regex = /\{\{[^\{\{]+\}\}/g;
-  try {
-    out = reff.replace(regex, (match) => {
-      match = match.replaceAll('&gt;', '>');
-      match = match.replaceAll('&lt;', '<');
-      let ext = b(match).trim()
-      const falsy = [undefined, NaN, null];
+  out = reff.replace(regex, (match) => {
+    match = match.replaceAll('&gt;', '>');
+    match = match.replaceAll('&lt;', '<');
+    let ext = b(match).trim(), parsed, rendered;
+    const falsy = [undefined, NaN, null];
 
-      const shouldNegate = ext.startsWith('!');
-      ext = shouldNegate ? `!this.data.${ext.slice(1)}` : `this.data.${ext}`;
-
-      let parsed = Function(`return ${ext}`).call(instance);
+    const shouldNegate = ext.startsWith('!');
+    ext = shouldNegate ? `!this.data.${ext.slice(1)}` : `this.data.${ext}`;
+    try {
+      parsed = Function(`return ${ext}`).call(instance);
 
       if (falsy.includes(parsed) && parsed != "0") {
         parsed = Function('return ' + ext).call(instance);
       }
-
-      let rendered = "";
-
+    } catch (error) {
+      
+      console.error("QueFlow Error:\nAn error occurred while parsing JSX/HTML:\n\n" + error);
+    }
       if (falsy.includes(parsed) && parsed != "0") {
         rendered = match;
       } else {
         rendered = parsed;
       }
       return rendered;
-    })
-
-  } catch (error) {
-    // Prevents unnecessary errors 
-    let reg = /Unexpected token/i;
-    if (!reg.test(error))
-      console.error("QueFlow Error:\nAn error occurred while parsing JSX/HTML:\n\n" + error);
-  }
-
-
+  })
   // Returns the evaluated template string.
   return out;
 }
@@ -479,7 +470,6 @@ function initiateComponents(markup, isNugget) {
         name = match.slice(1, whiteSpaceIndex),
         data = match.slice(whiteSpaceIndex, -2).trim();
       let evaluated;
-
       try {
         const d = Function(`return ${data}`)(),
           instance = nuggets.get(name);
@@ -648,7 +638,7 @@ class App {
 
     rendered[0] = rendered[0].replaceAll('[[', '{{');
     rendered[0] = rendered[0].replaceAll(']]', '}}');
-    
+
     // Set innerHTML attribute of component's element to the converted template
     el.innerHTML = rendered[0];
     currentComponent?.navigateFunc(currentComponent.data);
@@ -779,12 +769,12 @@ class Component {
 
   mount() {
     if (!this.isMounted) {
-    let rendered = renderComponent(this, this.name, true);
-    rendered = rendered.replaceAll('[[', '{{');
-    rendered = rendered.replaceAll(']]', '}}');
-    this.element.innerHTML = rendered;
-    handleEventListener(this.element, this);
-    this.isMounted = true;
+      let rendered = renderComponent(this, this.name, true);
+      rendered = rendered.replaceAll('[[', '{{');
+      rendered = rendered.replaceAll(']]', '}}');
+      this.element.innerHTML = rendered;
+      handleEventListener(this.element, this);
+      this.isMounted = true;
     }
   }
 
