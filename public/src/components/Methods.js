@@ -7,7 +7,7 @@ const Methods = new Component('Methods', {
       <section>
         <Heading { txt: "Component & App Methods", size: 36 } />
         
-        <P { txt: "In the previous pages, we've learnt about QueFlow Components and the App class, this page focuses on their methods. Both the App class and Components have mostly the same methods and their implementations." } />
+        <P { txt: "In the previous pages, we learnt about QueFlow Components and the App class, this page focuses on their methods. Both the App class and Components have mostly the same methods and their implementations." } />
         <P { txt: "There are currently 7 built-in and 4 non built-in methods, they are:", top: 20 } />
         
         <SPLink { label: "[freeze()],", id: "fr" } />
@@ -20,6 +20,7 @@ const Methods = new Component('Methods', {
         <SPLink { label: "[run()],", id: "fr" } />
         <SPLink { label: "[onNavigate()],", id: "fr" } />
         <SPLink { label: "and [onUpdate()]", id: "fr" } />
+        
         
         <Navigator { left: ['Components', '/docs_component'], right: ['Nuggets', '/docs_nuggets'] } />
       </section>
