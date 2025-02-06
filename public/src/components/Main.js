@@ -72,8 +72,8 @@ const Main = new Component('Main', {
       display: inline;
  `,
     '.reg-btn': `
-      padding-block: 10px;
-      width: 110px;
+      padding: 10px;
+      width: auto;
       background: rgb(30, 40, 35);
       color: white;
       border: 1px solid silver;
@@ -90,6 +90,7 @@ const Main = new Component('Main', {
       border-radius: 10px;
       color: white;
       padding-left: .5em;
+      margin-bottom: 10px;
     `,
     '.input:hover': `
       outline-width: 2.7px;

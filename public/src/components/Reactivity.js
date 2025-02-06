@@ -109,8 +109,8 @@ MyApp.render()
 
       <div class="preview">
         <p>Message: {{ message }}</p>
-        <input type="text" value={{ message }} oninput={{ data.message = e.target.value }}>
-        <button onclick={{ data.message = '' }}>Reset</button>
+        <input type="text" value={{ message }} oninput={{ data.message = e.target.value }} class="input">
+        <button onclick={{ data.message = '' }} class="reg-btn">Reset</button>
       </div>
       <Paragraph { txt: "Changes in the input field will automatically update [data.message], and vice-versa." } />
       
