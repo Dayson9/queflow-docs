@@ -126,7 +126,7 @@ const MyComponent = new Component('MyComponent', {
         
         <ListItem { items: ["Components can only be rendered in App and not the other way round.", "Components do not need mount node while App needs it."] } />
   
-        <Navigator { left: ['App', '/docs_app'], right: ['Nuggets', '/docs_nuggets'] } />
+        <Navigator { left: ['App', '/docs_app'], right: ['Component & App Methods', '/docs_methods'] } />
       </section>
     `
   },
