@@ -10,8 +10,8 @@ const Compo = new Component('Compo', {
     return `
       <section>
         <Heading { txt: 'Component', size: 36 } />
-        <Paragraph { txt: 'The Component class is a powerful tool for building modular UI components within a larger application. It provides a simple, yet effective way to manage data and render HTML/JSX templates, all while leveraging the reactivity features of QueFlow.' } />
-        <Paragraph { txt: 'Syntax:', top: 20 } />
+        <P { txt: 'The Component class is a powerful tool for building modular UI components within a larger application. It provides a simple, yet effective way to manage data and render HTML/JSX templates, all while leveraging the reactivity features of QueFlow.' } />
+        <P { txt: 'Syntax:', top: 20 } />
         <CodeView { code: \`
 Component(name /** [string] (required) -&gt; Name of component **/ ,
 {
@@ -30,14 +30,14 @@ Component(name /** [string] (required) -&gt; Name of component **/ ,
    run: // [function] (optional) A function that runs immediately after rendering.
 })\` } />
 
-        <Paragraph { txt: "When working with [Component]s, it is highly recommended to follow QueFlow's project structure.", top: 20 } />
+        <P { txt: "When working with [Component]s, it is highly recommended to follow QueFlow's project structure.", top: 20 } />
         <ALink { text: 'You can check it out [here]', click: "toPage('/docs_project-structure')" } />
         <ALink { text: "or simply [download] it's zip file.", click: "downloadFile('./src/assets/queflow-starter-template.zip')" } />
         
         <Note { txt: "As you continue with this tutorial, we assume you've already downloaded the zip file or structure your project as specified above." } />
         
-        <Paragraph { txt: "Now let's look at how to use components.", top: 20 } />
-        <Paragraph { txt: "In the components folder, create a new file and name it [MyComponent.js], copy-paste the code below into the file." } />
+        <P { txt: "Now let's look at how to use components.", top: 20 } />
+        <P { txt: "In the components folder, create a new file and name it [MyComponent.js], copy-paste the code below into the file." } />
         <CodeView { code: \`
 import { Component } from "queflow"
 
@@ -48,7 +48,7 @@ const MyComponent = new Component('MyComponent', {
 export default MyComponent
 \`, filename: "MyComponent.js" } />
         <Note { txt: "As you can see from the code above, the name of the component is the same as the variable name, when working with QueFlow components, it is required to make sure both the variable name and the component name are the same." } />
-        <Paragraph { txt: "Fill your App.js file with these:", top: 20 } />
+        <P { txt: "Fill your App.js file with these:", top: 20 } />
         <CodeView { code: \`
 import { App } from "queflow"
 import MyComponent from "./components/MyComponent.js"
@@ -66,10 +66,10 @@ MyApp.render()
         <div class="preview">
           <h1 color="wheat">My First QueFlow Component 🔥</h1>
         </div>
-        <Paragraph { txt: "In React, you have to add a space just before closing a component tag [&lt;/MyComponent /&gt;], you don't need to do that in QueFlow, just write the name of your component between these [&lt;] and [/&gt;] and you're good to go." } />
+        <P { txt: "In React, you have to add a space just before closing a component tag [&lt;/MyComponent /&gt;], you don't need to do that in QueFlow, just write the name of your component between these [&lt;] and [/&gt;] and you're good to go." } />
         
-        <Paragraph { txt: "Let's walk through more examples", top: 25 } />
-        <Paragraph { txt: "In the [components] folder, create a new file and name it [MyComponent1.js]." } />
+        <P { txt: "Let's walk through more examples", top: 25 } />
+        <P { txt: "In the [components] folder, create a new file and name it [MyComponent1.js]." } />
         <CodeView { code: \`
 import { Component } from 'queflow'
 
@@ -88,7 +88,7 @@ const MyComponent1 = new Component("MyComponent1", {
 export default MyComponent1
 \`, filename: "MyComponent1.js" } />
 
-        <Paragraph { txt: "Then update your [App.js] as follows:" } />
+        <P { txt: "Then update your [App.js] as follows:" } />
         <CodeView { code: \`
 import { App } from "queflow"
 import MyComponent1 from "./components/MyComponent1.js"
@@ -110,7 +110,7 @@ MyApp.render()
         
         --!>
         <Heading { txt: "Nested Components", top: 25 } />
-        <Paragraph { txt: "Components can be nested inside each other to create a more structured and sophisticated UI." } />
+        <P { txt: "Components can be nested inside each other to create a more structured and sophisticated UI." } />
         <CodeView { code: \`
 import OtherComponent from './OtherComponent.js';
 
@@ -122,7 +122,7 @@ const MyComponent = new Component('MyComponent', {
   }
 })
 \` } />
-        <Paragraph { txt: "[Components] and [App] have almost the same structure, the main differences between them are highlighted below:" } />
+        <P { txt: "[Components] and [App] have almost the same structure, the main differences between them are highlighted below:" } />
         
         <ListItem { items: ["Components can only be rendered in App and not the other way round.", "Components do not need mount node while App needs it."] } />
   

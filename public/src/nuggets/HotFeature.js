@@ -1,6 +1,6 @@
 import { Nugget } from 'queflow'
 import Icon from './Icon.js'
-import Paragraph from './Paragraph.js'
+import P from './Paragraph.js'
 
 const HotFeature = new Nugget('HotFeature', {
   template: () => {
@@ -12,7 +12,7 @@ const HotFeature = new Nugget('HotFeature', {
           </div>
         </div>
         <Text { txt: '{{ title }}', size: 30, align: 'left', bottom: 13, weight: 700, class: "maren" } />
-        <Paragraph { txt: '{{ summary }}' } />
+        <P { txt: '{{ summary }}' } />
       </div>
     `
   },

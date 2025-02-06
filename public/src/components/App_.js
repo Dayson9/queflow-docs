@@ -10,9 +10,9 @@ const App_ = new Component('App_', {
       <section>
         <Heading { txt: 'App', size: 36 } />
   
-        <Paragraph { txt: 'App is a class that allows to create and manage components with dynamic rendering. It is the entry point of a QueFlow app.' } />
+        <P { txt: 'App is a class that allows to create and manage components with dynamic rendering. It serves as the entry point of a QueFlow app.' } />
         
-        <Paragraph { txt: 'Syntax:', top: 20 } />
+        <P { txt: 'Syntax:', top: 20 } />
         <CodeView { code: \`
 App(selector /** [string] (required) -&gt; Selector of mount node **/ ,
 {
@@ -32,7 +32,7 @@ App(selector /** [string] (required) -&gt; Selector of mount node **/ ,
 })\` } />
         <Note { txt: 'The expressions in square brackets are the datatypes of the corresponding properties.' } />
         
-        <Paragraph { txt: 'Now let\\'s take a quick look at an example:', top: 20 } />
+        <P { txt: 'Now let\\'s take a quick look at an example:', top: 20 } />
         <CodeView { code: \`
 import { App } from 'queflow'        
 
@@ -72,21 +72,21 @@ BalloonApp.render()\`, filename: "App.js" } />
         
         <Heading { txt: 'Freezing and Unfreezing', size: 30, top: 50 } />
         
-        <Paragraph { txt: 'There are 2 methods for freezing & unfreezing components, [Instance.freeze()] and [Instance.unfreeze()] respectively.' } />
+        <P { txt: 'There are 2 methods for freezing & unfreezing components, [Instance.freeze()] and [Instance.unfreeze()] respectively.' } />
         
        <Heading { txt: 'Instance.freeze()', top: 30 } />
-       <Paragraph { txt: 'As the name suggests, the [Instance.freeze()] method is used for freezing a component, which means any change made to the [data] attribute of a component won\\'t trigger an update in the DOM.'} />
+       <P { txt: 'As the name suggests, the [Instance.freeze()] method is used for freezing a component, which means any change made to the [data] attribute of a component won\\'t trigger an update in the DOM.'} />
         <CodeView { code: \`
 BalloonApp.freeze()
 \` } />
        <Heading { txt: 'Instance.unfreeze()', top: 30 } />   
-       <Paragraph { txt: 'The [Instance.unfreeze()] method is used for unfreezing a component, any changes made to its data would trigger an update in the UI.'} />
+       <P { txt: 'The [Instance.unfreeze()] method is used for unfreezing a component, any changes made to its data would trigger an update in the UI.'} />
         <CodeView { code: \`
 BalloonApp.unfreeze()
 \` } />
         
         <Heading { txt: "Tracking Updates", size: 30, top: 50 } />
-        <Paragraph { txt: "We can track and control how updates are being applied in QueFlow. To do that, we need to listen to a custom event which is called 'qf:update'." } />
+        <P { txt: "We can track and control how updates are being applied in QueFlow. To do that, we need to listen to a custom event which is called 'qf:update'." } />
         <CodeView { code: \`
 MyApp.element.addEventListener('qf:update', ({ prev, key, newVal }) => {
   //perform an operation
@@ -94,8 +94,8 @@ MyApp.element.addEventListener('qf:update', ({ prev, key, newVal }) => {
 \` } />
 
         <Heading { txt: "App Destruction", size: 30 } />
-        <Paragraph { txt: "In QueFlow, completely removing an [App's] mount node from the DOM, while also freeing up it's resources, is called [Destruction]." } />
-        <Paragraph { txt: "We can do that in two steps:" } />
+        <P { txt: "In QueFlow, completely removing an [App's] mount node from the DOM, while also freeing up it's resources, is called [Destruction]." } />
+        <P { txt: "We can do that in two steps:" } />
         <CodeView { code: \`
 // Destroy App 
 MyApp.destroy()

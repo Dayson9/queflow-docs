@@ -6,17 +6,17 @@ const Syntax = new Component('Syntax', {
     return `
         <section>
           <Heading { txt: "Template Syntax", size: 36 } />
-          <Paragraph { txt: "This page contains the guide to QueFlow's template syntax, which is shared across your components, templates, and nuggets." } />
+          <P { txt: "This page contains the guide to QueFlow's template syntax, which is shared across your components, templates, and nuggets." } />
           <Heading { txt: "Expressions", top: 40 } />
           <Heading { txt: "InnerText expressions", size: 20, top: 30 } />
-          <Paragraph { txt: "The simplest form of expressions is placed inside double curly braces:" } />
+          <P { txt: "The simplest form of expressions is placed inside double curly braces:" } />
         <CodeView { code: \`
 &lt;span&gt;Message: [[ msg ]]&lt;/span&gt;
 \` } />
-          <Paragraph { txt: "In this example, the brackets are replaced with the value of the msg property from the corresponding component's data instance. This value will update whenever the msg property changes, allowing for dynamic content rendering." } />
+          <P { txt: "In this example, the brackets are replaced with the value of the msg property from the corresponding component's data instance. This value will update whenever the msg property changes, allowing for dynamic content rendering." } />
           <Heading { txt: "Complex expressions", size: 20, top: 30 } />
           
-          <Paragraph { txt: "QueFlow supports JavaScript expressions within the curly braces:" } />
+          <P { txt: "QueFlow supports JavaScript expressions within the curly braces:" } />
          <CodeView { code: \`
 // This would work
 &lt;p&gt;[[ msg.split('').reverse().join('') ]]&lt;/p&gt;
@@ -31,7 +31,7 @@ const Syntax = new Component('Syntax', {
 &lt;p&gt;[[ num*Math.PI ]]&lt;/p&gt;
 \` } />
           <Heading { txt: "Data Interpolation" } />
-          <Paragraph { txt: "QueFlow also supports interpolation of data:" } />
+          <P { txt: "QueFlow also supports interpolation of data:" } />
          <CodeView { code: \`
 // This would work
 &lt;p&gt;Message is: [[ msg ]]&lt;/p&gt;
@@ -50,24 +50,24 @@ const Syntax = new Component('Syntax', {
 \` } />   
           <Idea { txt: "A good rule of thumb is that expressions must start with a reactive property." } />
           
-          <Paragraph { txt: "When working with interpolated attributes, it's recommended to use quotes around it:" } />
+          <P { txt: "When working with interpolated attributes, it's recommended to use quotes around it:" } />
           <CodeView { code: \`
 &lt;img src=[[ src ]] alt="[[ name ]]'s picture"/&gt;
 \` } />
           <Heading { txt: "HTML Attributes" } />
-          <Paragraph { txt: "You can pass attributes to HTML elements.These values can be static or dynamic:" } />
+          <P { txt: "You can pass attributes to HTML elements.These values can be static or dynamic:" } />
         <CodeView { code: \`
 &lt;p class=[[ className ]]&gt;&lt;/p&gt;
 \` } />
           <Heading { txt: "CSS Attributes" } />
-          <Paragraph { txt: "This example uses direct CSS properties." } />
+          <P { txt: "This example uses direct CSS properties." } />
         <CodeView { code: \`
 &lt;h1 color=[[ color ]] font-family="Inter"&gt;Hello World&lt;/h1&gt;
 \` } />
-          <Paragraph { txt: "The color attribute uses a dynamic value, while the font-family attribute uses a static attribute, whenever the value of [color] changes, the color of the element changes respectively." } />
+          <P { txt: "The color attribute uses a dynamic value, while the font-family attribute uses a static attribute, whenever the value of [color] changes, the color of the element changes respectively." } />
           
           <Heading { txt: "Event Syntax" } />
-          <Paragraph { txt: "QueFlow uses a unique approach in writing event listeners, using double braces." } />
+          <P { txt: "QueFlow uses a unique approach in writing event listeners, using double braces." } />
 <CodeView { code: \`
 &lt;button onclick=[[ alert("Hello World 👋") ]]&gt;Click me&lt;/button&gt;
 \` } />

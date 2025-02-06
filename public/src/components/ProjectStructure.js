@@ -5,7 +5,7 @@ const ProjectStructure = new Component('ProjectStructure', {
     return `
       <section>
         <Heading { txt: "Project Structure", size:38 } />
-        <Paragraph { txt: "When working with QueFlowJS, it is highly recommended to follow this project structure:", top: 20 } />
+        <P { txt: "When working with QueFlowJS, it is highly recommended to follow this project structure:", top: 20 } />
         
         <div class="structure">
           <pre color="rgba(255,255,255,.9)">

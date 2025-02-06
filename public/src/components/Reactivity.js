@@ -48,17 +48,17 @@ const Reactivity = new Component('Reactivity', {
   template: () => `
     <section>
      <Heading { txt: "Reactivity", size: 36 } />
-     <Paragraph { txt: "So far, we've covered the basics of reactivity in QueFlow, including how to define reactive templates like" } />
+     <P { txt: "So far, we've covered the basics of reactivity in QueFlow, including how to define reactive templates like" } />
      <CodeView { code: \`
 &lt;cite&gt;-[[ author ]]&lt;/cite&gt;
 \` } />
-      <Paragraph { txt: "What happens under the hood" } />
+      <P { txt: "What happens under the hood" } />
       <ListItem { items: ["QueFlow loops through the attributes of an element, searching for reactive expressions.", "If QueFlow finds one, QueFlow evaluates it, while replacing it with the evaluated version.", "Then pushes the reactive attribute into an array which would be used for triggering updates in the DOM."] } />
-      <Paragraph { txt: "QueFlow efficiently updates the DOM by tracking reactive attributes in an array, avoiding the overhead of full DOM diffing." } />
+      <P { txt: "QueFlow efficiently updates the DOM by tracking reactive attributes in an array, avoiding the overhead of full DOM diffing." } />
       
       <Heading { txt: "Reactivity in Components and App" } />
       <Heading { txt: "Reactivity in run() method", size: 20 } />
-      <Paragraph { txt: "The run() method, which executes immediately after a Component/App is rendered, provides a crucial entry point for reactive updates." } />
+      <P { txt: "The run() method, which executes immediately after a Component/App is rendered, provides a crucial entry point for reactive updates." } />
       <CodeView { code: \`
 // Run is a method that runs immediately after a Component/App is rendered onto the DOM.
   run: (data) =&gt; {
@@ -69,9 +69,9 @@ const Reactivity = new Component('Reactivity', {
   }
 \` } />
 
-      <Paragraph { txt: "In this example, the data parameter represents the component/app's data object.  Modifying properties within this object triggers QueFlow's reactivity system.  The example demonstrates an initial assignment and then a delayed update using setTimeout.  QueFlow will automatically update the DOM to reflect the change in data.author after the timeout." } />
+      <P { txt: "In this example, the data parameter represents the component/app's data object.  Modifying properties within this object triggers QueFlow's reactivity system.  The example demonstrates an initial assignment and then a delayed update using setTimeout.  QueFlow will automatically update the DOM to reflect the change in data.author after the timeout." } />
       <Heading { txt: "Reactivity in Event Listeners", size: 20 } />
-      <Paragraph { txt: "Event listeners provide another way to interact with QueFlow's reactivity." } />
+      <P { txt: "Event listeners provide another way to interact with QueFlow's reactivity." } />
       <CodeView { code: \`
 &lt;button onclick=[[
   data.count++;
@@ -79,11 +79,11 @@ const Reactivity = new Component('Reactivity', {
 ]]&gt;Count is [[ count ]]&lt;/button&gt;
 \` } />
 
-      <Paragraph { txt: \`The onclick handler uses double curly braces to define a JavaScript expression.
+      <P { txt: \`The onclick handler uses double curly braces to define a JavaScript expression.
         [data.count++] increments the count property in the component's data. This change is automatically detected by QueFlow, triggering a DOM update to reflect the new count.
         [console.log(data.count)] logs the updated count to the console. It's important to note that the event handler receives the component's data object (data) in scope, making it easy to access and modify reactive properties.\` } />
       <Heading { txt: "Two-Way Data Binding", top: 50  } />
-      <Paragraph { txt: "Two-way data binding simplifies the process of synchronizing data between the UI and the underlying data model." } />
+      <P { txt: "Two-way data binding simplifies the process of synchronizing data between the UI and the underlying data model." } />
         <CodeView { code: \`
 import { Component, App } from 'queflow'
 
@@ -112,7 +112,7 @@ MyApp.render()
         <input type="text" value={{ message }} oninput={{ data.message = e.target.value }} class="input">
         <button onclick={{ data.message = '' }} class="reg-btn">Reset</button>
       </div>
-      <Paragraph { txt: "Changes in the input field will automatically update [data.message], and vice-versa." } />
+      <P { txt: "Changes in the input field will automatically update [data.message], and vice-versa." } />
       
       <Navigator { left: ['Event Handling', '/docs_events'], right: ['Home', '/'] } />
     </section>

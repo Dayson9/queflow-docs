@@ -5,7 +5,7 @@ const Docs = new Component('Docs', {
     return `
         <section>
           <Heading { txt: "Documentation", size: 36 } />
-          <Paragraph { txt: "This page contains everything you need to start using  QueFlowJS in your projects." } />
+          <P { txt: "This page contains everything you need to start using  QueFlowJS in your projects." } />
           <ListItem { items: ["#Core APIs",
             { label: "@App", click: '/docs_app' },
             { label: "@Component", click: '/docs_component' },

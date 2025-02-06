@@ -6,7 +6,7 @@ const Cooking = new Nugget('Cooking', {
         <div>
           <img src="./src/assets/img/cooking.gif">
           <Heading { txt: "Page under construction 🚧" } />
-          <Paragraph { txt: "Dev is cooking something delicious, come back later.", align: "center" } />
+          <P { txt: "Dev is cooking something delicious, come back later.", align: "center" } />
         </div>
       `
   },

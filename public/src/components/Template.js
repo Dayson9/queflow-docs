@@ -7,9 +7,9 @@ const Template_ = new Component('Template_', {
     return `
       <section>
         <Heading { txt: "Template", size: 36 } />
-        <Paragraph { txt: "The Template class in QueFlowJS provides a way to create and manage reusable templates for your web application. This class simplifies the process of dynamically rendering HTML content based on provided data." } />
-        <Paragraph { txt: "Templats are almost similar to Nuggets. The difference between the two is how they can be rendered, Nuggets can be used only in HTML/JSX markup while Template can only be used outside." } />
-        <Paragraph { txt: "Syntax:", top: 20 } />
+        <P { txt: "The Template class in QueFlowJS provides a way to create and manage reusable templates for your web application. This class simplifies the process of dynamically rendering HTML content based on provided data." } />
+        <P { txt: "Templats are almost similar to Nuggets. The difference between the two is how they can be rendered, Nuggets can be used only in HTML/JSX markup while Template can only be used outside." } />
+        <P { txt: "Syntax:", top: 20 } />
         <CodeView { code: \`
 Template(name /** [string] (required) -&gt; Name of Template **/ ,
 {
@@ -46,7 +46,7 @@ const UserCard = new Template('UserCard', {
 
 export default UserCard
 \`, filename: "Templates.js" } />
-        <Paragraph { txt: "In your [App.js]:" } />
+        <P { txt: "In your [App.js]:" } />
         <CodeView { code: \`
 import UserCard from './Templates.js'
 
@@ -68,8 +68,8 @@ MyApp.render()
           <UserCard { name: "Lawrence Wills", job: "Accountant", src: "src/assets/img/avatar1.jpg" } />
         </div>
         
-        <Paragraph { txt: "The [renderWith()] function is used for passing data to a [Template], while also rendering it." } />
-        <Paragraph { txt: "You can also pass an array of data to the [renderWith()] function." } />
+        <P { txt: "The [renderWith()] function is used for passing data to a [Template], while also rendering it." } />
+        <P { txt: "You can also pass an array of data to the [renderWith()] function." } />
         
         <CodeView { code: \`
 // other code
@@ -94,7 +94,7 @@ MyApp.render()
         </div>
         
         <Heading { txt: "Rendering Lists" } />
-        <Paragraph { txt: "In QueFlow, the recommended way to render lists is to make use of Templates, they are specifically made and optimized for building UIs with repetitive UI elements. Let's work on an example:" } />
+        <P { txt: "In QueFlow, the recommended way to render lists is to make use of Templates, they are specifically made and optimized for building UIs with repetitive UI elements. Let's work on an example:" } />
         <CodeView { code: \`
 import { Template } from 'queflow'
 

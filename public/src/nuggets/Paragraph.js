@@ -1,6 +1,6 @@
 import { Nugget } from 'queflow'
 
-const Paragraph = new Nugget("Paragraph", {
+const P = new Nugget("P", {
   template: (data) => {
 
     const hlReg = /\[[^\[]+\]/g
@@ -23,4 +23,4 @@ const Paragraph = new Nugget("Paragraph", {
   }
 })
 
-export default Paragraph
+export default P
