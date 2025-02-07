@@ -147,8 +147,8 @@ const Timer = new App("#app", {
       justify-content: center;
     &#96;
   },
-  run: function() {
-    setInterval(() =&gt; this.data.currentTime = new Date().toLocaleTimeString(), 1000)
+  run: function(data) {
+    setInterval(() =&gt; data.currentTime = new Date().toLocaleTimeString(), 1000)
   }
 })
 
