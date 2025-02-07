@@ -68,7 +68,7 @@ const Home = new Component('Home', {
         font-size: 18px;
     `,
     '.btn': `
-        width: ${ width < 768 ? 100 : 50 }vw;
+        width: ${ width < 768 ? 100 : 45 }vw;
         height: auto;
         margin: 0 auto;
     `,
