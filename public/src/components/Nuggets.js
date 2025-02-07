@@ -156,7 +156,7 @@ Timer.render()
 \`, filename: "App.js" } />
         <div class="preview">
           <div>
-            <span>{{ time }}</span>
+            <span color="transparent">{{ time }}</span>
           </div>
         </div>
         
