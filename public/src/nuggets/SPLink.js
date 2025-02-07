@@ -6,15 +6,16 @@ const SPLink = new Nugget('SPLink', {
 
     data.label = data.label.replace(hlReg, (match) => `<span>&nbsp;${ match.slice(1, match.length-1)}</span>`)
 
-    return `<a href=#{{ id }}>{{ label }}</a>`
+    return `<a href=#{{ id }} class="inter">{{ label }}</a>`
   },
   stylesheet: {
     'a': `
       color: rgba(255,255,255,.7);
       font-size: 17;
       font-weight: 600;
-      display: inline;
+      display: block;
       text-decoration: none;
+      line-height: 1.5em;
     `,
     'span': `
       background: none!important;

@@ -21,16 +21,16 @@ const Documentation = new App('#app', {
 
   run: function() {
     hljs.registerLanguage('javascript', javascript)
-   // hljs.registerLanguage('xml', xml)
+    // hljs.registerLanguage('xml', xml)
     hljs.highlightAll()
-    
+
     onNavigate((path) => {
       Navbar.data.left = -100
       hljs.highlightAll()
       if (path !== '/docs_nuggets') clearInterval(timerInt)
     }, this)
-    
- //  setTimeout(() => toPage('/docs_methods'), 250)
+
+    setTimeout(() => toPage('/docs_methods'), 250)
   },
   stylesheet: {
     '.inter': `
