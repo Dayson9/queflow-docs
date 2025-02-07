@@ -73,7 +73,7 @@ const Home = new Component('Home', {
         margin: 0 auto;
     `,
     '.pxp-el13': `  
-        width: ${ width < 768 ? 60 : 40 }vw;
+        width: ${ width < 768 ? 60 : 20 }vw;
         height: ${ width < 768 ? 45 : 57 }px;
         border: none;
         border-radius: 15px;
@@ -98,7 +98,7 @@ const Home = new Component('Home', {
     `,
 
     '.pxp-el16': `  
-        width: ${ width < 768 ? 60 : 48 }vw;
+        width: ${ width < 768 ? 60 : 20 }vw;
         height: ${ width < 768 ? 45 : 57 }px;
         border-radius: 15px;
         margin-block: 5px;
