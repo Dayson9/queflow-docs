@@ -16,6 +16,8 @@ const SPLink = new Nugget('SPLink', {
       display: block;
       text-decoration: none;
       line-height: 1.5em;
+      margin-left: 4%;
+      margin-top: 5px;
     `,
     'span': `
       background: none!important;

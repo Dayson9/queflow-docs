@@ -96,7 +96,8 @@ const Main = new Component('Main', {
     `,
     '.input:hover': `
       outline-width: 2.7px;
-    `
+    `,
+    '.grey': "color: rgba(255,255,255,.8);"
   }
 })
 

@@ -469,6 +469,7 @@ function initiateComponents(markup, isNugget) {
       const whiteSpaceIndex = match.indexOf(" "),
         name = match.slice(1, whiteSpaceIndex),
         data = match.slice(whiteSpaceIndex, -2).trim();
+        
       let evaluated;
       try {
         const d = Function(`return ${data}`)(),
@@ -836,17 +837,16 @@ const renderNugget = (instance, data) => {
   if (instance) {
     if (!instance.stylesheetInitiated) {
       nuggetCounter++;
-      instance.counter = nuggetCounter;
     }
 
-    const counter = instance.counter;
+    const counter = nuggetCounter;
     // Create a variable that holds the template 
     const template = instance.template instanceof Function ? instance.template(data) : instance.template,
       // Parse and initiate Nested Nuggets
       initiated = initiateComponents(template, true),
       // Render parsed html
       rendered = renderTemplate(initiated, data);
-
+      
     const html = g(rendered, counter);
 
     if (!instance.stylesheetInitiated) {
