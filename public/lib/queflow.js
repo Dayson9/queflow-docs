@@ -837,16 +837,17 @@ const renderNugget = (instance, data) => {
   if (instance) {
     if (!instance.stylesheetInitiated) {
       nuggetCounter++;
+      instance.counter = nuggetCounter;
     }
 
-    const counter = nuggetCounter;
+    const counter = instance.counter;
     // Create a variable that holds the template 
     const template = instance.template instanceof Function ? instance.template(data) : instance.template,
       // Parse and initiate Nested Nuggets
       initiated = initiateComponents(template, true),
       // Render parsed html
       rendered = renderTemplate(initiated, data);
-      
+
     const html = g(rendered, counter);
 
     if (!instance.stylesheetInitiated) {
