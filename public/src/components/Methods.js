@@ -11,7 +11,7 @@ const Methods = new Component('Methods', {
         <Heading { txt: "Component & App Methods", size: 36 } />
         
         <P { txt: "In the previous pages, we learnt about QueFlow Components and the App class, this page focuses on their methods. Both the App class and Components have mostly the same methods and their implementations." } />
-        <P { txt: "There are currently 7 built-in and 4 non built-in methods, they are:", top: 20, bottom: 20 } />
+        <P { txt: "There are currently 7 built-in and 3 non built-in methods, they are:", top: 20, bottom: 20 } />
         
         <SPLink { label: "[freeze()]", id: "fr" } />
         <SPLink { label: "[unfreeze()]", id: "unfr" } />
@@ -19,12 +19,12 @@ const Methods = new Component('Methods', {
         <SPLink { label: "[show()]", id: "hi" } />
         <SPLink { label: "[destroy()]", id: "des" } />
         <SPLink { label: "[render()]", id: "rn" } />
-        <SPLink { label: "[created()]", id: "fr" } />
-        <SPLink { label: "[run()]", id: "fr" } />
-        <SPLink { label: "[onNavigate()]", id: "fr" } />
-        <SPLink { label: "[onUpdate()]", id: "fr" } />
+        <SPLink { label: "[created()]", id: "cr" } />
+        <SPLink { label: "[run()]", id: "rn" } />
+        <SPLink { label: "[onUpdate()]", id: "upd" } />
         
         <Heading { txt: "Built-in Methods", size: 30 } />
+        <P { txt: "App/Component instances come with built-in methods that streamline common development tasks." } />
         <Heading { txt: "freeze()", size: 25, id: "fr" } />
         <P { txt: "This method is used for freezing a Component/App instance temporarily. When a Component/App instance is frozen, it stops being reactive, which means any changes made to it's data would not trigger any updates. This is useful in an application where you need to disable reactivity." } />
            <CodeView { code: \`
@@ -95,11 +95,11 @@ const MyApp = new App('#app', {
 MyApp.render()
 \`, filename: "App.js" } />        
 
-        <div class="preview" height="150px">
+        <div class="preview" height="165px">
           <button onclick={{
             data.isShown = !data.isShown
           }}>{{ isShown ? 'Hide' : 'Show' }}</button>
-          <video src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" controls width="200" height="100"  display={{ isShown ? 'block' : 'none' }}/>
+          <video margin-top="17px" src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" controls width="200" height="100"  display={{ isShown ? 'block' : 'none' }}/>
         </div>
         
         <Heading { txt: "destroy()", size: 25, id: "des" } />
@@ -112,7 +112,53 @@ Video.destroy()
           <Heading { txt: "render()", size: 25, id: "rn" } />
           <P { txt: "This method is used for rendering an App's template into its respective mount node. It handles rendering of all Components and" } />
           <Link { label: "Nuggets.", to: "/docs_nuggets", class: "grey" } />
-          
+        <CodeView { code: \`
+MyApp.render()
+\` } />
+        <Heading { txt: "Non built-in Methods", size: 30 } />
+        <P { txt: "These methods customizes how a Component/App should behave in certain conditions. They control what a Component/App should do in situations like an update to data, when a Component renders, Component instantiation and so on." } />
+        
+        <Heading { txt: "created()", size: 25, id: "cr" } />
+        <P { txt: "This function is called immediately after a Component/App is instantiated." } />
+        <CodeView { code: \`
+import { Component } from 'queflow'
+
+const MyComponent = new Component('MyComponent', {
+  created: () => {
+    // Logs immediately after Component is created
+    console.log("Component created")
+  },
+  template: "&lt;h1&gt;Hello, World&lt;/h1&gt;"
+})
+\` } />
+        <P { txt: "The [created()] method also has access to instance's data." } />
+                <CodeView { code: \`
+// Other code
+  created: (data) => {
+    data.msg = "Hello, World"
+  }
+})
+\` } />
+
+        <Heading { txt: "run()", size: 25, id: "rn" } />
+        <P { txt: "The [run()] method runs immediately after a Component is rendered onto the DOM, unlike [created()] which runs after instantiation." } />
+        <P { txt: "This method is useful for stuffs like API calls, data fetching and so on. Here is a good example:" } />
+        <CodeView { code: \`
+// Other code
+  run: (data) => {
+    fetch('https://dummyjson.com/quotes/random')
+    .then(res => res.json())
+    .then((d) => {
+      data.quote = d.quote;
+      data.author = d.author;
+    })
+  }
+})
+\` } />
+
+        <Heading { txt: "onUpdate()", size: 25, id: "upd" } />
+        <P { txt: "The [onUpdate()] method is used for tracking updates in an App/Component. It runs immediately before an App/Component is updated. This method can be used to control how updates are applied to an App/Component." } />
+        <P { txt: "Let's work on a comprehensive example" } />
         <Navigator { left: ['Components', '/docs_component'], right: ['Nuggets', '/docs_nuggets'] } />
       </section>
       `

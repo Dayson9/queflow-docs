@@ -70,7 +70,7 @@ BalloonApp.render()\`, filename: "App.js" } />
           <button class="reg-btn" width="135px" onclick={{ data.balloon+="🎈"; data.num++; }}>Create balloon +</button>
         </div>
         
-        <Heading { txt: 'Freezing and Unfreezing', size: 30, top: 50 } />
+        <Heading { txt: 'Freezing and Unfreezing', size: 25 } />
         
         <P { txt: 'There are 2 methods for freezing & unfreezing components, [Instance.freeze()] and [Instance.unfreeze()] respectively.' } />
         
@@ -84,24 +84,7 @@ BalloonApp.freeze()
         <CodeView { code: \`
 BalloonApp.unfreeze()
 \` } />
-        
-        <Heading { txt: "Tracking Updates", size: 30, top: 50 } />
-        <P { txt: "We can track and control how updates are being applied in QueFlow. To do that, we need to listen to a custom event which is called 'qf:update'." } />
-        <CodeView { code: \`
-MyApp.element.addEventListener('qf:update', ({ prev, key, newVal }) => {
-  //perform an operation
-})
-\` } />
-
-        <Heading { txt: "App Destruction", size: 30 } />
-        <P { txt: "In QueFlow, completely removing an [App's] mount node from the DOM, while also freeing up it's resources, is called [Destruction]." } />
-        <P { txt: "We can do that in two steps:" } />
-        <CodeView { code: \`
-// Destroy App 
-MyApp.destroy()
-// Free up space (will only work if [MyApp] is not declared using 'const')
-MyApp = null
-\` } />
+  
         <Navigator { left: ['Get started', '/get-started'], right: ['Component', '/docs_component'] } />     
       </section>
     `
