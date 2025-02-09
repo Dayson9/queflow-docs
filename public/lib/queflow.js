@@ -885,7 +885,8 @@ class Nugget {
 
 globalThis.toPage = (path) => {
   history.pushState({}, '', path);
-  loadComponent(path)
+  loadComponent(path);
+  window.scrollTo(0, 0);
 }
 
 const loadComponent = (path) => {
@@ -921,7 +922,6 @@ const loadComponent = (path) => {
     }
   }
   navigateFunc(path);
-  window.scrollTo(0, 0);
 }
 
 
