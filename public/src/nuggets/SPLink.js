@@ -11,7 +11,7 @@ const SPLink = new Nugget('SPLink', {
   stylesheet: {
     'a': `
       color: rgba(255,255,255,.7);
-      font-size: 17;
+      font-size: 18px;
       font-weight: 600;
       display: block;
       text-decoration: none;

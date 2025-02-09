@@ -21,6 +21,7 @@ const P = new Nugget("P", {
       display: block;
       line-height: 1.5em;
       font-weight: 500;
+      margin-block: 1em;
  `
   }
 })

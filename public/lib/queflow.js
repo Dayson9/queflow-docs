@@ -29,12 +29,6 @@ const strToEl = (component) => {
   }
 }
 
-function qfEvent(name, detail) {
-  return new CustomEvent(name, {
-    detail: detail
-  });
-}
-
 // Filters out null elements from the given input [Array].
 function filterNullElements(input) {
   return input.filter((d) => {
@@ -60,21 +54,21 @@ function createSignal(data, object) {
       },
       set(target, key, value) {
         const prev = target[key];
-        target[key] = value;
-        requestAnimationFrame(() => {
-          const host = object;
-          if (!host.isFrozen) {
-            updateComponent(key, host, prev, value);
-            host.renderEvent.prev = prev;
-            host.renderEvent.key = key;
-            host.renderEvent.newVal = value;
-            const elem = host.element;
-            if (elem) {
-              elem.dispatchEvent(host.renderEvent);
+        if (prev !== value) {
+          target[key] = value;
+          requestAnimationFrame(() => {
+            const host = object;
+            if (!host.isFrozen) {
+              const goAhead = host.onUpdate ? host.onUpdate({
+                oldVal: prev,
+                key: key,
+                newVal: value
+              }, host.data) : true;
+              if (goAhead) updateComponent(key, host, value);
+              return true;
             }
-            return true;
-          }
-        });
+          });
+        }
         return true;
       },
     });
@@ -124,31 +118,40 @@ function evaluateTemplate(reff, instance) {
   let out = "";
 
   const regex = /\{\{[^\{\{]+\}\}/g;
-  out = reff.replace(regex, (match) => {
-    match = match.replaceAll('&gt;', '>');
-    match = match.replaceAll('&lt;', '<');
-    let ext = b(match).trim(), parsed, rendered;
-    const falsy = [undefined, NaN, null];
+  try {
+    out = reff.replace(regex, (match) => {
+      match = match.replaceAll('&gt;', '>');
+      match = match.replaceAll('&lt;', '<');
+      let ext = b(match).trim()
+      const falsy = [undefined, NaN, null];
 
-    const shouldNegate = ext.startsWith('!');
-    ext = shouldNegate ? `!this.data.${ext.slice(1)}` : `this.data.${ext}`;
-    try {
-      parsed = Function(`return ${ext}`).call(instance);
+      const shouldNegate = ext.startsWith('!');
+      ext = shouldNegate ? `!this.data.${ext.slice(1)}` : `this.data.${ext}`;
+
+      let parsed = Function(`return ${ext}`).call(instance);
 
       if (falsy.includes(parsed) && parsed != "0") {
         parsed = Function('return ' + ext).call(instance);
       }
-    } catch (error) {
-      
-      console.error("QueFlow Error:\nAn error occurred while parsing JSX/HTML:\n\n" + error);
-    }
+
+      let rendered = "";
+
       if (falsy.includes(parsed) && parsed != "0") {
         rendered = match;
       } else {
         rendered = parsed;
       }
       return rendered;
-  })
+    })
+
+  } catch (error) {
+    // Prevents unnecessary errors 
+    let reg = /Unexpected token/i;
+    if (!reg.test(error))
+      console.error("QueFlow Error:\nAn error occurred while parsing JSX/HTML:\n\n" + error);
+  }
+
+
   // Returns the evaluated template string.
   return out;
 }
@@ -413,23 +416,21 @@ function needsUpdate(template, key) {
 }
 
 // Updates a component based on changes made to it's data
-function updateComponent(ckey, obj, prev, _new) {
-  if (prev !== _new) {
-    // Filters Null elements from the Component
-    obj.dataQF = filterNullElements(obj.dataQF);
+function updateComponent(ckey, obj, _new) {
+  // Filters Null elements from the Component
+  obj.dataQF = filterNullElements(obj.dataQF);
 
-    let { dataQF } = obj;
+  let { dataQF } = obj;
 
-    for (let d of dataQF) {
-      let { template, key, qfid } = d;
-      let child = selectElement(qfid);
+  for (let d of dataQF) {
+    let { template, key, qfid } = d;
+    let child = selectElement(qfid);
 
-      if (needsUpdate(template, ckey)) {
-        let evaluated = evaluateTemplate(template, obj);
+    if (needsUpdate(template, ckey)) {
+      let evaluated = evaluateTemplate(template, obj);
 
-        key = (key === "class") ? "className" : key;
-        update(child, key, evaluated);
-      }
+      key = (key === "class") ? "className" : key;
+      update(child, key, evaluated);
     }
   }
 }
@@ -469,8 +470,8 @@ function initiateComponents(markup, isNugget) {
       const whiteSpaceIndex = match.indexOf(" "),
         name = match.slice(1, whiteSpaceIndex),
         data = match.slice(whiteSpaceIndex, -2).trim();
-        
       let evaluated;
+
       try {
         const d = Function(`return ${data}`)(),
           instance = nuggets.get(name);
@@ -584,10 +585,7 @@ class App {
     // Stores the component's reactive elements data
     this.dataQF = [];
 
-    this.renderEvent = qfEvent("qf:update", {
-      key: "",
-      value: ""
-    });
+    this.onUpdate = options.onUpdate;
 
     this.created = options.created;
     this.run = options.run || (() => {});
@@ -636,10 +634,8 @@ class App {
 
     // Convert template to html 
     let rendered = jsxToHTML(template, this);
-
     rendered[0] = rendered[0].replaceAll('[[', '{{');
     rendered[0] = rendered[0].replaceAll(']]', '}}');
-
     // Set innerHTML attribute of component's element to the converted template
     el.innerHTML = rendered[0];
     currentComponent?.navigateFunc(currentComponent.data);
@@ -716,7 +712,7 @@ class Component {
     // Stores the Component's reactive elements data
     this.dataQF = [];
 
-    this.renderEvent = qfEvent("qf:render");
+    this.onUpdate = options.onUpdate;
 
     this.useStrict = Object.keys(options).includes('useStrict') ? options.useStrict : true;
 
@@ -855,6 +851,7 @@ const renderNugget = (instance, data) => {
       initiateStyleSheet(`.nugget${counter}`, instance, true);
       instance.stylesheetInitiated = true;
     }
+
     // Return processed html
     return html;
   }
@@ -932,15 +929,9 @@ const Link = new Nugget('Link', {
   template: (data) => {
     const classN = data.class ? 'class={{ class }}' : '';
     return `
-      <a href={{ to }} ${ classN } onclick="
+      <a href={{ href }} ${ classN } onclick="
         e.preventDefault()
-        toPage('{{ to }}')">${ data.isBtn ? '<button>{{ label }}</button>' : '{{ label }}' }</a>`
-  },
-  stylesheet: {
-    a: `
-      color: auto;
-      text-decoration: none;
-    `
+        toPage('{{ href }}')">${ data.isBtn ? '<button>{{ label }}</button>' : '{{ label }}' }</a>`
   }
 })
 

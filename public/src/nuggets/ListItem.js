@@ -17,7 +17,7 @@ const ListItem = new Nugget('ListItem', {
             added+= 'list-style-type="none" '
           }
           
-        const hlReg = /\[[^\[]+\]/
+        const hlReg = /\[[^\[]+\]/g
         item = item.replace(hlReg, (match) => `<span class="highlighted">${ match.slice(1, match.length-1)}</span>`)
   
         if(path){
@@ -39,6 +39,7 @@ const ListItem = new Nugget('ListItem', {
 
   stylesheet: {
     'li': `
+      font-size: 18px;
       margin-block: 13px;
       line-height: 1.1em;
       `,
