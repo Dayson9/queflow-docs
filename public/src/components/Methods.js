@@ -223,7 +223,7 @@ onUpdate: ({ key, newVal }, data) =&gt; {
     return true
   }
 \` } />
-        <P { txt: "Whenever the button is clicked, it triggers this function. The function increments count based on whether [key] is "shown" and [newVal] is true, then returns true which tells QueFlow to apply updates to the DOM." } />
+        <P { txt: "Whenever the button is clicked, it triggers this function. The function increments count based on whether [key] is 'shown' and [newVal] is true, then returns true which tells QueFlow to apply updates to the DOM." } />
         <Navigator { left: ['Components', '/docs_component'], right: ['Nuggets', '/docs_nuggets'] } />
       </section>
       `
