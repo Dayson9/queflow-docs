@@ -184,8 +184,8 @@ const View = new Component('View', {
       visibility=[[ shown ? 'visible' : 'hidden' ]] /&gt;
     &lt;button onclick=[[ data.shown = !data.shown ]]&gt;[[ shown ? 'Hide' : 'Show' ]]&lt;/button&gt;
     &#96;,
-  onUpdate: ({ newVal }, data) =&gt; {
-    if (newVal === true) {
+  onUpdate: ({ key, newVal }, data) =&gt; {
+    if (key === "shown" && newVal === true) {
       data.count++
     }
     return true
@@ -216,20 +216,20 @@ MyApp.render()
           <ListItem { items: ["Firstly, we import [App] and [Component] class from QueFlow, then we create a Component named [View].", "The data object has two props, [shown] and [count] with their values initially set to true and 1 respectively.", "The template returns an HTML string with some data binding."] } />
 
         <CodeView { code: \`
-onUpdate: ({ newVal }, data) =&gt; {
-    if (newVal === true) {
+onUpdate: ({ key, newVal }, data) =&gt; {
+    if (key === "shown" && newVal === true) {
       data.count++
     }
     return true
   }
 \` } />
-        <P { txt: "Whenever the button is clicked, it triggers this function. The function increments count based on whether [newVal] is true, then returns true which tells QueFlow to apply updates to the DOM." } />
+        <P { txt: "Whenever the button is clicked, it triggers this function. The function increments count based on whether [key] is "shown" and [newVal] is true, then returns true which tells QueFlow to apply updates to the DOM." } />
         <Navigator { left: ['Components', '/docs_component'], right: ['Nuggets', '/docs_nuggets'] } />
       </section>
       `
   },
-  onUpdate: ({ newVal }, data) => {
-  if (newVal === true) {
+  onUpdate: ({ key, newVal }, data) => {
+  if (key === "shown" && newVal === true) {
     data.count++
   }
   return true
