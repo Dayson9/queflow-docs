@@ -143,7 +143,7 @@ const RubikText = new Nugget('RubikText', {
 &lt;/RubikText&gt;
 \` } />
         <div class="preview">
-          <h1 color="wheat">The color of this element is wheat</h1>
+          <h1 color="wheat">The color of this element is wheat.</h1>
         </div>
         <P { txt: 'Noticed how props are passed to the Nugget. Unlike normal Nuggets whose props are in the format [{ ... }], Nuggets that receives children uses this format: [({ ... })].' } />
         <Heading { txt: "Reactivity", top: 40 } />
