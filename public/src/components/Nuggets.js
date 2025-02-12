@@ -54,7 +54,6 @@ MyApp.render()
         </div>
         <Heading { txt: "Props", top: 55 } />
         <P { txt: "Props are data passed to Nuggets when rendering. It is quite easy to create props. Just write the attribute name or CSS property followed by [={{ prop-name ]]]. For example:" } />
-        <P { txt: "[font-size={{ size ]]]" } />
         <CodeView { code: \`
 &lt;Button { label: "Get Started", bg: "teal" } /&gt;
 \` } /> 
@@ -102,6 +101,51 @@ MyApp.render()
         <div class="preview">
           <button class="sc">Button</button>
         </div>
+        <Heading { txt: "Passing JSX to Nuggets", top: 40 } />
+        <P { txt: "JSX markup can also be passed as children to Nuggets, instead of writing it directly as props." } />
+        <P { txt: "Let's say we want to create a Nugget called RubikText, this is how we would do it traditionally:" } />
+        <CodeView { code:\`
+const RubikText = new Nugget('RubikText', {
+  template(){
+    return &#96;
+      &lt;div font-family="Rubik" color=[[ color ]]&gt;
+        [[ children ]]
+      &lt;/div&gt;
+    &#96;
+  }
+})
+\`, filename: "RubikText.js" } />
+        <P { txt: "Then we can use it this way:" } />
+        <CodeView { code:\`
+&lt;RubikText {
+  color: "wheat",
+  children: &grave;
+    &lt;h1&gt;The font of this element would be Rubik.&lt;/h1&gt;
+&grave; } /&gt;
+\` } />
+
+        <P { txt: "It becomes tedious when working with complex structure of elements. To solve that, we should make use of the [&lt;/&gt;] symbol." } />
+         <CodeView { code: \`
+const RubikText = new Nugget('RubikText', {
+  template(){
+    return &#96;
+      &lt;div font-family="Rubik" color=[[ color ]]&gt;
+        &lt;/&gt;
+      &lt;/div&gt;
+    &#96;
+  }
+})
+\`, filename: "RubikText.js" } />
+        <P { txt: "The [&lt;/&gt;] symbol specifies where the children should be rendered. We can now write JSX markup directly into the Nugget, as if we're working with normal HTML elements." } />
+        <CodeView { code: \`
+&lt;RubikText ({ color: "wheat" })&gt;
+  &lt;h1&gt;The color of this element is [[ color ]].&lt;/h1&gt;
+&lt;/RubikText&gt;
+\` } />
+        <div class="preview">
+          <h1 color="wheat">The color of this element is wheat</h1>
+        </div>
+        <P { txt: 'Noticed how props are passed to the Nugget. Unlike normal Nuggets whose props are in the format [{ ... }], Nuggets that receives children uses this format: [({ ... })].' } />
         <Heading { txt: "Reactivity", top: 40 } />
         <P { txt: "By default, Nuggets do not have built in reactivity, to achieve that we can use a clever approach, let's try it out." } />
         <P { txt: "Create a file in the [nuggets] folder and name it [Time.js]." } />
