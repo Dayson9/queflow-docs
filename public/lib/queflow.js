@@ -110,11 +110,13 @@ function sanitizeString(str) {
 
 // Evaluates a template string by replacing placeholders with their values.
 function evaluateTemplate(reff, instance) {
-  let out = "";
+  let out = "",
+    currentMarkup = "";
 
   const regex = /\{\{[^\{\{]+\}\}/g;
   try {
     out = reff.replace(regex, (match) => {
+      currentMarkup = match;
       match = match.replaceAll('&gt;', '>');
       match = match.replaceAll('&lt;', '<');
       let ext = b(match).trim()
@@ -140,13 +142,8 @@ function evaluateTemplate(reff, instance) {
     })
 
   } catch (error) {
-    // Prevents unnecessary errors 
-    let reg = /Unexpected token/i;
-    if (!reg.test(error))
-      console.error("QueFlow Error:\nAn error occurred while parsing JSX/HTML:\n\n" + error);
+    console.error(`QueFlow Error:\nAn error in Component \`${instance.name??""}\`\n\nError sourced from:\n\`${currentMarkup}\``);
   }
-
-
   // Returns the evaluated template string.
   return out;
 }
@@ -208,7 +205,7 @@ function jsxToHTML(jsx, instance, sub_id) {
       c.removeAttribute("innertext");
     }
   } catch (error) {
-    console.error("QueFlow Error:\nAn error occurred while processing JSX/HTML:\n" + error);
+    console.error(`QueFlow Error:\nAn error in Component \`${instance.name??""}\`:\n ${error}\n\nError sourced from: \`${jsx}\``);
   }
 
   out = evaluateTemplate(doc.innerHTML, instance);
@@ -356,13 +353,17 @@ function handleEventListener(parent, instance) {
       // Check if the attribute is an event name
       if (attribute.startsWith("on")) {
         const sub_id = c.dataset.sub_id;
-        if (sub_id) {
-          const _instance = components.get(sub_id),
-            fun = Function("e", `const data = this.data; ${value}`).bind(_instance);
-          c[attribute] = fun;
-        } else {
-          const fun = Function("e", `const data = this.data; ${value}`).bind(instance);
-          c[attribute] = fun;
+        try {
+          if (sub_id) {
+            const _instance = components.get(sub_id),
+              fun = Function("e", `const data = this.data; ${value}`).bind(_instance);
+            c[attribute] = fun;
+          } else {
+            const fun = Function("e", `const data = this.data; ${value}`).bind(instance);
+            c[attribute] = fun;
+          }
+        } catch (e) {
+          console.error(`QueFlow Error:\nFailed to add event listener on ${c.tagName} element:\n\nError from: \`${value}\``)
         }
       }
     }
@@ -452,7 +453,7 @@ function initiateNuggets(markup) {
         instance = nuggets.get(name);
       markup = markup.replaceAll(match, renderNugget(instance, d, true, content));
     } catch (e) {
-      console.error("QueFlow Error:\nAn error occured while rendering Nugget '" + name + "'\n" + e);
+      console.error(`QueFlow Error:\nAn error occured while rendering Nugget '${name}' \n ${e}, \n\nError sourced from: \n\`${match}\``);
     }
     matches = extNuggetRegex.exec(markup);
   }
@@ -468,11 +469,12 @@ function initiateNuggets(markup) {
           instance = nuggets.get(name);
         evaluated = renderNugget(instance, d);
       } catch (e) {
-        console.error("QueFlow Error:\nAn error occured while rendering Nugget '" + name + "'\n" + e);
+        console.error(`QueFlow Error:\nAn error occured while rendering Nugget '${name}' \n ${e}, \n\nError sourced from: \n\`${match}\``);
       }
       return evaluated;
     });
   }
+
   return markup;
 }
 
@@ -487,7 +489,7 @@ function initiateComponents(markup, isNugget) {
         const instance = components.get(subName);
         evaluated = renderComponent(instance, subName);
       } catch (e) {
-        console.error("QueFlow Error:\nAn error occured while rendering Component '" + subName + "'\n" + e);
+        console.error(`QueFlow Error:\nAn error occured while rendering Nugget '${subName}' \n ${e}, \n\nError sourced from: \n\`${match}\``);
       }
       return evaluated;
     });
@@ -550,25 +552,30 @@ const removeEvents = (nodeList) => {
 }
 
 const renderComponent = (instance, name, flag) => {
-  let template = !flag ? `<div> ${(instance.template instanceof Function ? instance.template(instance.data) : instance.template)} </div>` : (instance.template instanceof Function ? instance.template(instance.data) : instance.template);
-  template = handleRouter(template)
-  template = initiateComponents(template);
+  if (!instance.isMounted) {
+    let template = !flag ? `<div> ${(instance.template instanceof Function ? instance.template(instance.data) : instance.template)} </div>` : (instance.template instanceof Function ? instance.template(instance.data) : instance.template);
+    template = handleRouter(template)
+    template = initiateComponents(template);
 
-  var rendered;
-  const id = typeof instance.element === 'string' ? instance.element : instance.element.id;
-  if (!flag) {
-    const newTemplate = initFirstElement(template, id);
-    rendered = jsxToHTML(newTemplate, instance, name);
+    var rendered;
+    const id = typeof instance.element === 'string' ? instance.element : instance.element.id;
+    if (!flag) {
+      const newTemplate = initFirstElement(template, id);
+      rendered = jsxToHTML(newTemplate, instance, name);
 
-    // Initiates sub-component's stylesheet 
-    initiateStyleSheet(`#${id}`, instance);
+      // Initiates sub-component's stylesheet 
+      initiateStyleSheet(`#${id}`, instance);
+    } else {
+      initiateStyleSheet(`#${id}`, instance);
+      rendered = jsxToHTML(template, instance, name);
+    }
+
+    instance.dataQF = rendered[1];
+    instance.isMounted = true;
+    return rendered[0];
   } else {
-    initiateStyleSheet(`#${id}`, instance);
-    rendered = jsxToHTML(template, instance, name);
+    return ""
   }
-
-  instance.dataQF = rendered[1];
-  return rendered[0];
 }
 
 class App {
@@ -605,7 +612,7 @@ class App {
     this.useStrict = Object.keys(options).includes('useStrict') ? options.useStrict : true;
 
     let id = this.element.id;
-    if (!id) throw new Error("QueFlow Error:\nTo use component scoped stylesheets, components element must have a valid id");
+    if (!id) throw new Error("QueFlow Error:\nTo use component scoped stylesheets, component's mount node must have a valid id");
 
     // qà a component's stylesheet 
     initiateStyleSheet(`#${id}`, this);
@@ -648,8 +655,6 @@ class App {
     let rendered = jsxToHTML(template, this);
 
     // Set innerHTML attribute of component's element to the converted template
-    rendered[0] = rendered[0].replaceAll('[[', '{{');
-    rendered[0] = rendered[0].replaceAll(']]', '}}');
     el.innerHTML = rendered[0];
     currentComponent?.navigateFunc(currentComponent.data);
 
@@ -778,14 +783,10 @@ class Component {
   }
 
   mount() {
-    if (!this.isMounted) {
-      let rendered = renderComponent(this, this.name, true);
-      rendered = rendered.replaceAll('[[', '{{');
-      rendered = rendered.replaceAll(']]', '}}');
-      this.element.innerHTML = rendered;
-      handleEventListener(this.element, this);
-      this.isMounted = true;
-    }
+    if (!this.isMounted)
+      this.element.innerHTML = renderComponent(this, this.name, true);
+    handleEventListener(this.element, this);
+    this.isMounted = true;
   }
 
   // removes the component's element from the DOM
@@ -858,7 +859,7 @@ const renderNugget = (instance, data, isExtended, children) => {
     }
 
     // Parse and initiate Nested Nuggets
-    const initiated = initiateComponents(template, true),
+    const initiated = initiateNuggets(template),
       // Render parsed html
       rendered = renderTemplate(initiated, data);
 
@@ -990,14 +991,12 @@ function handleRouter(input) {
       if (route === path) {
         isSet = true;
         currentComponent = instance;
-        instance.isMounted = true;
         document.title = title;
         return renderComponent(instance, name);
       } else {
         if (i === len - 1 && !isSet) {
           instance = components.get(comp404);
           currentComponent = instance;
-          instance.isMounted = true;
           document.title = title;
           return renderComponent(instance, comp404);
         } else {
