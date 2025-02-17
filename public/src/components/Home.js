@@ -74,7 +74,7 @@ const Home = new Component('Home', {
     `,
     '.pxp-el13': `  
         width: ${ width < 768 ? 60 : 20 }vw;
-        height: ${ width < 768 ? 45 : 57 }px;
+        height: ${ width < 768 ? 55 : 57 }px;
         border: none;
         border-radius: 15px;
         text-align: center;
@@ -99,7 +99,7 @@ const Home = new Component('Home', {
 
     '.pxp-el16': `  
         width: ${ width < 768 ? 60 : 20 }vw;
-        height: ${ width < 768 ? 45 : 57 }px;
+        height: ${ width < 768 ? 55 : 57 }px;
         border-radius: 15px;
         margin-block: 5px;
         text-align: center;
@@ -121,6 +121,9 @@ const Home = new Component('Home', {
       text-align: left;
       margin-top: 20vh;
       margin-bottom: 10vh;
+   `,
+   'button': `
+     font-weight: 900!important;
    `
   }
 })

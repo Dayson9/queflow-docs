@@ -158,7 +158,7 @@ const MyComponent = new Component('MyComponent', {
 \` } />
 
         <Heading { txt: "onUpdate()", size: 25, id: "upd" } />
-        <P { txt: "The [onUpdate()] method is used for tracking updates in an App/Component. It runs immediately before an App/Component is updated. This method can be used to control how updates are applied to an App/Component." } />
+        <P { txt: "The [onUpdate()] method is used for tracking updates in an App/Component. It runs immediately before an App/Component is updated. This method can be used to control how updates are applied in QueFlow." } />
         <P { txt: "The [onUpdate()] method receives two arguments; an object, and the reactive data object of an App/Component." } />
         <CodeView { code: \`
 onUpdate: ({ key, oldVal, newVal }, data) =&gt; {

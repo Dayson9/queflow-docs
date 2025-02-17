@@ -7,10 +7,11 @@ import Note from '../nuggets/Note.js';
 const GetStarted = new Component('GetStarted', {
   data: {
     count: 0,
-    c: 0,
-    x: 0,
-    y: 0,
-    clr: ""
+    c: 0, x: 0, y: 0,
+    clr: "",
+    bg: {
+      r: 20, g: 70, b: 120
+    }
   },
   template: () => {
     return `
@@ -123,25 +124,46 @@ MyApp.render();
         
         <P { txt: 'Let\\'s try out another example.', top: 10 } />
         <CodeView { code: \`
-import { App } from "queflow"
-
-const ColorChanger = new App("#app", {
+const MyApp = new App('#app', {
   data: {
-    color: ""
+    bg: {
+      r: 20, g: 70, b: 120
+    }
   },
-  template: () =&gt; {
-   return &#96;
-    &lt;h1 color=[[ color || 'mediumpurple' ]] transition=".4s"&gt;Change my color&lt;/h1&gt;
-    &lt;input type="text" oninput=[[ data.color = e.target.value ]]/&gt;
-    &#96;
+  template: () =&gt; &#96;
+    &lt;div width="310px" height="100px"
+    background="rgb([[ bg.r ]], [[ bg.g ]], [[ bg.b ]])" 
+    ontouchmove=[[
+        const touches = e.touches[0],
+          { clientX, clientY } = touches;
+        data.bg.b = clientX*4;
+        data.bg.r = clientY/1.5;
+        data.bg.g = clientX/1.5;
+    ]]&gt;
+      &lt;h1 color="white"&gt;Hover over this container&lt;/h1&gt;
+    &lt;/div&gt;
+  &#96;,
+  stylesheet: {
+    div: &#96;
+      display: flex;
+      text-align: center;
+      justify-content: center;
+     &#96;
   }
 })
 
-ColorChanger.render()
+MyApp.render()
 \` } />
         <div class="preview">
-          <h1 color={{ clr || 'mediumpurple' }} transition=".4s">Change my color</h1>
-          <input type="text" oninput={{ data.clr = e.target.value }}/>
+          <div id="sld" width="310px" height="100px" background="rgb({{ bg.r }}, {{ bg.g }}, {{ bg.b }})" ontouchmove={{
+            const touches = e.touches[0],
+              { clientX, clientY } = touches;
+            data.bg.b = clientX*4;
+            data.bg.r = clientY/1.5;
+            data.bg.g = clientX/1.5;
+          }}>
+            <h1 color="white">Hover over this container</h1>
+          </div>
         </div>
         
         <P { txt: 'The [e] is an object containing information about an event, which means [e.target] refers to the element that triggered the event.', top: 10 } />
@@ -164,6 +186,13 @@ ColorChanger.render()
       font-size: 25px;
       font-weight: 900;
       color: white;
+    `,
+    "#sld": `
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      border-radius: 10px;
+      transition: .3s;
     `
   }
 })
