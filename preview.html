@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Preview</title>
+  <script type="importmap">
+    {
+      "imports": {
+        "queflow": "https://esm.sh/gh/dayson9/queflowjs/lib/queflow.js"
+      }
+    }
+  </script>
+  <script>
+    window.addEventListener('message', (event) => {
+      // Very important: Check the origin!
+      //if (event.origin === 'http://localhost:7700/index.html') { // Correct origin
+      const { type, action, code } = event.data;
+      if (type === 'command' && action === 'run') {
+        // Execute the code (be very careful here!)
+        var script;
+        const former = document.head.querySelectorAll("script")[2]
+        if (former) {
+          former.remove()
+        }
+        try {
+          script = document.createElement("script")
+          script.setAttribute("type", "module")
+          script.textContent = code
+          document.head.appendChild(script)
+        } catch (e) {
+          app.innerHTML = e
+        }
+      }
+      /** } else {
+         alert("Message received from unexpected origin: '"+event.origin+"'");
+       }**/
+    });
+  </script>
+</head>
+
+<body>
+  <div id="app"></div>
+</body>
+
+</html>

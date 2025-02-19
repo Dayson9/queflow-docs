@@ -22,15 +22,15 @@ const Documentation = new App('#app', {
   run: function() {
     hljs.registerLanguage('javascript', javascript)
     // hljs.registerLanguage('xml', xml)
+    globalThis.hljs = hljs
     hljs.highlightAll()
-
     onNavigate((path) => {
       Navbar.data.left = -100
       hljs.highlightAll()
       if (path !== '/docs_nuggets') clearInterval(timerInt)
     }, this)
 
-   //setTimeout(() => toPage('/docs_nuggets'), 250)
+ //  setTimeout(() => toPage('/playground'), 150)
   },
   stylesheet: {
     '.inter': `
