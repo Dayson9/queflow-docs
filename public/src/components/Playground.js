@@ -46,6 +46,7 @@ const Playground = new Component('Playground', {
       height: 100%;
       border: none;
       position: fixed;
+      margin-top: 5px;
    `,
     "button": `
       width: 100%;
@@ -62,7 +63,7 @@ const Playground = new Component('Playground', {
       width: 100vw;
       height: 100%;
       border: none;
-      position: fixed;
+      position: absolute;
       top: 92px;
       background: #050a0e;
       padding: 0px;
