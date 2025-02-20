@@ -83,6 +83,14 @@
   content: "\ef09"
 }
 
+.bxs-download:before {
+  content: "\ed95"
+}
+
+.bx-copy:before {
+  content: "\ea84"
+}
+
 body {
   padding: 0;
   margin: 0;

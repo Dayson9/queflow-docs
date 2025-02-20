@@ -21,8 +21,6 @@ const Documentation = new App('#app', {
 
   run: function() {
     hljs.registerLanguage('javascript', javascript)
-    // hljs.registerLanguage('xml', xml)
-    globalThis.hljs = hljs
     hljs.highlightAll()
     onNavigate((path) => {
       Navbar.data.left = -100
@@ -30,7 +28,7 @@ const Documentation = new App('#app', {
       if (path !== '/docs_nuggets') clearInterval(timerInt)
     }, this)
 
- //  setTimeout(() => toPage('/playground'), 150)
+   setTimeout(() => toPage('/playground'), 150)
   },
   stylesheet: {
     '.inter': `

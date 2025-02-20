@@ -7,11 +7,24 @@ const iframeSrc = window.location.host === "queflowjs.vercel.app" ? "preview.htm
 const Playground = new Component('Playground', {
   data: {
     outText: "Result >",
-    previewIsShown: false
+    previewIsShown: false,
+    example: {
+      title: "Hello QueFlow"
+    }
   },
   template: () => {
     return `
     <div id="main">
+      <div class="top-bar flex-row">
+        <Icon { class: "bx bx-menu outline", size: 22 } />
+        <div class="title">
+          <Text { txt: "{{ example.title }}", size: 20, weight: 400, class: "outline" } />
+        </div>
+        <div class="right flex-row">
+          <Icon { class: "bx bxs-download", size: 22 } />
+          <Icon { class: "bx bx-copy", size: 22 } />
+        </div>
+      </div>
       <div id="editor"></div>
       <iframe id="preview" src="${iframeSrc}" display={{ previewIsShown ? 'block' : 'none' }}></iframe>
       <button class="inter" onclick={{
@@ -40,7 +53,7 @@ const Playground = new Component('Playground', {
       width: 100vw;
       height: 85vh;
       background: #050a0e;
-      margin-top: 36px;
+      margin-top: 0px;
     `,
     "#editor": `
       width: 100%;
@@ -54,7 +67,7 @@ const Playground = new Component('Playground', {
       height: 45px;
       border: none;
       background: teal;
-      color: white;
+      color: rgb(255,255,255,.9);
       font-size: 1.1em;
       font-weight: 500;
       position: fixed;
@@ -65,10 +78,32 @@ const Playground = new Component('Playground', {
       height: 100%;
       border: none;
       position: absolute;
-      top: 92px;
+      top: 95px;
       background: #050a0e;
       padding: 0px;
       margin: 0px;
+    `,
+    '.top-bar': `
+      width: 100%;
+      height: 40px;
+      background: transparent;
+      border-bottom: 3px solid rgba(255, 255, 255, 0.3);
+      padding-inline: 5px;
+      box-sizing: border-box;
+      color: rgb(255,255,255,.9);
+    `,
+    '.right': `
+      width: 15%;
+      height: auto;
+    `,
+    '.outline': `
+      border: 1px solid rgb(255,255,255,.9);
+      padding: 5px;
+      border-radius: 5px;
+    `,
+    '.title': `
+      max-width: 50%;
+      overflow-x: scroll;
     `
   }
 })
