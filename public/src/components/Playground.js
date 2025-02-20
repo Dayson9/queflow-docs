@@ -2,6 +2,7 @@ import { Component } from 'queflow'
 import Editor from '../nuggets/Editor.js'
 
 const width = window.innerWidth
+const iframeSrc = window.location.host === "queflowjs.vercel.app" ? "preview.html" : "./public/preview.html"
 
 const Playground = new Component('Playground', {
   data: {
@@ -12,7 +13,7 @@ const Playground = new Component('Playground', {
     return `
     <div id="main">
       <div id="editor"></div>
-      <iframe id="preview" src="preview.html" display={{ previewIsShown ? 'block' : 'none' }}></iframe>
+      <iframe id="preview" src="${iframeSrc}" display={{ previewIsShown ? 'block' : 'none' }}></iframe>
       <button class="inter" onclick={{
         if(data.outText === "Result >") {
           data.outText = "&lt; Code"
