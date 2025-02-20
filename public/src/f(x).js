@@ -11,7 +11,7 @@ function downloadFile(filePath, fileName = 'queflow-starter-template.zip') {
 
 function loadEditor() {
   preview = document.getElementById("preview")
-  
+
   require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.33.0/min/vs' } });
   require(['vs/editor/editor.main'], function() {
     editor = monaco.editor.create(document.getElementById('editor'), {
@@ -60,10 +60,18 @@ MyApp.render()`,
 
     monaco.editor.setTheme('myCustomTheme');
   });
-  
+
   preview.contentWindow.postMessage({ type: 'command', action: 'run', code: editor.getValue() }, 'http://localhost:7700/sandbox.html');
 }
 
-function updatePreview(){
+function updatePreview() {
   preview.contentWindow.postMessage({ type: 'command', action: 'run', code: editor.getValue() }, null);
+}
+
+async function copyToClipboard(text) {
+  await navigator.clipboard.writeText(text).then(() => {
+    console.log('Text copied to clipboard');
+  }).catch(err => {
+    console.error('Failed to copy text: ', err);
+  });
 }
