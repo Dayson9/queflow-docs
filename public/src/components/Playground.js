@@ -9,16 +9,16 @@ const Playground = new Component('Playground', {
     outText: "Result >",
     previewIsShown: false,
     example: {
-      title: "Hello QueFlow"
+      title: "Hello World, from QueFlow"
     }
   },
   template: () => {
     return `
     <div id="main">
       <div class="top-bar flex-row">
-        <Icon { class: "bx bx-menu outline", size: 22 } />
-        <div class="title inter">
-          <Text { txt: "{{ example.title }}", size: 20, weight: 400, class: "outline", color: "teal" } />
+        <Icon { class: "bx bx-menu outline", size: 25 } />
+        <div class="outline title inter">
+          <Text { txt: "{{ example.title }}", size: 20, weight: 400 } />
         </div>
         <div class="right flex-row">
           <Icon { class: "bx bxs-download", size: 22 } />
@@ -87,7 +87,7 @@ const Playground = new Component('Playground', {
       width: 100%;
       height: 40px;
       background: transparent;
-      border-bottom: 3px solid rgba(255, 255, 255, 0.3);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
       padding-inline: 5px;
       box-sizing: border-box;
       color: rgb(255,255,255,.7);
@@ -97,13 +97,15 @@ const Playground = new Component('Playground', {
       height: auto;
     `,
     '.outline': `
-      border: .5px solid rgb(255,255,255,.7);
-      padding: 5px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 3px;
       border-radius: 5px;
     `,
     '.title': `
       max-width: 50%;
+      max-height: 70%;
       overflow-x: scroll;
+      overflow-y: hidden;
     `
   }
 })

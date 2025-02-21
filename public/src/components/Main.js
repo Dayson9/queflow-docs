@@ -8,7 +8,6 @@ import Template_ from './Template.js';
 import Events from './Events.js'
 import Docs from './Docs.js'
 import Methods from './Methods.js'
-import Examples from './Examples.js'
 import Playground from './Playground.js';
 import Showcase from './Showcase.js'
 import ProjectStructure from './ProjectStructure.js'
@@ -34,7 +33,6 @@ const Main = new Component('Main', {
         { route: "/docs_events", component: "<Events/>", title: "Event Handling - QueFlow" },
         { route: "/playground", component: "<Playground/>", title: "Online Playground - QueFlow" },
         { route: "/docs_methods", component: "<Methods/>", title: "Component & App Methods - QueFlow" },
-        { route: "/examples", component: "<Examples/>", title: "Examples - QueFlow" },
         { route: "/showcase", component: "<Showcase/>", title: "Showcase - QueFlow" },
         { route: "/docs_project-structure", component: "<ProjectStructure/>", title: "Project Structure - QueFlow" },
         { route: "/docs_reactivity", component: "<Reactivity/>", title: "Reactivity - QueFlow" },

@@ -16,9 +16,6 @@ const Navbar = new Component('Navbar', {
             <Link { to: "/playground", label: "Playground" } />
           </li>
           <li>
-            <Link { to: "/examples", label: "Examples" } />
-          </li>
-          <li>
             <Link { to: "/showcase", label: "Showcase" } />
           </li>
         </ul>

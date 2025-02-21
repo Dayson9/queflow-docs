@@ -61,7 +61,7 @@ MyApp.render()`,
     monaco.editor.setTheme('myCustomTheme');
   });
 
-  preview.contentWindow.postMessage({ type: 'command', action: 'run', code: editor.getValue() }, 'http://localhost:7700/sandbox.html');
+  preview.contentWindow.postMessage({ type: 'command', action: 'run', code: editor.getValue() }, null);
 }
 
 function updatePreview() {
