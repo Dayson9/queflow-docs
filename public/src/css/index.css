@@ -91,6 +91,10 @@
   content: "\ea84"
 }
 
+.bxs-check-circle:before {
+  content: "\ed31"
+}
+
 body {
   padding: 0;
   margin: 0;

@@ -8,25 +8,30 @@ const Playground = new Component('Playground', {
   data: {
     outText: "Result >",
     previewIsShown: false,
+    copiedIsShown: false,
     example: {
-      title: "Hello World, from QueFlow"
+      title: "Hello QueFlow"
     }
   },
   template: () => {
     return `
-    <div id="main">
+    <div id="main" class="inter">
       <div class="top-bar flex-row">
         <Icon { class: "bx bx-menu outline", size: 25 } />
-        <div class="outline title inter">
+        <div class="outline title">
           <Text { txt: "{{ example.title }}", size: 20, weight: 400 } />
         </div>
         <div class="right flex-row">
           <Icon { class: "bx bxs-download", size: 22 } />
-          <Icon { class: "bx bx-copy", size: 22 } />
+          <Icon { class: "bx bx-copy", size: 22, click: "copyToClipboard(editor.getValue())" } />
         </div>
       </div>
       <div id="editor"></div>
       <iframe id="preview" src="${iframeSrc}" display={{ previewIsShown ? 'block' : 'none' }}></iframe>
+      <div class="copied flex-row" display={{ copiedIsShown ? 'flex' : 'none' }}>
+        <Icon { class: "bx bxs-check-circle", size: 20, color: "teal" } />
+        <span>Copied</span>
+      </div>
       <button class="inter" onclick={{
         if(data.outText === "Result >") {
           data.outText = "&lt; Code"
@@ -37,7 +42,7 @@ const Playground = new Component('Playground', {
         data.previewIsShown = !data.previewIsShown
        }}>{{ outText }}</output>
     </div>
-      `
+    `  
   },
   onNavigate() {
     if (!this?.isInitialized) {
@@ -106,6 +111,19 @@ const Playground = new Component('Playground', {
       max-height: 70%;
       overflow-x: scroll;
       overflow-y: hidden;
+    `,
+    '.copied': `
+      width: ${ width < 768 ? 25 : 15 }%;
+      height: 42px;
+      color: rgb(255,255,255,.7);
+      background: #050a0e;
+      border: 1.3px solid rgba(255, 255, 255, 0.3);
+      position: absolute;
+      bottom: 30vh;
+      left: ${ width < 768 ? 37.5 : 42.5 }%;
+      border-radius: 7px;
+      padding-inline: 4px;
+      box-sizing: border-box;
     `
   }
 })

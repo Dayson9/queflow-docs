@@ -1,18 +1,18 @@
 var timerInt, editor, preview;
 
 function downloadFile(filePath, fileName = 'queflow-starter-template.zip') {
-  const link = document.createElement('a');
-  link.href = filePath;
-  link.download = fileName;
-  Main.element.appendChild(link);
-  link.click();
-  Main.element.removeChild(link);
+  const link = document.createElement('a')
+  link.href = filePath
+  link.download = fileName
+  Main.element.appendChild(link)
+  link.click()
+  Main.element.removeChild(link)
 }
 
 function loadEditor() {
   preview = document.getElementById("preview")
 
-  require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.33.0/min/vs' } });
+  require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.33.0/min/vs' } })
   require(['vs/editor/editor.main'], function() {
     editor = monaco.editor.create(document.getElementById('editor'), {
       value: `import { App } from 'queflow' 
@@ -43,7 +43,7 @@ MyApp.render()`,
       overviewRulerLanes: 0,
       wordWrap: "on",
       renderLineHighlightOnlyWhenFocus: true
-    });
+    })
 
     monaco.editor.defineTheme('myCustomTheme', {
       base: 'vs-dark', // Base theme (vs, vs-dark, hc-black)
@@ -56,22 +56,24 @@ MyApp.render()`,
         'editor.background': '#050a0e',
         // Add more color customizations here
       }
-    });
+    })
 
-    monaco.editor.setTheme('myCustomTheme');
-  });
+    monaco.editor.setTheme('myCustomTheme')
+  })
 
-  preview.contentWindow.postMessage({ type: 'command', action: 'run', code: editor.getValue() }, null);
+  preview.contentWindow.postMessage({ type: 'command', action: 'run', code: editor.getValue() }, null)
 }
 
 function updatePreview() {
-  preview.contentWindow.postMessage({ type: 'command', action: 'run', code: editor.getValue() }, null);
+  preview.contentWindow.postMessage({ type: 'command', action: 'run', code: editor.getValue() }, null)
 }
 
-async function copyToClipboard(text) {
-  await navigator.clipboard.writeText(text).then(() => {
-    console.log('Text copied to clipboard');
+async function copyToClipboard(text = "") {
+  await navigator.clipboard.writeText(text).
+  then(() => {
+    Playground.data.copiedIsShown = true
+    setTimeout(() => Playground.data.copiedIsShown = false, 2000)
   }).catch(err => {
-    console.error('Failed to copy text: ', err);
-  });
+    console.error('Failed to copy text: ', err)
+  })
 }
