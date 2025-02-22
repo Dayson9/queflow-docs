@@ -13,7 +13,7 @@ const Playground = new Component('Playground', {
     menuIsOpen: false,
     example: {
       title: "Hello World",
-      menuSwitch: [1, 1, 1]
+      menuSwitch: [0, 0, 0, 0]
     }
   },
   template: () => {
@@ -37,17 +37,23 @@ const Playground = new Component('Playground', {
       </div>
       <button class="inter" onclick={{
         if(data.outText === "Result >") {
+          if(!data.menuIsOpen)
           data.outText = "&lt; Code"
           updatePreview()
         } else {
           data.outText = "Result &gt;"
         }
-        data.previewIsShown = !data.previewIsShown
+        if(!data.menuIsOpen)
+          data.previewIsShown = !data.previewIsShown
        }}>{{ outText }}</output>
      </div>
      <div class="menu outline" display={{ menuIsOpen ? 'block' : 'none' }}>
        <FoldableMenu {
-         items: [{ label: "Introduction", children: ["Hello World", "Styling"] }]
+         items: [
+          { label: "Introduction", children: ["Hello World", "Styling"] },
+          { label: "Reactivity", children: ["Hello World", "Styling"] },
+          { label: "Event Handling", children: ["Hello World", "Styling"] },
+          { label: "Components", children: ["Hello World", "Styling"] }]
        } />
      </div>
     `  
@@ -141,6 +147,9 @@ const Playground = new Component('Playground', {
       top: 0;
       left: 0;
       text-align: left;
+      margin: 20px 0 0 10px;
+      padding: 12px 12px 0 0;
+      overflow-y: scroll;
     `
   }
 })

@@ -4,12 +4,13 @@ const width = window.innerWidth
 
 const FoldableMenu = new Nugget('FoldableMenu', {
   template: function(data){
-    this.menuIndex = this.menuIndex||0;
+    this.menuIndex = this.menuIndex||-1;
     let out = data.items.map(({ label, children }) => {
+      this.menuIndex++
       return `
         <div class="outer inter">
-          <div class="top" onclick="data.example.menuSwitch[${this.menuIndex}] = !data.example.menuSwitch[${this.menuIndex}]">
-          <Icon { class: "bx-menu", size: 15 } />
+          <div class="top" margin-top="-10px" onclick="data.example.menuSwitch[${this.menuIndex}] = !data.example.menuSwitch[${this.menuIndex}]">
+          <Icon { size: "15px", class: "bx bx-chevron-{{ example.menuSwitch[${this.menuIndex}] ? 'down' : 'right' }}" } />
           <Text { txt: "${label}", weight: 600, align: "left" } />
           </div>
           <div class="inner" display={{ example.menuSwitch[${this.menuIndex}] ? 'block' : 'none' }}>
@@ -18,12 +19,11 @@ const FoldableMenu = new Nugget('FoldableMenu', {
               const key = e.target.innerText
               loadExample(key, data)
               data.menuIsOpen = false
-            \` } />`).join('') }
+            \`, size: 15 } />`).join('') }
           </div>
         </div>
       `
     }).join('')
-    this.menuIndex++
     return out
   },
   stylesheet: {
@@ -46,7 +46,7 @@ const FoldableMenu = new Nugget('FoldableMenu', {
     '.top > span': `
       display: inline;
     `,
-    'span': `
+    '.inner span': `
       margin-block: 5px;
     `
   }

@@ -95,6 +95,14 @@
   content: "\ed31"
 }
 
+.bx-chevron-right:before {
+  content: "\ea50"
+}
+
+.bx-chevron-down:before {
+  content: "\ea4a"
+}
+
 body {
   padding: 0;
   margin: 0;
