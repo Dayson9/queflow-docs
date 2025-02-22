@@ -1,5 +1,6 @@
 import { Component } from 'queflow'
 import Editor from '../nuggets/Editor.js'
+import FoldableMenu from '../nuggets/FoldableMenu.js'
 
 const width = window.innerWidth
 const iframeSrc = window.location.host === "queflowjs.vercel.app" ? "preview.html" : "./public/preview.html"
@@ -9,20 +10,22 @@ const Playground = new Component('Playground', {
     outText: "Result >",
     previewIsShown: false,
     copiedIsShown: false,
+    menuIsOpen: false,
     example: {
-      title: "Hello QueFlow"
+      title: "Hello World",
+      menuSwitch: [1, 1, 1]
     }
   },
   template: () => {
     return `
-    <div id="main" class="inter">
+    <div id="main" class="inter" filter={{ menuIsOpen ? 'blur(7px)' : 'none' }}>
       <div class="top-bar flex-row">
-        <Icon { class: "bx bx-menu outline", size: 25 } />
+        <Icon { class: "bx bx-menu outline", size: 25, click: "data.menuIsOpen = true" } />
         <div class="outline title">
           <Text { txt: "{{ example.title }}", size: 20, weight: 400 } />
         </div>
         <div class="right flex-row">
-          <Icon { class: "bx bxs-download", size: 22 } />
+          <Icon { class: "bx bxs-download", size: 22, click: "downloadTextFile('App.js', editor.getValue())" } />
           <Icon { class: "bx bx-copy", size: 22, click: "copyToClipboard(editor.getValue())" } />
         </div>
       </div>
@@ -41,7 +44,12 @@ const Playground = new Component('Playground', {
         }
         data.previewIsShown = !data.previewIsShown
        }}>{{ outText }}</output>
-    </div>
+     </div>
+     <div class="menu outline" display={{ menuIsOpen ? 'block' : 'none' }}>
+       <FoldableMenu {
+         items: [{ label: "Introduction", children: ["Hello World", "Styling"] }]
+       } />
+     </div>
     `  
   },
   onNavigate() {
@@ -124,6 +132,15 @@ const Playground = new Component('Playground', {
       border-radius: 7px;
       padding-inline: 4px;
       box-sizing: border-box;
+    `,
+    '.menu': `
+      width: 270px;
+      height: 70vh;
+      position: absolute;
+      background: #050a0e;
+      top: 0;
+      left: 0;
+      text-align: left;
     `
   }
 })

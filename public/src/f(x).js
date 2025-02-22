@@ -19,17 +19,11 @@ function loadEditor() {
 
 const MyApp = new App('#app', {
   data: {
-    msg: "Hello QueFlow."
+    msg: "Hello World."
   },
   template(){
     return \`
-      <h1>{{ msg }}</h1>
-    \`
-  },
-  stylesheet: {
-    'h1': \`
-      color: wheat;
-      text-align: center;
+      <h1 color="wheat">{{ msg }}</h1>
     \`
   }
 })
@@ -61,7 +55,7 @@ MyApp.render()`,
     monaco.editor.setTheme('myCustomTheme')
   })
 
-  preview.contentWindow.postMessage({ type: 'command', action: 'run', code: editor.getValue() }, null)
+  setTimeout(() => preview.contentWindow.postMessage({ type: 'command', action: 'run', code: editor.getValue() }, null), 4000);
 }
 
 function updatePreview() {
@@ -76,4 +70,62 @@ async function copyToClipboard(text = "") {
   }).catch(err => {
     console.error('Failed to copy text: ', err)
   })
+}
+
+function downloadTextFile(filename, content) {
+  const blob = new Blob([content], { type: 'text/plain' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+function loadExample(key, data) {
+  data.example.title = key
+  key = key.toLowerCase().replaceAll(' ', '-')
+  if (editor.getValue() !== exampleSourceCode[key])
+    editor.setValue(exampleSourceCode[key])
+}
+
+
+
+const exampleSourceCode = {
+  "hello-world": `import { App } from 'queflow' 
+
+const MyApp = new App('#app', {
+  data: {
+    msg: "Hello World."
+  },
+  template(){
+    return \`
+      <h1 color="wheat">{{ msg }}</h1>
+    \`
+  }
+})
+
+MyApp.render()`,
+  "styling": `import { App } from 'queflow' 
+
+const MyApp = new App('#app', {
+  data: {
+    msg: "Hello World."
+  },
+  template(){
+    return \`
+      <h1>{{ msg }}</h1>
+    \`
+  },
+  stylesheet: {
+    'h1': \`
+      color: wheat;
+      text-align: center;
+    \`
+  }
+})
+
+MyApp.render()`
 }
