@@ -56,7 +56,7 @@ const Playground = new Component('Playground', {
           { label: "Components", children: ["Hello World", "Styling"] }]
        } />
      </div>
-    `  
+    `
   },
   onNavigate() {
     if (!this?.isInitialized) {

@@ -11,6 +11,7 @@
     }
   </script>
   <script>
+    const index = window.location.host === "queflowjs.vercel.app" ? 0 : 1
     window.addEventListener('message', (event) => {
       // Very important: Check the origin!
       //if (event.origin === 'http://localhost:7700/index.html') { // Correct origin
@@ -18,6 +19,10 @@
       if (type === 'command' && action === 'run') {
         // Execute the code (be very careful here!)
         var script;
+        const style = document.head.querySelectorAll("style")
+        if (style[index]) {
+          style[index].innerText = ""
+        }
         const former = document.head.querySelectorAll("script")[2]
         if (former) {
           former.remove()

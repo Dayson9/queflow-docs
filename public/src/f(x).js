@@ -55,7 +55,7 @@ MyApp.render()`,
     monaco.editor.setTheme('myCustomTheme')
   })
 
-  setTimeout(() => preview.contentWindow.postMessage({ type: 'command', action: 'run', code: editor.getValue() }, null), 4000);
+  //  setTimeout(() => preview.contentWindow.postMessage({ type: 'command', action: 'run', code: editor.getValue() }, null), 4000);
 }
 
 function updatePreview() {

@@ -3,8 +3,8 @@ import { Nugget } from "queflow"
 const width = window.innerWidth
 
 const FoldableMenu = new Nugget('FoldableMenu', {
-  template: function(data){
-    this.menuIndex = this.menuIndex||-1;
+  template: function(data) {
+    this.menuIndex = this.menuIndex || -1;
     let out = data.items.map(({ label, children }) => {
       this.menuIndex++
       return `
