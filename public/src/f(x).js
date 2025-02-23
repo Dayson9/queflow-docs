@@ -1,4 +1,4 @@
-var timerInt, editor, preview;
+var timerInt, editor, preview, editorInput;
 
 function downloadFile(filePath, fileName = 'queflow-starter-template.zip') {
   const link = document.createElement('a')
@@ -53,9 +53,11 @@ MyApp.render()`,
     })
 
     monaco.editor.setTheme('myCustomTheme')
+    editorInput = document.getElementById("editor").querySelector("textarea")
+    
+    editorInput.addEventListener("input", updatePreview)
+    updatePreview()
   })
-
-  //  setTimeout(() => preview.contentWindow.postMessage({ type: 'command', action: 'run', code: editor.getValue() }, null), 4000);
 }
 
 function updatePreview() {
@@ -89,6 +91,7 @@ function loadExample(key, data) {
   key = key.toLowerCase().replaceAll(' ', '-')
   if (editor.getValue() !== exampleSourceCode[key])
     editor.setValue(exampleSourceCode[key])
+    updatePreview()
 }
 
 

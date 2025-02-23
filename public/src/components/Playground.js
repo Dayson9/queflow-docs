@@ -39,7 +39,6 @@ const Playground = new Component('Playground', {
         if(data.outText === "Result >") {
           if(!data.menuIsOpen)
           data.outText = "&lt; Code"
-          updatePreview()
         } else {
           data.outText = "Result &gt;"
         }
