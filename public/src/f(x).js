@@ -15,15 +15,12 @@ function loadEditor() {
   require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.33.0/min/vs' } })
   require(['vs/editor/editor.main'], function() {
     editor = monaco.editor.create(document.getElementById('editor'), {
-      value: `import { App } from 'queflow' 
+      value: `import { App } from 'queflow'
 
 const MyApp = new App('#app', {
-  data: {
-    msg: "Hello World."
-  },
-  template(){
-    return \`
-      <h1 color="wheat">{{ msg }}</h1>
+      template() {
+        return \`
+      <h1 color="wheat">Hello, World.</h1>
     \`
   }
 })
@@ -92,6 +89,8 @@ function loadExample(key, data) {
   if (editor.getValue() !== exampleSourceCode[key])
     editor.setValue(exampleSourceCode[key])
     updatePreview()
+    
+  editorInput?.removeAttribute('disabled')
 }
 
 
@@ -100,12 +99,9 @@ const exampleSourceCode = {
   "hello-world": `import { App } from 'queflow' 
 
 const MyApp = new App('#app', {
-  data: {
-    msg: "Hello World."
-  },
   template(){
     return \`
-      <h1 color="wheat">{{ msg }}</h1>
+      <h1 color="wheat">Hello, World.</h1>
     \`
   }
 })
@@ -126,6 +122,59 @@ const MyApp = new App('#app', {
     'h1': \`
       color: wheat;
       text-align: center;
+    \`
+  }
+})
+
+MyApp.render()`,
+"dynamic-attributes": `import { App } from 'queflow' 
+
+const MyApp = new App('#app', {
+  data: {
+    color: "#829AAB"
+  },
+  template(){
+    return \`
+      <div margin-left="30px">
+        <h1 color={{ color }}>This is an H1 element with color: {{ color }}.</h1>
+        <button onclick={{ data.color = data.color === '#829AAB' ? 'gold' : '#829AAB' }}>Change Color</button>
+     </div>
+    \`
+  }
+})
+
+MyApp.render()`,
+
+ "simple-expressions":`import { App } from 'queflow' 
+
+const MyApp = new App('#app', {
+  data: {
+    count: 0
+  },
+  template(){
+    return \`
+      <div margin-left="20px" color="#829AAB">
+        <h1>Count is: {{ count }}</h1>
+        <button onclick={{ data.count++; }}>Increment</button>
+     </div>
+    \`
+  }
+})
+
+MyApp.render()`,
+
+ "complex-expressions": `import { App } from 'queflow' 
+
+const MyApp = new App('#app', {
+  data: {
+    count: 0
+  },
+  template(){
+    return \`
+      <div margin-left="20px">
+        <h2 color="#829AAB">{{ count }} is {{ count % 2 == 0 ? '' : 'not' }} divisible by 2.</h2>
+        <button onclick={{ data.count++ }}>Increment</button>
+     </div>
     \`
   }
 })

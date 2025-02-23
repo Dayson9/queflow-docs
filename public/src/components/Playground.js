@@ -20,7 +20,7 @@ const Playground = new Component('Playground', {
     return `
     <div id="main" class="inter" filter={{ menuIsOpen ? 'blur(7px)' : 'none' }}>
       <div class="top-bar flex-row">
-        <Icon { class: "bx bx-menu outline", size: 25, click: "data.menuIsOpen = true" } />
+        <Icon { class: "bx bx-menu outline", size: 25, click: "data.menuIsOpen = true; editorInput?.setAttribute('disabled', 1)" } />
         <div class="outline title">
           <Text { txt: "{{ example.title }}", size: 20, weight: 400 } />
         </div>
@@ -49,8 +49,8 @@ const Playground = new Component('Playground', {
      <div class="menu outline" display={{ menuIsOpen ? 'block' : 'none' }}>
        <FoldableMenu {
          items: [
-          { label: "Introduction", children: ["Hello World", "Styling"] },
-          { label: "Reactivity", children: ["Hello World", "Styling"] },
+          { label: "Introduction", children: ["Hello World", "Styling", "Dynamic Attributes"] },
+          { label: "Reactivity", children: ["Simple Expressions", "Complex Expressions"] },
           { label: "Event Handling", children: ["Hello World", "Styling"] },
           { label: "Components", children: ["Hello World", "Styling"] }]
        } />
