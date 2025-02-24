@@ -124,6 +124,12 @@ const Playground = new Component('Playground', {
       max-height: 70%;
       overflow-x: scroll;
       overflow-y: hidden;
+      white-space: nowrap;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    `,
+    '.title::-webkit-scrollbar': `
+      display: none;
     `,
     '.copied': `
       width: ${ width < 768 ? 25 : 15 }%;
