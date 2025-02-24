@@ -111,7 +111,7 @@ const Playground = new Component('Playground', {
       color: rgb(255,255,255,.7);
     `,
     '.right': `
-      width: 15%;
+      width: ${ width < 768 ? 15 : 5 }%;
       height: auto;
     `,
     '.outline': `
