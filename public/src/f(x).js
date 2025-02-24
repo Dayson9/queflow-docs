@@ -51,7 +51,7 @@ MyApp.render()`,
 
     monaco.editor.setTheme('myCustomTheme')
     editorInput = document.getElementById("editor").querySelector("textarea")
-    
+
     editorInput.addEventListener("input", updatePreview)
     updatePreview()
   })
@@ -88,8 +88,8 @@ function loadExample(key, data) {
   key = key.toLowerCase().replaceAll(' ', '-')
   if (editor.getValue() !== exampleSourceCode[key])
     editor.setValue(exampleSourceCode[key])
-    updatePreview()
-    
+  updatePreview()
+
   editorInput?.removeAttribute('disabled')
 }
 
@@ -114,9 +114,7 @@ const MyApp = new App('#app', {
     msg: "Hello World."
   },
   template(){
-    return \`
-      <h1>{{ msg }}</h1>
-    \`
+    return "<h1>{{ msg }}</h1>"
   },
   stylesheet: {
     'h1': \`
@@ -127,7 +125,7 @@ const MyApp = new App('#app', {
 })
 
 MyApp.render()`,
-"dynamic-attributes": `import { App } from 'queflow' 
+  "dynamic-attributes": `import { App } from 'queflow' 
 
 const MyApp = new App('#app', {
   data: {
@@ -145,7 +143,7 @@ const MyApp = new App('#app', {
 
 MyApp.render()`,
 
- "simple-expressions":`import { App } from 'queflow' 
+  "simple-expressions": `import { App } from 'queflow' 
 
 const MyApp = new App('#app', {
   data: {
@@ -163,7 +161,7 @@ const MyApp = new App('#app', {
 
 MyApp.render()`,
 
- "complex-expressions": `import { App } from 'queflow' 
+  "complex-expressions": `import { App } from 'queflow' 
 
 const MyApp = new App('#app', {
   data: {
@@ -176,6 +174,106 @@ const MyApp = new App('#app', {
         <button onclick={{ data.count++ }}>Increment</button>
      </div>
     \`
+  }
+})
+
+MyApp.render()`,
+  "single-line-handlers": `import { App } from 'queflow' 
+
+const MyApp = new App('#app', {
+  data: {
+    label: "Click Me"
+  },
+  template(){
+    return "<button onclick={{ alert(data.label) }}>{{ label }}</button>"
+  }
+})
+
+MyApp.render()`,
+  "multiline-handlers": `import { App } from 'queflow'
+
+const MyApp = new App('#app', {
+      data: {
+        label: "Click Me"
+      },
+      template() {
+        return \`
+      <button onclick={{
+        const label = data.label;
+        const reversed = label.split('').reverse().join('');
+        alert("Label: "+label);
+        alert("Reversed: "+reversed); }}>{{ label }}</button>
+    \`
+  }
+})
+
+MyApp.render()`,
+  "event-arguments": `import { App } from 'queflow' 
+
+const MyApp = new App('#app', {
+  data: {
+    output: "Banana Island"
+  },
+  template(){
+    return \`
+      <p color="#829AAB">You typed: {{ output }}</p>
+      <input type="text" oninput={{
+        //[e] is an object containing the event argument
+        const { target } = e;
+        data.output = target.value; }} value="Banana Island"/>
+    \`
+  }
+})
+
+MyApp.render()`,
+  "defining-a-component": `import { Component, App } from 'queflow' 
+
+const MyComponent = new Component("MyComponent", {
+  template() {
+    return "<h1>My First Component</h1>"
+  },
+  stylesheet: {
+    'h1': \`
+      color: orchid;
+      text-align: center;
+      font-family: sans serif;
+    \`
+  }
+})
+
+const MyApp = new App('#app', {
+  template() {
+    return "<MyComponent/>"
+  }
+})
+
+MyApp.render()`,
+  "reactivity-in-components": `import { Component, App } from 'queflow'
+
+const MyComponent = new Component('MyComponent', {
+  data: {
+    color: "#829AAB"
+  },
+  template() {
+    return \`
+      <h1 color={{ color }}>Change My Color</h1>
+      <button onclick={{ data.color = data.color == "wheat" ? "#829AAB" : "wheat" }}>Toggle Color</button>
+    \`
+  },
+  stylesheet: {
+    'h1': \`
+      text-align: center;
+      transition: .7s;
+      font-family: sans serif;
+      font-weight: 900;
+      font-size: 40px
+    \`
+  }
+})
+
+const MyApp = new App('#app', {
+  template() {
+    return "<MyComponent/>"
   }
 })
 

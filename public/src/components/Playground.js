@@ -51,8 +51,8 @@ const Playground = new Component('Playground', {
          items: [
           { label: "Introduction", children: ["Hello World", "Styling", "Dynamic Attributes"] },
           { label: "Reactivity", children: ["Simple Expressions", "Complex Expressions"] },
-          { label: "Event Handling", children: ["Hello World", "Styling"] },
-          { label: "Components", children: ["Hello World", "Styling"] }]
+          { label: "Event Handling", children: ["Single Line Handlers", "Multiline Handlers", "Event Arguments"] },
+          { label: "Components", children: ["Defining a Component", "Reactivity in Components"] }]
        } />
      </div>
     `
@@ -127,6 +127,7 @@ const Playground = new Component('Playground', {
       white-space: nowrap;
       -ms-overflow-style: none;
       scrollbar-width: none;
+      padding-inline: 3px;
     `,
     '.title::-webkit-scrollbar': `
       display: none;

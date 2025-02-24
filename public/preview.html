@@ -33,6 +33,7 @@
           script.textContent = code
           document.head.appendChild(script)
         } catch (e) {
+          app.style.color = "white"
           app.innerHTML = e
         }
       }
