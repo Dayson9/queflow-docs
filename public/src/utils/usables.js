@@ -181,6 +181,27 @@ const MyApp = new App('#app', {
 })
 
 MyApp.render()`,
+  "nesting-components": `import { Component, App } from 'queflow' 
+
+const OtherComponent = new Component("OtherComponent", {
+  template(){
+    return "<h1 color='#829AAB' text-align='center'>This is another Component</h1>"
+  }
+})
+
+const MyComponent = new Component("MyComponent", {
+  template(){
+    return "<OtherComponent/>"
+  }
+})
+
+const MyApp = new App('#app', {
+  template(){
+    return "<MyComponent/>"
+  }
+})
+
+MyApp.render()`,
   "defining-a-nugget": `import { Nugget, App } from 'queflow' 
 
 const Text = new Nugget("Text", {
@@ -225,7 +246,7 @@ const Text = new Nugget("Text", {
 
 const BigBoldText = new Nugget("BigBoldText", {
   template() {
-    return \`<Text { txt: "{{ txt }}", color: "{{ color }}", size: 40, weight: 900 } />\`
+    return \`<Text { txt: "{{ txt }}", color: "{{ color }}", size: 41, weight: 900 } />\`
   }
 })
 
@@ -279,7 +300,7 @@ const Container = new Nugget("Container", {
   template() {
   // The '</>' sign signifies where the children should be placed
     return \`
-      <div color={{ color }}>
+      <div color={{ color }} border="2px solid {{ color }}">
         </>
       </div>\`
   },
@@ -287,7 +308,6 @@ const Container = new Nugget("Container", {
     'div': \`
       width: auto;
       padding: 20px 30px;
-      border: 1px solid #829ACB;
       margin-bottom: 20px;
     \`
   }
@@ -295,7 +315,7 @@ const Container = new Nugget("Container", {
 
 const MyApp = new App('#app', {
   template() {
-  // Props passed to these types of Nuggets must be in the format ({...})
+  // Props passed to these types of Nuggets must be in the format ({...}) not {...}
     return \`
       <Container ({ color: "orchid" })>
         <p>This is a paragraph with color '{{ color }}'</p>
@@ -309,7 +329,7 @@ const MyApp = new App('#app', {
 })
 
 MyApp.render()`,
-  "defining-a-templatey": `import { Template, App } from 'queflow' 
+  "defining-a-template": `import { Template, App } from 'queflow' 
 
 const Text = new Template("Text", {
   template() {
@@ -344,7 +364,8 @@ const MyApp = new App('#app', {
   }
 })
 
-MyApp.render()`
+MyApp.render()`,
+  "": ``
 }
 
 export default sourceCode

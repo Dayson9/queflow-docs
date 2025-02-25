@@ -3,7 +3,7 @@ import Editor from '../nuggets/Editor.js'
 import FoldableMenu from '../nuggets/FoldableMenu.js'
 
 const width = window.innerWidth
-const iframeSrc = window.location.host === "queflowjs.vercel.app" ? "preview.html" : "./public/preview.html"
+const iframeSrc = window.location.host === "queflowjs.vercel.app" ? "./src/PlaygroundPreview/preview.html" : "./public/src/PlaygroundPreview/preview.html"
 
 const Playground = new Component('Playground', {
   data: {
@@ -52,9 +52,9 @@ const Playground = new Component('Playground', {
           { label: "Introduction", children: ["Hello World", "Styling", "Dynamic Attributes"] },
           { label: "Reactivity", children: ["Simple Expressions", "Complex Expressions"] },
           { label: "Event Handling", children: ["Single Line Handlers", "Multiline Handlers", "Event Arguments"] },
-          { label: "Components", children: ["Defining a Component", "Reactivity in Components"] },
+          { label: "Components", children: ["Defining a Component", "Reactivity in Components", "Nesting Components"] },
           { label: "Nuggets", children: ["Defining a Nugget", "Nested Nuggets", "Reactivity in Nuggets", "Passing Children to Nuggets"] },
-          { label: "Templates", children: ["Defining a Template", "Reusability", "Reactive Templates"] }]
+          { label: "Templates", children: ["Defining a Template", "Reactive Templates"] }]
        } />
      </div>
     `
@@ -77,7 +77,7 @@ const Playground = new Component('Playground', {
     `,
     "#editor": `
       width: 100%;
-      height: 100%;
+      height: 90vh;
       border: none;
       position: fixed;
       margin-top: 5px;
