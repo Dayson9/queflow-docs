@@ -8,6 +8,7 @@ import Text from './nuggets/Text.js'
 import hljs from './assets/hljs.js'
 import javascript from './assets/js.min.js'
 //import xml from './assets/xml.min.js'
+import sourceCode from './utils/usables.js'
 
 const Documentation = new App('#app', {
   data: {},
@@ -20,6 +21,7 @@ const Documentation = new App('#app', {
   },
 
   run: function() {
+    globalThis.sourceCode = sourceCode
     hljs.registerLanguage('javascript', javascript)
     hljs.highlightAll()
     onNavigate((path) => {
