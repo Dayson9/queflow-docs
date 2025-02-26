@@ -385,6 +385,7 @@ const UserCard = new Template('UserCard', {
     width: 290px;
     height: auto;
     padding: 10px 5px;
+    margin: 0 auto;
     margin-block: 10px;
     border: 1px solid grey;
     border-radius: 10px;
@@ -425,6 +426,38 @@ const MyApp = new App('#app', {
       { name: "Lauren Jamie", job: "Engineer", src: "avatar3.jpg" },
       { name: "Mary Sylvester", job: "Artist", src: "avatar4.jpg" }
     ])
+  }
+})
+
+MyApp.render()`,
+  "svg": `import { App } from 'queflow' 
+
+const MyApp = new App('#app', {
+  data: {
+    circle: {
+      x: 50,
+      y: 50
+    }
+  },
+  template(){
+    return \`
+      <svg width="100%" height="70vh" ontouchstart={{
+        const { touches } = e;
+        const { clientX, clientY } = touches[0];
+        data.circle.x = clientX;
+        data.circle.y = clientY;
+      }}>
+        <circle
+          cx={{ circle.x }}
+          cy={{ circle.y }}
+          r="50"
+          fill="transparent"
+          stroke="lightblue"
+          stroke-width="3"
+          transition=".7s"
+        />
+      </svg>
+    \`
   }
 })
 

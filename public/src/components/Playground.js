@@ -54,8 +54,9 @@ const Playground = new Component('Playground', {
           { label: "Event Handling", children: ["Single Line Handlers", "Multiline Handlers", "Event Arguments"] },
           { label: "Components", children: ["Defining a Component", "Reactivity in Components", "Nesting Components"] },
           { label: "Nuggets", children: ["Defining a Nugget", "Nested Nuggets", "Reactivity in Nuggets", "Passing Children to Nuggets"] },
-          { label: "Templates", children: ["Defining a Template", "Reusability"] }]
-       } />
+          { label: "Templates", children: ["Defining a Template", "Reusability"] },
+          { label: "Miscellaneous", children: ["Fetching data", "Digital clock", "SVG"] }
+          ]} />
      </div>
     `
   },
