@@ -365,7 +365,70 @@ const MyApp = new App('#app', {
 })
 
 MyApp.render()`,
-  "": ``
+  "reusability": `import { Template, App } from 'queflow'
+
+const UserCard = new Template('UserCard', {
+  template() {
+    return \`
+      <div class="card">
+        <img src="../assets/img/{{ src }}" alt="{{ name }}'s image"/>     
+        <div class="right">
+          <h3>{{ name }}</h3>
+          <p color="wheat">{{ job }}</p>
+          <p>Lorem ipsum dolor sit amet cenq queres finito quadros.</p>
+        </div>
+      </div>
+   \`
+  },
+  stylesheet: {
+  '.card': \`
+    width: 290px;
+    height: auto;
+    padding: 10px 5px;
+    margin-block: 10px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    font-size: .8em;
+  \`,
+  'img': \`
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+  \`,
+  '.right': \`
+    width: 60%;
+    height: auto;
+    box-sizing: content-box;
+    color: white;
+  \`,
+  'h3,p': \`
+    margin-block: 7px;
+    font-family: monospace;
+  \`
+  }
+}, 'mount')
+
+const MyApp = new App('#app', {
+  template() {
+    return \`
+      <div id="mount"></div>
+      \`
+  },
+  run() {
+    UserCard.renderWith([
+      { name: "Lawrence Wills", job: "Accountant", src: "avatar1.jpg" },
+      { name: "Adeola Jones", job: "Reporter", src: "avatar2.jpg" },
+      { name: "Lauren Jamie", job: "Engineer", src: "avatar3.jpg" },
+      { name: "Mary Sylvester", job: "Artist", src: "avatar4.jpg" }
+    ])
+  }
+})
+
+MyApp.render()`
 }
 
 export default sourceCode

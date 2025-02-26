@@ -33,7 +33,7 @@ const UserCard = new Template('UserCard', {
  template: () =&gt; {
     return &#96;
       &lt;div class="card"&gt;
-      &lt;img src={{ src ]] alt="{{ name }}'s image"/&gt;
+      &lt;img src=[[ src ]] alt="[[ name ]]'s image"/&gt;
       &lt;div class="right"&gt;
         &lt;h3&gt;{{ name ]]&lt;/h3&gt;
         &lt;p&gt;{{ job ]]&lt;/p&gt;
