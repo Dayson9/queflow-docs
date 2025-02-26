@@ -3,7 +3,7 @@ import Editor from '../nuggets/Editor.js'
 import FoldableMenu from '../nuggets/FoldableMenu.js'
 
 const width = window.innerWidth
-const iframeSrc = window.location.host === "queflowjs.vercel.app" ? "./src/PlaygroundPreview/preview.html" : "./public/src/PlaygroundPreview/preview.html"
+const iframeSrc = window.location.host === "queflowjs.vercel.app" ? "./playground/preview/preview.html" : "./public/src/playground/preview/preview.html"
 
 const Playground = new Component('Playground', {
   data: {

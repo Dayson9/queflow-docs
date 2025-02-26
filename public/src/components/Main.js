@@ -8,7 +8,7 @@ import Template_ from './Template.js';
 import Events from './Events.js'
 import Docs from './Docs.js'
 import Methods from './Methods.js'
-import Playground from './Playground.js';
+import Playground from '../playground/Playground.js';
 import Showcase from './Showcase.js'
 import ProjectStructure from './ProjectStructure.js'
 import Reactivity from './Reactivity.js'

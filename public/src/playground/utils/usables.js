@@ -487,7 +487,7 @@ const DigitalClock = new Component('DigitalClock', {
       font-family: DS-Digital;
       font-size: 90px;
       text-align: center;
-       color: white;
+      color: white;
     \`
   },
   run(data) {

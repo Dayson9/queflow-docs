@@ -8,7 +8,7 @@ import Text from './nuggets/Text.js'
 import hljs from './assets/hljs.js'
 import javascript from './assets/js.min.js'
 //import xml from './assets/xml.min.js'
-import sourceCode from './utils/usables.js'
+import sourceCode from './playground/utils/usables.js'
 
 const Documentation = new App('#app', {
   data: {},
