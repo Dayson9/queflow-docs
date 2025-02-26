@@ -4,7 +4,7 @@ const UserCard = new Nugget('UserCard', {
   template: () => {
     return `
       <div class="card">
-      <img src="./assets/img/{{ src }}" alt="{{ name }}'s picture"/>
+      <img src={{ src }} alt="{{ name }}'s picture"/>
       <div class="right">
         <h3>{{ name }}</h3>
         <p color="wheat">{{ job }}</p>
