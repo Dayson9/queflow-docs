@@ -37,7 +37,7 @@ const UserCard = new Template('UserCard', {
       &lt;div class="right"&gt;
         &lt;h3&gt;{{ name ]]&lt;/h3&gt;
         &lt;p&gt;{{ job ]]&lt;/p&gt;
-        &lt;p&gt;Lorem ipsum dolor sit amet cenq queres finito quadros.&lt;/p&gt;
+        &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/p&gt;
       &lt;/div&gt;
     &lt;/div&gt;
     &#96;

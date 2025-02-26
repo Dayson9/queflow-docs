@@ -375,7 +375,7 @@ const UserCard = new Template('UserCard', {
         <div class="right">
           <h3>{{ name }}</h3>
           <p color="wheat">{{ job }}</p>
-          <p>Lorem ipsum dolor sit amet cenq queres finito quadros.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
       </div>
    \`
