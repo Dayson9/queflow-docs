@@ -101,8 +101,8 @@ MyApp.render()
         <div class="preview">
           <button class="sc">Button</button>
         </div>
-        <Heading { txt: "Passing JSX to Nuggets", top: 40 } />
-        <P { txt: "JSX markup can also be passed as children to Nuggets, instead of writing it directly as props." } />
+        <Heading { txt: "Nuggets with Children", top: 40 } />
+        <P { txt: "JSX markup can also be written directly into Nuggets, instead of writing it directly as props." } />
         <P { txt: "Let's say we want to create a Nugget called RubikText, this is how we would do it traditionally:" } />
         <CodeView { code:\`
 const RubikText = new Nugget('RubikText', {
@@ -146,6 +146,8 @@ const RubikText = new Nugget('RubikText', {
           <h1 color="wheat">The color of this element is wheat.</h1>
         </div>
         <P { txt: 'Noticed how props are passed to the Nugget. Unlike normal Nuggets whose props are in the format [{ ... }], Nuggets that receives children uses this format: [({ ... })].' } />
+        <Heading { txt: "Best Practices for Nuggets with Children" } />
+        <ListItem { items: ["Always Include ({})"] } />
         <Heading { txt: "Reactivity", top: 40 } />
         <P { txt: "By default, Nuggets do not have built in reactivity, to achieve that we can use a clever approach, let's try it out." } />
         <P { txt: "Create a file in the [nuggets] folder and name it [Time.js]." } />

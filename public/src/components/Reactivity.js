@@ -1,46 +1,5 @@
 import { Component } from 'queflow' 
 
-/**
-Computed Properties
-
-Computed properties allow you to define values that are derived from other reactive properties.  They are automatically updated whenever their dependencies change.
-
-JavaScript
-
-computed: {
-  fullName: {
-    get: function() {
-      return this.firstName + ' ' + this.lastName;
-    }
-  }
-}
-In the template:
-
-HTML
-
-<p>Full Name: {{ fullName }}</p>
-Whenever firstName or lastName changes, fullName will be automatically recalculated and the DOM updated.
-
-Watchers
-
-Watchers provide a way to execute custom code when a reactive property changes.
-
-JavaScript
-
-watch: {
-  count: function(newValue, oldValue) {
-    console.log('Count changed from', oldValue, 'to', newValue);
-    // Perform other actions based on the change
-  }
-}
-This example logs a message to the console whenever the count property changes.  Watchers can be used for tasks like making API calls, updating other parts of the UI, or performing complex calculations based on changes in reactive data.
-
-Key Improvements and Considerations
-
-Performance: QueFlow's approach of directly updating reactive attributes offers potential performance advantages over full DOM diffing, especially for complex UIs.
-
-**/
-
 const Reactivity = new Component('Reactivity', {
   data: {
     message: ""
