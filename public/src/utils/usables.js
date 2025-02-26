@@ -453,13 +453,54 @@ const MyApp = new App('#app', {
           r="50"
           fill="transparent"
           stroke="lightblue"
-          stroke-width="3"
+          stroke-width="5"
           transition=".7s"
+        />
+        <circle
+          cx={{ circle.x }}
+          cy={{ circle.y }}
+          r="20"
+          fill="#D1A74C"
+          stroke="#805A4B"
+          stroke-width="3"
+          transition=".35s"
         />
       </svg>
     \`
   }
 })
+
+MyApp.render()`,
+  "digital-clock": `import { Component, App } from 'queflow'
+
+const DigitalClock = new Component('DigitalClock', {
+  data: {
+    time: new Date().toLocaleTimeString()
+  },
+  template() {
+    return \`
+      <h1>{{ time }}</h1>
+    \`
+  },
+  stylesheet: {
+    'h1': \`
+      font-family: DS-Digital;
+      font-size: 90px;
+      text-align: center;
+       color: white;
+    \`
+  },
+  run(data) {
+    setInterval(() => data.time = new Date().toLocaleTimeString(), 1000);
+  }
+})
+
+const MyApp = new App('#app', {
+  template() {
+    return "<DigitalClock/>"
+  }
+})
+
 
 MyApp.render()`
 }

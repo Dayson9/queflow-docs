@@ -25,8 +25,8 @@ const Playground = new Component('Playground', {
           <Text { txt: "{{ example.title }}", size: 20, weight: 400 } />
         </div>
         <div class="right flex-row">
-          <Icon { class: "bx bxs-download", size: 22, click: "downloadTextFile('App.js', editor.getValue())" } />
-          <Icon { class: "bx bx-copy", size: 22, click: "copyToClipboard(editor.getValue())" } />
+          <Icon { class: "bx bxs-download", size: 22, click: "if(!data.previewIsShown) downloadTextFile('App.js', editor.getValue())" } />
+          <Icon { class: "bx bx-copy", size: 22, click: "if(!data.previewIsShown) copyToClipboard(editor.getValue())" } />
         </div>
       </div>
       <div id="editor"></div>
@@ -103,6 +103,7 @@ const Playground = new Component('Playground', {
       background: #050a0e;
       padding: 0px;
       margin: 0px;
+      padding-bottom: 45px;
     `,
     '.top-bar': `
       width: 100%;
