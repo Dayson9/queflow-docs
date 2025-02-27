@@ -6,11 +6,12 @@
 'use-strict';
 
 // Counter for generating unique IDs for elements with reactive data.
-var counterQF = 0,
-  nuggetCounter = 0,
+var counterQF = -1,
+  nuggetCounter = -1,
   routerObj = {},
   currentComponent,
-  navigateFunc = (() => {});
+  navigateFunc = (() => {}),
+  globalStateDataQF = [];
 
 var stylesheet = {
   el: document.createElement("style"),
@@ -35,6 +36,24 @@ function filterNullElements(input) {
   return input.filter((d) => selectElement(d.qfid) ? d : null);
 }
 
+const globalState = (name, val) => {
+  const obj = { value: val }
+
+  const reactiveObj = (object) => {
+    return new Proxy(object, {
+      get(target, key) {
+        return target[key];
+      },
+      set(target, key, value) {
+        if (target[key] !== value) {
+          target[key] = value;
+          updateComponent(key, true, value);
+        }
+      }
+    })
+  }
+  if(!globalThis[name]) globalThis[name] = reactiveObj(obj);
+}
 
 // Creates a reactive signal, a proxy object that automatically updates the DOM/Component when its values change.
 function createSignal(data, object) {
@@ -117,20 +136,24 @@ function evaluateTemplate(reff, instance) {
       const falsy = [undefined, NaN, null];
 
       const shouldNegate = ext.startsWith('!');
-      ext = shouldNegate ? `!this.data.${ext.slice(1)}` : `this.data.${ext}`;
-
-      let parsed = Function(`return ${ext}`).call(instance);
-
-      if (falsy.includes(parsed) && parsed != "0") {
-        parsed = Function('return ' + ext).call(instance);
-      }
-
+      const isGlobal = ext.startsWith('$');
       let rendered = "";
+      if (!isGlobal) {
+        ext = shouldNegate ? `!this.data.${ext.slice(1)}` : `this.data.${ext}`;
 
-      if (falsy.includes(parsed) && parsed != "0") {
-        rendered = match;
+        let parsed = Function(`return ${ext}`).call(instance);
+
+        if (falsy.includes(parsed) && parsed != "0") {
+          parsed = Function('return ' + ext).call(instance);
+        }
+
+        if (falsy.includes(parsed) && parsed != "0") {
+          rendered = match;
+        } else {
+          rendered = parsed;
+        }
       } else {
-        rendered = parsed;
+        rendered = Function(`return ${ext}`)();
       }
       return rendered;
     })
@@ -239,8 +262,6 @@ function generateComponentData(child, isParent, instance) {
     attr = getAttributes(child),
     id = child.dataset.qfid;
 
-  const isSVGElement = child instanceof SVGElement;
-
   if (!isParent) {
     attr.push({ attribute: instance.useStrict ? "innerText" : "innerHTML", value: instance.useStrict ? child.innerText : child.innerHTML });
   }
@@ -248,7 +269,8 @@ function generateComponentData(child, isParent, instance) {
 
   for (let { attribute, value } of attr) {
     value = value || "";
-    let hasTemplate = (value.indexOf("{{") > -1 && value.indexOf("}}") > -1);
+    const hasTemplate = (value.indexOf("{{") > -1 && value.indexOf("}}") > -1),
+      isGlobal = b(value).trim().startsWith("$")
 
     const _eval = evaluateTemplate(value, instance);
     if (!id && hasTemplate) {
@@ -257,7 +279,7 @@ function generateComponentData(child, isParent, instance) {
       counterQF++;
     }
 
-    if ((child.style[attribute] || child.style[attribute] === "") && !isSVGElement) {
+    if ((child.style[attribute] || child.style[attribute] === "")) {
       child.style[attribute] = _eval;
       if (attribute.toLowerCase() !== "src") {
         child.removeAttribute(attribute);
@@ -268,7 +290,11 @@ function generateComponentData(child, isParent, instance) {
 
     if (hasTemplate) {
       if (_eval !== value) {
-        ((child.style[attribute] || child.style[attribute] === "" && !isSVGElement) && attribute.toLowerCase() !== "src" || attribute === "filter") ? arr.push({ template: value, key: "style." + attribute, qfid: id }): arr.push({ template: value, key: attribute, qfid: id });
+        if (!isGlobal) {
+          ((child.style[attribute] || child.style[attribute] === "") && attribute.toLowerCase() !== "src" || attribute === "filter") ? arr.push({ template: value, key: "style." + attribute, qfid: id }): arr.push({ template: value, key: attribute, qfid: id });
+        } else {
+          ((child.style[attribute] || child.style[attribute] === "") && attribute.toLowerCase() !== "src" || attribute === "filter") ? globalStateDataQF.push({ template: value, key: "style." + attribute, qfid: id }): globalStateDataQF.push({ template: value, key: attribute, qfid: id });
+        }
       }
     }
   }
@@ -389,15 +415,19 @@ function needsUpdate(template, key) {
 
 // Updates a component based on changes made to it's data
 function updateComponent(ckey, obj, _new) {
-  // Filters Null elements from the Component
-  obj.dataQF = filterNullElements(obj.dataQF);
+  let dataQF;
 
-  let { dataQF } = obj;
+  if (typeof obj === "boolean") {
+    globalStateDataQF = filterNullElements(globalStateDataQF);
+    dataQF = globalStateDataQF;
+  } else {
+    obj.dataQF = filterNullElements(obj.dataQF);
+    dataQF = obj.dataQF;
+  }
 
   for (let d of dataQF) {
     let { template, key, qfid } = d;
     const child = selectElement(qfid);
-
     if (needsUpdate(template, ckey)) {
       let evaluated = evaluateTemplate(template, obj);
 
@@ -923,7 +953,7 @@ class Nugget {
     this.template = options.template;
     this.stylesheetInitiated = false;
     this.counter = 0;
-    this.name = name;
+
     nuggets.set(name, this)
   }
 }
@@ -1054,5 +1084,6 @@ export {
   Component,
   Nugget,
   Template,
-  onNavigate
+  onNavigate,
+  globalState
 };
