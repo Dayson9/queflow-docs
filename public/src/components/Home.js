@@ -6,7 +6,7 @@ const width = window.innerWidth;
 const Home = new Component('Home', {
   template: () => {
     return `
-    <div>
+    <div id="main" color={{ $theme.mode == 'dark' ? 'rgb(255,255,255,.9)' : 'black' }} background={{ $theme.mode == 'dark' ? 'rgb(5, 10, 5)' : 'white' }}>
       <h1 class="pxp-el8 maren">
         <span class="pxp-el9">Craft highly</span>
         <span class="pxp-el10">Performant </span>
@@ -16,13 +16,16 @@ const Home = new Component('Home', {
       <div class="flex-${ width < 768 ? 'col' : 'row' } btn">
       
       <Link { to: "/get-started", label: \`
-        <button class="inter pxp-el13">
+        <button
+          class="inter pxp-el13"
+          color="rgb(255,255,255,.9)"
+          background="linear-gradient(135deg, rgb(20, 138, 129), rgb(11, 76, 71))">
         <span class="pxp-el14">Get Started</span>
         <span class="bx bx-right-arrow-alt pxp-el15"></span>
       </button>\` } />
      
      <Link { to: "/docs", label: \` 
-      <button class="pxp-el16 inter">
+      <button class="pxp-el16 inter" border-color="rgb({{ $theme.mode == 'dark' ? '255, 255, 255, .9' : '0,0,0,0.9'}})" color={{ $theme.mode == 'dark' ? 'rgb(255,255,255,.9)' : 'rgb(0,0,0,.9)' }}>
         <span class="pxp-el14">Explore Docs</span>
         <span class="bx bx-menu pxp-el17"></span>
       </button> \` } />
@@ -41,31 +44,38 @@ const Home = new Component('Home', {
   },
 
   stylesheet: {
-    '> *': `
-      margin-block: 70px;
+    "#main": `
+      width: 100%;
+      height: auto;
+      margin-block: 0;
+      padding-block: 37px;
     `,
-    '.pxp-el8': `  
-        color: rgba(255, 255, 255, 0.9);
+    '> *': `
+      box-sizing: border-box;
+    `,
+    '.pxp-el8': `
         text-align: center;
         font-size: 40px;
         transform: translateY(6vh);
-        margin: 40px 10px 60px;
+        margin: 0px 10px 60px;
     `,
 
-    '.pxp-el10': `  
+    '.pxp-el10': `
         -webkit-text-fill-color: transparent;
         background: linear-gradient(135deg, rgb(20, 138, 129), rgb(11, 76, 71));
         -webkit-background-clip: text;
     `,
 
     '.pxp-el11': `
-        color: rgba(255,255,255,.9);
+        
     `,
 
-    '.pxp-el12': `  
-        color: rgba(255,255,255,.9);
+    '.pxp-el12': `
         text-align: center;
         font-size: 18px;
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: 20px;
     `,
     '.btn': `
         width: ${ width < 768 ? 100 : 45 }vw;
@@ -79,7 +89,6 @@ const Home = new Component('Home', {
         border-radius: 15px;
         text-align: center;
         margin-block: 5px;
-        color: black;
         background: rgb(255, 255, 255);
     `,
 
@@ -90,11 +99,9 @@ const Home = new Component('Home', {
     `,
 
     '.pxp-el15': `  
-        font-family: Inter;
+        transform: translateY(1px);
         font-size: 20px;
-        font-weight: 700;
-        transform: translateY(2px);
-        color: rgb(20, 138, 129);
+        color: inherit;
     `,
 
     '.pxp-el16': `  
@@ -104,15 +111,14 @@ const Home = new Component('Home', {
         margin-block: 5px;
         text-align: center;
         background: transparent;
-        border: 2px solid rgb(255, 255, 255);
-        color: rgb(255, 255, 255);
+        border-width: 2px;
+        border-style: solid;
+        color: inherit;
     `,
 
-    '.pxp-el17': `  
-        font-family: Inter;
+    '.pxp-el17': `
         font-size: 20px;
-        font-weight: 700;
-        transform: translateY(2px);
+        transform: translateY(1px);
     `,
    '#description' : `
       width: 80%;
@@ -120,7 +126,6 @@ const Home = new Component('Home', {
       margin: 0 auto;
       text-align: left;
       margin-top: 20vh;
-      margin-bottom: 10vh;
    `,
    'button': `
      font-weight: 900!important;

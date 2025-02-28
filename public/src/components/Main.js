@@ -21,6 +21,7 @@ const Main = new Component('Main', {
   },
   template: () => {
     return `
+      <div id="container" background={{ $theme.mode == 'dark' ? 'rgb(5, 10, 5)' : 'white' }} color={{ $theme.mode == 'dark' ? 'rgb(255,255,255,.9)' : 'black' }}>
       <Router { routes: [
         { route: "/", component: "<Home/>", title: "QueFlowJS" },
         { route: "/get-started", component: "<GetStarted/>", title: "Get Started - QueFlow" },
@@ -38,10 +39,17 @@ const Main = new Component('Main', {
         { route: "/docs_reactivity", component: "<Reactivity/>", title: "Reactivity - QueFlow" },
         { route: "*", component: "<Error404/>", title: "Page Not Found" }
       ] } />
+    </div>
     `
   },
 
   stylesheet: {
+    "#container": `
+      width: 100%;
+      height: auto;
+      margin-block: 0;
+      padding-block: 20px;
+    `,
     '.silver': `
       color: rgb(200, 200, 200);
     `,
@@ -52,12 +60,13 @@ const Main = new Component('Main', {
       border: 1px solid rgb(255, 255, 255, .3);
       box-sizing: border-box;
       border-radius: 10px;
-      background: rgb(5, 10, 5);
+      background: inherit;
       margin-block: 20px;
       font-family: Inter;
       padding-inline: 10px;
       color: white;
       padding-block: 10px;
+      box-shadow: 2px 2px 16px rgba(0,0,0,0.2);
     `,
     'section': `
       width: auto;
@@ -66,10 +75,10 @@ const Main = new Component('Main', {
       box-sizing: border-box;
    `,
     '.highlighted': `
-      background: rgb(11, 76, 71);
-      padding: 1px 3px;
+      background: teal;
       border-radius: 3px;
       display: inline;
+      border: 1px solid rbg(5,10,5);
  `,
     '.reg-btn': `
       padding: 10px;

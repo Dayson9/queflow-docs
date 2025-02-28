@@ -1,4 +1,4 @@
-import { App } from 'queflow'
+import { App, globalState } from 'queflow'
 import { onNavigate } from 'queflow'
 import Main from './components/Main.js'
 import Header from './components/Header.js'
@@ -9,6 +9,10 @@ import hljs from './assets/hljs.js'
 import javascript from './assets/js.min.js'
 //import xml from './assets/xml.min.js'
 import sourceCode from './playground/utils/usables.js'
+
+globalState('$theme', {
+  mode: 'dark'
+})
 
 const Documentation = new App('#app', {
   data: {},
@@ -35,7 +39,6 @@ const Documentation = new App('#app', {
   stylesheet: {
     '.inter': `
       font-family: "Inter";
-      color: rgba(255,255,255,.8);
       `,
     '.maren': 'font-family: Almarena;',
     'code *, code': 'font-family: "monospace";',

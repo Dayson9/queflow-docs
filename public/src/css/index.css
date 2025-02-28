@@ -43,6 +43,10 @@
   content: "\ec34"
 }
 
+.bx-moon:before {
+  content: "\eb94"
+}
+
 .bxs-rocket:before {
   content: "\ee95"
 }
@@ -106,5 +110,5 @@
 body {
   padding: 0;
   margin: 0;
-  background: rgb(5, 10, 5);
+  /**background: rgb(5, 10, 5); **/
 }

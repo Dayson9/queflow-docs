@@ -3,8 +3,8 @@ import { Nugget } from 'queflow'
 const CodeView = new Nugget("CodeView", {
   template: (data) => {
     return `
-     ${ data.filename ? "<div class='top inter'>{{ filename }}</div>" : "" }
-     <div border-radius="${ data.filename ? '0px 0px 10px 10px' : '10px' }" class="main">
+     ${ data.filename ? "<div class='top inter' background={{ $theme.mode == 'dark' ? 'rgb(26, 27, 38)' : 'rgba(68,54,75,1)' }}>{{ filename }}</div>" : "" }
+     <div border-radius="${ data.filename ? '0px 0px 10px 10px' : '10px' }" class="main" background={{ $theme.mode == 'dark' ? 'rgb(26, 27, 38)' : 'rgba(68,54,75,1)' }}>
       <pre class="language-js"><code>{{ code }}</code></pre>
      </div>
     `

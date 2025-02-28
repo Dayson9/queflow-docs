@@ -12,7 +12,7 @@ const ALink = new Nugget('ALink', {
   },
   stylesheet: {
     'span': `
-      color: rgba(255,255,255,.9);
+      color: inherit;
       font-size: 17;
       font-weight: 300;
       display: inline;

@@ -5,9 +5,9 @@ import P from './Paragraph.js'
 const HotFeature = new Nugget('HotFeature', {
   template: () => {
     return `
-      <div class='main inter' color='rgba(255, 255, 255, 0.9)'>
+      <div class='main inter'>
         <div class='outer'>
-          <div class='inner'>
+          <div class='inner' background={{ $theme.mode == 'dark' ? 'rgb(5, 10, 5)' : 'white' }}>
             <Icon { class: '{{ class }}', size: 33 } />
           </div>
         </div>
@@ -41,7 +41,6 @@ const HotFeature = new Nugget('HotFeature', {
   '.main .inner' : `
       width: 65px;
       height: 65px;
-      background: rgb(5,10,5);
       border-radius: 50%;
       display: flex;
       align-items: center;

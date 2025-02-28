@@ -44,7 +44,7 @@ const ListItem = new Nugget('ListItem', {
       line-height: 1.1em;
       `,
      'a': `
-      color: rgb(255,255,255,.9);
+      color: inherit;
     `
   }
 })

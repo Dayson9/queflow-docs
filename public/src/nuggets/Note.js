@@ -3,12 +3,12 @@ import { Nugget } from 'queflow'
 const Note = new Nugget('Note', {
   template: () => {
     return `
-      <div class="note inter" color="rgba(255, 255, 255, .9)">
+      <div class="note inter" color="inherit">
         <div class="flex-row">
           <Icon { class: 'bx-info-circle', size: 28 } />
           <Text { txt: 'Note', size: 15 } />
         </div>
-        <Text { txt: '{{ txt }}', size: 13, align: 'left' } />
+        <Text { txt: '{{ txt }}', size: 13, align: 'left', weight: 700 } />
       </div>
     `
   },

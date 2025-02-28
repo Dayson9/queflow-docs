@@ -6,9 +6,14 @@ const Navbar = new Component('Navbar', {
   },
   template: () => {
     return `
-      <nav class="inter" left={{ left+'%' }} transition=".3s">
+      <nav class="inter"
+        left={{ left+'%' }}
+        background={{ $theme.mode == 'dark' ? 'rgb(5, 10, 5)' : 'white' }}
+        color={{ $theme.mode == 'dark' ? 'rgb(255,255,255,.9)' : 'black' }}
+        box-shadow="2px 0px 0px rgba({{ $theme.mode == 'dark' ? '255,255,255,.3' : '0,0,0,0.3' }})"
+        >
         <Icon { class: "bx-x", size: 30, click: "data.left = -100" } />
-        <ul font-size="20px">
+        <ul font-size="20px" color={{ $theme.mode == 'dark' ? 'rgb(255,255,255,.9)' : 'black' }}>
           <li>
             <Link { to: "/docs", label: "Documentation" } />
           </li>
@@ -25,10 +30,8 @@ const Navbar = new Component('Navbar', {
 
   stylesheet: {
     'nav': `
-      width: 85%;
-      height: 100vh;
-      background: rgb(5,10,5);
-      box-shadow: 2px 0px 0px rgba(255,255,255,.3);
+      width: ${ window.innerWidth < 768 ? 75 : 45 }%;
+      height: ${ window.innerWidth < 768 ? 100 : 65 }vh;
       position: fixed;
       top: 0;
       z-index: 1;
@@ -47,10 +50,9 @@ const Navbar = new Component('Navbar', {
     'ul': `
       margin-top: 50px;
       list-style-type: none;
+      color: inherit;
    `,
-   'a': `
-    color: rgb(255,255,255,.9);
-   `
+    'a': `color: inherit;`
   }
 })
 
