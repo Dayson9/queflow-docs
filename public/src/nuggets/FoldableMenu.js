@@ -10,7 +10,7 @@ const FoldableMenu = new Nugget('FoldableMenu', {
       return `
         <div class="outer inter">
           <div class="top" margin-top="-10px" onclick="data.example.menuSwitch[${this.menuIndex}] = !data.example.menuSwitch[${this.menuIndex}]">
-          <Icon { size: "15px", class: "bx bx-chevron-{{ example.menuSwitch[${this.menuIndex}] ? 'down' : 'right' }}", color: "#829AAB" } />
+          <Icon { size: "15px", class: "bx bx-chevron-{{ example.menuSwitch[${this.menuIndex}] ? 'down' : 'right' }}" } />
           <Text { txt: "${label}", weight: 600, align: "left", size: 15 } />
           </div>
           <div class="inner" display={{ example.menuSwitch[${this.menuIndex}] ? 'block' : 'none' }}>
@@ -30,7 +30,6 @@ const FoldableMenu = new Nugget('FoldableMenu', {
     '.outer': `
       width: 100%;
       height: auto;
-      color: rgb(255,255,255,.7);
       text-align: left!important;
       box-sizing: border-box;
       padding: 10px;

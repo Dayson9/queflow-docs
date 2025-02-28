@@ -13,7 +13,7 @@ const Header = new Component('Header', {
         </div>
         
         <div class="right">
-          <Icon { class: "bx bx-{{ $theme.mode == 'dark' ? 'sun' : 'moon' }}", click: "$theme.mode = $theme.mode == 'dark' ? 'light' : 'dark'", size: 25 } />
+          <Icon { class: "bx bx-{{ $theme.mode == 'dark' ? 'sun' : 'moon' }}", click: "switchMode()", size: 25 } />
           <Icon { class: "bx bx-menu", click: "Navbar.data.left = 0", size: 25 } />
         </div>
       </header>

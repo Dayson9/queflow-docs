@@ -18,8 +18,8 @@ const Playground = new Component('Playground', {
   },
   template: () => {
     return `
-    <div id="main" class="inter" filter={{ menuIsOpen ? 'blur(7px)' : 'none' }}>
-      <div class="top-bar flex-row">
+    <div id="main" class="inter" filter={{ menuIsOpen ? 'blur(7px)' : 'none' }} background={{ $theme.mode == 'dark' ? 'rgb(5, 10, 5)' : 'white' }} color={{ $theme.mode == 'dark' ? 'rgb(255,255,255,.9)' : 'black' }}>
+      <div class="top-bar flex-row" border-bottom-color={{ $theme.mode == 'dark' ? 'rgba(255, 255, 255, 0.3)' : 'rgba(0,0,0,.3)' }}>
         <Icon { class: "bx bx-menu outline", size: 25, click: "data.menuIsOpen = true; editorInput?.setAttribute('disabled', 1)" } />
         <div class="outline title">
           <Text { txt: "{{ example.title }}", size: 20, weight: 400 } />
@@ -30,7 +30,7 @@ const Playground = new Component('Playground', {
         </div>
       </div>
       <div id="editor"></div>
-      <iframe id="preview" src="${iframeSrc}" display={{ previewIsShown ? 'block' : 'none' }}></iframe>
+      <iframe id="preview" src="${iframeSrc}" display={{ previewIsShown ? 'block' : 'none' }} color={{ $theme.mode == 'dark' ? 'white' : 'black' }}></iframe>
       <div class="copied flex-row" display={{ copiedIsShown ? 'flex' : 'none' }}>
         <Icon { class: "bx bxs-check-circle", size: 20, color: "teal" } />
         <span>Copied</span>
@@ -46,7 +46,7 @@ const Playground = new Component('Playground', {
           data.previewIsShown = !data.previewIsShown
        }}>{{ outText }}</output>
      </div>
-     <div class="menu outline" display={{ menuIsOpen ? 'block' : 'none' }}>
+     <div class="menu outline" display={{ menuIsOpen ? 'block' : 'none' }} background={{ $theme.mode == 'dark' ? 'rgb(5, 10, 5)' : 'white' }} color={{ $theme.mode == 'dark' ? 'rgb(255,255,255,.9)' : 'black' }} border-color={{ $theme.mode == 'dark' ? 'rgba(255, 255, 255, 0.3)' : 'rgb(0, 0, 0, .3)' }}>
        <FoldableMenu {
          items: [
           { label: "Introduction", children: ["Hello World", "Styling", "Dynamic Attributes"] },
@@ -73,15 +73,14 @@ const Playground = new Component('Playground', {
     "#main": `
       width: 100vw;
       height: 80vh;
-      background: #050a0e;
       margin-top: 0px;
     `,
     "#editor": `
       width: 100%;
       height: 90vh;
       border: none;
-      position: fixed;
-      margin-top: 5px;
+      background: fixed;
+      transform: translateY(-15px);
    `,
     "button": `
       width: 100%;
@@ -99,8 +98,8 @@ const Playground = new Component('Playground', {
       height: 100%;
       border: none;
       position: absolute;
-      top: 95px;
-      background: #050a0e;
+      top: 55px;
+      background: inherit;
       padding: 0px;
       margin: 0px;
       padding-bottom: 45px;
@@ -108,11 +107,13 @@ const Playground = new Component('Playground', {
     '.top-bar': `
       width: 100%;
       height: 40px;
-      background: transparent;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      background: inherit;
+      border-bottom-width: 1.5px;
+      border-bottom-style: solid;
       padding-inline: 5px;
       box-sizing: border-box;
-      color: rgb(255,255,255,.7);
+      color: inherit;
+      transform: translateY(-20px);
     `,
     '.right': `
       width: ${ width < 768 ? 15 : 5 }%;
@@ -139,8 +140,8 @@ const Playground = new Component('Playground', {
     '.copied': `
       width: ${ width < 768 ? 25 : 15 }%;
       height: 42px;
-      color: rgb(255,255,255,.7);
-      background: #050a0e;
+      color: inherit;
+      background: inherit;
       border: 1.3px solid rgba(255, 255, 255, 0.3);
       position: absolute;
       bottom: 30vh;
@@ -153,7 +154,7 @@ const Playground = new Component('Playground', {
       width: 270px;
       height: 70vh;
       position: absolute;
-      background: #050a0e;
+      background: inherit;
       top: 0;
       left: 0;
       text-align: left;

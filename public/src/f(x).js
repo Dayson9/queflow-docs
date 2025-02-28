@@ -93,3 +93,38 @@ function loadExample(key, data) {
 
   editorInput?.removeAttribute('disabled')
 }
+
+function switchEditorTheme(isDark) {
+  monaco.editor.defineTheme('my-custom-theme', {
+    base: 'vs-dark',
+    inherit: true,
+    rules: [
+    // Customize token colors here
+      { token: 'comment', foreground: isDark ? '829ACB' : '808080', fontStyle: 'italic' },
+      { token: 'string', foreground: isDark ? 'F5DEB3' : '008000' },
+      { token: 'number', foreground: '22A077' },
+      { token: 'boolean', foreground: '0000FF' },
+      { token: 'keyword', foreground: isDark ? '1E90E0' : '800080', fontStyle: 'bold' },
+      { token: 'identifier', foreground: isDark ? 'C0C0C0' : '333333' },
+      { token: 'variable', foreground: '225599' },
+      { token: 'variable.parameter', foreground: '225599', fontStyle: 'italic' },
+      { token: 'variable.other.readwrite', foreground: '225599' },
+      { token: 'variable.other.constant', foreground: '008080' },
+      { token: 'operator', foreground: isDark ? 'FFFFFF' : '000000' },
+      { token: 'delimiter', foreground: isDark ? 'C0C0C0' : '000000' },
+      { token: 'delimiter.bracket', foreground: isDark ? 'C0C0C0' : '000000' },
+      { token: 'invalid', foreground: 'FF0000' },
+  ],
+    colors: {
+      'editor.background': isDark ? '#050a0e' : '#f8f8f8'
+    }
+  })
+  
+  monaco.editor.setTheme('my-custom-theme')
+}
+
+function switchMode() {
+  const isDark = $theme.mode === 'dark'
+  $theme.mode = isDark ? 'light' : 'dark'
+  switchEditorTheme(!isDark)
+}
