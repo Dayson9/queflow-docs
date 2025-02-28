@@ -71,8 +71,8 @@ const Video = new Component('Video', {
   template: &#96;
     &lt;video src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
       controls
-      width="200"
-      height="100"
+      width="200px"
+      height="100px"
     /&gt;
   &#96;
 })
@@ -101,7 +101,7 @@ MyApp.render()
           <button onclick={{
             data.isShown = !data.isShown
           }}>{{ isShown ? 'Hide' : 'Show' }}</button>
-          <video margin-top="17px" src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" controls width="200" height="100"  display={{ isShown ? 'block' : 'none' }}/>
+          <video margin-top="17px" src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" controls width="200px" height="100px"  display={{ isShown ? 'block' : 'none' }}/>
         </div>
         
         <Heading { txt: "destroy()", size: 25, id: "des" } />
@@ -179,8 +179,8 @@ const View = new Component('View', {
   template: &#96;
     &lt;p&gt;Shown [[ count ]] [[ count &gt; 1 ? 'times' : 'time' ]]&lt;/p&gt;
     &lt;img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0zTo4zx6JyeDSzEhV4o_cksNWBqpBL58o-AMS6gjtSM2o1NMq2AhEWus&s=10"
-      width="200"
-      height="150"
+      width="200px"
+      height="150px"
       visibility=[[ shown ? 'visible' : 'hidden' ]] /&gt;
     &lt;button onclick=[[ data.shown = !data.shown ]]&gt;[[ shown ? 'Hide' : 'Show' ]]&lt;/button&gt;
     &#96;,
@@ -206,8 +206,8 @@ MyApp.render()
         <div class="preview">
           <p>Shown {{ count }} {{ count > 1 ? 'times' : 'time' }}</p>
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0zTo4zx6JyeDSzEhV4o_cksNWBqpBL58o-AMS6gjtSM2o1NMq2AhEWus&s=10"
-            width="200"
-            height="150"
+            width="200px"
+            height="150px"
           visibility={{ shown ? 'visible' : 'hidden' }} />
           <button onclick={{ data.shown = !data.shown }}>{{ shown ? 'Hide' : 'Show' }}</button>
         </div>

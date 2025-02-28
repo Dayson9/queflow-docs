@@ -64,7 +64,7 @@ const Main = new Component('Main', {
       margin-block: 20px;
       font-family: Inter;
       padding-inline: 10px;
-      color: white;
+      color: inherit;
       padding-block: 10px;
       box-shadow: 2px 2px 16px rgba(0,0,0,0.2);
     `,
