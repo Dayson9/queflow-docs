@@ -36,8 +36,8 @@ const Header = new Component('Header', {
         `,
 
     'img': `  
-      width: 47px;
-      height: 47px;
+      width: 43px;
+      height: 43px;
     `,
 
     '.title span': `  
