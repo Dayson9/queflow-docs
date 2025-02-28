@@ -12,7 +12,7 @@ import sourceCode from './playground/utils/usables.js'
 
 globalState('$theme', {
   mode: 'dark'
-})
+}, true)
 
 const Documentation = new App('#app', {
   data: {},

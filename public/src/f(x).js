@@ -1,4 +1,4 @@
-var timerInt, editor, preview, editorInput;
+var timerInt, editor, preview, editorInput
 
 function downloadFile(filePath, fileName = 'queflow-starter-template.zip') {
   const link = document.createElement('a')
@@ -35,22 +35,7 @@ MyApp.render()`,
       wordWrap: "on",
       renderLineHighlightOnlyWhenFocus: true
     })
-
-    monaco.editor.defineTheme('myCustomTheme', {
-      base: 'vs-dark', // Base theme (vs, vs-dark, hc-black)
-      inherit: true, // Inherit base theme properties
-      rules: [
-        { token: 'string', foreground: 'F5DEB3' },
-        { token: 'comment', foreground: '829ACB' }
-    // Add more customization rules here
-  ],
-      colors: {
-        'editor.background': '#050a0e',
-        // Add more color customizations here
-      }
-    })
-
-    monaco.editor.setTheme('myCustomTheme')
+    loadTheme($theme.mode == 'dark')
     editorInput = document.getElementById("editor").querySelector("textarea")
 
     editorInput.addEventListener("input", updatePreview)
@@ -73,15 +58,15 @@ async function copyToClipboard(text = "") {
 }
 
 function downloadTextFile(filename, content) {
-  const blob = new Blob([content], { type: 'text/plain' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = filename;
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
+  const blob = new Blob([content], { type: 'text/plain' })
+  const url = URL.createObjectURL(blob)
+  const a = document.createElement('a')
+  a.href = url
+  a.download = filename
+  document.body.appendChild(a)
+  a.click()
+  document.body.removeChild(a)
+  URL.revokeObjectURL(url)
 }
 
 function loadExample(key, data) {
@@ -94,7 +79,7 @@ function loadExample(key, data) {
   editorInput?.removeAttribute('disabled')
 }
 
-function switchEditorTheme(isDark) {
+function loadTheme(isDark) {
   monaco.editor.defineTheme('my-custom-theme', {
     base: 'vs-dark',
     inherit: true,
@@ -126,5 +111,5 @@ function switchEditorTheme(isDark) {
 function switchMode() {
   const isDark = $theme.mode === 'dark'
   $theme.mode = isDark ? 'light' : 'dark'
-  switchEditorTheme(!isDark)
+  loadTheme(!isDark)
 }
