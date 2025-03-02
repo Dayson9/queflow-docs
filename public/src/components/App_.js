@@ -45,7 +45,7 @@ const BalloonApp = new App("#app", {
   template: () => {
     return &#96;
      &lt;h1 font-size="30px"&gt;[[ balloon ]]&lt;/h1&gt;
-     &lt;p color="white"&gt;[[ num ]] [[ num > 1 ? "balloons" : "balloon" ]] created&lt;/p&gt;
+     &lt;p&gt;[[ num ]] [[ num > 1 ? "balloons" : "balloon" ]] created&lt;/p&gt;
      &lt;button onclick=[[ data.balloon+="🎈"; data.num++ ]]&gt;Create balloon +&lt;/button&gt;
     &#96;
   },
@@ -66,7 +66,7 @@ const BalloonApp = new App("#app", {
 BalloonApp.render()\`, filename: "App.js" } />
         <div class="preview inter">
           <h1 font-size="30px">{{ balloon }}</h1>
-          <p color="white">{{ num }} {{ num > 1 ? "balloons" : "balloon" }} created</p>
+          <p>{{ num }} {{ num > 1 ? "balloons" : "balloon" }} created</p>
           <button class="reg-btn" width="135px" onclick={{ data.balloon+="🎈"; data.num++; }}>Create balloon +</button>
         </div>
         

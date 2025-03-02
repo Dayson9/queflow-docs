@@ -39,7 +39,7 @@ const UserCard = new Nugget('UserCard', {
   `,
   'h3,p': `
     margin-block: 7px;
-    color: white;
+    color: inherit;
   `
   }
 })

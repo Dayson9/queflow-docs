@@ -186,7 +186,6 @@ const Timer = new App("#app", {
     'div': &#96;
       width: 250px;
       height: 150px;
-      background: black;
       margin: 0 auto;
       display: flex;
       align-items: center;
@@ -244,7 +243,7 @@ const PillButton = new Nugget('PillButton', {
     '.preview div': `
       width: 250px;
       height: 150px;
-      background: black;
+      background: inherit;
       margin: 0 auto;
       display: flex;
       align-items: center;

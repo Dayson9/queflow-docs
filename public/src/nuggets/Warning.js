@@ -3,8 +3,8 @@ import { Nugget } from 'queflow'
 const Warning = new Nugget('Warning', {
   template: () => {
     return `
-      <div class="note inter" color="rgba(255, 255, 255, .9)">
-        <div class="flex-row">
+      <div class="note inter" color="inherit">
+        <div class="flex-row" font-weight="700">
           <Text { txt: '⚠️', size: 28 } />
           <Text { txt: 'Warning', size: 15 } />
         </div>
