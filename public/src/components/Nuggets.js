@@ -147,9 +147,9 @@ const RubikText = new Nugget('RubikText', {
         </div>
         <P { txt: 'Noticed how props are passed to the Nugget. Unlike normal Nuggets whose props are in the format [{ ... }], Nuggets that receives children uses this format: [({ ... })].' } />
         <Heading { txt: "Best Practices for Nuggets with Children" } />
-        <ListItem { items: ["Always Include ({})"] } />
-        <Heading { txt: "Reactivity", top: 40 } />
-        <P { txt: "By default, Nuggets do not have built in reactivity, to achieve that we can use a clever approach, let's try it out." } />
+        <ListItem { items: ["Always Include ({}) even though no props are passed to the Nugget.", "Other Nuggets can also be nested to create more sophisticated UI elements.", "Deeply nested elements/Nuggets can cause unintended errors."] } />
+        <Heading { txt: "Reactivity" } />
+        <P { txt: "By default, Nuggets do not come with built in reactivity, to make our Nuggets reactive, we can use this approach:" } />
         <P { txt: "Create a file in the [nuggets] folder and name it [Time.js]." } />
         <CodeView { code: \`
 import { Nugget } from "queflow"
