@@ -441,7 +441,7 @@ const MyApp = new App('#app', {
   },
   template(){
     return \`
-      <svg width="100%" height="70vh" ontouchmove={{
+      <svg width="100%" height="70vh" ontouchstart={{
         const { touches } = e;
         const { clientX, clientY } = touches[0];
         data.circle.x = clientX;
