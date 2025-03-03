@@ -34,7 +34,7 @@ const Documentation = new App('#app', {
       if (path !== '/docs_nuggets') clearInterval(timerInt)
     }, this)
 
-   //setTimeout(() => toPage('/docs_global_state'), 150)
+   //setTimeout(() => toPage('/docs_highlighting'), 150)
   },
   stylesheet: {
     '.inter': `

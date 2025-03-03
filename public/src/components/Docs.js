@@ -18,6 +18,7 @@ const Docs = new Component('Docs', {
             { label: "@Reactivity" , click: '/docs_reactivity'},
             { label: "@Global State" , click: '/docs_global_state'},
             "#Extras",
+            { label: "@HTML Highlighting" , click: '/docs_highlighting'},
             { label: "@Project Structure" , click: '/docs_project-structure'}
             ],
             top: 30 } />

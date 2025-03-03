@@ -4,18 +4,23 @@ const ALink = new Nugget('ALink', {
   template: (data) => {
     const hlReg = /\[[^\[]+\]/g
 
-    data.text = data.text.replace(hlReg, (match) => `<span class="highlighted" onclick=${ data.click }>${ match.slice(1, match.length-1)}</span>`)
-   
+    if (data.click) {
+      data.text = data.text.replace(hlReg, (match) => `<span class="highlighted" onclick=${ data.click }>${ match.slice(1, match.length-1)}</span>`)
+    } else {
+      data.text = data.text.replace(hlReg, (match) => `<a class="highlighted" href={{ url }}>${ match.slice(1, match.length-1)}</a>`)
+    }
     return `
-      <span class="inter">{{ text }}</span>
+      <span class="inter">${ data.text }</span>
     `
   },
   stylesheet: {
     'span': `
       color: inherit;
       font-size: 17;
-      font-weight: 300;
       display: inline;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.5em;
     `,
     '.highlighted': `
       color: dodgerblue;

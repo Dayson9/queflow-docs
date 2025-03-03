@@ -1,6 +1,7 @@
 import { Component } from 'queflow'
 import Home from './Home.js'
 import GetStarted from './GetStarted.js'
+import Highlight from './Highlight.js'
 import Syntax from './Syntax.js'
 import App_ from './App_.js'
 import Compo from './Component.js'
@@ -26,6 +27,7 @@ const Main = new Component('Main', {
       <Router { routes: [
         { route: "/", component: "<Home/>", title: "QueFlowJS" },
         { route: "/get-started", component: "<GetStarted/>", title: "Get Started - QueFlow" },
+        { route: "/docs_highlighting", component: "<Highlight/>", title: "HTML Highlighting - QueFlow" },
         { route: "/docs_app", component: "<App_/>", title: "App Class - QueFlow" },
         { route: "/docs_component", component: "<Compo/>", title: "Component Class - QueFlow" },
         { route: "/docs_nuggets", component: "<Nuggets/>", title: "Nugget Class - QueFlow" },
