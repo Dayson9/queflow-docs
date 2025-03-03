@@ -430,6 +430,47 @@ const MyApp = new App('#app', {
 })
 
 MyApp.render()`,
+  "fetching-data": `import { App } from 'queflow'
+
+const width = window.innerWidth
+
+const MyApp = new App('#app', {
+  data: {
+    quote: "Loading...",
+    author: "Loading..."
+  },
+  template: () => {
+    return \`
+      <div>
+        <h2>"{{ quote }}"</h2>
+        <cite font-weight="500">-{{ author }}</cite>
+        <button onclick={{
+          fetch('https://dummyjson.com/quotes/random').then(res => res.json()).then((d) => {
+            data.quote = d.quote;
+            data.author = d.author;
+          })
+        }} display="block">Generate Quote</button>
+      </div>
+    \`
+  },
+  stylesheet: {
+    'div': \`
+      width: \${ width < 768 ? 90 : 70 }vw;
+      height: auto;
+      padding-left: 20px;
+      box-sizing: border-box;
+      color: silver;
+    \`
+  },
+  run: (data) => {
+    fetch('https://dummyjson.com/quotes/random').then(res => res.json()).then((d) => {
+      data.quote = d.quote;
+      data.author = d.author;
+    })
+  }
+})
+
+MyApp.render()`,
   "svg": `import { App } from 'queflow' 
 
 const MyApp = new App('#app', {
@@ -501,6 +542,90 @@ const MyApp = new App('#app', {
   }
 })
 
+
+MyApp.render()`,
+  'defining-a-global-state': `import { globalState, Component, App } from 'queflow'
+
+globalState('$count', 0);
+
+const Counter = new Component('Counter', {
+  template(){
+    return \`
+      <h1 color="white">{{ $count.value }}</h1>
+    \`
+  }
+})
+
+const MyApp = new App('#app', {
+  template(){
+    return \`
+      <Counter/>
+      <button onclick={{ $count.value++ }}>Count is: {{ $count.value }}</button>
+    \`
+  }
+})
+
+MyApp.render()`,
+  'auto-save-state': `import { globalState, Component, App } from 'queflow'
+
+globalState('$theme', {
+  mode: 'dark'
+}, true)
+// True makes state automatically save to localStorage
+
+const Header = new Component('Header', {
+  template() {
+    return \`
+      <header border-color={{ $theme.mode == 'dark' ? 'rgba(255,255,255,.3)' : 'rgba(0,0,0,.3)'  }}>
+        <span>Header</span>
+      </header>
+    \`
+  }
+})
+
+const Main = new Component('Main', {
+  template() {
+    return \`
+      <main>
+        <h1>This is the main content</h1>
+        <button onclick={{ $theme.mode = $theme.mode == 'dark' ? 'light' : 'dark' }}>Switch to {{ $theme.mode == 'dark' ? 'Light' : 'Dark'  }}</button>
+      </main>
+    \`
+  }
+})
+
+const Footer = new Component('Footer', {
+  template() {
+    return \`
+      <footer>
+        <span>Copyright ©️ 2025.</span>
+      </footer>
+    \`
+  }
+})
+
+const MyApp = new App('#app', {
+  template() {
+    return \`
+      <div width="100%" background={{ $theme.mode == 'dark' ? 'black' : 'white' }} color={{ $theme.mode == 'dark' ? 'white' : 'black'  }}>
+        <Header/>
+        <Main/>
+        <Footer/>
+      </div>
+    \`
+  },
+  stylesheet: {
+    'header, main, footer': \`
+      width: 100%;
+      height: auto;
+      box-sizing: border-box;
+      padding: 15px 20px;
+    \`,
+    'header': \`
+      border: 1px solid rgba(0,0,0,.3);
+    \`
+  }
+})
 
 MyApp.render()`
 }

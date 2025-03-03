@@ -6,7 +6,7 @@ const Heading = new Nugget("Heading", {
     
     const id = data.id ? 'id={{ id }}' : '';
     return `
-      <h1 ${id} ${ marginBlock } ${ data.size === 36 ? 'margin-bottom="30px"' : '' } color='inherit' ${data.size ? 'font-size="{{ size }}px"' : '' } ${ data.bottom ? 'margin-bottom="{{ bottom }}px"' : '' } ${ data.top ? 'margin-top="{{ top }}px"' : '' } class="inter">{{ txt }}</h1>
+      <h1 ${id} ${ marginBlock } ${ data.size === 36 ? 'margin="0 0 30px 0"' : '' } color='inherit' ${data.size ? 'font-size="{{ size }}px"' : '' } ${ data.bottom ? 'margin-bottom="{{ bottom }}px"' : '' } ${ data.top ? 'margin-top="{{ top }}px"' : '' } class="inter">{{ txt }}</h1>
     `
   }
 })

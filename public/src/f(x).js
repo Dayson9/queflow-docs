@@ -111,5 +111,5 @@ function loadTheme(isDark) {
 function switchMode() {
   const isDark = $theme.mode === 'dark'
   $theme.mode = isDark ? 'light' : 'dark'
-  loadTheme(!isDark)
+  if(globalThis['monaco']) loadTheme(!isDark)
 }

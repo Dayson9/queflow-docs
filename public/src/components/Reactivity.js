@@ -73,7 +73,7 @@ MyApp.render()
       </div>
       <P { txt: "Changes in the input field will automatically update [data.message], and vice-versa." } />
       
-      <Navigator { left: ['Event Handling', '/docs_events'], right: ['Home', '/'] } />
+      <Navigator { left: ['Event Handling', '/docs_events'], right: ['Global State', '/docs_global_state'] } />
     </section>
   `
 })

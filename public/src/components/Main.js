@@ -12,6 +12,7 @@ import Playground from '../playground/Playground.js';
 import Showcase from './Showcase.js'
 import ProjectStructure from './ProjectStructure.js'
 import Reactivity from './Reactivity.js'
+import GlobalState from './GlobalState.js'
 import Error404 from './Error404.js'
 import Nuggets from './Nuggets.js'
 
@@ -37,6 +38,7 @@ const Main = new Component('Main', {
         { route: "/showcase", component: "<Showcase/>", title: "Showcase - QueFlow" },
         { route: "/docs_project-structure", component: "<ProjectStructure/>", title: "Project Structure - QueFlow" },
         { route: "/docs_reactivity", component: "<Reactivity/>", title: "Reactivity - QueFlow" },
+        { route: "/docs_global_state", component: "<GlobalState/>", title: "Global State - QueFlow" },
         { route: "*", component: "<Error404/>", title: "Page Not Found" }
       ] } />
     </div>
@@ -75,7 +77,7 @@ const Main = new Component('Main', {
       box-sizing: border-box;
    `,
     '.highlighted': `
-      background: teal;
+      background: rgba(0,0,0,.3);
       border-radius: 3px;
       display: inline;
       border: 1px solid rbg(5,10,5);
