@@ -35,8 +35,9 @@ const FoldableMenu = new Nugget('FoldableMenu', {
       padding: 10px;
     `,
     '.inner': `
-      width: 100%;
+      width: auto;
       margin-left: 12%;
+      box-sizing: border-box;
       height: auto;
     `,
     'i': `

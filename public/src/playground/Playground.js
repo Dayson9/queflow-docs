@@ -13,7 +13,7 @@ const Playground = new Component('Playground', {
     menuIsOpen: false,
     example: {
       title: "Hello World",
-      menuSwitch: [0, 0, 0, 0]
+      menuSwitch: [0,0,0,0,0,0,0,0]
     }
   },
   template: () => {
