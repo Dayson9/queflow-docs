@@ -121,8 +121,8 @@ const Playground = new Component('Playground', {
       height: auto;
     `,
     '.outline': `
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      padding: 3px;
+      border: 1px solid rgba(255, 255, 255, .3);
+      padding-inline: 3px;
       border-radius: 5px;
     `,
     '.title': `
