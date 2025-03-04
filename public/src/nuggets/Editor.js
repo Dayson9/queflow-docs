@@ -28,7 +28,7 @@ const Editor = new Nugget('Editor', {
       color: white;
       width: 100%;
       height: 100%;
-      background: black;
+      background: rgb(28, 32, 36);
       margin-top: 30px;
       padding-left: 10px;
     `,

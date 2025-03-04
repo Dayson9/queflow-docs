@@ -18,7 +18,7 @@ const Playground = new Component('Playground', {
   },
   template: () => {
     return `
-    <div id="main" class="inter" filter={{ menuIsOpen ? 'blur(7px)' : 'none' }} background={{ $theme.mode == 'dark' ? 'rgb(5, 10, 5)' : 'white' }} color={{ $theme.mode == 'dark' ? 'rgb(255,255,255,.9)' : 'black' }}>
+    <div id="main" class="inter" filter={{ menuIsOpen ? 'blur(7px)' : 'none' }} background={{ $theme.mode == 'dark' ? 'rgb(12, 16, 18)' : '#FCFCFD' }} color={{ $theme.mode == 'dark' ? '#FCFCFD' : 'rgb(28, 32, 36)' }}>
       <div class="top-bar flex-row" border-bottom-color={{ $theme.mode == 'dark' ? 'rgba(255, 255, 255, 0.3)' : 'rgba(0,0,0,.3)' }}>
         <Icon { class: "bx bx-menu outline", size: 25, click: "data.menuIsOpen = true; editorInput?.setAttribute('disabled', 1)" } />
         <div class="outline title">
@@ -30,7 +30,7 @@ const Playground = new Component('Playground', {
         </div>
       </div>
       <div id="editor"></div>
-      <iframe id="preview" src="${iframeSrc}" display={{ previewIsShown ? 'block' : 'none' }} color={{ $theme.mode == 'dark' ? 'white' : 'black' }}></iframe>
+      <iframe id="preview" src="${iframeSrc}" display={{ previewIsShown ? 'block' : 'none' }} color={{ $theme.mode == 'dark' ? '#FCFCFD' : 'rgb(28, 32, 36)' }}></iframe>
       <div class="copied flex-row" display={{ copiedIsShown ? 'flex' : 'none' }}>
         <Icon { class: "bx bxs-check-circle", size: 20, color: "teal" } />
         <span>Copied</span>
@@ -46,7 +46,7 @@ const Playground = new Component('Playground', {
           data.previewIsShown = !data.previewIsShown
        }}>{{ outText }}</output>
      </div>
-     <div class="menu outline" display={{ menuIsOpen ? 'block' : 'none' }} background={{ $theme.mode == 'dark' ? 'rgb(5, 10, 5)' : 'white' }} color={{ $theme.mode == 'dark' ? 'rgb(255,255,255,.9)' : 'black' }} border-color={{ $theme.mode == 'dark' ? 'rgba(255, 255, 255, 0.3)' : 'rgb(0, 0, 0, .3)' }}>
+     <div class="menu outline" display={{ menuIsOpen ? 'block' : 'none' }} background={{ $theme.mode == 'dark' ? 'rgb(12, 16, 18)' : '#FCFCFD' }} color={{ $theme.mode == 'dark' ? '#FCFCFD' : 'rgb(28, 32, 36)' }} border-color={{ $theme.mode == 'dark' ? 'rgba(255, 255, 255, 0.3)' : 'rgb(0, 0, 0, .3)' }}>
        <FoldableMenu {
          items: [
           { label: "Introduction", children: ["Hello World", "Styling", "Dynamic Attributes"] },
@@ -88,7 +88,7 @@ const Playground = new Component('Playground', {
       height: 45px;
       border: none;
       background: linear-gradient(135deg, rgb(20, 138, 129), rgb(11, 76, 71));
-      color: rgb(255,255,255,.9);
+      color: #FCFCFD;
       font-size: 1.1em;
       font-weight: 500;
       position: fixed;

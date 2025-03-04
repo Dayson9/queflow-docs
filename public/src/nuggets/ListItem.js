@@ -18,7 +18,7 @@ const ListItem = new Nugget('ListItem', {
           }
           
         const hlReg = /\[[^\[]+\]/g
-        item = item.replace(hlReg, (match) => `<span class="highlighted">${ match.slice(1, match.length-1)}</span>`)
+        item = item.replace(hlReg, (match) => `<span class="highlighted {{ $theme.mode == 'dark' ? 'hl-dark' : 'hl-light' }}">${ match.slice(1, match.length-1)}</span>`)
   
         if(path){
           return `
@@ -41,7 +41,7 @@ const ListItem = new Nugget('ListItem', {
     'li': `
       font-size: 18px;
       margin-block: 13px;
-      line-height: 1.1em;
+      line-height: 1.5em;
       `,
      'a': `
       color: inherit;

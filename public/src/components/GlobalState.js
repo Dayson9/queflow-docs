@@ -42,7 +42,7 @@ console.log($theme.mode);
 // Setting value
 $theme.mode = 'light';
 \` } />
-        <P { txt: "Now let's move on to a more realistic examples:" } />
+        <P { txt: "Now let's move on to a more realistic example:" } />
         <CodeView { code: \`
 import { globalState, Component, App } from 'queflow'
 
@@ -74,7 +74,7 @@ MyApp.render()
         </div>
         <Heading { txt: "Preserve Your Data" } />
         <P { txt: "The [globalState()] function also includes a built-in save feature. When activated, it saves your state directly to [localStorage()]." } />
-        <P { txt: "Let's look at another example:" } />
+        <P { txt: "For example:" } />
 
         <CodeView { code: \`
 
@@ -123,7 +123,7 @@ const Footer = new Component('Footer', {
 const MyApp = new App('#app', {
   template() {
     return &#96;
-      &lt;div width="100%" background=[[ $mode.value == 'dark' ? 'black' : 'white' ]] color=[[ $mode.value == 'dark' ? 'white' : 'black'  ]]&gt;
+      &lt;div width="100%" background=[[ $mode.value == 'dark' ? 'rgb(28, 32, 36)' : '#FCFCFD' ]] color=[[ $mode.value == 'dark' ? '#FCFCFD' : 'rgb(28, 32, 36)'  ]]&gt;
         &lt;Header/&gt;
         &lt;Main/&gt;
         &lt;Footer/&gt;
@@ -144,7 +144,7 @@ const MyApp = new App('#app', {
 MyApp.render()
 \`, filename: "App.js" } />
        <div class="preview">
-        <div width="100%" background={{ $mode.value == 'dark' ? 'black' : 'white' }} color={{ $mode.value == 'dark' ? 'white' : 'black'  }}>
+        <div width="100%" background={{ $mode.value == 'dark' ? 'rgb(28, 32, 36)' : '#FCFCFD' }} color={{ $mode.value == 'dark' ? '#FCFCFD' : 'rgb(28, 32, 36)'  }}>
           <header border-color={{ $mode.value == 'dark' ? 'rgba(255,255,255,.3)' : 'rgba(0,0,0,.3)'  }}>
             <span>Header</span>
           </header>

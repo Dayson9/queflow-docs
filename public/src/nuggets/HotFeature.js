@@ -7,7 +7,7 @@ const HotFeature = new Nugget('HotFeature', {
     return `
       <div class='main inter'>
         <div class='outer'>
-          <div class='inner' background={{ $theme.mode == 'dark' ? 'rgb(5, 10, 5)' : 'white' }}>
+          <div class='inner' background={{ $theme.mode == 'dark' ? 'rgb(12, 16, 18)' : '#FCFCFD' }}>
             <Icon { class: '{{ class }}', size: 33 } />
           </div>
         </div>

@@ -8,12 +8,12 @@ const Navbar = new Component('Navbar', {
     return `
       <nav class="inter"
         left={{ left+'%' }}
-        background={{ $theme.mode == 'dark' ? 'rgb(5, 10, 5)' : 'white' }}
-        color={{ $theme.mode == 'dark' ? 'rgb(255,255,255,.9)' : 'black' }}
+        background={{ $theme.mode == 'dark' ? 'rgb(12, 16, 18)' : '#FCFCFD' }}
+        color={{ $theme.mode == 'dark' ? '#FCFCFD' : 'rgb(28, 32, 36)' }}
         box-shadow="2px 0px 0px rgba({{ $theme.mode == 'dark' ? '255,255,255,.3' : '0,0,0,0.3' }})"
         >
         <Icon { class: "bx-x", size: 30, click: "data.left = -100" } />
-        <ul font-size="20px" color={{ $theme.mode == 'dark' ? 'rgb(255,255,255,.9)' : 'black' }}>
+        <ul font-size="20px" color={{ $theme.mode == 'dark' ? '#FCFCFD' : 'rgb(28, 32, 36)' }}>
           <li>
             <Link { to: "/docs", label: "Documentation" } />
           </li>

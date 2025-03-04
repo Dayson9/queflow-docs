@@ -5,7 +5,7 @@ const P = new Nugget("P", {
 
     const hlReg = /\[[^\[]+\]/g
     
-    data.txt = data.txt.replace(hlReg, (match) => `<span class="highlighted" ${ data.font ? `font-family="${data.font}"` : '' }>${ match.slice(1, match.length-1)}</span>`)
+    data.txt = data.txt.replace(hlReg, (match) => `<span class="highlighted {{ $theme.mode == 'dark' ? 'hl-dark' : 'hl-light' }}" ${ data.font ? `font-family="${data.font}"` : '' }>${ match.slice(1, match.length-1)}</span>`)
    
     return `
       <span ${ data.align ? 'text-align={{ align }}' : '' } class="inter" ${ data.top ? 'margin-top="{{ top }}px"' : '' }>

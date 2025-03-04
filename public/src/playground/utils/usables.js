@@ -375,7 +375,7 @@ const UserCard = new Template('UserCard', {
         <div class="right">
           <h3>{{ name }}</h3>
           <p color="wheat">{{ job }}</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
       </div>
    \`
@@ -551,7 +551,7 @@ globalState('$count', 0);
 const Counter = new Component('Counter', {
   template(){
     return \`
-      <h1 color="white">{{ $count.value }}</h1>
+      <h1 color='#FCFCFD'>{{ $count.value }}</h1>
     \`
   }
 })
@@ -607,7 +607,7 @@ const Footer = new Component('Footer', {
 const MyApp = new App('#app', {
   template() {
     return \`
-      <div width="100%" background={{ $theme.mode == 'dark' ? 'black' : 'white' }} color={{ $theme.mode == 'dark' ? 'white' : 'black'  }}>
+      <div width="100%" background={{ $theme.mode == 'dark' ? 'rgb(28, 32, 36)' : '#FCFCFD' }} color={{ $theme.mode == 'dark' ? '#FCFCFD' : 'rgb(28, 32, 36)'  }}>
         <Header/>
         <Main/>
         <Footer/>

@@ -8,7 +8,7 @@ const Note = new Nugget('Note', {
           <Icon { class: 'bx-info-circle', size: 28 } />
           <Text { txt: 'Note', size: 15 } />
         </div>
-        <Text { txt: '{{ txt }}', size: 13, align: 'left', weight: 700 } />
+        <Text { txt: '{{ txt }}', size: 13, align: 'left' } />
       </div>
     `
   },

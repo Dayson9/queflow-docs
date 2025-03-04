@@ -145,7 +145,7 @@ const MyApp = new App("#app", {
         data.bg.r = clientY / 1.5;
         data.bg.g = clientX / 1.5;
       ]]&gt;
-      &lt;h1 color="white"&gt;Hover over this container&lt;/h1&gt;
+      &lt;h1 color='#FCFCFD'&gt;Hover over this container&lt;/h1&gt;
     &lt;/div&gt;
   &grave;,
   stylesheet: {
@@ -168,7 +168,7 @@ MyApp.render();
       data.bg.r = clientY / 1.5;
       data.bg.g = clientX / 1.5;
     }}>
-      <h1 color="white">Hover over this container</h1>
+      <h1 color='#FCFCFD'>Hover over this container</h1>
     </div>
   </div>
 

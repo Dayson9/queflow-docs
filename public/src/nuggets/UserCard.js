@@ -3,12 +3,12 @@ import { Nugget } from 'queflow'
 const UserCard = new Nugget('UserCard', {
   template: () => {
     return `
-      <div class="card">
+      <div class="card" background={{ $theme.mode == 'dark' ? '#18191B' : 'white' }} border-color={{ $theme.mode == 'dark' ? '#353B41' : '#D7D9DF'}}>
       <img src={{ src }} alt="{{ name }}'s picture"/>
       <div class="right">
         <h3>{{ name }}</h3>
         <p color="wheat">{{ job }}</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
       </div>
     </div> 
    `

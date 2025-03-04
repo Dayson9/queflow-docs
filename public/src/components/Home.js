@@ -6,7 +6,7 @@ const width = window.innerWidth;
 const Home = new Component('Home', {
   template: () => {
     return `
-    <div id="main" color={{ $theme.mode == 'dark' ? 'rgb(255,255,255,.9)' : 'black' }} background={{ $theme.mode == 'dark' ? 'rgb(5, 10, 5)' : 'white' }}>
+    <div id="main" color={{ $theme.mode == 'dark' ? '#FCFCFD' : 'rgb(28, 32, 36)' }} background={{ $theme.mode == 'dark' ? 'rgb(12, 16, 18)' : '#FCFCFD' }}>
       <h1 class="pxp-el8 maren">
         <span class="pxp-el9">Craft highly</span>
         <span class="pxp-el10">Performant </span>
@@ -18,14 +18,14 @@ const Home = new Component('Home', {
       <Link { to: "/get-started", label: \`
         <button
           class="inter pxp-el13"
-          color="rgb(255,255,255,.9)"
-          background="linear-gradient(135deg, rgb(20, 138, 129), rgb(11, 76, 71))">
+          color={{ $theme.mode == 'dark' ? 'rgb(28, 32, 36)' : '#FCFCFD' }}
+          background={{ $theme.mode == 'dark' ? '#FCFCFD' : 'rgb(28, 32, 36)' }}>
         <span class="pxp-el14">Get Started</span>
-        <span class="bx bx-right-arrow-alt pxp-el15"></span>
+        <span class="bx bx-right-arrow-alt pxp-el17"></span>
       </button>\` } />
      
      <Link { to: "/docs", label: \` 
-      <button class="pxp-el16 inter" border-color="rgb({{ $theme.mode == 'dark' ? '255, 255, 255, .9' : '0,0,0,0.9'}})" color={{ $theme.mode == 'dark' ? 'rgb(255,255,255,.9)' : 'rgb(0,0,0,.9)' }}>
+      <button class="pxp-el16 inter" border-color={{ $theme.mode == 'dark' ? '#353B41' : '#D7D9DF'}} color={{ $theme.mode == 'dark' ? '#FCFCFD' : 'rgb(0,0,0,.9)' }} background={{ $theme.mode == 'dark' ? '#18191B' : 'white' }}>
         <span class="pxp-el14">Explore Docs</span>
         <span class="bx bx-menu pxp-el17"></span>
       </button> \` } />
@@ -49,6 +49,9 @@ const Home = new Component('Home', {
       height: auto;
       margin-block: 0;
       padding-block: 37px;
+    `,
+    'button span': `
+      font-weight: 700!important;
     `,
     '> *': `
       box-sizing: border-box;
@@ -83,8 +86,8 @@ const Home = new Component('Home', {
         margin: 0 auto;
     `,
     '.pxp-el13': `  
-        width: ${ width < 768 ? 60 : 20 }vw;
-        height: ${ width < 768 ? 55 : 57 }px;
+        width: ${ width < 768 ? 80 : 20 }vw;
+        height: ${ width < 768 ? 45 : 50 }px;
         border: none;
         border-radius: 15px;
         text-align: center;
@@ -94,30 +97,22 @@ const Home = new Component('Home', {
 
     '.pxp-el14': `  
         font-family: Inter;
-        font-weight: 550;
-        font-size: 14.5px;
+        font-size: 16.5px;
     `,
-
-    '.pxp-el15': `  
-        transform: translateY(1px);
-        font-size: 20px;
-        color: inherit;
-    `,
-
     '.pxp-el16': `  
-        width: ${ width < 768 ? 60 : 20 }vw;
-        height: ${ width < 768 ? 55 : 57 }px;
+        width: ${ width < 768 ? 80 : 20 }vw;
+        height: ${ width < 768 ? 45 : 50 }px;
         border-radius: 15px;
         margin-block: 5px;
         text-align: center;
         background: transparent;
-        border-width: 2px;
+        border-width: 1px;
         border-style: solid;
         color: inherit;
     `,
 
     '.pxp-el17': `
-        font-size: 20px;
+        font-size: 15px;
         transform: translateY(1px);
     `,
    '#description' : `

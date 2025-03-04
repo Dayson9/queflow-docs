@@ -23,7 +23,7 @@ const Main = new Component('Main', {
   },
   template: () => {
     return `
-      <div id="container" background={{ $theme.mode == 'dark' ? 'rgb(5, 10, 5)' : 'white' }} color={{ $theme.mode == 'dark' ? 'rgb(255,255,255,.9)' : 'black' }}>
+      <div id="container" background={{ $theme.mode == 'dark' ? 'rgb(12, 16, 18)' : '#FCFCFD' }} color={{ $theme.mode == 'dark' ? '#FCFCFD' : 'rgb(28, 32, 36)' }}>
       <Router { routes: [
         { route: "/", component: "<Home/>", title: "QueFlowJS" },
         { route: "/get-started", component: "<GetStarted/>", title: "Get Started - QueFlow" },
@@ -61,7 +61,7 @@ const Main = new Component('Main', {
     '.preview': `
       max-width: 95%;
       height: auto;
-      border: 1px solid rgb(255, 255, 255, .3);
+      border: 1px solid #353B41;
       box-sizing: border-box;
       border-radius: 10px;
       background: inherit;
@@ -79,11 +79,18 @@ const Main = new Component('Main', {
       box-sizing: border-box;
    `,
     '.highlighted': `
-      background: rgba(0,0,0,.3);
       border-radius: 3px;
       display: inline;
-      border: 1px solid rbg(5,10,5);
- `,
+      background: rgba(11, 76, 71, .5);
+      padding-inline: .15em;
+      font-weight: 600;
+    `,
+    '.hl-dark': `
+      color: rgb(21, 156, 131);
+    `,
+    '.hl-light': `
+      color: rgb(11, 76, 71);
+    `,
     '.reg-btn': `
       padding: 10px;
       width: auto;
