@@ -21,7 +21,7 @@ const Playground = new Component('Playground', {
     <div id="main" class="inter" filter={{ menuIsOpen ? 'blur(7px)' : 'none' }} background={{ $theme.mode == 'dark' ? 'rgb(12, 16, 18)' : '#FCFCFD' }} color={{ $theme.mode == 'dark' ? '#FCFCFD' : 'rgb(28, 32, 36)' }}>
       <div class="top-bar flex-row" border-bottom-color={{ $theme.mode == 'dark' ? 'rgba(255, 255, 255, 0.3)' : 'rgba(0,0,0,.3)' }}>
         <Icon { class: "bx bx-menu outline", size: 25, click: "data.menuIsOpen = true; editorInput?.setAttribute('disabled', 1)" } />
-        <div class="outline title">
+        <div class="outline title flex-row">
           <Text { txt: "{{ example.title }}", size: 20, weight: 400 } />
         </div>
         <div class="right flex-row">
@@ -127,7 +127,7 @@ const Playground = new Component('Playground', {
     `,
     '.title': `
       max-width: 50%;
-      max-height: 70%;
+      height: 55%;
       overflow-x: scroll;
       overflow-y: hidden;
       white-space: nowrap;

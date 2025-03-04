@@ -482,7 +482,8 @@ const MyApp = new App('#app', {
   },
   template(){
     return \`
-      <svg width="100%" height="70vh" ontouchstart={{
+      <h1 color="#829AAB">Click on the container below</h1>
+      <svg border="1px solid #829AAB" width="100%" height="85vh" ontouchstart={{
         const { touches } = e;
         const { clientX, clientY } = touches[0];
         data.circle.x = clientX;
