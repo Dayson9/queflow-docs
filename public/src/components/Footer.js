@@ -27,7 +27,7 @@ const Footer = new Component('Footer', {
       padding-block: 20px 10px;
     `,
     '.flex-row': `
-      width: 40%;
+      width: 30%;
       height: 40px;
     `
   }

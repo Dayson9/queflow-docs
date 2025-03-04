@@ -13,6 +13,7 @@ const Header = new Component('Header', {
         </div>
         
         <div class="right">
+          <Icon { class: "bx bxl-github", size: 25, weight: 700, link: "https://github.com/dayson9/queflowjs" } />
           <Icon { class: "bx bx-{{ $theme.mode == 'dark' ? 'sun' : 'moon' }}", click: "switchMode()", size: 25 } />
           <Icon { class: "bx bx-menu", click: "Navbar.data.left = 0", size: 25 } />
         </div>
@@ -44,7 +45,7 @@ const Header = new Component('Header', {
       transform: translate(5px, 10px);
     `,
     '.right': `
-      width: ${ width < 768 ? 30 : 15 }%;
+      width: ${ width < 768 ? 37 : 15 }%;
       height: 100%;
       display: inherit;
       align-items: inherit;
