@@ -7,7 +7,7 @@ const ALink = new Nugget('ALink', {
     if (data.click) {
       data.text = data.text.replace(hlReg, (match) => `<span class="highlighted {{ $theme.mode == 'dark' ? 'hl-dark' : 'hl-light' }}" onclick=${ data.click }>${ match.slice(1, match.length-1)}</span>`)
     } else {
-      data.text = data.text.replace(hlReg, (match) => `<a class="highlighted" href={{ url }}>${ match.slice(1, match.length-1)}</a>`)
+      data.text = data.text.replace(hlReg, (match) => `<a class="highlighted" href={{ url }} target="_blank">${ match.slice(1, match.length-1)}</a>`)
     }
     return `
       <span class="inter">${ data.text }</span>

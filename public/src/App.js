@@ -2,7 +2,6 @@ import { App, globalState } from 'queflow'
 import { onNavigate } from 'queflow'
 import Main from './components/Main.js'
 import Header from './components/Header.js'
-import Footer from './components/Footer.js'
 import Text from './nuggets/Text.js'
 
 import hljs from './assets/hljs.js'
@@ -20,7 +19,6 @@ const Documentation = new App('#app', {
     return `
       <Header/>
       <Main/>
-      <Footer/>
     `
   },
 

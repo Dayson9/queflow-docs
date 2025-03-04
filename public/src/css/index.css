@@ -107,6 +107,14 @@
   content: "\ea4a"
 }
 
+.bxl-twitter:before {
+  content: "\e982"
+}
+
+.bxl-gmail:before {
+  content: "\e906"
+}
+
 body {
   padding: 0;
   margin: 0;

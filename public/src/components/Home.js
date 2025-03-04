@@ -89,7 +89,7 @@ const Home = new Component('Home', {
         width: ${ width < 768 ? 80 : 20 }vw;
         height: ${ width < 768 ? 45 : 50 }px;
         border: none;
-        border-radius: 15px;
+        border-radius: 7px;
         text-align: center;
         margin-block: 5px;
         background: rgb(255, 255, 255);
@@ -102,7 +102,7 @@ const Home = new Component('Home', {
     '.pxp-el16': `  
         width: ${ width < 768 ? 80 : 20 }vw;
         height: ${ width < 768 ? 45 : 50 }px;
-        border-radius: 15px;
+        border-radius: 7px;
         margin-block: 5px;
         text-align: center;
         background: transparent;

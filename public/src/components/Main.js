@@ -16,6 +16,7 @@ import Reactivity from './Reactivity.js'
 import GlobalState from './GlobalState.js'
 import Error404 from './Error404.js'
 import Nuggets from './Nuggets.js'
+import Footer from './Footer.js'
 
 const Main = new Component('Main', {
   data: {
@@ -43,6 +44,7 @@ const Main = new Component('Main', {
         { route: "/docs_global_state", component: "<GlobalState/>", title: "Global State - QueFlow" },
         { route: "*", component: "<Error404/>", title: "Page Not Found" }
       ] } />
+      <Footer/>
     </div>
     `
   },
@@ -51,8 +53,8 @@ const Main = new Component('Main', {
     "#container": `
       width: 100%;
       height: auto;
-      margin-block: 0;
-      padding-block: 20px;
+      margin-block: 0px;
+      padding-block: 20px 0px;
     `,
     '.silver': `
       color: rgb(200, 200, 200);
