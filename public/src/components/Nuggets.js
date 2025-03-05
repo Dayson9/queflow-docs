@@ -24,7 +24,7 @@ Nugget(name /** [string] (required) -&gt; Name of Nugget **/ ,
    }
 })
 \` } />
-        <P { txt: "As you can see, the syntax for [Nugget] is different from [App] and [Component]." } />
+        <P { txt: "As you can see, the syntax for [Nugget] is different from [App] and almost similar to [Component]." } />
         <P { txt: "Usage Example:" } />
         <P { txt: "Using the same folder from the previous tutorial, in the [nuggets] folder, create a file and name it [MyNugget.js] and fill it up with these." } />
         <CodeView { code: \`
