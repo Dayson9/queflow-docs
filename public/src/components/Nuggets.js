@@ -136,7 +136,7 @@ const RubikText = new Nugget('RubikText', {
   }
 })
 \`, filename: "RubikText.js" } />
-        <P { txt: "The [&lt;/&gt;] symbol specifies where the children should be rendered. We can now write JSX markup directly into the Nugget, as if we're working with normal HTML elements." } />
+        <P { txt: "The [&lt;/&gt;] symbol specifies where the children should be placed, in this case the children would be placed between the div element. We can now write JSX markup directly into the Nugget, as if we're working with normal HTML elements." } />
         <CodeView { code: \`
 &lt;RubikText ({ color: "wheat" })&gt;
   &lt;h1&gt;The color of this element is [[ color ]].&lt;/h1&gt;
