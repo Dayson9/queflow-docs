@@ -115,7 +115,7 @@ const RubikText = new Nugget('RubikText', {
   }
 })
 \`, filename: "RubikText.js" } />
-        <P { txt: "Then we can use it this way:" } />
+        <P { txt: "Then we use it this way:" } />
         <CodeView { code:\`
 &lt;RubikText {
   color: "wheat",
