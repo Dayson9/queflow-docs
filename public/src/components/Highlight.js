@@ -13,7 +13,7 @@ const Highlight = new Component('Highlight', {
          <P { txt: "Usage:" } />
         <ListItem { items: ["Wrap your stringed HTML in a special comment to activate syntax highlighting."] } />
          <P { txt: "Example:" } />
-        <CodeView { code: [
+        <CodeView { code: \`
 template(){
   return /*html*/ &grave;
     &lt;div class="container"&gt;
@@ -21,7 +21,7 @@ template(){
     &lt;/div&gt;
   &grave;
 }
-] } />
+\` } />
         <ALink { text: "You can download or learn more about the extension [here]", url: "https://marketplace.visualstudio.com/items?itemName=Tobermory.es6-string-html" } />
         <Heading { txt: "2. Using the [leet-html] Extension", size: 20 } />
         <P { txt: "[leet-html] is another VSCode Extension for syntax highlighting, works without the [/*html*/] comment, supports IntelliSense and TypeScript." } />
