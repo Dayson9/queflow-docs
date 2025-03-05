@@ -48,7 +48,7 @@ const MyComponent = new Component('MyComponent', {
 
 export default MyComponent
 \`, filename: "MyComponent.js" } />
-        <Note { txt: "As you can see from the code above, the name of the component is the same as the variable name. When working with QueFlow components, it is required to ensure both the variable name and the component name are the same." } />
+        <Idea { txt: "As you can see from the code above, the name of the component is the same as the variable name. When working with QueFlow components, it is required to ensure both the variable name and the component name are the same." } />
         
         <P { txt: "Fill your App.js file with the following code:", top: 20 } />
         <CodeView { code: \`
