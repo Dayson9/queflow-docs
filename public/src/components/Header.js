@@ -9,7 +9,7 @@ const Header = new Component('Header', {
       <header class='flex-row maren' background={{ $theme.mode == 'dark' ? 'rgb(12, 16, 18)' : '#FCFCFD' }} color={{ $theme.mode == 'dark' ? '#FCFCFD' : 'rgb(28, 32, 36)' }} border-bottom="1px solid {{ $theme.mode == 'dark' ? 'rgba(255,255,255,.3)' : 'rgba(0, 0, 0, .3)' }}">
         <div class="title" onclick={{ toPage('/') }}>
           <img src="./queflow.png" alt="QueFlowJS Icon">
-          <span>QueFlowJS</span>
+          <Text { txt: "QueFlowJS", size: 21, weight: 580 } />
         </div>
         
         <div class="right">
