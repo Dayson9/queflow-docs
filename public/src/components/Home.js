@@ -31,13 +31,14 @@ const Home = new Component('Home', {
       </button> \` } />
       </div>
       <div id="description">
-        <h2 class="pxp-el10 maren">What is QueFlow?</h2>
-        <P { txt: 'QueFlow is a JavaScript framework for building performant, optimized websites in a declarative manner.' } />
-        
+        <h2 class="pxp-el10 maren" margin-left="5%">What is QueFlow?</h2>
+        <P { txt: 'QueFlow is a JavaScript framework for building performant, optimized websites in a declarative manner.', left: 5 } />
+        <div id="grid-flex">
         <HotFeature { title: 'Fast', class: 'bxs-rocket', summary: 'QueFlow was designed to build fast interactive sites with so much ease. Updates are fast and performance optimized.' }/>
         <HotFeature { title: 'Data-Driven', class: 'bxs-data', summary: 'QueFlow can handle rendering data-driven/data-heavy websites. Which makes it suitable for building websites that requires real-time updates.' }/>
         <HotFeature { title: 'Performant', class: 'bxs-zap', summary: 'Reactive, compiler optimized rendering that rarely requires manual handling.' }/>
         <HotFeature { title: 'Unique', class: 'bxs-bulb', summary: 'Does not use virtual DOM, interacts directly with the DOM thereby improving performance, smoother updates.' }/>
+        </div>
       </div>
      </div>
     `
@@ -68,11 +69,6 @@ const Home = new Component('Home', {
         background: linear-gradient(135deg, rgb(20, 138, 129), rgb(11, 76, 71));
         -webkit-background-clip: text;
     `,
-
-    '.pxp-el11': `
-        
-    `,
-
     '.pxp-el12': `
         text-align: center;
         font-size: 18px;
@@ -115,16 +111,36 @@ const Home = new Component('Home', {
         font-size: 15px;
         transform: translateY(1px);
     `,
-   '#description' : `
-      width: 80%;
+    '#description': `
+      width: 100%;
       height: auto;
       margin: 0 auto;
       text-align: left;
       margin-top: 20vh;
    `,
-   'button': `
+    'button': `
      font-weight: 900!important;
-   `
+   `,
+    '#grid': `
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+   `,
+    '#grid-flex': `
+      display: flex;
+      flex-direction: column; 
+      gap: 16px;
+      padding: 16px;
+  `,
+    '@media(min-width: 768px)': {
+      '#grid-flex': `
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr); 
+        gap: 16px;
+  `
+    }
+
   }
 })
 

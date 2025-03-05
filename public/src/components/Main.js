@@ -52,7 +52,7 @@ const Main = new Component('Main', {
   stylesheet: {
     "#container": `
       width: 100%;
-      height: auto;
+      min-height: 100vh;
       margin-block: 0px;
       padding-block: 20px 0px;
     `,
