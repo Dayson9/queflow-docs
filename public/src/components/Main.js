@@ -72,7 +72,6 @@ const Main = new Component('Main', {
       padding-inline: 10px;
       color: inherit;
       padding-block: 10px;
-      box-shadow: 2px 2px 16px rgba(0,0,0,0.2);
     `,
     'section': `
       width: auto;
@@ -93,17 +92,8 @@ const Main = new Component('Main', {
     '.hl-light': `
       color: rgb(11, 76, 71);
     `,
-    '.reg-btn': `
-      padding: 10px;
-      width: auto;
-      background: rgb(30, 40, 35);
-      color: white;
-      border: 1px solid silver;
-      border-radius: 10px;
-      font-weight: 700;
-      font-size: 15px;
-    `,
     '.input': `
+      max-height: 2em;
       background: transparent;
       border: none;
       transition: .3s;
@@ -113,6 +103,8 @@ const Main = new Component('Main', {
       color: white;
       padding-left: .5em;
       margin-bottom: 10px;
+      font-size: 1.2em;
+      font-weight: 700;
     `,
     '.input:hover': `
       outline-width: 2.7px;

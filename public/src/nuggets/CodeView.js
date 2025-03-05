@@ -3,14 +3,14 @@ import { Nugget } from 'queflow'
 const CodeView = new Nugget("CodeView", {
   template: (data) => {
     return `
-     ${ data.filename ? "<div class='top inter' background={{ $theme.mode == 'dark' ? 'rgb(26, 27, 38)' : 'rgba(68,54,75,1)' }}>{{ filename }}</div>" : "" }
-     <div border-radius="${ data.filename ? '0px 0px 10px 10px' : '10px' }" class="main" background={{ $theme.mode == 'dark' ? 'rgb(26, 27, 38)' : 'rgba(68,54,75,1)' }}>
+     ${ data.filename ? "<div class='top inter' background={{ $theme.mode == 'dark' ? '#18191B' : '#3B444F' }}>{{ filename }}</div>" : "" }
+     <div border-radius="${ data.filename ? '0px 0px 10px 10px' : '10px' }" class="main" background={{ $theme.mode == 'dark' ? '#18191B' : '#3B444F' }}>
       <pre class="language-js"><code>{{ code }}</code></pre>
      </div>
     `
   },
   stylesheet: {
-    'div' : `
+    'div': `
       width: 95%;
       height: auto;
       background: #1a1b26;
@@ -37,7 +37,7 @@ const CodeView = new Nugget("CodeView", {
       font-size: 13px;
       font-family: monospace;
   `,
-  'div::-webkit-scrollable-thumb': `
+    'div::-webkit-scrollable-thumb': `
     width: 30%;
     height: 5px;
     border-radius: 5px;

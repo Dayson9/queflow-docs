@@ -126,10 +126,12 @@ MyApp.render()
         <div class="preview">
           <ul id='mount'></ul>
           <input type='text' id="input" class="input">
-          <button class='reg-btn' onclick={{ 
-            List.renderWith({ text: input.value })
-            input.value = ''
-          }}>Add name</buttton>
+          <Button { 
+            click: \`
+              List.renderWith({ text: input.value })
+              input.value = ''
+            \`,
+            label: "Add name" } />
         </div>
         
         <Navigator { left: ['Nuggets', '/docs_nuggets'], right: ['Event Handling', '/docs_events'] } />

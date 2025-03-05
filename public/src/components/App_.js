@@ -67,7 +67,7 @@ BalloonApp.render()\`, filename: "App.js" } />
         <div class="preview inter">
           <h1 font-size="30px">{{ balloon }}</h1>
           <p>{{ num }} {{ num > 1 ? "balloons" : "balloon" }} created</p>
-          <button class="reg-btn" width="135px" onclick={{ data.balloon+="🎈"; data.num++; }}>Create balloon +</button>
+          <Button { click: "data.balloon+='🎈'; data.num++;", label: "Create balloon +" }/>
         </div>
         
         <Heading { txt: 'Freezing and Unfreezing', size: 25 } />
@@ -87,12 +87,6 @@ BalloonApp.unfreeze()
   
         <Navigator { left: ['Get started', '/get-started'], right: ['Component', '/docs_component'] } />     
       </section>
-    `
-  },
-
-  stylesheet: {
-    ".reg-btn" : `
-      padding-block: 15px!important;
     `
   }
 })

@@ -68,8 +68,8 @@ MyApp.render()
 
       <div class="preview">
         <p>Message: {{ message }}</p>
-        <input type="text" value={{ message }} oninput={{ data.message = e.target.value }} class="input">
-        <button onclick={{ data.message = '' }} class="reg-btn">Reset</button>
+        <input type="text" color="inherit" value={{ message }} oninput={{ data.message = e.target.value }} class="input">
+        <Button { click: "data.message = ''", label: "Reset" } />
       </div>
       <P { txt: "Changes in the input field will automatically update [data.message], and vice-versa." } />
       

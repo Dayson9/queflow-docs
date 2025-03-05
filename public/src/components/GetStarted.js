@@ -2,7 +2,8 @@ import { Component } from 'queflow'
 import Heading from '../nuggets/Heading.js'
 import CodeView from '../nuggets/CodeView.js'
 import Navigator from '../nuggets/Navigator.js'
-import Note from '../nuggets/Note.js';
+import Note from '../nuggets/Note.js'
+import Button from '../nuggets/Button.js'
 
 const GetStarted = new Component('GetStarted', {
   data: {
@@ -36,7 +37,7 @@ MyApp.render();
 \` } />
 
   <div class="preview">
-    <button class="reg-btn inter" onclick={{ data.count++ }}>Count is: {{ count }}</button>
+    <Button { click: "data.count++", label: "Count is: {{ count }}" } />
   </div>
 
   <Heading { txt: 'Installation', top: 60 } />

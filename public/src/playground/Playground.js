@@ -1,5 +1,4 @@
 import { Component } from 'queflow'
-import Editor from '../nuggets/Editor.js'
 import FoldableMenu from '../nuggets/FoldableMenu.js'
 
 const width = window.innerWidth
