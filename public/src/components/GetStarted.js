@@ -128,7 +128,7 @@ MyApp.render();
 
   <P { txt: 'The [data] property is reactive, which means any changes made to it will automatically trigger an update in the UI.' } />
 
-  <P { txt: "Let's try out another example.", top: 10 } />
+  <P { txt: "For example.", top: 10 } />
   <CodeView { code: \`
 const MyApp = new App("#app", {
   data: {
