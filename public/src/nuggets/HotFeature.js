@@ -24,10 +24,9 @@ const HotFeature = new Nugget('HotFeature', {
       margin: 0 auto;
       padding: 10px 20px;
       box-sizing: border-box;
-      margin-block: 50px;
+      margin-block: 15px;
       border: 1px solid #353B41;
       border-radius: 10px;
-      
     `,
     '.main > *': "margin-block: 0px;",
    '.main .outer' : `
