@@ -95,7 +95,7 @@ const Playground = new Component('Playground', {
     `,
     'iframe': `
       width: 100vw;
-      height: 100%;
+      height: 130%;
       border: none;
       position: absolute;
       top: 55px;
