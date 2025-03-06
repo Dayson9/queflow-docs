@@ -23,6 +23,12 @@ const Documentation = new App('#app', {
   },
 
   run: function() {
+    const path = window.location.pathname
+    if (path === '/playground') {
+      Footer.hide()
+    } else {
+      Footer.show()
+    }
     globalThis.sourceCode = sourceCode
     hljs.registerLanguage('javascript', javascript)
     hljs.highlightAll()
@@ -30,15 +36,15 @@ const Documentation = new App('#app', {
       Navbar.data.left = -100
       hljs.highlightAll()
       if (path !== '/docs_nuggets') clearInterval(timerInt)
-      
-      if(path === '/playground') {
+
+      if (path === '/playground') {
         Footer.hide()
       } else {
         Footer.show()
       }
     }, this)
 
-  // setTimeout(() => toPage('/quick-start'), 150)
+    // setTimeout(() => toPage('/quick-start'), 150)
   },
   stylesheet: {
     '.inter': `
