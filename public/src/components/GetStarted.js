@@ -75,8 +75,7 @@ View.render();
 
   <P { txt: "QueFlow allows writing CSS properties directly into elements like the example above. Instead of [style='color: dodgerblue'], you can write [color='dodgerblue']. QueFlow handles everything for you." } />
 
-  <Heading { txt: 'Quick Start' } />
-  <P { txt: "Let's experiment with another example:" } />
+  <P { txt: "Let's look at another example:" } />
   <CodeView { code: \`
 const MyApp = new App("#app", {
   data: {
