@@ -24,6 +24,7 @@ const components = new Map(),
 // Selects an element in the DOM using its data-qfid attribute.
 const selectElement = qfid => document.querySelector("[data-qfid=" + qfid + "]");
 
+
 const strToEl = (component) => {
   const id = component.element;
   if (typeof id === "string") {
@@ -503,7 +504,7 @@ const initiateExtendedNuggets = (markup) => {
   let finalMarkup = convertedMarkup;
   // Create temporary DOM
   const process = () => {
-    const div = document.createElement('div');
+    const div = document.createElement("div");
     div.innerHTML = finalMarkup;
 
     // Process elements in reverse order (deepest first)
@@ -572,13 +573,13 @@ function initiateComponents(markup, isNugget) {
 }
 
 
-function g(str, counter) {
+function g(str, className) {
   const div = document.createElement("div");
   div.innerHTML = str;
   const children = div.querySelectorAll("*");
 
   for (const child of children) {
-    child.classList.add("nugget" + counter);
+    child.classList.add(className);
   }
 
   return div.innerHTML;
@@ -910,8 +911,7 @@ class Template {
     }
 
     const el = this.element;
-    rendered = initiateComponents(rendered);
-    el.innerHTML = jsxToHTML(rendered, this)[0];
+    el.innerHTML = rendered;
   }
 
   set(index, value) {
@@ -921,12 +921,7 @@ class Template {
 
 const renderNugget = (instance, data, isExtended, children) => {
   if (instance) {
-    if (!instance.stylesheetInitiated) {
-      nuggetCounter++;
-      instance.counter = nuggetCounter;
-    }
-
-    const counter = instance.counter;
+    const className = instance.className;
     // Create a variable that holds the template 
     let template = instance.template instanceof Function ? instance.template(data) : instance.template;
 
@@ -938,11 +933,11 @@ const renderNugget = (instance, data, isExtended, children) => {
     const initiated = initiateNuggets(template, true);
     // Render parsed html
     let rendered = renderTemplate(initiated, data);
-    const html = g(rendered, counter);
+    const html = g(rendered, className);
 
     if (!instance.stylesheetInitiated) {
       // Initiate stylesheet for instance 
-      initiateStyleSheet(`.nugget${counter}`, instance, true);
+      initiateStyleSheet("." + className, instance, true);
       instance.stylesheetInitiated = true;
     }
 
@@ -965,14 +960,12 @@ class Nugget {
     this.stylesheet = options.stylesheet ?? {};
 
     // Create a property that generates a unique className for instance's parent element
-    this.className = `qfEl${counterQF}`;
+    this.className = `nugget${nuggetCounter}`;
     // Increment the counterQF variable for later use
-    counterQF++;
+    nuggetCounter++;
     // Stores template 
     this.template = options.template;
     this.stylesheetInitiated = false;
-    this.counter = 0;
-
     nuggets.set(name, this)
   }
 }
