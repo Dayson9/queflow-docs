@@ -234,7 +234,7 @@ MyApp.render()`,
 
 const Text = new Nugget("Text", {
   template() {
-    return "<span color={{ color }} font-size='{{ size }}px' font-weight={{ weight }}>{{ txt }}</span>"
+    return "<span color={{ color }} font-size='{{ size }}px' font-weight={{ wt }}>{{ txt }}</span>"
   },
   stylesheet: {
     'span': \`
@@ -246,7 +246,7 @@ const Text = new Nugget("Text", {
 
 const BigBoldText = new Nugget("BigBoldText", {
   template() {
-    return \`<Text { txt: "{{ txt }}", color: "{{ color }}", size: 41, weight: 900 } />\`
+    return \`<Text { txt: "{{ txt }}", color: "{{ color }}", size: 41, wt: 900 } />\`
   }
 })
 

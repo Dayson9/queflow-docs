@@ -21,7 +21,7 @@ const Playground = new Component('Playground', {
       <div class="top-bar flex-row" border-bottom-color={{ $theme.mode == 'dark' ? 'rgba(255, 255, 255, 0.3)' : 'rgba(0,0,0,.3)' }}>
         <Icon { class: "bx bx-menu outline", size: 25, click: "data.menuIsOpen = true; editorInput?.setAttribute('disabled', 1)" } />
         <div class="outline title flex-row">
-          <Text { txt: "{{ example.title }}", size: 20, weight: 400 } />
+          <Text { txt: "{{ example.title }}", size: 20, wt: 400 } />
         </div>
         <div class="right flex-row">
           <Icon { class: "bx bxs-download", size: 22, click: "if(!data.previewIsShown) downloadTextFile('App.js', editor.getValue())" } />
@@ -95,7 +95,7 @@ const Playground = new Component('Playground', {
     `,
     'iframe': `
       width: 100vw;
-      height: 130%;
+      height: 100%;
       border: none;
       position: absolute;
       top: 55px;

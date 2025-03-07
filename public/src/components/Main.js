@@ -30,7 +30,7 @@ const Main = new Component('Main', {
         { route: "/", component: "<Home/>", title: "QueFlowJS" },
         { route: "/get-started", component: "<GetStarted/>", title: "Get Started - QueFlow" },
         { route: "/quick-start", component: "<QuickStart/>", title: "Quick Start - QueFlow" },
-        { route: "/docs_highlighting", component: "<Highlight/>", title: "HTML Highlighting - QueFlow" },
+        { route: "/docs_highlighting", component: "<Highlight/>", title: "Syntax Highlighting - QueFlow" },
         { route: "/docs_app", component: "<App_/>", title: "App Class - QueFlow" },
         { route: "/docs_component", component: "<Compo/>", title: "Component Class - QueFlow" },
         { route: "/docs_nuggets", component: "<Nuggets/>", title: "Nugget Class - QueFlow" },

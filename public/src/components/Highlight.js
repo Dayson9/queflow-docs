@@ -4,7 +4,7 @@ const Highlight = new Component('Highlight', {
   template: () => {
     return `
       <section>
-        <Heading { txt: "Highlighting stringed HTML", size: 36 } />
+        <Heading { txt: "Syntax Highlighting", size: 36 } />
         <P { txt: "Since QueFlow uses stringed HTML which does not come with highlighting, you can enable syntax highlighting in your code editor using this guide, it contains instructions for popular editors like VSCode, and JetBrains IDEs." } />
         <Heading { txt: "For VSCode users:", size: 28, top: 60 } />
         <Heading { txt: "1. Using the [es6-string-html] Extension", size: 20 } />

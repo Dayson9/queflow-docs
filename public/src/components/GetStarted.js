@@ -174,7 +174,7 @@ MyApp.render();
 
   <P { txt: 'The [e] is an object containing information about an event, which means [e.target] refers to the element that triggered the event.', top: 10 } />
   <P { txt: "Now that we've covered the basics of QueFlowJS, let's move on to the advanced concepts." } />
-  <Navigator { left: [null, null], right: ['HTML Highlighting', '/docs_highlighting'] } />
+  <Navigator { left: [null, null], right: ['Quick Start', '/quick-start'] } />
 </section>
     `
   },

@@ -11,7 +11,7 @@ const HotFeature = new Nugget('HotFeature', {
             <Icon { class: '{{ class }}', size: 33 } />
           </div>
         </div>
-        <Text { txt: '{{ title }}', size: 30, align: 'left', bottom: 13, weight: 700, class: "maren" } />
+        <Text { txt: '{{ title }}', size: 30, align: 'left', bottom: 13, wt: 700, class: "maren" } />
         <P { txt: '{{ summary }}' } />
       </div>
     `
