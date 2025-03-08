@@ -31,7 +31,7 @@ const Navigator = new Nugget("Navigator", {
       box-sizing: border-box;
       margin: 0 auto;
       margin-top: 30px;
-      margin-bottom: 10px;
+      margin-bottom: 0px;
       transform: translateX(-4%);
       padding-inline: 4%;
     `,

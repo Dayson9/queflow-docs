@@ -71,7 +71,7 @@ const Syntax = new Component('Syntax', {
 &lt;button onclick=[[ alert('Hello World 👋') ]]&gt;Click me&lt;/button&gt;
 \` } />
 
-  <Navigator { left: ['Get Started', '/get-started'], right: ['App', '/docs_app'] } />
+  <Navigator { left: ['Get Started', '/get-started'], right: ['App', '/app'] } />
 </section>
       `
   }

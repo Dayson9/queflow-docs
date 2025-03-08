@@ -161,7 +161,7 @@ MyApp.render()
        </div>
       <P { txt: "The mode of the UI changes when you click the button. When you refresh the page, the UI mode remains as it was just before the refresh." } />
       <Warning { txt: "It's highly recommended not to save any sensitive data using this function, especially when the save feature is enabled." } />
-        <Navigator { left: ['Template', '/docs_template'], right: [null, null] } />     
+        <Navigator { left: ['Reactivity', '/reactivity'], right: [null, null] } />     
       </section>
       `
   },

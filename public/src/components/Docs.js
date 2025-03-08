@@ -8,19 +8,19 @@ const Docs = new Component('Docs', {
           <P { txt: "This page contains everything you need to start using  QueFlowJS in your projects." } />
           <ListItem { items: ["#Introduction",
             { label: "@Quick Start", click: '/quick-start' },
-            { label: "@Template Syntax", click: '/docs_template-syntax' }, "#Core APIs",
-            { label: "@App", click: '/docs_app' },
-            { label: "@Component", click: '/docs_component' },
-            { label: "@Component & App Methods" , click: '/docs_methods'},
-            { label: "@Nugget", click: '/docs_nuggets' },
-            { label: "@Template" , click: '/docs_template'},
+            { label: "@Template Syntax", click: '/template-syntax' }, "#Core APIs",
+            { label: "@App", click: '/app' },
+            { label: "@Component", click: '/component' },
+            { label: "@Component & App Methods" , click: '/methods'},
+            { label: "@Nugget", click: '/nuggets' },
+            { label: "@Template" , click: '/template'},
             "#Advanced",
-            { label: "@Event Handling" , click: '/docs_events'},
-            { label: "@Reactivity" , click: '/docs_reactivity'},
-            { label: "@Global State" , click: '/docs_global_state'},
+            { label: "@Event Handling" , click: '/events'},
+            { label: "@Reactivity" , click: '/reactivity'},
+            { label: "@Global State" , click: '/global_state'},
             "#Extras",
-            { label: "@Syntax Highlighting" , click: '/docs_highlighting'},
-            { label: "@Project Structure" , click: '/docs_project-structure'}
+            { label: "@Syntax Highlighting" , click: '/highlighting'},
+            { label: "@Project Structure" , click: '/project-structure'}
             ],
             top: 30 } />
         </section>

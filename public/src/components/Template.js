@@ -134,7 +134,7 @@ MyApp.render()
             label: "Add name" } />
         </div>
         
-        <Navigator { left: ['Nuggets', '/docs_nuggets'], right: ['Event Handling', '/docs_events'] } />
+        <Navigator { left: ['Nuggets', '/nuggets'], right: ['Event Handling', '/events'] } />
       </section>
     `
   }

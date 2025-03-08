@@ -32,7 +32,7 @@ Component(name /** [string] (required) -&gt; Name of component **/ ,
 })\` } />
 
         <P { txt: "When working with [Component]s, it is highly recommended to follow QueFlow's project structure.", top: 20 } />
-        <ALink { text: 'You can check it out [here]', click: "toPage('/docs_project-structure')" } />
+        <ALink { text: 'You can check it out [here]', click: "toPage('/project-structure')" } />
         <ALink { text: "or simply [download] its zip file.", click: "downloadFile('./src/assets/queflow-starter-template.zip')" } />
         
         <Note { txt: "As you continue with this tutorial, we assume you've already downloaded the zip file or structured your project as specified above." } />
@@ -132,7 +132,7 @@ const MyComponent = new Component('MyComponent', {
           "Components do not need a mount node, while App requires it."
         ] } />
   
-        <Navigator { left: ['App', '/docs_app'], right: ['Component & App Methods', '/docs_methods'] } />
+        <Navigator { left: ['App', '/app'], right: ['Component & App Methods', '/methods'] } />
       </section>
     `
   },

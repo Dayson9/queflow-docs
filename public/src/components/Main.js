@@ -30,20 +30,20 @@ const Main = new Component('Main', {
         { route: "/", component: "<Home/>", title: "QueFlowJS" },
         { route: "/get-started", component: "<GetStarted/>", title: "Get Started - QueFlow" },
         { route: "/quick-start", component: "<QuickStart/>", title: "Quick Start - QueFlow" },
-        { route: "/docs_highlighting", component: "<Highlight/>", title: "Syntax Highlighting - QueFlow" },
-        { route: "/docs_app", component: "<App_/>", title: "App Class - QueFlow" },
-        { route: "/docs_component", component: "<Compo/>", title: "Component Class - QueFlow" },
-        { route: "/docs_nuggets", component: "<Nuggets/>", title: "Nugget Class - QueFlow" },
-        { route: "/docs_template", component: "<Template_/>", title: "Template Class - QueFlow" },
-        { route: "/docs_template-syntax", component: "<Syntax/>", title: "Template Syntax - QueFlow" },
+        { route: "/highlighting", component: "<Highlight/>", title: "Syntax Highlighting - QueFlow" },
+        { route: "/app", component: "<App_/>", title: "App Class - QueFlow" },
+        { route: "/component", component: "<Compo/>", title: "Component Class - QueFlow" },
+        { route: "/nuggets", component: "<Nuggets/>", title: "Nugget Class - QueFlow" },
+        { route: "/template", component: "<Template_/>", title: "Template Class - QueFlow" },
+        { route: "/template-syntax", component: "<Syntax/>", title: "Template Syntax - QueFlow" },
         { route: "/docs", component: "<Docs/>", title: "Documentation - QueFlow" },
-        { route: "/docs_events", component: "<Events/>", title: "Event Handling - QueFlow" },
+        { route: "/events", component: "<Events/>", title: "Event Handling - QueFlow" },
         { route: "/playground", component: "<Playground/>", title: "Online Playground - QueFlow" },
-        { route: "/docs_methods", component: "<Methods/>", title: "Component & App Methods - QueFlow" },
+        { route: "/methods", component: "<Methods/>", title: "Component & App Methods - QueFlow" },
         { route: "/showcase", component: "<Showcase/>", title: "Showcase - QueFlow" },
-        { route: "/docs_project-structure", component: "<ProjectStructure/>", title: "Project Structure - QueFlow" },
-        { route: "/docs_reactivity", component: "<Reactivity/>", title: "Reactivity - QueFlow" },
-        { route: "/docs_global_state", component: "<GlobalState/>", title: "Global State - QueFlow" },
+        { route: "/project-structure", component: "<ProjectStructure/>", title: "Project Structure - QueFlow" },
+        { route: "/reactivity", component: "<Reactivity/>", title: "Reactivity - QueFlow" },
+        { route: "/global_state", component: "<GlobalState/>", title: "Global State - QueFlow" },
         { route: "*", component: "<Error404/>", title: "Page Not Found" }
       ] } />
       <Footer/>
@@ -80,6 +80,7 @@ const Main = new Component('Main', {
       max-width: 100vw;
       padding-left: 5%;
       box-sizing: border-box;
+      padding-bottom: 20px;
    `,
     '.highlighted': `
       border-radius: 3px;

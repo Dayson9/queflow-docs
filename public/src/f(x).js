@@ -115,3 +115,13 @@ function switchMode() {
   $theme.mode = isDark ? 'light' : 'dark'
   if(globalThis['monaco']) loadTheme(!isDark)
 }
+
+function hideShowFooter(path) {
+  const unflaggedPaths = ['/', '/examples', '/docs', '/project-structure', '/showcase']
+  
+  if (unflaggedPaths.includes(path)) {
+    Footer.show()
+  } else {
+    Footer.hide()
+  }
+}

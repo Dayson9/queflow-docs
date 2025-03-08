@@ -1,6 +1,9 @@
 import { Component } from 'queflow'
 
 const QuickStart = new Component('QuickStart', {
+  data: {
+    count: 0
+  },
   template: () => {
     return `
       <section>
@@ -66,7 +69,7 @@ MyApp.render()
         </div>
         <Heading { txt: "Nuggets" } />
         <P { txt: "[Nuggets] are piece of reusable UI Components that's used for building repetitive elements with maximum custumizability." } />
-        <P { txt: "Let's create a Nugget:" } />
+        <P { txt: "No decorators, hooks, or boilerplate. Just define a template and go:" } />
         <CodeView { code: \`
 import { Nugget, App } from 'queflow'
 
@@ -84,7 +87,11 @@ const Text = new Nugget('Text', {
     &#96;
   }
 })
+\` } />
 
+      <P { txt: "Pass props like you’re writing a JavaScript object, but in HTML:" } />
+
+<CodeView { code: \`
 const MyApp = new App('#app', {
   template: () =&gt; {
     return &#96;
@@ -107,7 +114,7 @@ MyApp.render()
           <Text { txt: "A", size: 52, wt: 700 } />
           <Text { txt: "A", size: 62, wt: 800 } />
         </div>
-        
+        <P { txt: \`No more memorizing [&lt;Component :prop="value"&gt] or [&lt;Component prop={value}&gt;].\` } />
         <Heading { txt: "Templates" } />
         <P { txt: "Templates are Components with dynamic reusability." } />
         <P { txt: "Creating a Template:" } />
@@ -171,7 +178,7 @@ const MyApp = new App('#app', {
       { cell1: "QueFlow", cell2: "Vue", isHead: true },
       { cell1: "Component syntax: &lt;Component/&gt;", cell2: "Component syntax: &lt;Component /&gt;" },
       { cell1: "Nuggets are reusable", cell2: "Components are reusable" },
-      { cell1: "Nugget syntax: &lt;Button { label: "Button", bg: "orchid" } /&gt;", cell2: "Reusable Component syntax: &lt;Component label="Button" bg="orangered" /&gt;" }])
+      { cell1: 'Nugget syntax: &lt;Button { label: "Button", bg: "orchid" } /&gt;', cell2: 'Reusable Component syntax: &lt;Component label="Button" bg="orangered" /&gt;' }])
   }
 })
 
@@ -201,9 +208,37 @@ MyApp.render()
             </tbody>
           </table>
         </div>
+        <Heading { txt: "Reactivity" } />
+        <P { txt: "Components are reactive by default, meaning you don't need to import anything, just make use of the [data object]." } />
+<CodeView { code: \`
+const ReactiveComponent = new Component('ReactiveComponent', {
+  data: {
+    count: 0
+  },
+  template: () =&gt; {
+    return &#96;
+      &lt;h1 color="orchid"&gt;[[ count ]]&lt;/h1&gt;
+      &lt;button onclick=[[ data.count++ ]]&gt;Increment&lt;/button&gt;
+    &#96;
+  }
+})
+
+const MyApp = new App('#app', {
+  template() {
+    return "&lt;ReactiveComponent/&gt;"
+  }
+})
+
+MyApp.render()
+\` } />
+        <P { txt: "In event listeners, the data object is automatically made available, any changes made to it would trigger an update in the UI." } />
+        <div class="preview">
+          <h1 color="orchid">{{ count }}</h1>
+          <button onclick={{ data.count++ }}>Increment</button>
+        </div>
         <Heading { txt: "Next Steps" } />
         <P { txt: "By now, you should know the basics of how to write QueFlow. For a detailed explanation on each concepts, you should check out the next pages." } />
-        <Navigator { left: ['Get Started', '/get-started'], right: ['Highlighting', '/docs_highlighting'] } />
+        <Navigator { left: ['Get Started', '/get-started'], right: ['Highlighting', '/highlighting'] } />
       </section>
       `
   },

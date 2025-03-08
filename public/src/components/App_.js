@@ -85,7 +85,7 @@ BalloonApp.freeze()
 BalloonApp.unfreeze()
 \` } />
   
-        <Navigator { left: ['Get started', '/get-started'], right: ['Component', '/docs_component'] } />     
+        <Navigator { left: ['Get started', '/get-started'], right: ['Component', '/component'] } />     
       </section>
     `
   }
