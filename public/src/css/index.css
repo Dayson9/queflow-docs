@@ -123,6 +123,10 @@
   content: "\e906"
 }
 
+.bxl-telegram:before {
+  content: "\e97b"
+}
+
 body {
   padding: 0;
   margin: 0;

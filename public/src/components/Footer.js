@@ -10,6 +10,7 @@ const Footer = new Component('Footer', {
         <div class="flex-row">
           <Icon { class: "bx bxl-github", size: 25, wt: 700, link: "https://github.com/dayson9" } />
           <Icon { class: "bx bxl-twitter", size: 25, wt: 700, link: "https://x.com/jstunde6245" } />
+          <Icon { class: "bx bxl-telegram", size: 25, wt: 700, link: "https://t.me/+2347087652414" } />
           <Icon { class: "bx bxl-gmail", size: 25, wt: 700, link: "mailto: tundedev9@gmail.com" } />
         </div>
       </footer>
@@ -27,7 +28,7 @@ const Footer = new Component('Footer', {
       padding-block: 20px 10px;
     `,
     '.flex-row': `
-      width: 100px;
+      width: 135px;
       height: 40px;
     `
   }
