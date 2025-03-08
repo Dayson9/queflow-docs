@@ -36,7 +36,7 @@ const Documentation = new App('#app', {
       hideShowFooter(path)
     }, this)
 
-    setTimeout(() => toPage('/quick-start'), 150)
+    //setTimeout(() => toPage('/quick-start'), 150)
   },
   stylesheet: {
     '.inter': `
