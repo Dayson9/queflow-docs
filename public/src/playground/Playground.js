@@ -6,7 +6,7 @@ const iframeSrc = window.location.host === "queflowjs.vercel.app" ? "./src/playg
 
 const Playground = new Component('Playground', {
   data: {
-    outText: "Result >",
+    previewBtnText: "Result >",
     previewIsShown: false,
     copiedIsShown: false,
     menuIsOpen: false,
@@ -35,15 +35,15 @@ const Playground = new Component('Playground', {
         <span>Copied</span>
       </div>
       <button class="inter" onclick={{
-        if(data.outText === "Result >") {
+        if(data.previewBtnText === "Result >") {
           if(!data.menuIsOpen)
-          data.outText = "&lt; Code"
+          data.previewBtnText = "< Code"
         } else {
-          data.outText = "Result &gt;"
+          data.previewBtnText = "Result >"
         }
         if(!data.menuIsOpen)
           data.previewIsShown = !data.previewIsShown
-       }}>{{ outText }}</output>
+       }}>{{ previewBtnText }}</output>
      </div>
      <div class="menu outline" display={{ menuIsOpen ? 'block' : 'none' }} background={{ $theme.mode == 'dark' ? 'rgb(12, 16, 18)' : '#FCFCFD' }} color={{ $theme.mode == 'dark' ? '#FCFCFD' : 'rgb(28, 32, 36)' }} border-color={{ $theme.mode == 'dark' ? 'rgba(255, 255, 255, 0.3)' : 'rgb(0, 0, 0, .3)' }}>
        <FoldableMenu {
