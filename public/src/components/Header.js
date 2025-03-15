@@ -9,7 +9,7 @@ const Header = new Component('Header', {
       <header class='flex-row maren' background={{ $theme.mode == 'dark' ? 'rgb(12, 16, 18)' : '#FCFCFD' }} color={{ $theme.mode == 'dark' ? '#FCFCFD' : 'rgb(28, 32, 36)' }} border-bottom="1px solid {{ $theme.mode == 'dark' ? 'rgba(255,255,255,.3)' : 'rgba(0, 0, 0, .3)' }}">
         <div class="title" onclick={{ toPage('/') }}>
           <img src="./queflow.png" alt="QueFlowJS Icon">
-          <Text { txt: "QueFlowJS", size: 21, wt: 580 } />
+          <Text { txt: "QueFlow.js", size: 19, wt: 580 } />
         </div>
         
         <div class="right">
@@ -42,7 +42,7 @@ const Header = new Component('Header', {
     `,
 
     '.title span': `  
-      transform: translate(5px, 10px);
+      transform: translateY(2px);
     `,
     '.right': `
       width: ${ width < 768 ? 37 : 15 }%;

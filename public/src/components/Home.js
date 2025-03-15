@@ -8,7 +8,7 @@ const Home = new Component('Home', {
     return `
     <div id="main" color={{ $theme.mode == 'dark' ? '#FCFCFD' : 'rgb(28, 32, 36)' }} background={{ $theme.mode == 'dark' ? 'rgb(12, 16, 18)' : '#FCFCFD' }}>
       <h1 class="pxp-el8 maren">
-        <span class="pxp-el9">Craft highly</span>
+        <span class="pxp-el9">Build</span>
         <span class="pxp-el10">Performant </span>
         <span class="pxp-el11">Web Apps at scale</span>
       </h1>
@@ -25,7 +25,7 @@ const Home = new Component('Home', {
       </button>\` } />
      
      <Link { to: "/docs", label: \` 
-      <button class="pxp-el16 inter" border-color={{ $theme.mode == 'dark' ? '#353B41' : '#D7D9DF'}} color={{ $theme.mode == 'dark' ? '#FCFCFD' : 'rgb(0,0,0,.9)' }} background={{ $theme.mode == 'dark' ? '#18191B' : 'white' }}>
+      <button class="pxp-el16 inter" border-color={{ $theme.mode == 'dark' ? '#353B41' : '#D7D9DF'}} color={{ $theme.mode == 'dark' ? '#DADADB' : 'rgb(0,0,0,.9)' }} background={{ $theme.mode == 'dark' ? '#18191B' : 'white' }}>
         <span class="pxp-el14">Explore Docs</span>
         <span class="bx bx-menu pxp-el17"></span>
       </button> \` } />
