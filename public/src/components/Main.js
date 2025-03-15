@@ -79,6 +79,7 @@ const Main = new Component('Main', {
       width: auto;
       max-width: 100vw;
       padding-left: 5%;
+      padding-right: 2px;
       box-sizing: border-box;
       padding-bottom: 20px;
    `,
