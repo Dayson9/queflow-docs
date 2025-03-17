@@ -329,7 +329,7 @@ const MyApp = new App('#app', {
 })
 
 MyApp.render()`,
-  "defining-a-template": `import { Atom, App } from 'queflow' 
+  "defining-an-atom": `import { Atom, App } from 'queflow' 
 
 const Text = new Atom("Text", {
   template() {
