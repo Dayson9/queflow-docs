@@ -106,8 +106,8 @@ const hasChildren = (element) => element.children.length;
 function stringBetween(str, f, s) {
   const indx1 = str.indexOf(f),
     indx2 = str.indexOf(s);
-  
-  return str.slice(indx1+f.length, indx2);
+
+  return str.slice(indx1 + f.length, indx2);
 }
 
 // Sanitizes a string to prevent potential XSS attacks.
@@ -129,9 +129,9 @@ const EVAL_REGEX = /\{\{[^\{\{]+\}\}/g;
 const ENTITY_REGEX = /&(gt|lt);/g;
 const FALSY = [undefined, NaN, null];
 
-function evaluateTemplate(reff, instance, flag) {
-  let out = "";
-  let currentMarkup = "";
+function evaluateTemplate(reff, instance) {
+  let out = "",
+    currentMarkup = "";
 
   try {
     out = reff.replace(EVAL_REGEX, (match) => {
@@ -151,19 +151,18 @@ function evaluateTemplate(reff, instance, flag) {
           `!${prefix}${ext.slice(1)}` :
           `${prefix}${ext}`;
 
-        let parsed = new Function(`return ${ext}`).call(instance);
-
+        let parsed = Function(`return ${ext}`).call(instance);
         if (FALSY.includes(parsed) && parsed != "0") {
-          parsed = new Function(`return ${ext}`).call(instance);
+          parsed = Function(`return ${ext}`).call(instance);
         }
 
         rendered = FALSY.includes(parsed) && parsed != "0" ?
           match :
           parsed;
       } else {
-        rendered = new Function(`return ${ext}`)();
+        rendered = Function(`return ${ext}`)();
       }
-      return flag ? sanitizeString(rendered) : rendered;
+      return rendered;
     });
   } catch (error) {
     console.error(`QueFlow Error:\nAn error occured from expression \`${currentMarkup}\``);
@@ -199,10 +198,11 @@ function jsxToHTML(jsx, instance, subId, flag) {
   } catch (error) {
     console.error(`QueFlow Error:\nAn error in Component \`${instance.name || ""}\`:\n ${error}\n\nError sourced from: \`${jsx}\``);
   }
-
-  const out = evaluateTemplate(div.innerHTML, instance, flag);
+  
+  const out = !flag ? evaluateTemplate(div.innerHTML, instance) : div.innerHTML;
+  
   div.remove();
-  return [out, data];
+  return [out.replaceAll("<br>", "\n"), data];
 }
 
 
@@ -224,10 +224,11 @@ function isSame(obj1, obj2) {
   return true;
 }
 
-function convertDirective(attr, value) {
-  const btw = b(value)
+function convertDirective(attr, value, child) {
+  const btw = b(value);
   switch (attr) {
     case 'q:show':
+      child.removeAttribute(attr);
       return ['display', btw ? `{{ ${btw} ? 'block' : 'none' }}` : btw];
       break;
 
@@ -253,7 +254,7 @@ const generateComponentData = (child, isParent, instance) => {
   // Cache expensive operations
   const processAttribute = ({ attribute, value }) => {
     value = value || '';
-        [attribute, value] = convertDirective(attribute, value);
+        [attribute, value] = convertDirective(attribute, value, child);
 
     const hasTemplate = value.includes('{{') && value.includes('}}');
     const processedValue = b(value).trim();
@@ -283,7 +284,11 @@ const generateComponentData = (child, isParent, instance) => {
         child.removeAttribute(attribute);
       }
     } else {
-      child.setAttribute(attribute, evaluation);
+      if (child.getAttribute(attribute)) {
+        child.setAttribute(attribute, evaluation);
+      } else {
+        child[attribute] = evaluation;
+      }
     }
 
     // Template tracking optimization
@@ -392,9 +397,9 @@ function update(child, key, evaluated) {
         child.style[sliced] = evaluated;
       } else {
         if (!child?.getAttribute(key)) {
-          if(child[key] != evaluated) child[key] = evaluated;
+          if (child[key] != evaluated) child[key] = evaluated;
         } else {
-          if(child.getAttribute(key) != evaluated) child.setAttribute(key, evaluated);
+          if (child.getAttribute(key) != evaluated) child.setAttribute(key, evaluated);
         }
       }
   }
@@ -592,7 +597,6 @@ const lintPlaceholders = (html, isNugget) => {
       return match.replace("{{", '"{{').replace(/}}$/, '}}"');
     });
   }
-
   return html;
 };
 
@@ -903,6 +907,7 @@ class Template {
   }
 
   renderWith(data, position = "append") {
+    if(typeof data !== "object") throw new Error(`Argument passed to '${this.name}.renderWith()' must be an object or an array.`);
     this.element = typeof this.element === "string" ? document.getElementById(this.element) : this.element;
     let rendered = "";
     if (this.isReactive) {
@@ -910,7 +915,8 @@ class Template {
         this.data.push(item);
         const template = typeof this.template === "function" ? this.template(item, this.index) : this.template;
         const indexedTemplate = addIndexToTemplate(template, this.index);
-        rendered = indexedTemplate;
+        const init = initiateComponents(indexedTemplate);
+        rendered += init;
         this.index++;
       };
 
@@ -930,13 +936,13 @@ class Template {
       if (Array.isArray(data)) {
         data.forEach((item) => {
           const template = typeof this.template === "function" ? this.template(item, this.index) : this.template;
-          result = renderTemplate(template, item, true);
+          result += renderTemplate(template, item, true);
         });
       } else {
         const template = typeof this.template === "function" ? this.template(data, this.index) : this.template;
         result = renderTemplate(template, data, true);
       }
-      result = jsxToHTML(lintPlaceholders(result), this, null)[0];
+      result = jsxToHTML(lintPlaceholders(result, true), this, null)[0];
       const template = stringToDocumentFragment(result);
       position == "append" ? this.element.appendChild(template) : this.element.prepend(template);
       handleEventListener(this.element, this);
@@ -944,13 +950,23 @@ class Template {
   }
 
   set(index, value) {
-    const keys = Object.keys(value);
-    keys.forEach((key) => {
-      if (this.data[index][key] !== value[key]) {
-        this.data[index][key] = value[key];
-        updateComponent(index, this, value[key], true);
-      }
-    });
+    const update = (indx, val) => {
+      const keys = Object.keys(val);
+      keys.forEach((key) => {
+        if (this.data[indx][key] !== val[key]) {
+          this.data[indx][key] = val[key];
+          updateComponent(indx, this, val[key], true);
+        }
+      });
+    }
+   
+    if (typeof index == "number") {
+      update(index, value);
+    } else if (Array.isArray(index)) {
+      index.forEach((val, indx) => (this.data[indx]) && update(indx, val));
+    } else {
+      console.error(`First Argument passed to '${this.name}.set()' must either be a number or an array.`);
+    }
   }
 }
 
