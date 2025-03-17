@@ -30,7 +30,7 @@ const Navigator = new Nugget("Navigator", {
       background: transparent;
       box-sizing: border-box;
       margin: 0 auto;
-      margin-top: 30px;
+      margin-top: 50px;
       margin-bottom: 0px;
       transform: translateX(-4%);
       padding-inline: 4%;

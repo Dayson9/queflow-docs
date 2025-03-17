@@ -1,4 +1,5 @@
 import { Component } from 'queflow' 
+import TextField from '../nuggets/TextField.js'
 
 const Reactivity = new Component('Reactivity', {
   data: {
@@ -68,7 +69,7 @@ MyApp.render()
 
       <div class="preview">
         <p>Message: {{ message }}</p>
-        <input type="text" color="inherit" value={{ message }} oninput={{ data.message = e.target.value }} class="input">
+        <TextField { value: "{{ message }}", id: "r_input", input: "data.message = e.target.value" } />
         <Button { click: "data.message = ''", label: "Reset" } />
       </div>
       <P { txt: "Changes in the input field will automatically update [data.message], and vice-versa." } />

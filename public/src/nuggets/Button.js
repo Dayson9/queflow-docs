@@ -3,11 +3,13 @@ import { Nugget } from 'queflow'
 const Button = new Nugget("Button", {
   template(data) {
     return `
-      <button ${ data.w ? 'width="{{ w }}px"' : '' }
+      <button 
+        ${ data.w ? 'width="{{ w }}px"' : '' }
+        ${ data.type ? 'type={{ type }}' : '' }
         class="reg-btn"
         onclick={{ click }}
-        background={{ $theme.mode == 'dark' ? '#FCFCFD' : 'rgb(12, 16, 18)' }}
-        color={{ $theme.mode == 'dark' ? 'rgb(28, 32, 36)' : '#FCFCFD' }}
+       ${ data.bg ? "background={{ bg }}" : "background={{ $theme.mode == 'dark' ? '#FCFCFD' : 'rgb(12, 16, 18)' }}" }
+       ${ data.bg ? "color=white" : "color={{ $theme.mode == 'dark' ? 'rgb(28, 32, 36)' : '#FCFCFD' }}" }
         >{{ label }}</button>
     `
   },

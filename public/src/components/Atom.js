@@ -1,6 +1,34 @@
-import { Component } from "queflow"
+import { Atom, Component } from "queflow"
 import UserCard from '../nuggets/UserCard.js'
 import List from '../Atoms.js'
+
+const Names = new Atom('Names', {
+  template(data, i) {
+    data.editIsShown = false;
+    data.mounted = true;
+
+    return `
+      <div q:exist={{ mounted }}>
+        <h3>{{ name }}</h3>
+        <Button { click: "this.set(${i}, { editIsShown: !data[${i}].editIsShown })", label: "{{ editIsShown ? 'Done' : 'Edit' }}" } />
+        <div class="edit" q:show={{ editIsShown }}>
+          <TextField { value: "{{ name }}", input: "this.set(${i}, { name: e.target.value })" } />
+          
+          <Button { click: "this.set(${i}, { mounted: false })", label: "Delete", bg: "red" } />
+        </div>
+      </div>
+    `
+  },
+  stylesheet: {
+    '> div': `
+      padding: 10px 20px;
+      border: 2px solid #829AAB;
+      border-radius: 10px;
+      margin-top: 25px;
+    `
+  },
+  isReactive: true
+}, 't-mount')
 
 const Atom_ = new Component('Atom_', {
   template: function(data) {
@@ -125,16 +153,81 @@ MyApp.render()
 
         <div class="preview">
           <ul id='mount'></ul>
-          <input type='text' id="input" class="input">
+          <input type='text' id="input" class="r_input" color="inherit">
+          <TextField { value: "", id: "r_input" } />
           <Button { 
             click: \`
-              List.renderWith({ text: input.value })
-              input.value = ''
+              List.renderWith({ text: r_input.value })
+              r_input.value = ''
             \`,
             label: "Add name" } />
         </div>
         <Heading { txt: "Reactivity" } />
-        <P { txt: "Atoms also come with built in reactivity system, different from Components or Global State." } />
+        <P { txt: "Atoms also come with built in reactivity system, which is different from Components or Global State." } />
+        <P { txt: "Let's look at a comprehensive example:" } />
+        <CodeView { code: \`
+import { Atom } from 'queflow'
+
+const Names = new Atom('Names', {
+  template(data, i) {
+    data.editIsShown = false;
+    data.mounted = true;
+
+    return &#96;
+      &lt;div q:exist=[[ mounted ]]&gt;
+        &lt;h3&gt;[[ name ]]&lt;/h3&gt;
+        &lt;button onclick=[[
+          this.set($\\{i}, { editIsShown: !data[$\\{i}].editIsShown })
+        ]]&gt;[[ editIsShown ? 'Done' : 'Edit' ]]&lt;/button&gt;
+        &lt;div class="edit" q:show=[[ editIsShown ]]&gt;
+          &lt;input type="text" oninput=[[
+            this.set($\\{i}, { name: e.target.value })
+          ]] value=[[ name ]]/&gt;
+          &lt;button onclick=[[
+            this.set($\\{i}, { mounted: false })
+          ]]&gt;Delete&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &#96;
+  },
+  isReactive: true
+}, 'mount')
+
+export default Names
+\`, filename: "Atoms.js" } />
+        <P { txt: "[App.js:]" } />
+        <CodeView { code: \`
+import { App } from 'queflow' 
+import Names from './Atoms.js'
+
+const MyApp = new App('#app', {
+  template() {
+    return &#96;
+      &lt;form class="edit" onsubmit=[[
+        e.preventDefault()
+        Names.renderWith({ name: input.value })
+      ]]&gt;
+        &lt;input type="text" id="input" value="Tunde"/&gt;
+        &lt;button type="submit"&gt;Add Name&lt;/button&gt;
+      &lt;/form&gt;
+      &lt;div id="mount"&gt;&lt;/div&gt;
+    &#96;
+  }
+})
+
+MyApp.render()
+\`, filename: "App.js" } />
+        <div class="preview">
+          <form class="edit" onsubmit={{
+            e.preventDefault()
+            Names.renderWith({ name: t_input.value })
+          }}>
+            <input type="text" id="t_input" value="Tunde" class="input" color="inherit"/>
+            <Button { type: "submit", label: "Add Name", click: "" } />
+          </form>
+          <div id="t-mount"></div>
+        </div>
+
         <Navigator { left: ['Nuggets', '/nuggets'], right: ['Event Handling', '/events'] } />
       </section>
     `
