@@ -219,7 +219,7 @@ const PillButton = new Nugget('PillButton', {
 
         <P { txt: "In conclusion, Nuggets provide a powerful tool for building reusable UI components. They simplify component management, improve code organization, and allow you to create dynamic and data-driven UIs. Embrace the power of Nuggets and elevate your web development experience." } />
         
-        <Navigator { left: ['Component & App Methods', '/methods'], right: ['Template', '/template'] } />
+        <Navigator { left: ['Component & App Methods', '/methods'], right: ['Atom', '/template'] } />
       </section>
     `
   },

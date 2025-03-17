@@ -23,7 +23,7 @@ pre, code {
 */
 .hljs-comment,
 .hljs-meta {
-  color: #565f89
+  color: lightblue;
 }
 
 .hljs-deletion,

@@ -6,7 +6,7 @@ import Highlight from './Highlight.js'
 import Syntax from './Syntax.js'
 import App_ from './App_.js'
 import Compo from './Component.js'
-import Template_ from './Template.js';
+import Atom_ from './Atom.js';
 import Events from './Events.js'
 import Docs from './Docs.js'
 import Methods from './Methods.js'
@@ -34,8 +34,8 @@ const Main = new Component('Main', {
         { route: "/app", component: "<App_/>", title: "App Class - QueFlow" },
         { route: "/component", component: "<Compo/>", title: "Component Class - QueFlow" },
         { route: "/nuggets", component: "<Nuggets/>", title: "Nugget Class - QueFlow" },
-        { route: "/template", component: "<Template_/>", title: "Template Class - QueFlow" },
-        { route: "/template-syntax", component: "<Syntax/>", title: "Template Syntax - QueFlow" },
+        { route: "/template", component: "<Atom_/>", title: "Atom Class - QueFlow" },
+        { route: "/template-syntax", component: "<Syntax/>", title: "Atom Syntax - QueFlow" },
         { route: "/docs", component: "<Docs/>", title: "Documentation - QueFlow" },
         { route: "/events", component: "<Events/>", title: "Event Handling - QueFlow" },
         { route: "/playground", component: "<Playground/>", title: "Online Playground - QueFlow" },

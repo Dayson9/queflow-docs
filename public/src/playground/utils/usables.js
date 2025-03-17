@@ -329,9 +329,9 @@ const MyApp = new App('#app', {
 })
 
 MyApp.render()`,
-  "defining-a-template": `import { Template, App } from 'queflow' 
+  "defining-a-template": `import { Atom, App } from 'queflow' 
 
-const Text = new Template("Text", {
+const Text = new Atom("Text", {
   template() {
     return "<span color={{ color }}>{{ txt }}</span>"
   },
@@ -365,9 +365,9 @@ const MyApp = new App('#app', {
 })
 
 MyApp.render()`,
-  "reusability": `import { Template, App } from 'queflow'
+  "reusability": `import { Atom, App } from 'queflow'
 
-const UserCard = new Template('UserCard', {
+const UserCard = new Atom('UserCard', {
   template() {
     return \`
       <div class="card">

@@ -1,6 +1,6 @@
-import { Template } from 'queflow'
+import { Atom } from 'queflow'
 
-const List = new Template('List', {
+const List = new Atom('List', {
   template: () => `
     <li>{{ text }}</li>
   `

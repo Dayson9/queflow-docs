@@ -115,13 +115,13 @@ MyApp.render()
           <Text { txt: "A", size: 62, wt: 800 } />
         </div>
         <P { txt: \`No more memorizing [&lt;Component :prop="value"&gt] or [&lt;Component prop={value}&gt;].\` } />
-        <Heading { txt: "Templates" } />
-        <P { txt: "Templates are Components with dynamic reusability." } />
-        <P { txt: "Creating a Template:" } />
+        <Heading { txt: "Atoms" } />
+        <P { txt: "Atoms are Components with dynamic reusability." } />
+        <P { txt: "Creating a Atom:" } />
         <CodeView { code: \`
-import { Template, App } from 'queflow'
+import { Atom, App } from 'queflow'
 
-const Table = new Template('Table', {
+const Table = new Atom('Table', {
   template: (data) =&gt; {
     let html;
     if (data.isHead) {
@@ -173,7 +173,7 @@ const MyApp = new App('#app', {
     &#96;
   },
   run: () =&gt; {
-    // Reuse Table Template
+    // Reuse Table Atom
     Table.renderWith([
       { cell1: "QueFlow", cell2: "Vue", isHead: true },
       { cell1: "Component syntax: &lt;Component/&gt;", cell2: "Component syntax: &lt;Component /&gt;" },

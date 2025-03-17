@@ -90,7 +90,7 @@ MyApp.render();
           </div>
         </div>
         
-        <Navigator { left: ['Template', '/template'], right: ['Reactivity', '/reactivity'] } />
+        <Navigator { left: ['Atom', '/template'], right: ['Reactivity', '/reactivity'] } />
       </section>
     `
   }

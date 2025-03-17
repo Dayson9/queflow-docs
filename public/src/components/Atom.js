@@ -1,17 +1,17 @@
 import { Component } from "queflow"
 import UserCard from '../nuggets/UserCard.js'
-import List from '../Templates.js'
+import List from '../Atoms.js'
 
-const Template_ = new Component('Template_', {
+const Atom_ = new Component('Atom_', {
   template: function(data) {
     return `
       <section>
-        <Heading { txt: "Template", size: 36 } />
-        <P { txt: "The Template class in QueFlowJS provides a way to create and manage reusable templates for your web application. This class simplifies the process of dynamically rendering HTML content based on provided data." } />
-        <P { txt: "Templats are almost similar to Nuggets. The difference between the two is how they can be rendered, Nuggets can be used only in HTML/JSX markup while Template can only be used outside." } />
+        <Heading { txt: "Atom", size: 36 } />
+        <P { txt: "The Atom class in QueFlowJS provides a way to create and manage reusable templates for your web application. This class simplifies the process of dynamically rendering HTML content based on provided data." } />
+        <P { txt: "Atoms are almost similar to Nuggets. The difference between the two is how they are implemented, Nuggets can be used only in HTML/JSX markup while Atoms are used outside, Atoms can also be reactive (by choice)." } />
         <P { txt: "Syntax:", top: 20 } />
         <CodeView { code: \`
-Template(name /** [string] (required) -&gt; Name of Template **/ ,
+Atom(name /** [string] (required) -&gt; Name of Atom **/ ,
 {
   stylesheet: {
     /** (object) [required] -&gt; An object containing CSS declarations **/
@@ -22,11 +22,11 @@ selector /** (string) [required] -&gt; id of mount node **/
 )
 \` } />
 
-        <Heading { txt: "Creating a Template" } />
+        <Heading { txt: "Creating a Atom" } />
         <CodeView { code: \`
-import { Template } from 'queflow' 
+import { Atom } from 'queflow' 
 
-const UserCard = new Template('UserCard', {
+const UserCard = new Atom('UserCard', {
   stylesheet: {
   // your styles here
  },
@@ -45,10 +45,10 @@ const UserCard = new Template('UserCard', {
 }, 'container')
 
 export default UserCard
-\`, filename: "Templates.js" } />
+\`, filename: "Atoms.js" } />
         <P { txt: "In your [App.js]:" } />
         <CodeView { code: \`
-import UserCard from './Templates.js'
+import UserCard from './Atoms.js'
 
 const MyApp = new App("#app", {
   template: () => {
@@ -68,7 +68,7 @@ MyApp.render()
           <UserCard { name: "Lawrence Wills", job: "Accountant", src: "src/assets/img/avatar1.jpg" } />
         </div>
         
-        <P { txt: "The [renderWith()] function is used for passing data to a [Template], while also rendering it." } />
+        <P { txt: "The [renderWith()] function is used for passing data to a [Atom], while also rendering it." } />
         <P { txt: "You can also pass an array of data to the [renderWith()] function." } />
         
         <CodeView { code: \`
@@ -94,23 +94,23 @@ MyApp.render()
         </div>
         
         <Heading { txt: "Rendering Lists" } />
-        <P { txt: "In QueFlow, the recommended way to render lists is to make use of Templates, they are specifically made and optimized for building UIs with repetitive UI elements. Let's work on an example:" } />
+        <P { txt: "In QueFlow, the recommended way to render lists is to make use of Atoms, they are specifically made and optimized for building interfaces with repetitive UI elements. Let's work on an example:" } />
         <CodeView { code: \`
-import { Template } from 'queflow'
+import { Atom } from 'queflow'
 
-const List = new Template('mount', {
+const List = new Atom('mount', {
   template: () =&gt; &grave;
     &lt;li&gt;{{ text }}&lt;/li&gt;
   &grave;
 })
 
 export default List
-\`, filename: "Templates.js" } />
+\`, filename: "Atoms.js" } />
         
           
         <CodeView { code: \`
 import { App } from 'queflow'
-import List from './Templates.js'
+import List from './Atoms.js'
 
 const MyApp = new App('#app', {
   template: () =&gt; &grave;
@@ -133,11 +133,12 @@ MyApp.render()
             \`,
             label: "Add name" } />
         </div>
-        
+        <Heading { txt: "Reactivity" } />
+        <P { txt: "Atoms also come with built in reactivity system, different from Components or Global State." } />
         <Navigator { left: ['Nuggets', '/nuggets'], right: ['Event Handling', '/events'] } />
       </section>
     `
   }
 })
 
-export default Template_
+export default Atom_

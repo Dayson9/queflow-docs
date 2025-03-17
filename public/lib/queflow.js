@@ -891,7 +891,7 @@ function stringToDocumentFragment(htmlString = "") {
   return template.content.cloneNode(true); // Clone to avoid template content issues
 }
 
-class Template {
+class Atom {
   constructor(name, options, id) {
     globalThis[name] = this;
     this.element = id;
@@ -950,6 +950,8 @@ class Template {
   }
 
   set(index, value) {
+    if(!this.isReactive) throw new Error(`Cannot call 'set()' on Atom '${this.name}'.\n ${this.name} is not a reactive Atom`);
+    
     const update = (indx, val) => {
       const keys = Object.keys(val);
       keys.forEach((key) => {
@@ -1145,7 +1147,7 @@ export {
   App,
   Component,
   Nugget,
-  Template,
+  Atom,
   onNavigate,
   globalState
 };

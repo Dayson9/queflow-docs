@@ -21,7 +21,7 @@ const ProjectStructure = new Component('ProjectStructure', {
 
         │   ├── App.js
         
-        │   ├── Templates.js
+        │   ├── Atoms.js
 
         │   ├── components/ 
 
