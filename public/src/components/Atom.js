@@ -7,7 +7,7 @@ const Atom_ = new Component('Atom_', {
     return `
       <section>
         <Heading { txt: "Atom", size: 36 } />
-        <P { txt: "The Atom class in QueFlowJS provides a way to create and manage reusable templates for your web application. This class simplifies the process of dynamically rendering HTML content based on provided data." } />
+        <P { txt: "Atoms provides a way to create and manage reusable templates for your web application. This class simplifies the process of dynamically rendering HTML content based on provided data." } />
         <P { txt: "Atoms are almost similar to Nuggets. The difference between the two is how they are implemented, Nuggets can be used only in HTML/JSX markup while Atoms are used outside, Atoms can also be reactive (by choice)." } />
         <P { txt: "Syntax:", top: 20 } />
         <CodeView { code: \`

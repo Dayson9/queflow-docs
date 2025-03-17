@@ -9,7 +9,7 @@ const Docs = new Component('Docs', {
           <ListItem { items: ["#Introduction",
             { label: "@Quick Start", click: '/quick-start' },
             { label: "@Syntax Highlighting" , click: '/highlighting'},
-            { label: "@Atom Syntax", click: '/template-syntax' }, "#Core APIs",
+            { label: "@Template Syntax", click: '/template-syntax' }, "#Core APIs",
             { label: "@App", click: '/app' },
             { label: "@Component", click: '/component' },
             { label: "@Component & App Methods" , click: '/methods'},

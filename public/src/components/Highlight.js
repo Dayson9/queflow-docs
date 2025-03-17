@@ -32,7 +32,7 @@ template(){
         <ListItem { items: ["Highlight the stringed HTML.", "Press [Alt+Enter] (or [Option+Enter] on macOS).", "Select [Inject language or reference].", "Choose [HTML]."] } />
         <P { txt: "In conclusion, enabling syntax highlighting for stringed HTML in your code editor can significantly improve your development workflow. By following the steps outlined above for your specific editor, you can make your code more readable and easier to debug. Whether you're using VSCode, JetBrains IDEs, or another editor, these tools and extensions will help you work more efficiently with QueFlow." } />
         <ALink { text: "If you have any questions or run into issues, feel free to reach out to [our maintainer]. Happy coding!", url: "https://x.com/jstunde6245" } />
-        <Navigator { left: ["Get Started", "/get-started"], right: ['Atom Syntax', '/template-syntax'] } />
+        <Navigator { left: ["Get Started", "/get-started"], right: ['Template Syntax', '/template-syntax'] } />
       </section>
       `
   },

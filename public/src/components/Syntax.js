@@ -5,7 +5,7 @@ const Syntax = new Component('Syntax', {
   template: () => {
     return `
 <section>
-  <Heading { txt: "Atom Syntax", size: 36 } />
+  <Heading { txt: "Template Syntax", size: 36 } />
   <P { txt: "This page contains a guide to QueFlow's template syntax, which is shared across your components, templates, and nuggets." } />
 
   <Heading { txt: "Expressions", top: 40 } />
