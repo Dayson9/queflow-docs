@@ -81,6 +81,7 @@ export default UserCard
         <P { txt: "In your [App.js]:" } />
         <CodeView { code: \`
 import UserCard from './Atoms.js'
+import { App } from 'queflow' 
 
 const MyApp = new App("#app", {
   template: () => {
