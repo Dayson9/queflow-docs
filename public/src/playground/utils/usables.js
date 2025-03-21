@@ -285,7 +285,8 @@ const MyApp = new App('#app', {
   },
   template() {
     return \`
-      <h1 color="wheat">Count is: {{ count*2 }}</h1>
+      <h1 color="wheat">Count is: {{ count }}</h1>
+      <h1 color="wheat">Double Count is: {{ count * 2 }}</h1>
       <Button { label: "Decrease", bg: "red", click: "data.count--" } />
       
       <Button { label: "Increase", bg: "#829ACB", click: "data.count++" } />
@@ -430,6 +431,84 @@ const MyApp = new App('#app', {
 })
 
 MyApp.render()`,
+  "reactive-atoms": `import { Atom, App } from 'queflow'
+
+const UserCard = new Atom('UserCard', {
+  stylesheet: {
+    '.card': \`
+      width: 270px;
+      border: 1px solid #ccc;
+      border-radius: 15px;
+      padding: 10px;
+      margin: 10px auto;
+      background: #1F2937;
+      border: 4px solid #374151;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    \`,
+    'img': \`
+      width: 80px;
+      border-radius: 50%;
+      height: 80px;
+      border: inherit;
+    \`,
+    '.card > *': \`
+      margin-block: 3px;
+      color: white;
+    \`
+  },
+  template: () => \`
+    <div class="card">
+      <img src={{ picture.large }} alt="{{ name.first }}'s image" />
+      <p>
+        <b>{{ name.first }} {{ name.last }}</b>
+      </p>
+      <p color="rgba(255,255,255,.7)">{{ location.city }}</p>
+      <p color="orange">{{ cell }}</p>
+      <p>{{ email }}</p>
+    </div>
+  \`,
+  isReactive: true
+}, 'movie-container');
+
+const MyApp = new App('#app', {
+  template: () => \`
+    <button onclick={{ this.update() }}>Generate</button>
+    <div id="movie-container"></div>
+  \`,
+  run() {
+    fetch("https://randomuser.me/api?exc=dob&results=10").then(res => res.json()).then(json => {
+      UserCard.renderWith(json.results)
+    })
+
+    this.update = () => {
+      fetch("https://randomuser.me/api?exc=dob&results=10").then(res => res.json()).then(json => {
+        UserCard.set(json.results)
+      })
+    }
+  },
+  stylesheet: {
+    'button': \`
+      width: 100%;
+      padding-block: 15px;
+      background: dodgerblue;
+      color: white;
+      border: none;
+      border-radius: 7px;
+      font-size: 20px;
+      font-weight: 600;
+      font-family: Open Sans;
+      transition: .3s;
+    \`,
+    'button:active': \`
+      filter: brightness(70%);
+    \`
+  }
+});
+
+MyApp.render();`,
   "fetching-data": `import { App } from 'queflow'
 
 const width = window.innerWidth
