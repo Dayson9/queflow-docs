@@ -14,7 +14,7 @@ const Docs = new Component('Docs', {
             { label: "@Component", click: '/component' },
             { label: "@Component & App Methods" , click: '/methods'},
             { label: "@Nugget", click: '/nuggets' },
-            { label: "@Atom" , click: '/template'},
+            { label: "@Atom" , click: '/atom'},
             "#Advanced",
             { label: "@Event Handling" , click: '/events'},
             { label: "@Reactivity" , click: '/reactivity'},

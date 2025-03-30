@@ -34,7 +34,7 @@ const Main = new Component('Main', {
         { route: "/app", component: "<App_/>", title: "App Class - QueFlow" },
         { route: "/component", component: "<Compo/>", title: "Component Class - QueFlow" },
         { route: "/nuggets", component: "<Nuggets/>", title: "Nugget Class - QueFlow" },
-        { route: "/template", component: "<Atom_/>", title: "Atom Class - QueFlow" },
+        { route: "/atom", component: "<Atom_/>", title: "Atom Class - QueFlow" },
         { route: "/template-syntax", component: "<Syntax/>", title: "Template - QueFlow" },
         { route: "/docs", component: "<Docs/>", title: "Documentation - QueFlow" },
         { route: "/events", component: "<Events/>", title: "Event Handling - QueFlow" },

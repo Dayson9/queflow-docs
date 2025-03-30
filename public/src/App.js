@@ -36,7 +36,7 @@ const Documentation = new App('#app', {
       hideShowFooter(path)
     }, this)
 
-     //setTimeout(() => toPage('/template'), 150)
+     //setTimeout(() => toPage('/atom'), 150)
   },
   stylesheet: {
     '.inter': `
