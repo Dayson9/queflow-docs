@@ -55,7 +55,7 @@ MyApp.render();
   <P { txt: 'Create a div tag with id [app].' } />
   <CodeView { code: '&lt;div id="app"&gt;&lt;/div&gt;' } />
 
-  <P { txt: 'Create a file and name it [App.js], link it to the HTML file while making sure the script tag has attribute [type="module"], and fill it up with this code:' } />
+  <P { txt: 'Create a file and name it [App.js], link it to the HTML file, then create a script tag and make sure it has attribute [type="module"], and fill it up with this code:' } />
   <CodeView { code: \`
 import { App } from "queflow";
 
