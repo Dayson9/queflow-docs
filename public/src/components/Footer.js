@@ -9,8 +9,8 @@ const Footer = new Component('Footer', {
         <Text { txt: "© ${new Date().getFullYear()} QueFlow. Built in 🇳🇬 by Sodiq Babatunde.", } />
         <div class="flex-row">
           <Icon { class: "bx bxl-github", size: 25, wt: 700, link: "https://github.com/dayson9" } />
-          <Icon { class: "bx bxl-twitter", size: 25, wt: 700, link: "https://x.com/jstunde6245" } />
-          <Icon { class: "bx bxl-telegram", size: 25, wt: 700, link: "https://t.me/+2347087652414" } />
+          <Icon { class: "bx bxl-twitter", size: 25, wt: 700, link: "https://x.com/tunde__xyz" } />
+          <Icon { class: "bx bxl-whatsapp", size: 25, wt: 700, link: "https://wa.me/qr/HTOWXE56QBOHA1" } />
           <Icon { class: "bx bxl-gmail", size: 25, wt: 700, link: "mailto: tundedev9@gmail.com" } />
         </div>
       </footer>
